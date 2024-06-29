@@ -1,4 +1,4 @@
-using System;
+using Unity.AI.Navigation;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,10 +10,12 @@ namespace Project.Scripts.Core.Player
         [SerializeField] private Camera _mainCamera;
         
         private NavMeshAgent _navMeshAgent;
+        [SerializeField] private NavMeshSurface _navMeshSurface;
 
         private void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
+            _navMeshSurface.BuildNavMesh();
         }
 
         public void Move()
