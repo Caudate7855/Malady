@@ -1,8 +1,6 @@
-using System;
-using Project.Scripts.Core.Interfaces;
 using UnityEngine;
 
-namespace Project.Scripts.Core.Player
+namespace Project.Scripts.Core
 {
     public class Player : MonoBehaviour, IPlayer, IControllable
     {
