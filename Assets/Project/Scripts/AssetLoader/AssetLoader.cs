@@ -1,22 +1,30 @@
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace Project.Scripts
 {
-    public static class AssetLoader
+    public class AssetLoader : IAssetLoader
     {
-        public static async Task<T> Load<T>(string path)
+        public GameObject CashedObject { get; set; }
+
+        public async Task<T> Load<T>(string path)
         {
-            var handle = Addressables.LoadAssetAsync<Object>(path);
-            await handle.Task;
+            var handle = Addressables.LoadAssetAsync<GameObject>(path);
+            CashedObject = await handle.Task;
             
             var result = handle.Result.GetComponent<T>();
             
-            Addressables.Release(handle);
-            
             return result;
+        }
+
+        public void Unload()
+        {
+            if (CashedObject != null)
+            {
+                Addressables.ReleaseInstance(CashedObject);
+                CashedObject = null;
+            }
         }
     }
 }

@@ -1,13 +1,19 @@
 using Project.Scripts.Core.Dungeon;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts.App
 {
     public class ProjectEntryPoint: MonoBehaviour
     {
-        private readonly DungeonFactory _dungeonFactory = new();
-        
+        private DungeonFactory _dungeonFactory;
         private Dungeon _dungeon;
+        
+        [Inject]
+        public void Construct(DungeonFactory dungeonFactory)
+        {
+            _dungeonFactory = dungeonFactory;
+        }
         
         private async void Start()
         {
