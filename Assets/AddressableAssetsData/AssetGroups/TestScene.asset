@@ -10,20 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Default Local Group
+  m_Name: TestScene
   m_EditorClassIdentifier: 
-  m_GroupName: Default Local Group
+  m_GroupName: TestScene
   m_Data:
     m_SerializedData: []
-  m_GUID: 17f0f43c8a2e57e44a3c63ef3a90993a
+  m_GUID: ee75820e4f254c94b9cbf59a69d6032f
   m_SerializeEntries:
   - m_GUID: 4d0a1974497c2384f9dc2abb021490d2
     m_Address: Player
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e4117686e1b82d47a32f3d2a76c2da2
-    m_Address: Dungeon/Floor
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,9 +27,19 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fed2ad2a976989149a218c7b13f5fa80
+    m_Address: PlayerFactory
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e4117686e1b82d47a32f3d2a76c2da2
+    m_Address: Dungeon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 923281dfbaa17ca4bacd81c0531902be, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: df46abe7a014a534db645038dbab0b3f, type: 2}
-    - {fileID: 11400000, guid: 1b27d0e476dd9c54895600a4986ecdf2, type: 2}
+    - {fileID: 11400000, guid: 10bb8d856b6effd40afc1a1073557241, type: 2}
+    - {fileID: 11400000, guid: 878de4871de11c24d80010101162e467, type: 2}

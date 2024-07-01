@@ -1,3 +1,4 @@
+using Project.Scripts.Core.Dungeon;
 using UnityEngine;
 
 namespace Project.Scripts

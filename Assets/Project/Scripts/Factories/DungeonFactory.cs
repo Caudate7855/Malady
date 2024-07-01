@@ -1,15 +1,26 @@
 using System.Threading.Tasks;
+using Project.Scripts.Interfaces;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class DungeonFactory : MonoBehaviour
+    public class DungeonFactory
     {
-        public async Task<Dungeon> Create(string path)
+        private const string DUNGEON_ADDRESS = "Dungeon";
+        private readonly Vector3 _position = new Vector3(0, 0, 0);
+        
+        public async Task<T> Create<T>() where T : Object, ICustomInitializable
         {
-            AssetLoader assetLoader = new();
-            var instance = await assetLoader.Load<Dungeon>(path);
-            return instance;
+            var prefab = await AssetLoader.Load<Object>(DUNGEON_ADDRESS);
+            
+            var gameObject = Object.Instantiate(prefab, _position, Quaternion.identity);
+            var component = gameObject.GetComponent<T>();
+            
+            
+            component.Initialize();
+            
+            return component;
         }
     }
 }
