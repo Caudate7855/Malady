@@ -1,13 +1,17 @@
 using Project.Scripts.Interfaces;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Project.Scripts.Core.Dungeon
 {
     public class Dungeon : MonoBehaviour, ICustomInitializable
     {
+        private NavMeshSurface _navMeshSurface;
+        
         public void Initialize()
         {
-            Debug.Log("Created");
+            _navMeshSurface = GetComponent<NavMeshSurface>();
+            _navMeshSurface.BuildNavMesh();
         }
     }
 }

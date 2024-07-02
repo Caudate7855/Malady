@@ -1,4 +1,3 @@
-using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers
@@ -8,11 +7,11 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             Container
-                .Bind<PlayerFactory>()
+                .Bind<DungeonFactory>()
                 .AsSingle();
 
             Container
-                .Bind<DungeonFactory>()
+                .Bind<PlayerFactory>()
                 .AsSingle();
             
             Container

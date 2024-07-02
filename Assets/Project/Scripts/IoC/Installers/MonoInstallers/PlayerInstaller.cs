@@ -6,14 +6,14 @@ namespace Project.Scripts.IoC.Installers
 {
     public class PlayerInstaller : MonoInstaller<PlayerInstaller>
     {
-        [SerializeField] private Player _player;
+        [SerializeField] private PlayerMover _playerMover;
         
         public override void InstallBindings()
         {
             Container
                 .Bind<IPlayer>()
-                .To<Player>()
-                .FromInstance(_player)
+                .To<PlayerMover>()
+                .FromInstance(_playerMover)
                 .AsSingle();
         }
     }

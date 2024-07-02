@@ -1,27 +1,27 @@
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerInputController : MonoBehaviour
+    public class PlayerInputController
     {
         private IControllable _controllable;
         private PlayerInputs _playerInputs;
 
-        private void Awake()
+        public PlayerInputController(IControllable controllable)
         {
+            _controllable = controllable;
+            
             _playerInputs = new PlayerInputs();
             _playerInputs.Enable();
-
-            _controllable = GetComponent<IControllable>();
+            Enable();
         }
 
-        private void OnEnable() 
+        private void Enable() 
         {
             _playerInputs.Gameplay.Movement.performed += OnMovementPerformed;
         }
 
-        private void OnDisable()
+        private void Disable()
         {
             _playerInputs.Gameplay.Movement.performed -= OnMovementPerformed;
         }

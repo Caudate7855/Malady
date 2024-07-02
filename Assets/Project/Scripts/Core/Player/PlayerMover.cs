@@ -3,19 +3,25 @@ using UnityEngine.AI;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMover : MonoBehaviour, IPlayer, IControllable
     {
         [SerializeField] private LayerMask _layerMask;
-        [SerializeField] private Camera _mainCamera;
         
+        private Camera _mainCamera;
         private NavMeshAgent _navMeshAgent;
 
         private void Awake()
         {
+            _mainCamera = FindObjectOfType<Camera>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void Move()
+        public void MoveInput()
+        {
+            MoveToPoint();
+        }
+
+        private void MoveToPoint()
         {
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 

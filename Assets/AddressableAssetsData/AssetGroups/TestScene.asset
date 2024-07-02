@@ -22,11 +22,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e1fe129b5b6c4004cafab26483bff05e
-    m_Address: DungeonFactory
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fed2ad2a976989149a218c7b13f5fa80
     m_Address: PlayerFactory
     m_ReadOnly: 0
