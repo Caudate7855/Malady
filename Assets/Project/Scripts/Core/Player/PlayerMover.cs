@@ -16,12 +16,7 @@ namespace Project.Scripts.Core
             _navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        public void MoveInput()
-        {
-            MoveToPoint();
-        }
-
-        private void MoveToPoint()
+        public void MoveToPoint()
         {
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
