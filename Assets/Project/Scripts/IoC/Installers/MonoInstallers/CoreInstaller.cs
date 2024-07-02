@@ -13,6 +13,10 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<PlayerFactory>()
                 .AsSingle();
+
+            Container
+                .Bind<EnemyFactory>()
+                .AsSingle();
             
             Container
                 .Bind<IAssetLoader>()

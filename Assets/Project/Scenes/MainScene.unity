@@ -232,8 +232,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708d2873a42f4a0ea895e875534cf845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dungeonFactory: {fileID: 9145262071166021210, guid: e1fe129b5b6c4004cafab26483bff05e, type: 3}
-  _playerFactory: {fileID: 7531103218251309174, guid: fed2ad2a976989149a218c7b13f5fa80, type: 3}
 --- !u!1 &1520261716
 GameObject:
   m_ObjectHideFlags: 0

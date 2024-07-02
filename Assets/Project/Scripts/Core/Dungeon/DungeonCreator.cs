@@ -1,7 +1,6 @@
-using Project.Scripts.Core.Dungeon;
 using UnityEngine;
 
-namespace Project.Scripts
+namespace Project.Scripts.Core.Dungeon
 {
     public class DungeonCreator : MonoBehaviour
     {

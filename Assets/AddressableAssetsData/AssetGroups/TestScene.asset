@@ -22,13 +22,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fed2ad2a976989149a218c7b13f5fa80
-    m_Address: PlayerFactory
+  - m_GUID: 4e4117686e1b82d47a32f3d2a76c2da2
+    m_Address: Dungeon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e4117686e1b82d47a32f3d2a76c2da2
-    m_Address: Dungeon
+  - m_GUID: 3e6446a6fca35ba4a8db06e7d1ff6aca
+    m_Address: Enemy
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

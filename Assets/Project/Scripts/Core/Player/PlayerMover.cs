@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerMover : MonoBehaviour, IPlayer, IControllable
+    public class PlayerMover : MonoBehaviour, IControllable
     {
         [SerializeField] private LayerMask _layerMask;
         

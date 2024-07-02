@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class Player : MonoBehaviour,IPlayer, ICustomInitializable
+    public abstract class EnemyBase : MonoBehaviour, ICustomInitializable
     {
         public void Initialize()
         {
