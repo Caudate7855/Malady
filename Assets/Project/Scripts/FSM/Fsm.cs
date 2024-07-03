@@ -6,7 +6,6 @@ namespace Project.Scripts.FSM
     public class Fsm
     {
         private FsmState _stateCurrent;
-
         private Dictionary<Type, FsmState> _states = new();
 
         public void AddState(FsmState state)

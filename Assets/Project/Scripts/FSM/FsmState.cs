@@ -4,7 +4,7 @@ namespace Project.Scripts.FSM
     {
         protected readonly Fsm Fsm;
 
-        public FsmState(Fsm fsm)
+        protected FsmState(Fsm fsm)
         {
             Fsm = fsm;
         }

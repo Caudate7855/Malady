@@ -5,7 +5,7 @@ namespace Project.Scripts.FSM
 {
     public class FsmStateIdle : FsmState
     {
-        private NavMeshAgent _playerNavMeshAgent;
+        private readonly NavMeshAgent _playerNavMeshAgent;
         
         public FsmStateIdle(Fsm fsm, NavMeshAgent playerNavMeshAgent) : base(fsm)
         {
@@ -14,17 +14,16 @@ namespace Project.Scripts.FSM
 
         public override void Enter()
         {
-            Debug.Log("IDLE ENTER");
+            
         }
         
         public override void Exit()
         {
-            Debug.Log("IDLE EXIT");
+            
         }
 
         public override void Update()
         {
-            Debug.Log("IDLE UPDATE");
             
             if (_playerNavMeshAgent.velocity.magnitude > 0)
             {
