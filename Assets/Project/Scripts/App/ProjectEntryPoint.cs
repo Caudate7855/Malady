@@ -13,9 +13,9 @@ namespace Project.Scripts.App
         
         private Dungeon _dungeon;
         private Player _player;
-        private EnemyBase _enemy;
-
-        private readonly Vector3 _enemyPosition = new(1,0,0);
+        
+        private readonly Vector3 _enemyMeleePosition = new(1,0,0);
+        private readonly Vector3 _enemyRangePosition = new(2,0,0);
         private readonly Vector3 _playerPosition = new(0,0,0);
 
         [Inject]
@@ -28,9 +28,12 @@ namespace Project.Scripts.App
         
         private async void Start()
         {
-            _dungeon = await _dungeonFactory.Create<Dungeon>();
+            await _dungeonFactory.Create<Dungeon>();
+            
             _player = await _playerFactory.Create<Player>(_playerPosition);
-            _enemy = await _enemyFactory.Create<Enemy>(_player, EnemyTypes.Melee, _enemyPosition);
+            
+            await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
+            await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
         }
     }
 }

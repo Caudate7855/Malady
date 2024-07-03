@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e53a7265c54602c4e975725a2edf5c6d, type: 2}
+  - {fileID: 2100000, guid: 7c9247b0cdd27174e87b74fee53695df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,11 +116,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8689222821697296957}
-  - component: {fileID: 4505507750252240891}
   - component: {fileID: 820977282646998752}
   - component: {fileID: 6293279819292581063}
+  - component: {fileID: 7666413035840635787}
   m_Layer: 0
-  m_Name: EnemyMelee
+  m_Name: EnemyRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,18 +142,6 @@ Transform:
   - {fileID: 6600333689906998071}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4505507750252240891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8783507489125556246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5e8f199fdb5434aa18805704d8b2a66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &820977282646998752
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -197,3 +185,15 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 1, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &7666413035840635787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8783507489125556246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084b2b7b7e694d8a951d81605f2b587c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
