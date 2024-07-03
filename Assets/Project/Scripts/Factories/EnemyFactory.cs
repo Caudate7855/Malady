@@ -28,7 +28,7 @@ namespace Project.Scripts
             _assetLoader = assetLoader;
         }
 
-        public async Task<T> Create<T>(EnemyTypes enemyType, Vector3 spawnPosition) where T : EnemyBase, ICustomInitializable
+        public async Task<T> Create<T>(IPlayer player, EnemyTypes enemyType, Vector3 spawnPosition) where T : EnemyBase, ICustomInitializable
         {
             if (_enemyAddresses.TryGetValue(enemyType, out var enemyAddress))
             {

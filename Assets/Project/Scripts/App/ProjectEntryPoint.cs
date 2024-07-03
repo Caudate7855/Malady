@@ -30,7 +30,7 @@ namespace Project.Scripts.App
         {
             _dungeon = await _dungeonFactory.Create<Dungeon>();
             _player = await _playerFactory.Create<Player>(_playerPosition);
-            _enemy = await _enemyFactory.Create<Enemy>(EnemyTypes.Melee, _enemyPosition);
+            _enemy = await _enemyFactory.Create<Enemy>(_player, EnemyTypes.Melee, _enemyPosition);
         }
     }
 }

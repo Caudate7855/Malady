@@ -10,6 +10,7 @@ namespace Project.Scripts
     public class DungeonFactory
     {
         private const string DUNGEON_ADDRESS = "Dungeon";
+        
         private readonly Vector3 _position = new(0, 0, 0);
 
         private readonly IAssetLoader _assetLoader;
@@ -27,6 +28,8 @@ namespace Project.Scripts
             var component = gameObject.GetComponent<T>();
             
             component.Initialize();
+
+            _assetLoader.CashedObject = null;
             
             return component;
         }
