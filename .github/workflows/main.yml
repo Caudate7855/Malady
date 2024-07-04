@@ -37,7 +37,14 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-      - uses: actions/download-artifact@v4
-      - name: Display structure of downloaded files
-        run: ls -R
+          
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Download artifacts
+        uses: actions/download-artifact@v2
+        with:
+          name: Name of your artifact  # Имя вашего артефакта
+          path: ~/Desktop               # Путь куда сохранить артефакты на рабочий стол
 
+      - name: List downloaded artifacts
+        run: ls ~/Desktop              # Вывод списка скачанных артефактов
