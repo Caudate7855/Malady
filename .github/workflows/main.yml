@@ -1,12 +1,8 @@
 name: Build project
 
 on:
-  label:
-    types:
-      - created
   push:
-    branches:
-      - main
+    types: [ labeled ]
 
 jobs:
   buildForAllSupportedPlatforms:
