@@ -42,9 +42,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Download artifacts
         uses: actions/download-artifact@v2
-        with:
-          name: Name of your artifact  # Имя вашего артефакта
-          path: ~/Desktop               # Путь куда сохранить артефакты на рабочий стол
+        with: 
+          path: ~/Desktop              
 
       - name: List downloaded artifacts
-        run: ls ~/Desktop              # Вывод списка скачанных артефактов
+        run: ls ~/Desktop             
