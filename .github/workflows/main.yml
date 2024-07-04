@@ -2,7 +2,8 @@ name: Build project
 
 on:
   push:
-    types: [ labeled ]
+    tags:        
+      - '*'  
 
 jobs:
   buildForAllSupportedPlatforms:
