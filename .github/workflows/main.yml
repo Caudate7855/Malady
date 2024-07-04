@@ -37,3 +37,12 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
+      - name: Upload to Yandex Disk
+        env:
+          YANDEX_DISK_TOKEN: ${{ secrets.YANDEX_DISK_TOKEN }}
+        run: |
+          FILE="build/${{ matrix.targetPlatform }}/your_build_file.zip"
+          UPLOAD_URL="https://cloud-api.yandex.net/v1/disk/resources/upload?path=disk:/path/to/your_build_file.zip&overwrite=true"
+          curl -X GET -H "Authorization: OAuth $YANDEX_DISK_TOKEN" "$UPLOAD_URL" | \
+          jq -r '.href' | \
+          xargs -I{} curl -T $FILE -H "Authorization: OAuth $YANDEX_DISK_TOKEN" {}
