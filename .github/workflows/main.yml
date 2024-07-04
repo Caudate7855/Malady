@@ -37,12 +37,18 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-      - name: Upload to Yandex Disk
-        env:
-          YANDEX_DISK_TOKEN: ${{ secrets.YANDEX_DISK_TOKEN }}
-        run: |
-          FILE="build/${{ matrix.targetPlatform }}/your_build_file.zip"
-          UPLOAD_URL="https://cloud-api.yandex.net/v1/disk/resources/upload?path=disk:/path/to/your_build_file.zip&overwrite=true"
-          curl -X GET -H "Authorization: OAuth $YANDEX_DISK_TOKEN" "$UPLOAD_URL" | \
-          jq -r '.href' | \
-          xargs -I{} curl -T $FILE -H "Authorization: OAuth $YANDEX_DISK_TOKEN" {}
+
+# Add a job to download the artifacts locally
+  downloadArtifact:
+    runs-on: ubuntu-latest
+    needs: buildForAllSupportedPlatforms
+    steps:
+      - name: Install GitHub CLI
+        run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+      - run: sudo apt-add-repository https://cli.github.com/packages
+      - run: sudo apt-get update
+      - run: sudo apt-get install gh
+      - name: Authenticate GitHub CLI
+        run: gh auth login --with-token ${{ secrets.GITHUB_TOKEN }}
+      - name: Download Artifact
+        run: gh run download --name Build-${{ matrix.targetPlatform }} --dir .
