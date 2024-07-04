@@ -37,18 +37,7 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
+      - uses: actions/download-artifact@v4
+      - name: Display structure of downloaded files
+        run: ls -R
 
-# Add a job to download the artifacts locally
-  downloadArtifact:
-    runs-on: ubuntu-latest
-    needs: buildForAllSupportedPlatforms
-    steps:
-      - name: Install GitHub CLI
-        run: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-      - run: sudo apt-add-repository https://cli.github.com/packages
-      - run: sudo apt-get update
-      - run: sudo apt-get install gh
-      - name: Authenticate GitHub CLI
-        run: gh auth login --with-token ${{ secrets.GH_TOKEN }}
-      - name: Download Artifact
-        run: gh run download --name Build-${{ matrix.targetPlatform }} --dir .
