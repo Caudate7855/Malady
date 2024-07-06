@@ -55,13 +55,13 @@ jobs:
         with:
           name: Build-StandaloneWindows64
           path: build/StandaloneWindows64
-      - name: Send artifact to Telegram
-        env:
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ARTIFACT_PATH: build/StandaloneWindows64/Build-StandaloneWindows64
-        run: |
-          curl -F chat_id=$TELEGRAM_CHAT_ID \
-             -F document=@"$ARTIFACT_PATH" \
-             -F caption="New build for ${{ matrix.targetPlatform }}" \
-             https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
+      - name: Send build to Telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          message: |
+            New build is ready!
+
+            Download it here: [Download Link]
+          path: ./Build
