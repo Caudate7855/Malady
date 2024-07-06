@@ -39,24 +39,21 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: build/${{ matrix.targetPlatform }}
+          name: Build
+          path: build/
 
       - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
-          name: Build-${{ matrix.targetPlatform }}
-          path: /artifact
-
-      - name: List downloaded artifacts
-        run: ls -l /artifact
+          name: Build
+          path: build/
 
       - name: Send artifact to Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          ARTIFACT_PATH=$(artifact/Build-${{ matrix.targetPlatform }})
+          ARTIFACT_PATH=$(build/Build)
           echo "Sending artifact from path: $ARTIFACT_PATH"
           curl -F chat_id=$TELEGRAM_CHAT_ID \
                -F document=@"$ARTIFACT_PATH" \
