@@ -26,9 +26,6 @@ jobs:
           path: Library
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
-          
-      - if: matrix.targetPlatform == 'Android'
-        uses: jlumbroso/free-disk-space@v1.3.1
 
       - name: Build Unity project
         uses: game-ci/unity-builder@v4
@@ -49,14 +46,18 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
-          path: ~/artifact
+          path: /artifact
+
+      - name: List downloaded artifacts
+        run: ls -l /artifact
 
       - name: Send artifact to Telegram
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          ARTIFACT_PATH=~/artifact/Build-${{ matrix.targetPlatform }}
+          ARTIFACT_PATH=$(artifact/Build-${{ matrix.targetPlatform }})
+          echo "Sending artifact from path: $ARTIFACT_PATH"
           curl -F chat_id=$TELEGRAM_CHAT_ID \
                -F document=@"$ARTIFACT_PATH" \
                -F caption="New build for ${{ matrix.targetPlatform }}" \
