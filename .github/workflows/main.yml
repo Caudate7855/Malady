@@ -40,13 +40,6 @@ jobs:
           
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Download artifacts
-        uses: actions/download-artifact@v2
-        with: 
-          path: ~/Desktop              
-
-      - name: List downloaded artifacts
-        run: ls ~/Desktop
 
       - name: Send artifact to Telegram
         env:
