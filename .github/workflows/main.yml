@@ -52,8 +52,6 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
-          ARTIFACT_PATH="build/StandaloneWindows64/WindowsBuild"  # Путь к артефакту
-          echo "Sending artifact from path: $ARTIFACT_PATH"
           curl -F chat_id=$TELEGRAM_CHAT_ID \
                -F document=@"$ARTIFACT_PATH" \
                -F caption="New build for ${{ matrix.targetPlatform }}" \
