@@ -46,4 +46,15 @@ jobs:
           path: ~/Desktop              
 
       - name: List downloaded artifacts
-        run: ls ~/Desktop             
+        run: ls ~/Desktop
+
+      - name: Send artifact to Telegram
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          ARTIFACT_PATH=~/Desktop/Build-${{ matrix.targetPlatform }}
+          curl -F chat_id=$TELEGRAM_CHAT_ID \
+               -F document=@"$ARTIFACT_PATH" \
+               -F caption="New build for ${{ matrix.targetPlatform }}" \
+               https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendDocument
