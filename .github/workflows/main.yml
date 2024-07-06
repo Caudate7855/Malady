@@ -28,10 +28,6 @@ jobs:
           key: Library-${{ matrix.targetPlatform }}
           restore-keys: Library-
 
-      - name: Ensure free disk space (for Android)
-        if: matrix.targetPlatform == 'Android'
-        uses: jlumbroso/free-disk-space@v1.3.1
-
       - name: Build with Unity
         uses: game-ci/unity-builder@v4
         env:
@@ -51,7 +47,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ARTIFACT_PATH: ${{ github.workspace }}/build/StandaloneWindows64
+          ARTIFACT_PATH: ${{ github.workspace }}/build/StandaloneWindows64/WindowsBuild
         run: |
           curl -F chat_id=$TELEGRAM_CHAT_ID \
              -F document=@"$ARTIFACT_PATH" \
