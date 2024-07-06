@@ -72,5 +72,5 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          document: build/StandaloneWindows64/*.zip
+          document: build/StandaloneWindows64
           caption: "Build for Windows"
