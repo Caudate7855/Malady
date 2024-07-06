@@ -37,9 +37,6 @@ jobs:
         with:
           name: Build-${{ matrix.targetPlatform }}
           path: build/${{ matrix.targetPlatform }}
-          
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
       - name: Send artifact to Telegram
         env:
