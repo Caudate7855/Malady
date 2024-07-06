@@ -47,7 +47,7 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ARTIFACT_PATH: ${{ github.workspace }}/build/StandaloneWindows64/WindowsBuild
+          ARTIFACT_PATH: ${{ github.workspace }}/build/StandaloneWindows64
         run: |
           curl -F chat_id=$TELEGRAM_CHAT_ID \
              -F document=@"$ARTIFACT_PATH" \
