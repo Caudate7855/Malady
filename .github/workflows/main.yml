@@ -41,7 +41,7 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Build-${{ matrix.targetPlatform }}
+          name: Build-${{ matrix.targetPlatform }}.zip
           path: build/${{ matrix.targetPlatform }}
 
   deployToTelegram:
@@ -55,7 +55,7 @@ jobs:
       - name: Download StandaloneWindows64 Artifact
         uses: actions/download-artifact@v3
         with:
-          name: Build-StandaloneWindows64
+          name: Build-StandaloneWindows64.zip
           path: build/StandaloneWindows64
       - name: Send build to Telegram
         uses: appleboy/telegram-action@master
@@ -72,4 +72,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          document: build/StandaloneWindows64*.zip
+          document: build/StandaloneWindows64/*.zip
