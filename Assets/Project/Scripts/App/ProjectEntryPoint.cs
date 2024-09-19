@@ -19,6 +19,8 @@ namespace Project.Scripts.App
         private Dungeon _dungeon;
         private Player _player;
         
+        [SerializeField] private CameraFollower _mainCamera;
+        
         private readonly Vector3 _enemyMeleePosition = new(1,0,0);
         private readonly Vector3 _enemyRangePosition = new(2,0,0);
         private readonly Vector3 _playerPosition = new(0,0,0);
@@ -38,6 +40,7 @@ namespace Project.Scripts.App
             await _dungeonFactory.Create<Dungeon>();
             
             _player = await _playerFactory.Create<Player>(_playerPosition);
+            _mainCamera.Initialize(_player);
             
             PlayerInputController playerInputController = new (_player, _panelManager);
             
