@@ -1,11 +1,19 @@
+using System.Collections;
 using System.Collections.Generic;
+using Itibsoft.PanelManager;
+using Project.Scripts.UI.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Project.Scripts.App
 {
     public class GameDirector : MonoBehaviour
     {
+        [Inject] private IPanelManager _panelManager;
+        
+        private LoadingOverlayController _loadingOverlayController;
+        
         private static  readonly Dictionary<GameType, int> _gameTypeScenes = new()
         {
             {GameType.MainMenu, 0},
@@ -14,12 +22,24 @@ namespace Project.Scripts.App
 
         private void Awake()
         {
+            _loadingOverlayController = _panelManager.LoadPanel<LoadingOverlayController>();
             DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
         {
+            ShowLoadingScreen();
             Enter(GameType.MainMenu);
+        }
+        
+        public void ShowLoadingScreen()
+        {
+            _loadingOverlayController.Open();
+        }
+
+        public void CloseLoadingScreen()
+        {
+            _loadingOverlayController.Close();
         }
 
         public static void Enter(GameType gameType)

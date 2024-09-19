@@ -1,7 +1,7 @@
-using System;
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
 using Project.Scripts.Core.Dungeon;
+using Project.Scripts.UI.Overlays;
 using UnityEngine;
 using Zenject;
 
@@ -10,6 +10,8 @@ namespace Project.Scripts.App
     public class ProjectEntryPoint: GameTypeBase
     {
         private IPanelManager _panelManager;
+
+        [Inject] private GameDirector _gameDirector;
         
         private DungeonFactory _dungeonFactory;
         private PlayerFactory _playerFactory;
@@ -41,6 +43,13 @@ namespace Project.Scripts.App
             
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
+
+            FinishLoading();
+        }
+
+        private void FinishLoading()
+        {
+            _panelManager.LoadPanel<LoadingOverlayController>().Close();
         }
     }
 }

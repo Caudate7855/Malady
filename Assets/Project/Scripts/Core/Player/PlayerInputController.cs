@@ -10,6 +10,8 @@ namespace Project.Scripts.Core
         private readonly InventoryController _inventoryController;
         private readonly PlayerInputs _playerInputs = new();
 
+        private bool _isInventoryOpened;
+
         public PlayerInputController(IControllable controllable, IPanelManager panelManager)
         {
             _controllable = controllable;
@@ -29,7 +31,16 @@ namespace Project.Scripts.Core
 
         private void OnInventoryPerformed(InputAction.CallbackContext obj)
         {
-           _inventoryController.Open();
+            if (_isInventoryOpened)
+            {
+                _inventoryController.Close();
+                _isInventoryOpened = false;
+            }
+            else
+            {
+                _inventoryController.Open();
+                _isInventoryOpened = true;
+            }
         }
     }
 }
