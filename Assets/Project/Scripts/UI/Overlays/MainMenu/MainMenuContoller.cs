@@ -9,6 +9,8 @@ namespace Project.Scripts.UI.Overlays.MainMenu
         protected override void Initialize()
         {
             Panel.StartGameButton.onClick.AddListener(OnStartGameButtonClicked);
+            Panel.SettingsButton.onClick.AddListener(OnSettingsButtonClicked);
+            Panel.ExitButton.onClick.AddListener(OnExitButtonClicked);
         }
 
         #region ButtonsMethods
@@ -17,6 +19,16 @@ namespace Project.Scripts.UI.Overlays.MainMenu
         {
             GameDirector.Enter(GameType.Core);
             Close();
+        }
+
+        private void OnSettingsButtonClicked()
+        {
+            
+        }
+
+        private void OnExitButtonClicked()
+        {
+            
         }
 
         #endregion
