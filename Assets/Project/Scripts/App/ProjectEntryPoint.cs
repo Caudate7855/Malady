@@ -47,6 +47,8 @@ namespace Project.Scripts.App
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
 
+            _panelManager.LoadPanel<MainUIController>().Open();
+            
             FinishLoading();
         }
 
