@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Core
 {
@@ -18,6 +19,11 @@ namespace Project.Scripts.Core
 
         public void MoveToPoint()
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray,out var raycastHit, 100, _layerMask))
