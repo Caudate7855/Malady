@@ -44,6 +44,78 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SummonSpell 1"",
+                    ""type"": ""Button"",
+                    ""id"": ""aea0fac7-9a14-440c-8467-70f6605b4654"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SummonSpell 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a0de187-03a8-4f1c-8b4a-f2788180a5ae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SummonSpell 3"",
+                    ""type"": ""Button"",
+                    ""id"": ""55389bea-5c77-4560-a2a7-b3bf27b92851"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SummonSpell 4"",
+                    ""type"": ""Button"",
+                    ""id"": ""2bcb511c-6704-4ed1-ab71-fc08be9c6248"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlayerSpell 1"",
+                    ""type"": ""Button"",
+                    ""id"": ""09fd2924-2fd0-4ff0-a6d4-061f2de00235"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlayerSpell 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""11295637-9495-48f4-83d5-0e5d23547839"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlayerSpell 3"",
+                    ""type"": ""Button"",
+                    ""id"": ""3702b3c6-c72d-4a4a-89e2-e28ad6eb2974"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PlayerSpell 4"",
+                    ""type"": ""Button"",
+                    ""id"": ""2fd539de-eb19-431e-ac96-a31550e33d64"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -61,11 +133,99 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3a6e50a4-d31b-433e-9b35-1132ee746d80"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""480e8d19-8394-4dc3-b08b-228f4ee43656"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SummonSpell 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f3e62964-abe1-4626-8407-20b852e9a18f"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SummonSpell 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6e222d0-4242-462e-b8c6-e537ef2e837f"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SummonSpell 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f6916c8f-c567-4c88-8405-eca75aaa8925"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SummonSpell 4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b26cb63a-9a5a-4dd4-ad33-8242eb6de285"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayerSpell 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c2d0f7e1-00fd-4f4b-814e-f5d4013830cc"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayerSpell 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8705c88b-eca6-474f-8fb8-dcf812b6e24d"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayerSpell 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3647b4fb-bd2f-4b3e-83a0-5a175e7b88a6"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PlayerSpell 4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -78,6 +238,14 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
         m_Gameplay_Inventory = m_Gameplay.FindAction("Inventory", throwIfNotFound: true);
+        m_Gameplay_SummonSpell1 = m_Gameplay.FindAction("SummonSpell 1", throwIfNotFound: true);
+        m_Gameplay_SummonSpell2 = m_Gameplay.FindAction("SummonSpell 2", throwIfNotFound: true);
+        m_Gameplay_SummonSpell3 = m_Gameplay.FindAction("SummonSpell 3", throwIfNotFound: true);
+        m_Gameplay_SummonSpell4 = m_Gameplay.FindAction("SummonSpell 4", throwIfNotFound: true);
+        m_Gameplay_PlayerSpell1 = m_Gameplay.FindAction("PlayerSpell 1", throwIfNotFound: true);
+        m_Gameplay_PlayerSpell2 = m_Gameplay.FindAction("PlayerSpell 2", throwIfNotFound: true);
+        m_Gameplay_PlayerSpell3 = m_Gameplay.FindAction("PlayerSpell 3", throwIfNotFound: true);
+        m_Gameplay_PlayerSpell4 = m_Gameplay.FindAction("PlayerSpell 4", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +309,28 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
     private readonly InputAction m_Gameplay_Movement;
     private readonly InputAction m_Gameplay_Inventory;
+    private readonly InputAction m_Gameplay_SummonSpell1;
+    private readonly InputAction m_Gameplay_SummonSpell2;
+    private readonly InputAction m_Gameplay_SummonSpell3;
+    private readonly InputAction m_Gameplay_SummonSpell4;
+    private readonly InputAction m_Gameplay_PlayerSpell1;
+    private readonly InputAction m_Gameplay_PlayerSpell2;
+    private readonly InputAction m_Gameplay_PlayerSpell3;
+    private readonly InputAction m_Gameplay_PlayerSpell4;
     public struct GameplayActions
     {
         private @PlayerInputs m_Wrapper;
         public GameplayActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
         public InputAction @Inventory => m_Wrapper.m_Gameplay_Inventory;
+        public InputAction @SummonSpell1 => m_Wrapper.m_Gameplay_SummonSpell1;
+        public InputAction @SummonSpell2 => m_Wrapper.m_Gameplay_SummonSpell2;
+        public InputAction @SummonSpell3 => m_Wrapper.m_Gameplay_SummonSpell3;
+        public InputAction @SummonSpell4 => m_Wrapper.m_Gameplay_SummonSpell4;
+        public InputAction @PlayerSpell1 => m_Wrapper.m_Gameplay_PlayerSpell1;
+        public InputAction @PlayerSpell2 => m_Wrapper.m_Gameplay_PlayerSpell2;
+        public InputAction @PlayerSpell3 => m_Wrapper.m_Gameplay_PlayerSpell3;
+        public InputAction @PlayerSpell4 => m_Wrapper.m_Gameplay_PlayerSpell4;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +346,30 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
+            @SummonSpell1.started += instance.OnSummonSpell1;
+            @SummonSpell1.performed += instance.OnSummonSpell1;
+            @SummonSpell1.canceled += instance.OnSummonSpell1;
+            @SummonSpell2.started += instance.OnSummonSpell2;
+            @SummonSpell2.performed += instance.OnSummonSpell2;
+            @SummonSpell2.canceled += instance.OnSummonSpell2;
+            @SummonSpell3.started += instance.OnSummonSpell3;
+            @SummonSpell3.performed += instance.OnSummonSpell3;
+            @SummonSpell3.canceled += instance.OnSummonSpell3;
+            @SummonSpell4.started += instance.OnSummonSpell4;
+            @SummonSpell4.performed += instance.OnSummonSpell4;
+            @SummonSpell4.canceled += instance.OnSummonSpell4;
+            @PlayerSpell1.started += instance.OnPlayerSpell1;
+            @PlayerSpell1.performed += instance.OnPlayerSpell1;
+            @PlayerSpell1.canceled += instance.OnPlayerSpell1;
+            @PlayerSpell2.started += instance.OnPlayerSpell2;
+            @PlayerSpell2.performed += instance.OnPlayerSpell2;
+            @PlayerSpell2.canceled += instance.OnPlayerSpell2;
+            @PlayerSpell3.started += instance.OnPlayerSpell3;
+            @PlayerSpell3.performed += instance.OnPlayerSpell3;
+            @PlayerSpell3.canceled += instance.OnPlayerSpell3;
+            @PlayerSpell4.started += instance.OnPlayerSpell4;
+            @PlayerSpell4.performed += instance.OnPlayerSpell4;
+            @PlayerSpell4.canceled += instance.OnPlayerSpell4;
         }
 
         private void UnregisterCallbacks(IGameplayActions instance)
@@ -172,6 +380,30 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
+            @SummonSpell1.started -= instance.OnSummonSpell1;
+            @SummonSpell1.performed -= instance.OnSummonSpell1;
+            @SummonSpell1.canceled -= instance.OnSummonSpell1;
+            @SummonSpell2.started -= instance.OnSummonSpell2;
+            @SummonSpell2.performed -= instance.OnSummonSpell2;
+            @SummonSpell2.canceled -= instance.OnSummonSpell2;
+            @SummonSpell3.started -= instance.OnSummonSpell3;
+            @SummonSpell3.performed -= instance.OnSummonSpell3;
+            @SummonSpell3.canceled -= instance.OnSummonSpell3;
+            @SummonSpell4.started -= instance.OnSummonSpell4;
+            @SummonSpell4.performed -= instance.OnSummonSpell4;
+            @SummonSpell4.canceled -= instance.OnSummonSpell4;
+            @PlayerSpell1.started -= instance.OnPlayerSpell1;
+            @PlayerSpell1.performed -= instance.OnPlayerSpell1;
+            @PlayerSpell1.canceled -= instance.OnPlayerSpell1;
+            @PlayerSpell2.started -= instance.OnPlayerSpell2;
+            @PlayerSpell2.performed -= instance.OnPlayerSpell2;
+            @PlayerSpell2.canceled -= instance.OnPlayerSpell2;
+            @PlayerSpell3.started -= instance.OnPlayerSpell3;
+            @PlayerSpell3.performed -= instance.OnPlayerSpell3;
+            @PlayerSpell3.canceled -= instance.OnPlayerSpell3;
+            @PlayerSpell4.started -= instance.OnPlayerSpell4;
+            @PlayerSpell4.performed -= instance.OnPlayerSpell4;
+            @PlayerSpell4.canceled -= instance.OnPlayerSpell4;
         }
 
         public void RemoveCallbacks(IGameplayActions instance)
@@ -193,5 +425,13 @@ public partial class @PlayerInputs: IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnSummonSpell1(InputAction.CallbackContext context);
+        void OnSummonSpell2(InputAction.CallbackContext context);
+        void OnSummonSpell3(InputAction.CallbackContext context);
+        void OnSummonSpell4(InputAction.CallbackContext context);
+        void OnPlayerSpell1(InputAction.CallbackContext context);
+        void OnPlayerSpell2(InputAction.CallbackContext context);
+        void OnPlayerSpell3(InputAction.CallbackContext context);
+        void OnPlayerSpell4(InputAction.CallbackContext context);
     }
 }

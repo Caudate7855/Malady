@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Zenject;
 
@@ -8,15 +9,8 @@ namespace Project.Scripts.UI.Overlays
     {
         [Inject] private SpellsSpriteContainerSO _spellsSpriteContainerSO;
         
-        private SummonSpellButton _firstSummonSpellButton;
-        private SummonSpellButton _secondSummonSpellButton;
-        private SummonSpellButton _thirdSummonSpellButton;
-        private SummonSpellButton _fourthSummonSpellButton;
-        
-        private PlayerSpellButton _firstPlayerSpellButton;
-        private PlayerSpellButton _secondPlayerSpellButton;
-        private PlayerSpellButton _thirdPlayerSpellButton;
-        private PlayerSpellButton _fourthPlayerSpellButton;
+        public List<SummonSpellButton> SummonSpellButtons;
+        public List<PlayerSpellButton> PayerSpellButtons;
 
         protected override void Initialize()
         {
@@ -25,25 +19,28 @@ namespace Project.Scripts.UI.Overlays
 
         private void SetSpellsSprites()
         {
-            _firstSummonSpellButton = Panel.FirstSummonSpellButton;
-            _secondSummonSpellButton = Panel.SecondSummonSpellButton;
-            _thirdSummonSpellButton = Panel.ThirdSummonSpellButton;
-            _fourthSummonSpellButton = Panel.FourthSummonSpellButton;
+            PayerSpellButtons = Panel.PlayerSpellButton;
+            SummonSpellButtons = Panel.SummonSpellsButtons;
 
-            _firstPlayerSpellButton = Panel.FirstPlayerSpellButton;
-            _secondPlayerSpellButton = Panel.SecondPlayerSpellButton;
-            _thirdPlayerSpellButton = Panel.ThirdPlayerSpellButton;
-            _fourthPlayerSpellButton = Panel.FourthPlayerSpellButton;
-            
-            _firstSummonSpellButton.Image.sprite = _spellsSpriteContainerSO.GetSummonImage("SS_0");
-            _secondSummonSpellButton.Image.sprite = _spellsSpriteContainerSO.GetSummonImage("SS_1");
-            _thirdSummonSpellButton.Image.sprite = _spellsSpriteContainerSO.GetSummonImage("SS_2");
-            _fourthSummonSpellButton.Image.sprite = _spellsSpriteContainerSO.GetSummonImage("SS_3");
+            for (int i = 0, count = SummonSpellButtons.Count; i < count; i++)
+            {
+                PayerSpellButtons[i].Image.sprite = _spellsSpriteContainerSO.GetPlayerImage($"PS_{i}");
+            }
 
-            _firstPlayerSpellButton.Image.sprite = _spellsSpriteContainerSO.GetPlayerImage("PS_0");
-            _secondPlayerSpellButton.Image.sprite = _spellsSpriteContainerSO.GetPlayerImage("PS_1");
-            _thirdPlayerSpellButton.Image.sprite = _spellsSpriteContainerSO.GetPlayerImage("PS_2");
-            _fourthPlayerSpellButton.Image.sprite = _spellsSpriteContainerSO.GetPlayerImage("PS_3"); 
+            for (int i = 0, count = SummonSpellButtons.Count; i < count; i++)
+            {
+                SummonSpellButtons[i].Image.sprite = _spellsSpriteContainerSO.GetSummonImage($"SS_{i}");
+            }
+        }
+
+        private void OnPlayerSpellButtonClicked(int index)
+        {
+            PayerSpellButtons[index].Interact();
+        }
+        
+        private void OnSummonSpellButtonClicked(int index)
+        {
+            SummonSpellButtons[index].Interact();
         }
     }
 }

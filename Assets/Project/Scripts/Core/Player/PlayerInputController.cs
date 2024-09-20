@@ -1,4 +1,5 @@
 using Itibsoft.PanelManager;
+using Project.Scripts.UI.Overlays;
 using Project.Scripts.UI.Overlays.Inventory;
 using UnityEngine.InputSystem;
 
@@ -7,7 +8,10 @@ namespace Project.Scripts.Core
     public class PlayerInputController
     {
         private readonly IControllable _controllable;
+        
         private readonly InventoryController _inventoryController;
+        private readonly MainUIController _mainUIController;
+        
         private readonly PlayerInputs _playerInputs = new();
 
         private bool _isInventoryOpened;
@@ -19,9 +23,20 @@ namespace Project.Scripts.Core
             _playerInputs.Enable();
             
             _inventoryController = panelManager.LoadPanel<InventoryController>();
+            _mainUIController = panelManager.LoadPanel<MainUIController>();
             
             _playerInputs.Gameplay.Movement.performed += OnMovementPerformed;
             _playerInputs.Gameplay.Inventory.performed += OnInventoryPerformed;
+
+            _playerInputs.Gameplay.PlayerSpell1.performed += OnPlayerSpellPerformed0;
+            _playerInputs.Gameplay.PlayerSpell2.performed += OnPlayerSpellPerformed1;
+            _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
+            _playerInputs.Gameplay.PlayerSpell4.performed += OnPlayerSpellPerformed3;
+            
+            _playerInputs.Gameplay.SummonSpell1.performed += OnSummonSpellPerformed0;
+            _playerInputs.Gameplay.SummonSpell2.performed += OnSummonSpellPerformed1;
+            _playerInputs.Gameplay.SummonSpell3.performed += OnSummonSpellPerformed2;
+            _playerInputs.Gameplay.SummonSpell4.performed += OnSummonSpellPerformed3;
         }
 
         private void OnMovementPerformed(InputAction.CallbackContext obj)
@@ -41,6 +56,46 @@ namespace Project.Scripts.Core
                 _inventoryController.Open();
                 _isInventoryOpened = true;
             }
+        }
+
+        private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
+        {
+            _mainUIController.PayerSpellButtons[0].Interact();
+        }
+
+        private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)
+        {
+            _mainUIController.PayerSpellButtons[1].Interact();
+        }
+
+        private void OnPlayerSpellPerformed2(InputAction.CallbackContext obj)
+        {
+            _mainUIController.PayerSpellButtons[2].Interact();
+        }
+
+        private void OnPlayerSpellPerformed3(InputAction.CallbackContext obj)
+        {
+            _mainUIController.PayerSpellButtons[3].Interact();
+        }
+
+        private void OnSummonSpellPerformed0(InputAction.CallbackContext obj)
+        {
+            _mainUIController.SummonSpellButtons[0].Interact();
+        }
+
+        private void OnSummonSpellPerformed1(InputAction.CallbackContext obj)
+        {
+            _mainUIController.SummonSpellButtons[1].Interact();
+        }
+
+        private void OnSummonSpellPerformed2(InputAction.CallbackContext obj)
+        {
+            _mainUIController.SummonSpellButtons[2].Interact();
+        }
+
+        private void OnSummonSpellPerformed3(InputAction.CallbackContext obj)
+        {
+            _mainUIController.SummonSpellButtons[3].Interact();
         }
     }
 }
