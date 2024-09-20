@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &124046035427002399
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,20 +232,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29c3aa3e2a3402c86c9ab62ebf47a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hpSlider: {fileID: 0}
-  _essenceSlider: {fileID: 0}
-  _boneSlider: {fileID: 0}
-  _soulSlider: {fileID: 0}
-  _fleshSlider: {fileID: 0}
-  _bloodSlider: {fileID: 0}
-  _firstSummonSpellButton: {fileID: 0}
-  _secondSummonSpellButton: {fileID: 0}
-  _thirdSummonSpellButton: {fileID: 0}
-  _fourthSummonSpellButton: {fileID: 0}
-  _firstPlayerSpellButton: {fileID: 0}
-  _secondPlayerSpellButton: {fileID: 0}
-  _thirdPlayerSpellButton: {fileID: 0}
-  _fourthPlayerSpellButton: {fileID: 0}
+  _hpSlider: {fileID: 6451021543922741570}
+  _essenceSlider: {fileID: 4156349739846361888}
+  _boneSlider: {fileID: 4705424411440338123}
+  _soulSlider: {fileID: 8982563607614830937}
+  _fleshSlider: {fileID: 4240159306708412235}
+  _bloodSlider: {fileID: 7884515393959762244}
+  _firstSummonSpellButton: {fileID: 3471190801141662266}
+  _secondSummonSpellButton: {fileID: 2966657923416934512}
+  _thirdSummonSpellButton: {fileID: 2165480707189252627}
+  _fourthSummonSpellButton: {fileID: 3123396571188910961}
+  _firstPlayerSpellButton: {fileID: 2383742292821457779}
+  _secondPlayerSpellButton: {fileID: 1315248432271106847}
+  _thirdPlayerSpellButton: {fileID: 827696265681160801}
+  _fourthPlayerSpellButton: {fileID: 6817169229450757084}
 --- !u!1 &624939912415060523
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &1192012300642691910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &2186150888300461099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1220,6 +1223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &2261607017348429719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &2946377966655728161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,6 +2275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8088280386498262220}
   - component: {fileID: 5228864205037815634}
+  - component: {fileID: 4240159306708412235}
   m_Layer: 0
   m_Name: FleshBar
   m_TagString: Untagged
@@ -2349,6 +2355,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4240159306708412235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584944381891880652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eba6247511646c0adae7212cc974f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4618695059867925223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2359,6 +2377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8196185859635194188}
   - component: {fileID: 3677220883489019949}
+  - component: {fileID: 7884515393959762244}
   m_Layer: 0
   m_Name: BloodBar
   m_TagString: Untagged
@@ -2438,6 +2457,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7884515393959762244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4618695059867925223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 577cc6e650034024a14d120c2175ae46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4852501573099701760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,6 +2740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &5161316104674876330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,6 +2927,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2529096243931370948}
   - component: {fileID: 955610327738419720}
+  - component: {fileID: 8982563607614830937}
   m_Layer: 0
   m_Name: SoulBar
   m_TagString: Untagged
@@ -2974,6 +3007,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8982563607614830937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5985592329066755275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2071f4dcb9a74b8cb02547fa712dfd05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6448964058407371557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3107,6 +3152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &6540651131588969189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3315,6 +3361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Image: {fileID: 0}
 --- !u!1 &7210773073661359334
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5615606189061959798}
   - component: {fileID: 3097205544766551654}
+  - component: {fileID: 4705424411440338123}
   m_Layer: 0
   m_Name: BonesBar
   m_TagString: Untagged
@@ -3468,6 +3516,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4705424411440338123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7267105039462632597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0023d6ac794f4b619958c43133018696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7688966618270909581
 GameObject:
   m_ObjectHideFlags: 0

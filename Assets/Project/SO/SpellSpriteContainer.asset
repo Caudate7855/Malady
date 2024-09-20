@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb59ad79f5504d9297cdce7575b4f16e, type: 3}
+  m_Name: SpellSpriteContainer
+  m_EditorClassIdentifier: 
+  _playerSpellsSprites:
+  - SpellID: PS_0
+    Sprite: {fileID: 21300000, guid: 76a419489d6768443b54c9b57b3a9c4a, type: 3}
+  - SpellID: PS_1
+    Sprite: {fileID: 21300000, guid: 3ad3f6b978acdbf4b8282d5f95706b30, type: 3}
+  - SpellID: PS_2
+    Sprite: {fileID: 21300000, guid: e6bb3b04d26060e4b9f1d384d2f734ba, type: 3}
+  - SpellID: PS_3
+    Sprite: {fileID: 21300000, guid: 30c43f554d6b6854ab8fddd89dc23afe, type: 3}
+  _summonsSpellsSprites:
+  - SpellID: SS_0
+    Sprite: {fileID: 21300000, guid: 696d0e78d40dddb46b7ecbaa8f3fd5c8, type: 3}
+  - SpellID: SS_1
+    Sprite: {fileID: 21300000, guid: 0d3a83e1ece0a0f4cb50587dce98d255, type: 3}
+  - SpellID: SS_2
+    Sprite: {fileID: 21300000, guid: b673dbb7663c0be47b3cca012c25bcac, type: 3}
+  - SpellID: SS_3
+    Sprite: {fileID: 21300000, guid: 45fff91b8da7b904a91ba9cdb0137edb, type: 3}

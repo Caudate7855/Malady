@@ -14,14 +14,32 @@ namespace Project.Scripts.UI.Overlays
         [SerializeField] private FleshBar _fleshSlider;
         [SerializeField] private BloodBar _bloodSlider;
 
-        [SerializeField] private Button _firstSummonSpellButton;
-        [SerializeField] private Button _secondSummonSpellButton;
-        [SerializeField] private Button _thirdSummonSpellButton;
-        [SerializeField] private Button _fourthSummonSpellButton;
+        [SerializeField] private SummonSpellButton _firstSummonSpellButton;
+        [SerializeField] private SummonSpellButton _secondSummonSpellButton;
+        [SerializeField] private SummonSpellButton _thirdSummonSpellButton;
+        [SerializeField] private SummonSpellButton _fourthSummonSpellButton;
         
-        [SerializeField] private Button _firstPlayerSpellButton;
-        [SerializeField] private Button _secondPlayerSpellButton;
-        [SerializeField] private Button _thirdPlayerSpellButton;
-        [SerializeField] private Button _fourthPlayerSpellButton;
+        [SerializeField] private PlayerSpellButton _firstPlayerSpellButton;
+        [SerializeField] private PlayerSpellButton _secondPlayerSpellButton;
+        [SerializeField] private PlayerSpellButton _thirdPlayerSpellButton;
+        [SerializeField] private PlayerSpellButton _fourthPlayerSpellButton;
+        
+        public HpBar HpSlider =>_hpSlider;
+        public EssenceBar EssenceSlider =>_essenceSlider;
+        
+        public BonesBar BoneSlider => _boneSlider;
+        public SoulBar SoulSlider => _soulSlider;
+        public FleshBar FleshSlider => _fleshSlider;
+        public BloodBar BloodSlider => _bloodSlider;
+
+        public SummonSpellButton FirstSummonSpellButton => _firstSummonSpellButton;
+        public SummonSpellButton SecondSummonSpellButton => _secondSummonSpellButton;
+        public SummonSpellButton ThirdSummonSpellButton => _thirdSummonSpellButton;
+        public SummonSpellButton FourthSummonSpellButton => _fourthSummonSpellButton;
+        
+        public PlayerSpellButton FirstPlayerSpellButton => _firstPlayerSpellButton;
+        public PlayerSpellButton SecondPlayerSpellButton => _secondPlayerSpellButton;
+        public PlayerSpellButton ThirdPlayerSpellButton => _thirdPlayerSpellButton;
+        public PlayerSpellButton FourthPlayerSpellButton => _fourthPlayerSpellButton;
     }
 }
