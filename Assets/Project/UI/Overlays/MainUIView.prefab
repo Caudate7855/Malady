@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8960335883034315919}
   - component: {fileID: 4621159126391718070}
   - component: {fileID: 3043920623300335969}
+  - component: {fileID: 2383742292821457779}
   m_Layer: 0
   m_Name: PlayerSpell 1
   m_TagString: Untagged
@@ -120,6 +121,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2383742292821457779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86805114872335873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &124046035427002399
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,6 +231,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c29c3aa3e2a3402c86c9ab62ebf47a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hpSlider: {fileID: 0}
+  _essenceSlider: {fileID: 0}
+  _boneSlider: {fileID: 0}
+  _soulSlider: {fileID: 0}
+  _fleshSlider: {fileID: 0}
+  _bloodSlider: {fileID: 0}
+  _firstSummonSpellButton: {fileID: 0}
+  _secondSummonSpellButton: {fileID: 0}
+  _thirdSummonSpellButton: {fileID: 0}
+  _fourthSummonSpellButton: {fileID: 0}
+  _firstPlayerSpellButton: {fileID: 0}
+  _secondPlayerSpellButton: {fileID: 0}
+  _thirdPlayerSpellButton: {fileID: 0}
+  _fourthPlayerSpellButton: {fileID: 0}
 --- !u!1 &624939912415060523
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +443,7 @@ GameObject:
   - component: {fileID: 1396853987383350100}
   - component: {fileID: 1076299689778983441}
   - component: {fileID: 2505992499178358560}
+  - component: {fileID: 6817169229450757084}
   m_Layer: 0
   m_Name: PlayerSpell 4
   m_TagString: Untagged
@@ -524,6 +552,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6817169229450757084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120640516019029104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1192012300642691910
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +966,7 @@ GameObject:
   - component: {fileID: 4340792964041606606}
   - component: {fileID: 2989043727942084514}
   - component: {fileID: 3436676921903722000}
+  - component: {fileID: 2966657923416934512}
   m_Layer: 0
   m_Name: SummonsSpell 2
   m_TagString: Untagged
@@ -1034,6 +1075,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2966657923416934512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2171982331661229343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2186150888300461099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1099,7 @@ GameObject:
   - component: {fileID: 3598022180566020334}
   - component: {fileID: 3311157818469716290}
   - component: {fileID: 4996423567036167784}
+  - component: {fileID: 1315248432271106847}
   m_Layer: 0
   m_Name: PlayerSpell 2
   m_TagString: Untagged
@@ -1154,6 +1208,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1315248432271106847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2186150888300461099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2261607017348429719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,6 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5384496350319447071}
   - component: {fileID: 5744695180590295054}
+  - component: {fileID: 4156349739846361888}
   m_Layer: 0
   m_Name: EssenceBar
   m_TagString: Untagged
@@ -1318,6 +1385,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4156349739846361888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2419056253771020477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a72f7d0b364b648b9e563d0ebbc3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2594744843301935405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1409,7 @@ GameObject:
   - component: {fileID: 5239089083573162825}
   - component: {fileID: 3847914507169340986}
   - component: {fileID: 257351698122158503}
+  - component: {fileID: 3471190801141662266}
   m_Layer: 0
   m_Name: SummonsSpell 1
   m_TagString: Untagged
@@ -1438,6 +1518,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3471190801141662266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594744843301935405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2946377966655728161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2392,8 +2484,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4504731757586112933}
   - component: {fileID: 1305754861626705696}
+  - component: {fileID: 1657169835687243646}
   m_Layer: 0
-  m_Name: EnemyHpBar
+  m_Name: BossBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2471,6 +2564,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1657169835687243646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051326999121776126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d23b747a06478599a980a6b95c6aae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5058696124498210095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,6 +2588,7 @@ GameObject:
   - component: {fileID: 8070533359155115374}
   - component: {fileID: 327213366889630417}
   - component: {fileID: 5780652069246170311}
+  - component: {fileID: 2165480707189252627}
   m_Layer: 0
   m_Name: SummonsSpell 3
   m_TagString: Untagged
@@ -2591,6 +2697,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2165480707189252627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5058696124498210095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5161316104674876330
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,6 +2793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 207538184364039789}
   - component: {fileID: 5318034998297467790}
+  - component: {fileID: 6451021543922741570}
   m_Layer: 0
   m_Name: HpBar
   m_TagString: Untagged
@@ -2754,6 +2873,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6451021543922741570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5927549078832887775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89122b160a8c4223bd4658ed935e1003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5985592329066755275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2855,6 +2986,7 @@ GameObject:
   - component: {fileID: 4138940830952320993}
   - component: {fileID: 149865214456806911}
   - component: {fileID: 5736638227071401169}
+  - component: {fileID: 827696265681160801}
   m_Layer: 0
   m_Name: PlayerSpell 3
   m_TagString: Untagged
@@ -2963,6 +3095,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &827696265681160801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6448964058407371557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6540651131588969189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3050,6 +3194,7 @@ GameObject:
   - component: {fileID: 1454249357237068865}
   - component: {fileID: 6858611456032257752}
   - component: {fileID: 2784035024441995760}
+  - component: {fileID: 3123396571188910961}
   m_Layer: 0
   m_Name: SummonsSpell 4
   m_TagString: Untagged
@@ -3158,6 +3303,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3123396571188910961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6961847702911486161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7210773073661359334
 GameObject:
   m_ObjectHideFlags: 0

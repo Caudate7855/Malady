@@ -4,12 +4,12 @@ namespace Project.Scripts.Core
 {
     public class CameraFollower : MonoBehaviour
     {
-        private Player _player;
         public bool IsInitialized;
-        
+
         [SerializeField] private Vector3 _cameraOffsetPosition;
         [SerializeField] private Vector3 _cameraOffsetRotation;
 
+        private Player _player;
 
         public void Initialize(Player player)
         {
@@ -17,7 +17,7 @@ namespace Project.Scripts.Core
             
             IsInitialized = true;
         }
-            
+
         private void Update()
         {
             if (IsInitialized)
