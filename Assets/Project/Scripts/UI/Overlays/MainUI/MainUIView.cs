@@ -9,23 +9,18 @@ namespace Project.Scripts.UI.Overlays
     {
         [SerializeField] private HpBar _hpSlider;
         [SerializeField] private EssenceBar _essenceSlider;
+
+        [SerializeField] private BossBar _bossBar;
         
-        [SerializeField] private BonesBar _boneSlider;
-        [SerializeField] private SoulBar _soulSlider;
-        [SerializeField] private FleshBar _fleshSlider;
-        [SerializeField] private BloodBar _bloodSlider;
+        [SerializeField] private List<ElementalBarBase> _elementalSliders;
 
         [SerializeField] private List<SummonSpellButton> _summonSpellsButtons;
         [SerializeField] private List<PlayerSpellButton> _playerSpellsButtons;
         
         public HpBar HpSlider =>_hpSlider;
         public EssenceBar EssenceSlider =>_essenceSlider;
-        
-        public BonesBar BoneSlider => _boneSlider;
-        public SoulBar SoulSlider => _soulSlider;
-        public FleshBar FleshSlider => _fleshSlider;
-        public BloodBar BloodSlider => _bloodSlider;
-
+        public BossBar BossBar => _bossBar;
+        public List<ElementalBarBase> ElementalBars => _elementalSliders;
         public List<SummonSpellButton> SummonSpellsButtons => _summonSpellsButtons;
         public List<PlayerSpellButton> PlayerSpellButton => _playerSpellsButtons;
     }

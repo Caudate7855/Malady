@@ -7,14 +7,30 @@ namespace Project.Scripts.UI.Overlays
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainUIView")]
     public class MainUIController : PanelControllerBase<MainUIView>
     {
-        [Inject] private SpellsSpriteContainerSO _spellsSpriteContainerSO;
-        
         public List<SummonSpellButton> SummonSpellButtons;
         public List<PlayerSpellButton> PayerSpellButtons;
+        
+        [Inject] private SpellsSpriteContainerSO _spellsSpriteContainerSO;
+        
+        private HpBar _hpBar;
+        private EssenceBar _essenceBar;
+        private BossBar _bossBar;
+        private List<ElementalBarBase> _elementalSliders;
 
         protected override void Initialize()
         {
+            SetBars();
             SetSpellsSprites();
+        }
+
+        private void SetBars()
+        {
+            _hpBar = Panel.HpSlider;
+            _essenceBar = Panel.EssenceSlider;
+            
+            _bossBar = Panel.BossBar;
+            
+            _elementalSliders = Panel.ElementalBars;
         }
 
         private void SetSpellsSprites()
@@ -33,12 +49,12 @@ namespace Project.Scripts.UI.Overlays
             }
         }
 
-        private void OnPlayerSpellButtonClicked(int index)
+        public void OnPlayerSpellButtonClicked(int index)
         {
             PayerSpellButtons[index].Interact();
         }
         
-        private void OnSummonSpellButtonClicked(int index)
+        public void OnSummonSpellButtonClicked(int index)
         {
             SummonSpellButtons[index].Interact();
         }

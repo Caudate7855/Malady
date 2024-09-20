@@ -60,42 +60,42 @@ namespace Project.Scripts.Core
 
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
-            _mainUIController.PayerSpellButtons[0].Interact();
+            _mainUIController.OnPlayerSpellButtonClicked(0);
         }
 
         private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)
         {
-            _mainUIController.PayerSpellButtons[1].Interact();
+            _mainUIController.OnPlayerSpellButtonClicked(1);
         }
 
         private void OnPlayerSpellPerformed2(InputAction.CallbackContext obj)
         {
-            _mainUIController.PayerSpellButtons[2].Interact();
+            _mainUIController.OnPlayerSpellButtonClicked(2);
         }
 
         private void OnPlayerSpellPerformed3(InputAction.CallbackContext obj)
         {
-            _mainUIController.PayerSpellButtons[3].Interact();
+            _mainUIController.OnPlayerSpellButtonClicked(3);
         }
 
         private void OnSummonSpellPerformed0(InputAction.CallbackContext obj)
         {
-            _mainUIController.SummonSpellButtons[0].Interact();
+            _mainUIController.OnSummonSpellButtonClicked(0);
         }
 
         private void OnSummonSpellPerformed1(InputAction.CallbackContext obj)
         {
-            _mainUIController.SummonSpellButtons[1].Interact();
+            _mainUIController.OnSummonSpellButtonClicked(1);
         }
 
         private void OnSummonSpellPerformed2(InputAction.CallbackContext obj)
         {
-            _mainUIController.SummonSpellButtons[2].Interact();
+            _mainUIController.OnSummonSpellButtonClicked(2);
         }
 
         private void OnSummonSpellPerformed3(InputAction.CallbackContext obj)
         {
-            _mainUIController.SummonSpellButtons[3].Interact();
+            _mainUIController.OnSummonSpellButtonClicked(3);
         }
     }
 }
