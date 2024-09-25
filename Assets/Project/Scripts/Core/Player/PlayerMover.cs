@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -19,14 +20,21 @@ namespace Project.Scripts.Core
 
         public void MoveToPoint()
         {
+            StartCoroutine(DeferredCheckAndMove());
+        }
+        
+        private IEnumerator DeferredCheckAndMove()
+        {
+            yield return null;
+
             if (EventSystem.current.IsPointerOverGameObject())
             {
-                return;
+                yield break; 
             }
-            
+
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray,out var raycastHit, 100, _layerMask))
+            if (Physics.Raycast(ray, out var raycastHit, 100, _layerMask))
             {
                 _navMeshAgent.SetDestination(raycastHit.point);
             }
