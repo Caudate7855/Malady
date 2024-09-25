@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 namespace Project.Scripts
 {
-    public class StatsSystem
+    public class StatsSystem : IStatSystem
     {
-        private Dictionary<StatType, IStat> _stats = new()
+        public bool IsInitialized { get; set; }
+        public Dictionary<StatType, IStat> Stats { get; set; } = new()
         {
             { StatType.HP, new Stat()},
             { StatType.Essence, new Stat()},
@@ -16,9 +17,21 @@ namespace Project.Scripts
             { StatType.CritDamage, new Stat()}
         };
 
+        public List<IStat> GetStats()
+        {
+            var statsList = new List<IStat>();
+
+            foreach (var stat in Stats)
+            {
+                statsList.Add(stat.Value);
+            }
+
+            return statsList;
+        }
+
         public void DefaultInitialize()
         {
-            foreach (var statPair in _stats)
+            foreach (var statPair in Stats)
             {
                 var statType = statPair.Key;
                 var stat = statPair.Value;
@@ -57,11 +70,20 @@ namespace Project.Scripts
                         throw new ArgumentOutOfRangeException();
                 }
             }
+
+            IsInitialized = true;
         }
 
         public void Initialize()
         {
-            
+            if (IsInitialized == false)
+            {
+                DefaultInitialize();
+            }
+            else
+            {
+                //TODO: создать логику инициализации из JSON сохранения
+            }
         }
     }
 }

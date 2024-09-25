@@ -26,6 +26,11 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<GameDirector>()
                 .FromInstance(_gameDirector)
                 .AsSingle();
+
+            Container
+                .Bind<IStatSystem>()
+                .To<StatsSystem>()
+                .AsSingle();
         }
     }
 }

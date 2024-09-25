@@ -12,6 +12,7 @@ namespace Project.Scripts.App
         private IPanelManager _panelManager;
 
         [Inject] private GameDirector _gameDirector;
+        [Inject] private IStatSystem _statSystem;
         
         private DungeonFactory _dungeonFactory;
         private PlayerFactory _playerFactory;
@@ -40,6 +41,8 @@ namespace Project.Scripts.App
             await _dungeonFactory.Create<Dungeon>();
             
             _player = await _playerFactory.Create<Player>(_playerPosition);
+            _player.InitializeDependencies(_statSystem);
+            
             _mainCamera.Initialize(_player);
             
             PlayerInputController playerInputController = new (_player, _panelManager);
