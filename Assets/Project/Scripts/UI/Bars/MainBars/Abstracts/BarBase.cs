@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [RequireComponent(typeof(Slider))]
     public class BarBase : MonoBehaviour, IBar

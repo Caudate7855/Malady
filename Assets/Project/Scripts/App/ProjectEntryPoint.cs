@@ -1,7 +1,7 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
 using Project.Scripts.Core.Dungeon;
-using Project.Scripts.UI.Overlays;
+using Project.Scripts.Overlays;
 using UnityEngine;
 using Zenject;
 

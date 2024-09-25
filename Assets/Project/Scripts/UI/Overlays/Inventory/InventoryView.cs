@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using UnityEngine;
 
-namespace Project.Scripts.UI.Overlays.Inventory
+namespace Project.Scripts.Overlays.Inventory
 {
     public class InventoryView : PanelBase
     {

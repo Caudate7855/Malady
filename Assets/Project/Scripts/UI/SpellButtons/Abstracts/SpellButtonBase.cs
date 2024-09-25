@@ -1,12 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]
     public class SpellButtonBase : MonoBehaviour
     {
+        public SpellType SpellType;
+        public SpellBaseType SpellBaseType;
+        
         public Button Button;
         public Image Image;
 

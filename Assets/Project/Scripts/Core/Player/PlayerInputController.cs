@@ -1,6 +1,6 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.UI.Overlays;
-using Project.Scripts.UI.Overlays.Inventory;
+using Project.Scripts.Overlays;
+using Project.Scripts.Overlays.Inventory;
 using UnityEngine.InputSystem;
 
 namespace Project.Scripts.Core

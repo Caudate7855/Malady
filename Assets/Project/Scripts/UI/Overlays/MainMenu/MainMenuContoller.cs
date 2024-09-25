@@ -1,7 +1,7 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.App;
 
-namespace Project.Scripts.UI.Overlays.MainMenu
+namespace Project.Scripts.Overlays.MainMenu
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainMenuView")]
     public class MainMenuController : PanelControllerBase<MainMenuView>

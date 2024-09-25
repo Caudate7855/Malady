@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.UI.Overlays
+namespace Project.Scripts.Overlays
 {
     public class LoadingOverlayView : PanelBase
     {

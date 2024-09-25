@@ -1,6 +1,6 @@
 using Itibsoft.PanelManager;
 
-namespace Project.Scripts.UI.Overlays.Inventory
+namespace Project.Scripts.Overlays.Inventory
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "InventoryView")]
     public class InventoryController : PanelControllerBase<InventoryView>

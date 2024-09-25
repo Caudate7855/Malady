@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
-using Project.Scripts.UI.Overlays;
+using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
