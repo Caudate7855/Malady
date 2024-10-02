@@ -1,18 +1,19 @@
 using Itibsoft.PanelManager.External;
 using Project.Scripts.App;
-using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers
 {
     public class ProjectInstaller : MonoInstaller<ProjectInstaller>
     {
-        [SerializeField] private GameDirector _gameDirector;
+        private GameDirector _gameDirector;
         
         public override void InstallBindings()
         {
             PanelManagerInstaller.Install(Container, default, null);
 
+            _gameDirector = FindObjectOfType<GameDirector>();
+            
             Container
                 .Bind<IAssetLoader>()
                 .To<AssetLoader>()

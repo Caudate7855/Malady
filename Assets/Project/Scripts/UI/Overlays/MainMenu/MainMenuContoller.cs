@@ -1,11 +1,14 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.App;
+using Zenject;
 
 namespace Project.Scripts.Overlays.MainMenu
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainMenuView")]
     public class MainMenuController : PanelControllerBase<MainMenuView>
     {
+        [Inject] private GameDirector _gameDirector;
+
         protected override void Initialize()
         {
             Panel.StartGameButton.onClick.AddListener(OnStartGameButtonClicked);
@@ -17,7 +20,7 @@ namespace Project.Scripts.Overlays.MainMenu
         
         private void OnStartGameButtonClicked()
         {
-            GameDirector.Enter(GameType.Core);
+            _gameDirector.Enter(GameStateType.Hub);
             Close();
         }
 

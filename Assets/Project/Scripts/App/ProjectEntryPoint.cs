@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Project.Scripts.App
 {
-    public class ProjectEntryPoint: GameTypeBase
+    public class ProjectEntryPoint: MonoBehaviour
     {
         private IPanelManager _panelManager;
 

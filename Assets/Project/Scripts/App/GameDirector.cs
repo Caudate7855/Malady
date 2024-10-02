@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Project.Scripts.Overlays;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Project.Scripts.App
@@ -11,14 +8,9 @@ namespace Project.Scripts.App
     public class GameDirector : MonoBehaviour
     {
         [Inject] private IPanelManager _panelManager;
+        [Inject] private ISceneLoader _sceneLoader;
         
         private LoadingOverlayController _loadingOverlayController;
-        
-        private static  readonly Dictionary<GameType, int> _gameTypeScenes = new()
-        {
-            {GameType.MainMenu, 0},
-            {GameType.Core, 1}
-        };
 
         private void Awake()
         {
@@ -29,7 +21,7 @@ namespace Project.Scripts.App
         private void Start()
         {
             ShowLoadingScreen();
-            Enter(GameType.MainMenu);
+            Enter(GameStateType.MainMenu);
         }
         
         public void ShowLoadingScreen()
@@ -42,12 +34,9 @@ namespace Project.Scripts.App
             _loadingOverlayController.Close();
         }
 
-        public static void Enter(GameType gameType)
+        public void Enter(GameStateType gameStateType)
         {
-            if (_gameTypeScenes.TryGetValue(gameType, out var sceneIndex))
-            {
-                SceneManager.LoadScene(sceneIndex);
-            }
+            _sceneLoader.LoadScene(gameStateType);
         }
     }
 }

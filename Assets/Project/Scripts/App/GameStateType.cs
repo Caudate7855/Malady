@@ -1,9 +1,10 @@
 namespace Project.Scripts.App
 {
-    public enum GameType
+    public enum GameStateType : byte
     {
         None = 0,
         MainMenu = 1,
-        Core = 2
+        Hub = 2,
+        Dungeon = 3
     }
 }
