@@ -1,10 +1,10 @@
 namespace Project.Scripts.FSM
 {
-    public abstract class FsmState
+    public abstract class FsmStateBase
     {
         protected readonly Fsm Fsm;
 
-        protected FsmState(Fsm fsm)
+        protected FsmStateBase(Fsm fsm)
         {
             Fsm = fsm;
         }

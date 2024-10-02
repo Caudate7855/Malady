@@ -3,11 +3,11 @@ using UnityEngine.AI;
 
 namespace Project.Scripts.FSM
 {
-    public class FsmStateIdle : FsmState
+    public class FsmStateBaseIdle : FsmStateBase
     {
         private readonly NavMeshAgent _playerNavMeshAgent;
         
-        public FsmStateIdle(Fsm fsm, NavMeshAgent playerNavMeshAgent) : base(fsm)
+        public FsmStateBaseIdle(Fsm fsm, NavMeshAgent playerNavMeshAgent) : base(fsm)
         {
             _playerNavMeshAgent = playerNavMeshAgent;
         }
@@ -27,7 +27,7 @@ namespace Project.Scripts.FSM
             
             if (_playerNavMeshAgent.velocity.magnitude > 0)
             {
-                Fsm.SetState<FsmStateWalk>();
+                Fsm.SetState<FsmStateBaseWalk>();
             }
         }
     }

@@ -20,7 +20,7 @@ namespace Project.Scripts.Overlays.MainMenu
         
         private void OnStartGameButtonClicked()
         {
-            _gameDirector.Enter(GameStateType.Hub);
+            _gameDirector.ChangeState(GameStateType.Hub);
             Close();
         }
 

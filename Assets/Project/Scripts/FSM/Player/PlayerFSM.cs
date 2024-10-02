@@ -13,10 +13,10 @@ namespace Project.Scripts.FSM.Player
             _fsm = new Fsm();
             _navMeshAgent = GetComponent<NavMeshAgent>();
 
-            _fsm.AddState(new FsmStateIdle(_fsm, _navMeshAgent));
-            _fsm.AddState(new FsmStateWalk(_fsm, _navMeshAgent));
+            _fsm.AddState(new FsmStateBaseIdle(_fsm, _navMeshAgent));
+            _fsm.AddState(new FsmStateBaseWalk(_fsm, _navMeshAgent));
             
-            _fsm.SetState<FsmStateIdle>();
+            _fsm.SetState<FsmStateBaseIdle>();
         }
 
         private void Update()

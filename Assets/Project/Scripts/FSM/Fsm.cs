@@ -5,36 +5,36 @@ namespace Project.Scripts.FSM
 {
     public class Fsm
     {
-        private FsmState _stateCurrent;
-        private Dictionary<Type, FsmState> _states = new();
+        private FsmStateBase _stateBaseCurrent;
+        private Dictionary<Type, FsmStateBase> _states = new();
 
-        public void AddState(FsmState state)
+        public void AddState(FsmStateBase stateBase)
         {
-            _states.Add(state.GetType(), state);
+            _states.Add(stateBase.GetType(), stateBase);
         }
 
-        public void SetState<T>() where T : FsmState
+        public void SetState<T>() where T : FsmStateBase
         {
             var type = typeof(T);
 
-            if (_stateCurrent?.GetType() == type)
+            if (_stateBaseCurrent?.GetType() == type)
             {
                 return;
             }
 
             if (_states.TryGetValue(type, out var newState))
             {
-                _stateCurrent?.Exit();
+                _stateBaseCurrent?.Exit();
 
-                _stateCurrent = newState;
+                _stateBaseCurrent = newState;
                 
-                _stateCurrent.Enter();
+                _stateBaseCurrent.Enter();
             }
         }
 
         public void Update()
         {
-            _stateCurrent?.Update();
+            _stateBaseCurrent?.Update();
         }
     }
 }
