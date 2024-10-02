@@ -20,7 +20,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
 
             Container
-                .Bind<ProjectEntryPoint>()
+                .Bind<HubBoot>()
                 .AsSingle();
 
             Container

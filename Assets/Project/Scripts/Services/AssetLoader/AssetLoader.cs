@@ -1,9 +1,11 @@
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace Project.Scripts
 {
+    [UsedImplicitly]
     public class AssetLoader : IAssetLoader
     {
         public GameObject CashedObject { get; set; }

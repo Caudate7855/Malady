@@ -1,13 +1,14 @@
 using Itibsoft.PanelManager;
+using Project.Scripts.App;
 using Project.Scripts.Core;
 using Project.Scripts.Core.Dungeon;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.App
+namespace Project.Scripts
 {
-    public class ProjectEntryPoint: MonoBehaviour
+    public class HubBoot: MonoBehaviour
     {
         private IPanelManager _panelManager;
 

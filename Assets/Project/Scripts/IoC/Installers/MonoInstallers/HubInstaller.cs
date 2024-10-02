@@ -2,7 +2,7 @@ using Zenject;
 
 namespace Project.Scripts.IoC.Installers
 {
-    public class CoreInstaller : MonoInstaller<CoreInstaller>
+    public class HubInstaller : MonoInstaller<HubInstaller>
     {
         public override void InstallBindings()
         {

@@ -3,9 +3,9 @@ using Project.Scripts.Overlays.MainMenu;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Meta
+namespace Project.Scripts
 {
-    public class MainMenuEntryPoint : MonoBehaviour
+    public class MainMenuBoot : MonoBehaviour
     {
         [Inject] private IPanelManager _panelManager;
         

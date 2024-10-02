@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Project.Scripts.FSM.Player
+namespace Project.Scripts.FSM
 {
     public class PlayerFsm : MonoBehaviour
     {
