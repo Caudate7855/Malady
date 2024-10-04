@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Itibsoft.PanelManager;
 using Project.Scripts.App;
 using Project.Scripts.Core;
@@ -50,6 +51,9 @@ namespace Project.Scripts
         private async void FinishLoading()
         {
             var controller = _panelManager.LoadPanel<LoadingOverlayController>();
+            var fader = _panelManager.LoadPanel<FaderController>();
+
+            await UniTask.Delay((int)fader.FadinDuration * 1000);
             
             controller.Close();
         }
