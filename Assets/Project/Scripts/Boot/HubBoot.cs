@@ -32,28 +32,31 @@ namespace Project.Scripts
         private async void Start()
         {
             await _dungeonFactory.Create<Dungeon>();
-            
+
             _player = await _playerFactory.Create<Player>(_playerPosition);
             _player.InitializeDependencies(_statSystem);
-            
+
             _mainCamera.Initialize(_player);
-            
+
             PlayerInputController playerInputController = new (_player, _panelManager);
-            
+
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
 
-            _panelManager.LoadPanel<MainUIController>().Open();
+            await FinishLoading();
             
-            FinishLoading();
+            _panelManager.LoadPanel<MainUIController>().Open();
         }
 
-        private async void FinishLoading()
+        private async UniTask FinishLoading()
         {
             var controller = _panelManager.LoadPanel<LoadingOverlayController>();
             var fader = _panelManager.LoadPanel<FaderController>();
+            
+            fader.Open();
+            fader.FadeIn();
 
-            await UniTask.Delay((int)fader.FadinDuration * 1000);
+            await UniTask.Delay((int)FaderController.FadeDuration * 1000);
             
             controller.Close();
         }

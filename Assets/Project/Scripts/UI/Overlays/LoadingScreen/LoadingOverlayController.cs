@@ -45,10 +45,5 @@ namespace Project.Scripts.Overlays
         {
             
         }
-
-        protected override void OnCloseBefore()
-        {
-            _faderController.Open();
-        }
     }
 }
