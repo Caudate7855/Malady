@@ -10,14 +10,15 @@ namespace Project.Scripts
 {
     public class HubBoot: MonoBehaviour
     {
-        private IPanelManager _panelManager;
+        [Inject]private IPanelManager _panelManager;
 
         [Inject] private GameDirector _gameDirector;
         [Inject] private IStatSystem _statSystem;
         
-        private DungeonFactory _dungeonFactory;
-        private PlayerFactory _playerFactory;
-        private EnemyFactory _enemyFactory;
+        [Inject]private DungeonFactory _dungeonFactory;
+        [Inject]private PlayerFactory _playerFactory;
+        [Inject] private EnemyFactory _enemyFactory;
+        
         private Dungeon _dungeon;
         private Player _player;
         
@@ -26,16 +27,6 @@ namespace Project.Scripts
         private readonly Vector3 _enemyMeleePosition = new(1,0,0);
         private readonly Vector3 _enemyRangePosition = new(2,0,0);
         private readonly Vector3 _playerPosition = new(0,0,0);
-
-        [Inject]
-        public void Construct(DungeonFactory dungeonFactory, PlayerFactory playerFactory, 
-            EnemyFactory enemyFactory, IPanelManager panelManager)
-        {
-            _dungeonFactory = dungeonFactory;
-            _playerFactory = playerFactory;
-            _enemyFactory = enemyFactory;
-            _panelManager = panelManager;
-        }
 
         private async void Start()
         {
@@ -56,9 +47,11 @@ namespace Project.Scripts
             FinishLoading();
         }
 
-        private void FinishLoading()
+        private async void FinishLoading()
         {
-            _panelManager.LoadPanel<LoadingOverlayController>().Close();
+            var controller = _panelManager.LoadPanel<LoadingOverlayController>();
+            
+            controller.Close();
         }
     }
 }
