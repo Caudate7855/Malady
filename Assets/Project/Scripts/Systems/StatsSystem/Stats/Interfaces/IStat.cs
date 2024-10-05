@@ -10,7 +10,7 @@ namespace Project.Scripts
 
         public bool HasMaxValue { get; set; }
 
-        public void Initialize(float value, float maxValue = default)
+        public void InitializeValues(float value, float maxValue = default)
         {
             MinValue = 0;
             Value = value;
@@ -35,7 +35,7 @@ namespace Project.Scripts
             }
         }
         
-        public void Increment(float amount)
+        public void IncrementCurrentValue(float amount)
         {
             if (amount + Value >= MaxValue && HasMaxValue)
             {

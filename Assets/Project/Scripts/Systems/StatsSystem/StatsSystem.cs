@@ -39,31 +39,31 @@ namespace Project.Scripts
                 switch (statType)
                 {
                     case StatType.HP:
-                        stat.Initialize(100, 100);
+                        stat.InitializeValues(100, 100);
                         break;
 
                     case StatType.Essence:
-                        stat.Initialize(100, 100);
+                        stat.InitializeValues(100, 100);
                         break;
 
                     case StatType.Damage:
-                        stat.Initialize(10);
+                        stat.InitializeValues(10);
                         break;
 
                     case StatType.AttackSpeed:
-                        stat.Initialize(100, 300);
+                        stat.InitializeValues(100, 300);
                         break;
 
                     case StatType.MoveSpeed:
-                        stat.Initialize(100, 200);
+                        stat.InitializeValues(100, 200);
                         break;
 
                     case StatType.CritChance:
-                        stat.Initialize(10, 100);
+                        stat.InitializeValues(10, 100);
                         break;
 
                     case StatType.CritDamage:
-                        stat.Initialize(0, 100);
+                        stat.InitializeValues(0, 100);
                         break;
 
                     default:
