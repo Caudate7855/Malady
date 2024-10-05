@@ -10,11 +10,17 @@ namespace Project.Scripts
         {
             { StatType.HP, new HpStat()},
             { StatType.Essence, new EssenceStat()},
+            
             { StatType.Damage, new DamageStat()},
             { StatType.AttackSpeed, new AttackSpeedStat()},
+            
             { StatType.MoveSpeed, new MoveSpeedStat()},
+            
             { StatType.CritChance, new CritChanceStat()},
-            { StatType.CritDamage, new CritDamageStat()}
+            { StatType.CritDamage, new CritDamageStat()},
+            
+            { StatType.Armor, new CritDamageStat()},
+            { StatType.MagicResist, new CritDamageStat()}
         };
 
         public List<IStat> GetStats()
@@ -63,6 +69,14 @@ namespace Project.Scripts
                         break;
 
                     case StatType.CritDamage:
+                        stat.InitializeValues(0, 100);
+                        break;
+                    
+                    case StatType.Armor:
+                        stat.InitializeValues(5);
+                        break;
+                    
+                    case StatType.MagicResist:
                         stat.InitializeValues(0, 100);
                         break;
 
