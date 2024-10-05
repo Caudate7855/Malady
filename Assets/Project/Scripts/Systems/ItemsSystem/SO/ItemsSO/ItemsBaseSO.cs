@@ -3,15 +3,17 @@ using UnityEngine.UI;
 
 namespace Project.Scripts
 {
-    [CreateAssetMenu(fileName = "ItemsContainer", menuName = "Items/ItemsContainer")]
-    public class ItemsContainerSO : ScriptableObject
+    public class ItemsBaseSO : ScriptableObject
     {
-        public ItemType ItemType;
-        
         public string ItemName;
         
+        public ItemType ItemType;
+        public ItemRarityType ItemRarityType;
+
         public Sprite BackgroundImage;
         public Sprite ItemImage;
+        
+        public float Price;
         
         public string Description;
     }

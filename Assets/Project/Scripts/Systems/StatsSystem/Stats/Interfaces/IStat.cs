@@ -2,6 +2,7 @@ namespace Project.Scripts
 {
     public interface IStat
     {
+        public string Name { get; set; }
         public StatType Type { get; set; }
         public float Value { get; set; }
         public float MaxValue { get; set; }

@@ -8,13 +8,13 @@ namespace Project.Scripts
         public bool IsInitialized { get; set; }
         public Dictionary<StatType, IStat> Stats { get; set; } = new()
         {
-            { StatType.HP, new Stat()},
-            { StatType.Essence, new Stat()},
-            { StatType.Damage, new Stat()},
-            { StatType.AttackSpeed, new Stat()},
-            { StatType.MoveSpeed, new Stat()},
-            { StatType.CritChance, new Stat()},
-            { StatType.CritDamage, new Stat()}
+            { StatType.HP, new HpStat()},
+            { StatType.Essence, new EssenceStat()},
+            { StatType.Damage, new DamageStat()},
+            { StatType.AttackSpeed, new AttackSpeedStat()},
+            { StatType.MoveSpeed, new MoveSpeedStat()},
+            { StatType.CritChance, new CritChanceStat()},
+            { StatType.CritDamage, new CritDamageStat()}
         };
 
         public List<IStat> GetStats()
