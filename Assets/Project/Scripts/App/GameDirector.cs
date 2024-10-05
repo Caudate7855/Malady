@@ -4,7 +4,6 @@ using Itibsoft.PanelManager;
 using Project.Scripts.FSM;
 using Project.Scripts.Overlays;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Project.Scripts.App
