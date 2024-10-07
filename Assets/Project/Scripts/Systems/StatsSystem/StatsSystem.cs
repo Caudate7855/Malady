@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Project.Scripts
@@ -6,86 +5,41 @@ namespace Project.Scripts
     public class StatsSystem : IStatSystem
     {
         public bool IsInitialized { get; set; }
-        public Dictionary<StatType, IStat> Stats { get; set; } = new()
+        public List<IStat> Stats { get; set; } = new()
         {
-            { StatType.HP, new HpStat()},
-            { StatType.Essence, new EssenceStat()},
+            {new HpStat()},
+            {new EssenceStat()},
             
-            { StatType.Damage, new DamageStat()},
-            { StatType.AttackSpeed, new AttackSpeedStat()},
+            {new DamageStat()},
+            { new AttackSpeedStat()},
             
-            { StatType.MoveSpeed, new MoveSpeedStat()},
+            {new MoveSpeedStat()},
             
-            { StatType.CritChance, new CritChanceStat()},
-            { StatType.CritDamage, new CritDamageStat()},
+            {new CritChanceStat()},
+            {new CritDamageStat()},
             
-            { StatType.Armor, new CritDamageStat()},
-            { StatType.MagicResist, new CritDamageStat()}
+            {new ArmorStat()},
+            {new MagicResistStat()}
         };
 
         public List<IStat> GetStats()
         {
-            var statsList = new List<IStat>();
-
-            foreach (var stat in Stats)
-            {
-                statsList.Add(stat.Value);
-            }
-
-            return statsList;
+            return Stats;
         }
 
         public void DefaultInitialize()
         {
-            foreach (var statPair in Stats)
+            for (int i = 0, count = Stats.Count; i < count; i++)
             {
-                var statType = statPair.Key;
-                var stat = statPair.Value;
-
-                switch (statType)
-                {
-                    case StatType.HP:
-                        stat.InitializeValues(100, 100);
-                        break;
-
-                    case StatType.Essence:
-                        stat.InitializeValues(100, 100);
-                        break;
-
-                    case StatType.Damage:
-                        stat.InitializeValues(10);
-                        break;
-
-                    case StatType.AttackSpeed:
-                        stat.InitializeValues(100, 300);
-                        break;
-
-                    case StatType.MoveSpeed:
-                        stat.InitializeValues(100, 200);
-                        break;
-
-                    case StatType.CritChance:
-                        stat.InitializeValues(10, 100);
-                        break;
-
-                    case StatType.CritDamage:
-                        stat.InitializeValues(0, 100);
-                        break;
-                    
-                    case StatType.Armor:
-                        stat.InitializeValues(5);
-                        break;
-                    
-                    case StatType.MagicResist:
-                        stat.InitializeValues(0, 100);
-                        break;
-
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                Stats[i].InitializeValuesDefault();
             }
 
             IsInitialized = true;
+        }
+
+        public void InitializeFromSaves()
+        {
+            //TODO: создать логику инициализации из JSON сохранения
         }
 
         public void Initialize()
@@ -96,7 +50,7 @@ namespace Project.Scripts
             }
             else
             {
-                //TODO: создать логику инициализации из JSON сохранения
+                InitializeFromSaves();
             }
         }
     }

@@ -10,22 +10,9 @@ namespace Project.Scripts
 
         public bool HasMaxValue { get; set; }
 
-        public void InitializeValues(float value, float maxValue = default)
-        {
-            MinValue = 0;
-            Value = value;
+        public void InitializeValues(float value, float maxValue = default);
 
-            if (maxValue != default)
-            {
-                HasMaxValue = true;
-                MaxValue = maxValue;
-            }
-            else
-            {
-                HasMaxValue = false;
-                MaxValue = float.MaxValue;
-            }
-        }
+        public void InitializeValuesDefault();
 
         public void ChangeMaxValue(float newValue)
         {

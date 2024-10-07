@@ -8,5 +8,10 @@ namespace Project.Scripts
         public override float MaxValue { get; set; } = 500;
         public override float MinValue { get; set; } = 0;
         public override bool HasMaxValue { get; set; } = true;
+        
+        public override void InitializeValuesDefault()
+        {
+            InitializeValues(100, 200);
+        }
     }
 }

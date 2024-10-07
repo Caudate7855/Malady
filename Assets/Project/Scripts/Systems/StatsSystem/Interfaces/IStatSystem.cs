@@ -7,9 +7,10 @@ namespace Project.Scripts
     {
         public bool IsInitialized { get; set; }
         public List<IStat> GetStats();
-        public Dictionary<StatType, IStat> Stats { get; set; }
+        public List<IStat> Stats { get; set; }
 
         public void DefaultInitialize();
+        public void InitializeFromSaves();
 
         public void Initialize();
     }
