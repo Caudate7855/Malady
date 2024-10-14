@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,55 +6,78 @@ namespace Project.Scripts.Overlays.Inventory
 {
     public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        public SlotType SlotType;
+
         [SerializeField] private Image _background;
         [SerializeField] private Image _itemImage;
+        [SerializeField] private InventorySlot _newInventorySlot;
 
-        [SerializeField] private InventorySlot _inventorySlot;
+        private BoxCollider2D _boxCollider;
         
-        private void Start()
-        {
-            
-        }
+        public InventorySlot CurrentInventorySlot;
 
-        private void SetBackground()
-        {
-            
-        }
+        private GameObject _parentObject;
 
-        private void SetItemImage()
+        private void Awake()
         {
-            
+            _boxCollider = GetComponent<BoxCollider2D>();
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            transform.position = Input.mousePosition;
+            transform.position = Input.mousePosition; 
+            transform.SetAsLastSibling();
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            transform.position = Input.mousePosition;
+            transform.position = Input.mousePosition; 
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             PutItemInSlot();
+            _newInventorySlot = null;
         }
 
-        public void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.GetComponent<InventorySlot>() != null)
             {
-                _inventorySlot = other.GetComponent<InventorySlot>();
+                _newInventorySlot = other.GetComponent<InventorySlot>();
+            }
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.GetComponent<InventorySlot>() != null)
+            {
+                if (_newInventorySlot == other.GetComponent<InventorySlot>())
+                {
+                    _newInventorySlot = null; 
+                }
             }
         }
 
         private void PutItemInSlot()
         {
-            if (_inventorySlot != null)
+            if (_newInventorySlot != null && _newInventorySlot.SlotType == SlotType && !_newInventorySlot.IsContainItem)
             {
-                transform.position = _inventorySlot.transform.position;
+                CurrentInventorySlot.RemoveItem();
+                _newInventorySlot.AddItem(this);
+                CurrentInventorySlot = _newInventorySlot;
             }
+            else
+            {
+                SetItem(CurrentInventorySlot.Item);
+            }
+        }
+
+        private void SetItem(InventoryItem item)
+        {
+            transform.position = CurrentInventorySlot.transform.position; 
+            CurrentInventorySlot.Item = item; 
+            CurrentInventorySlot.IsContainItem = true; 
         }
     }
 }

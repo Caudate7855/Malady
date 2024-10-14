@@ -12,6 +12,7 @@ namespace Project.Scripts.Overlays.Inventory
     public class InventoryController : PanelControllerBase<InventoryView>
     {
         [Inject] private IStatSystem _statSystem;
+        [Inject] private InventoryItem _baseItem;
 
         private Button _statsWindowButton;
         private List<TMP_Text> _statsViewList;
@@ -19,11 +20,18 @@ namespace Project.Scripts.Overlays.Inventory
         
         private RectTransform _statsWindowRectTransform;
         private RectTransform _defaultStatsWindowRectTransform;
+        
+        private List<InventorySlot> _inventorySlots;
+        private RectTransform _itemsContainer;
 
         protected override void Initialize()
         {
             _statsWindowButton = Panel.StatsButton;
             _statsViewList = Panel.StatsViewList;
+            _inventorySlots = Panel.InventorySlots;
+            _itemsContainer = Panel.ItemsContainer;
+            
+            InitializeTestItems();
             
             _statsWindowButton.onClick.AddListener(OnStatsButtonClicked);
             _statsWindowRectTransform = Panel.StatsWindowRectTransform;
@@ -31,6 +39,13 @@ namespace Project.Scripts.Overlays.Inventory
             _defaultStatsWindowRectTransform = _statsWindowRectTransform;
             
             InitializeStatsView();
+        }
+
+        private void InitializeTestItems()
+        {
+            _inventorySlots[0].CreateNewItem(_baseItem, _itemsContainer.gameObject);
+            _inventorySlots[1].CreateNewItem(_baseItem, _itemsContainer.gameObject);
+            _inventorySlots[2].CreateNewItem(_baseItem, _itemsContainer.gameObject);
         }
 
         private void InitializeStatsView()
@@ -44,7 +59,7 @@ namespace Project.Scripts.Overlays.Inventory
             
             CloseStatsWindow();
         }
-        
+
         private void OnStatsButtonClicked()
         {
             _isStatsWindowOpened = !_isStatsWindowOpened;
