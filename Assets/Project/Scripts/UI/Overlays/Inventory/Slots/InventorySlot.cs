@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace Project.Scripts.Overlays.Inventory
 {
     public class InventorySlot : MonoBehaviour
     {
+        public RectTransform ItemsContainer;
+        
         public SlotType SlotType;
         public InventoryItem Item;
         public bool IsContainItem;
@@ -19,22 +22,28 @@ namespace Project.Scripts.Overlays.Inventory
         
         public void AddItem(InventoryItem item)
         {
-            SetItem(item);
             Item = item;
             IsContainItem = true;
             Item.CurrentInventorySlot = this;
+            SetItem(item);
         }
 
+        public void OnDragItem()
+        {
+            Item.GetComponent<RectTransform>().SetParent(ItemsContainer, false); 
+        }
+        
         public void RemoveItem()
         {
+            Item.GetComponent<RectTransform>().SetParent(ItemsContainer, false); 
             Item = null;
             IsContainItem = false;
         }
 
         private void SetItem(InventoryItem item)
         {
+            item.GetComponent<RectTransform>().SetParent(GetComponent<RectTransform>(), false); 
             item.GetComponent<RectTransform>().position = GetComponent<RectTransform>().position;
-            item.CurrentInventorySlot = this;
         }
     }
 }

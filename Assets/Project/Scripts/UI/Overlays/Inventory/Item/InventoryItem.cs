@@ -12,19 +12,13 @@ namespace Project.Scripts.Overlays.Inventory
         [SerializeField] private Image _itemImage;
         [SerializeField] private InventorySlot _newInventorySlot;
 
-        private BoxCollider2D _boxCollider;
-        
         public InventorySlot CurrentInventorySlot;
 
         private GameObject _parentObject;
 
-        private void Awake()
-        {
-            _boxCollider = GetComponent<BoxCollider2D>();
-        }
-
         public void OnBeginDrag(PointerEventData eventData)
         {
+            CurrentInventorySlot.OnDragItem();
             transform.position = Input.mousePosition; 
             transform.SetAsLastSibling();
         }
