@@ -1,16 +1,19 @@
+using Project.Scripts.FSM;
 using Project.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class Player : MonoBehaviour, IPlayer, ICustomInitializable, IControllable
+    public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable, IControllable
     {
         private PlayerMover _playerMover;
         private IStatSystem _statSystem;
-
+        private PlayerFsm _playerFsm;
+        
         public void Initialize()
         {
             _playerMover = GetComponent<PlayerMover>();
+            _playerFsm = GetComponent<PlayerFsm>();
         }
 
         public void InitializeDependencies(IStatSystem statSystem)
@@ -22,6 +25,15 @@ namespace Project.Scripts.Core
         public void MoveToPoint()
         {
             _playerMover.MoveToPoint();
+            _playerFsm.SetState<PlayerFsmStateWalk>();
+        }
+
+        private void Update()
+        {
+            if (_playerMover.NavMeshAgent.velocity.magnitude <= 0.1f)
+            {
+                _playerFsm.SetState<PlayerFsmStateIdle>();
+            }
         }
     }
 }

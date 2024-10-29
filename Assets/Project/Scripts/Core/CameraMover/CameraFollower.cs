@@ -9,11 +9,11 @@ namespace Project.Scripts.Core
         [SerializeField] private Vector3 _cameraOffsetPosition;
         [SerializeField] private Vector3 _cameraOffsetRotation;
 
-        private Player _player;
+        private PlayerController _playerController;
 
-        public void Initialize(Player player)
+        public void Initialize(PlayerController playerController)
         {
-            _player = player;
+            _playerController = playerController;
             
             IsInitialized = true;
         }
@@ -22,7 +22,7 @@ namespace Project.Scripts.Core
         {
             if (IsInitialized)
             {
-                transform.position = _player.transform.position + _cameraOffsetPosition;
+                transform.position = _playerController.transform.position + _cameraOffsetPosition;
                 
                 var rotation = transform.rotation;
                 rotation.eulerAngles = _cameraOffsetRotation;

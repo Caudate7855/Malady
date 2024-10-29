@@ -9,7 +9,7 @@ namespace Project.Scripts.Core
 
         public void Initialize()
         {
-            Player = FindObjectOfType<Player>();
+            Player = FindObjectOfType<PlayerController>();
         }
     }
 }

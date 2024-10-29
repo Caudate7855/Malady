@@ -1,19 +1,24 @@
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Project.Scripts.FSM
 {
-    public class FsmStateBaseIdle : FsmStateBase
+    public class PlayerFsmStateIdle : FsmStateBase
     {
-        private readonly NavMeshAgent _playerNavMeshAgent;
+        private const string AnimationName = "Idle";
         
-        public FsmStateBaseIdle(Fsm fsm, NavMeshAgent playerNavMeshAgent) : base(fsm)
+        private readonly NavMeshAgent _playerNavMeshAgent;
+        private readonly Animator _animator;
+        
+        public PlayerFsmStateIdle(Fsm fsm, NavMeshAgent playerNavMeshAgent, Animator animator) : base(fsm)
         {
             _playerNavMeshAgent = playerNavMeshAgent;
+            _animator = animator;
         }
 
         public override void Enter()
         {
-            
+            _animator.Play(AnimationName);
         }
         
         public override void Exit()
@@ -26,7 +31,7 @@ namespace Project.Scripts.FSM
             
             if (_playerNavMeshAgent.velocity.magnitude > 0)
             {
-                Fsm.SetState<FsmStateBaseWalk>();
+                Fsm.SetState<PlayerFsmStateWalk>();
             }
         }
     }

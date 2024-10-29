@@ -10,12 +10,12 @@ namespace Project.Scripts.Core
         [SerializeField] private LayerMask _layerMask;
         
         private Camera _mainCamera;
-        private NavMeshAgent _navMeshAgent;
+        public NavMeshAgent NavMeshAgent;
 
         private void Awake()
         {
             _mainCamera = FindObjectOfType<Camera>();
-            _navMeshAgent = GetComponent<NavMeshAgent>();
+            NavMeshAgent = GetComponent<NavMeshAgent>();
         }
 
         public void MoveToPoint()
@@ -36,7 +36,7 @@ namespace Project.Scripts.Core
 
             if (Physics.Raycast(ray, out var raycastHit, 100, _layerMask))
             {
-                _navMeshAgent.SetDestination(raycastHit.point);
+                NavMeshAgent.SetDestination(raycastHit.point);
             }
         }
     }

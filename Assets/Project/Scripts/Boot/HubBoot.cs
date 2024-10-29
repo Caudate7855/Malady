@@ -21,7 +21,7 @@ namespace Project.Scripts
         [Inject] private EnemyFactory _enemyFactory;
         
         private Dungeon _dungeon;
-        private Player _player;
+        private PlayerController _playerController;
         
         [SerializeField] private CameraFollower _mainCamera;
         
@@ -33,12 +33,12 @@ namespace Project.Scripts
         {
             await _dungeonFactory.Create<Dungeon>();
 
-            _player = await _playerFactory.Create<Player>(_playerPosition);
-            _player.InitializeDependencies(_statSystem);
+            _playerController = await _playerFactory.Create<PlayerController>(_playerPosition);
+            _playerController.InitializeDependencies(_statSystem);
 
-            _mainCamera.Initialize(_player);
+            _mainCamera.Initialize(_playerController);
 
-            PlayerInputController playerInputController = new (_player, _panelManager);
+            PlayerInputController playerInputController = new (_playerController, _panelManager);
 
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
