@@ -21,6 +21,7 @@ namespace Project.Scripts
 
         public void Interact()
         {
+            Button.Select();
             Button.onClick.Invoke();
         }
         
