@@ -5,6 +5,51 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armor_1
+    second: {fileID: 2100000, guid: d2375ff16b775cd46a7cec314d61da68, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armor_Base
+    second: {fileID: 2100000, guid: ec310c0c34b8caf46b0ba689b83171fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boots_1
+    second: {fileID: 2100000, guid: 0a140c1b8d9065e45a5dd0e2aab020bc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gloves_1
+    second: {fileID: 2100000, guid: f9d68dae18cbffb4a9aa29f4541456a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hair.001
+    second: {fileID: 2100000, guid: b33cb3fc9b3735d4eb0f3259f3f68cbe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants_1
+    second: {fileID: 2100000, guid: dbd0adaaef7f3854c94614b1a7dc2f61, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants_Base
+    second: {fileID: 2100000, guid: 0f56a6813bc0b2c4f978219256b0d93e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scythe_1_Hand_1
+    second: {fileID: 2100000, guid: 429d00c7c820aca47b649dea68847a75, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: 71a243375bfedcc448786218577f3850, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Armor_1_Albedo
