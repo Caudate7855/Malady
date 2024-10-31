@@ -39,6 +39,11 @@ namespace Project.Scripts.Core
             {
                 _playerFsm.SetState<PlayerFsmStateIdle>();
             }
+            
+            if (_playerMover.NavMeshAgent.velocity.magnitude >= 0.1f)
+            {
+                _playerFsm.SetState<PlayerFsmStateWalk>();
+            }
         }
     }
 }

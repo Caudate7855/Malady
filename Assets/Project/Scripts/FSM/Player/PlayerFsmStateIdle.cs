@@ -25,13 +25,5 @@ namespace Project.Scripts.FSM
         {
             
         }
-
-        public override void Update()
-        {
-            if (_playerNavMeshAgent.velocity.magnitude > 0)
-            {
-                Fsm.SetState<PlayerFsmStateWalk>();
-            }
-        }
     }
 }
