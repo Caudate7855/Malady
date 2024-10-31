@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable, IControllable
+    public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable, IMovable, ICastable
     {
         private PlayerMover _playerMover;
         private IStatSystem _statSystem;
@@ -26,6 +26,11 @@ namespace Project.Scripts.Core
         {
             _playerMover.MoveToPoint();
             _playerFsm.SetState<PlayerFsmStateWalk>();
+        }
+
+        public void Cast()
+        {
+            _playerFsm.SetState<PlayerFsmStateCast>();
         }
 
         private void Update()

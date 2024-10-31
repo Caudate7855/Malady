@@ -5,6 +5,7 @@ namespace Project.Scripts.FSM
 {
     public class Fsm
     {
+        public FsmStateBase _currentState;
         private FsmStateBase _stateBaseCurrent;
         private Dictionary<Type, FsmStateBase> _states = new();
 

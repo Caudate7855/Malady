@@ -1,6 +1,6 @@
 namespace Project.Scripts.Core
 {
-    public interface IControllable
+    public interface IMovable
     {
         public void MoveToPoint();
     }

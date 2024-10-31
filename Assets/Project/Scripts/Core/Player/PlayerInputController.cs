@@ -7,7 +7,8 @@ namespace Project.Scripts.Core
 {
     public class PlayerInputController
     {
-        private readonly IControllable _controllable;
+        private readonly IMovable _movable;
+        private readonly ICastable _castable;
         
         private readonly InventoryController _inventoryController;
         private readonly MainUIController _mainUIController;
@@ -16,9 +17,10 @@ namespace Project.Scripts.Core
 
         private bool _isInventoryOpened;
 
-        public PlayerInputController(IControllable controllable, IPanelManager panelManager)
+        public PlayerInputController(IMovable movable, ICastable castable, IPanelManager panelManager)
         {
-            _controllable = controllable;
+            _movable = movable;
+            _castable = castable;
 
             _playerInputs.Enable();
             
@@ -41,7 +43,7 @@ namespace Project.Scripts.Core
 
         private void OnMovementPerformed(InputAction.CallbackContext obj)
         {
-            _controllable.MoveToPoint();
+            _movable.MoveToPoint();
         }
 
         private void OnInventoryPerformed(InputAction.CallbackContext obj)
@@ -61,6 +63,7 @@ namespace Project.Scripts.Core
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
             _mainUIController.OnPlayerSpellButtonClicked(0);
+            _castable.Cast();
         }
 
         private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)

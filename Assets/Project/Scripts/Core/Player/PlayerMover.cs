@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerMover : MonoBehaviour, IControllable
+    public class PlayerMover : MonoBehaviour, IMovable
     {
         [SerializeField] private LayerMask _layerMask;
         

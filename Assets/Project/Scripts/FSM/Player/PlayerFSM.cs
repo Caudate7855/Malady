@@ -17,6 +17,7 @@ namespace Project.Scripts.FSM
 
             _fsm.AddState(new PlayerFsmStateIdle(_fsm, _navMeshAgent, _animator));
             _fsm.AddState(new PlayerFsmStateWalk(_fsm, _navMeshAgent, _animator));
+            _fsm.AddState(new PlayerFsmStateCast(_fsm, _navMeshAgent, _animator));
             
             _fsm.SetState<PlayerFsmStateIdle>();
         }

@@ -38,7 +38,7 @@ namespace Project.Scripts
 
             _mainCamera.Initialize(_playerController);
 
-            PlayerInputController playerInputController = new (_playerController, _panelManager);
+            PlayerInputController playerInputController = new (_playerController, _playerController, _panelManager);
 
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
