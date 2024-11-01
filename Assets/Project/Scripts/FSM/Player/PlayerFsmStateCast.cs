@@ -11,24 +11,28 @@ namespace Project.Scripts.FSM
         private readonly NavMeshAgent _playerNavMeshAgent;
         private readonly Animator _animator;
         private Fsm _fsm;
+        private PlayerFsm _playerFsm;
         
-        public PlayerFsmStateCast(Fsm fsm, NavMeshAgent playerNavMeshAgent, Animator animator) : base(fsm)
+        public PlayerFsmStateCast(Fsm fsm, NavMeshAgent playerNavMeshAgent, Animator animator, PlayerFsm playerFsm) : base(fsm)
         {
             _playerNavMeshAgent = playerNavMeshAgent;
             _animator = animator;
             _fsm = fsm;
+            _playerFsm = playerFsm;
         }
 
         public override async void Enter()
         {
+            _playerFsm.IsPossibleToMove = false;
             _animator.Play(AnimationName);
             await CastDelay();
-            Exit();
         }
 
         private async UniTask CastDelay()
         {
-            await UniTask.Delay(_animator.GetCurrentAnimatorClipInfo(0).Length * 1000);
+            await UniTask.Delay(500);
+            _playerFsm.IsPossibleToMove = true;
+            _fsm.SetState<PlayerFsmStateIdle>();
         }
     }
 }

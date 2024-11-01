@@ -20,18 +20,5 @@ namespace Project.Scripts.FSM
         {
             _animator.Play(AnimationName);
         }
-        
-        public override void Exit()
-        {
-            
-        }
-
-        public override void Update()
-        {
-            if (_playerNavMeshAgent.velocity.magnitude == 0)
-            {
-                Fsm.SetState<PlayerFsmStateIdle>();
-            }
-        }
     }
 }

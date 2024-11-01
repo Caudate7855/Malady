@@ -14,6 +14,8 @@ namespace Project.Scripts.Core
         {
             _playerMover = GetComponent<PlayerMover>();
             _playerFsm = GetComponent<PlayerFsm>();
+
+            _playerMover.OnDestinationReached += Idle;
         }
 
         public void InitializeDependencies(IStatSystem statSystem)
@@ -24,26 +26,33 @@ namespace Project.Scripts.Core
 
         public void MoveToPoint()
         {
-            _playerMover.MoveToPoint();
-            _playerFsm.SetState<PlayerFsmStateWalk>();
-        }
-
-        public void Cast()
-        {
-            _playerFsm.SetState<PlayerFsmStateCast>();
-        }
-
-        private void Update()
-        {
-            if (_playerMover.NavMeshAgent.velocity.magnitude <= 0.1f)
+            if (_playerFsm.IsPossibleToMove)
             {
-                _playerFsm.SetState<PlayerFsmStateIdle>();
-            }
-            
-            if (_playerMover.NavMeshAgent.velocity.magnitude >= 0.1f)
-            {
+                ContinueMovement();
+                _playerMover.MoveToPoint();
                 _playerFsm.SetState<PlayerFsmStateWalk>();
             }
+        }
+
+        public void StopMovement()
+        {
+            _playerMover.NavMeshAgent.isStopped = true;
+        }
+
+        public void ContinueMovement()
+        {
+            _playerMover.NavMeshAgent.isStopped = false;
+        }
+
+        public void Idle()
+        {
+            _playerFsm.SetState<PlayerFsmStateIdle>();
+        }
+        
+        public void Cast()
+        {
+            StopMovement();
+            _playerFsm.SetState<PlayerFsmStateCast>();
         }
     }
 }

@@ -5,8 +5,7 @@ namespace Project.Scripts.FSM
 {
     public class Fsm
     {
-        public FsmStateBase _currentState;
-        private FsmStateBase _stateBaseCurrent;
+        public FsmStateBase CurrentState;
         private Dictionary<Type, FsmStateBase> _states = new();
 
         public void AddState(FsmStateBase stateBase)
@@ -18,24 +17,24 @@ namespace Project.Scripts.FSM
         {
             var type = typeof(T);
 
-            if (_stateBaseCurrent?.GetType() == type)
+            if (CurrentState?.GetType() == type)
             {
                 return;
             }
 
             if (_states.TryGetValue(type, out var newState))
             {
-                _stateBaseCurrent?.Exit();
+                CurrentState?.Exit();
 
-                _stateBaseCurrent = newState;
+                CurrentState = newState;
                 
-                _stateBaseCurrent.Enter();
+                CurrentState.Enter();
             }
         }
 
         public void Update()
         {
-            _stateBaseCurrent?.Update();
+            CurrentState?.Update();
         }
     }
 }

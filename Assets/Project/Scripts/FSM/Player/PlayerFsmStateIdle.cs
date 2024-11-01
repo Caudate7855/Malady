@@ -20,10 +20,5 @@ namespace Project.Scripts.FSM
         {
             _animator.Play(AnimationName);
         }
-        
-        public override void Exit()
-        {
-            
-        }
     }
 }
