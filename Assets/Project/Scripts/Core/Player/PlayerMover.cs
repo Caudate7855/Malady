@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerMover : MonoBehaviour, IMovable
+    public class PlayerMover : MonoBehaviour
     {
         public event Action OnDestinationReached;
         

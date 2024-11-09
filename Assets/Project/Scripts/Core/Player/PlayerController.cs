@@ -1,6 +1,7 @@
 using Project.Scripts.FSM;
 using Project.Scripts.Interfaces;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Core
 {
@@ -26,11 +27,16 @@ namespace Project.Scripts.Core
 
         public void MoveToPoint()
         {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            
             if (_playerFsm.IsPossibleToMove)
             {
                 ContinueMovement();
                 _playerMover.MoveToPoint();
-                _playerFsm.SetState<PlayerFsmStateWalk>();
+                _playerFsm.SetState<PlayerFsmStateRun>();
             }
         }
 

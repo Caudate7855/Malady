@@ -19,7 +19,7 @@ namespace Project.Scripts.FSM
             _animator = GetComponentInChildren<Animator>();
 
             _fsm.AddState(new PlayerFsmStateIdle(_fsm, _navMeshAgent, _animator));
-            _fsm.AddState(new PlayerFsmStateWalk(_fsm, _navMeshAgent, _animator));
+            _fsm.AddState(new PlayerFsmStateRun(_fsm, _navMeshAgent, _animator));
             _fsm.AddState(new PlayerFsmStateCast(_fsm, _navMeshAgent, _animator, this));
 
             _fsm.SetState<PlayerFsmStateIdle>();
