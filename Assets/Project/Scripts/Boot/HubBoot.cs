@@ -9,25 +9,27 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public class HubBoot: MonoBehaviour
+    public class HubBoot : MonoBehaviour
     {
-        [Inject]private IPanelManager _panelManager;
+        [Inject] private IPanelManager _panelManager;
 
         [Inject] private GameDirector _gameDirector;
         [Inject] private IStatSystem _statSystem;
-        
-        [Inject]private DungeonFactory _dungeonFactory;
-        [Inject]private PlayerFactory _playerFactory;
+
+        [Inject] private DungeonFactory _dungeonFactory;
+        [Inject] private PlayerFactory _playerFactory;
         [Inject] private EnemyFactory _enemyFactory;
-        
+
         private Dungeon _dungeon;
         private PlayerController _playerController;
-        
+
+        [Inject] private PlayerInputController _playerInputController;
+
         [SerializeField] private CameraFollower _mainCamera;
-        
-        private readonly Vector3 _enemyMeleePosition = new(1,0,0);
-        private readonly Vector3 _enemyRangePosition = new(2,0,0);
-        private readonly Vector3 _playerPosition = new(0,0,0);
+
+        private readonly Vector3 _enemyMeleePosition = new(1, 0, 0);
+        private readonly Vector3 _enemyRangePosition = new(2, 0, 0);
+        private readonly Vector3 _playerPosition = new(0, 0, 0);
 
         private async void Start()
         {
@@ -37,27 +39,34 @@ namespace Project.Scripts
             _playerController.InitializeDependencies(_statSystem);
 
             _mainCamera.Initialize(_playerController);
-
-            PlayerInputController playerInputController = new (_playerController, _playerController, _panelManager);
+            _playerInputController.Initialize(_playerController, _playerController, _panelManager);
 
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
 
             await FinishLoading();
-            
+
             _panelManager.LoadPanel<MainUIController>().Open();
+        }
+
+        private void Update()
+        {
+            if (_playerInputController != null)
+            {
+                _playerInputController.Update();
+            }
         }
 
         private async UniTask FinishLoading()
         {
             var controller = _panelManager.LoadPanel<LoadingOverlayController>();
             var fader = _panelManager.LoadPanel<FaderController>();
-            
+
             fader.Open();
             fader.FadeIn();
 
             await UniTask.Delay((int)FaderController.FadeDuration * 1000);
-            
+
             controller.Close();
         }
     }

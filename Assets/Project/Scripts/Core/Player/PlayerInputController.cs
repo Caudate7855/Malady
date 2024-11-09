@@ -7,38 +7,54 @@ namespace Project.Scripts.Core
 {
     public class PlayerInputController
     {
-        private readonly IMovable _movable;
-        private readonly ICastable _castable;
-        
-        private readonly InventoryController _inventoryController;
-        private readonly MainUIController _mainUIController;
-        
+        private IMovable _movable;
+        private ICastable _castable;
+
+        private InventoryController _inventoryController;
+        private MainUIController _mainUIController;
+
         private readonly PlayerInputs _playerInputs = new();
 
         private bool _isInventoryOpened;
 
-        public PlayerInputController(IMovable movable, ICastable castable, IPanelManager panelManager)
+        public void Initialize(IMovable movable, ICastable castable, IPanelManager panelManager)
         {
             _movable = movable;
             _castable = castable;
 
             _playerInputs.Enable();
-            
+
             _inventoryController = panelManager.LoadPanel<InventoryController>();
             _mainUIController = panelManager.LoadPanel<MainUIController>();
-            
-            _playerInputs.Gameplay.Movement.performed += OnMovementPerformed;
+
             _playerInputs.Gameplay.Inventory.performed += OnInventoryPerformed;
 
             _playerInputs.Gameplay.PlayerSpell1.performed += OnPlayerSpellPerformed0;
             _playerInputs.Gameplay.PlayerSpell2.performed += OnPlayerSpellPerformed1;
             _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
             _playerInputs.Gameplay.PlayerSpell4.performed += OnPlayerSpellPerformed3;
-            
+
             _playerInputs.Gameplay.SummonSpell1.performed += OnSummonSpellPerformed0;
             _playerInputs.Gameplay.SummonSpell2.performed += OnSummonSpellPerformed1;
             _playerInputs.Gameplay.SummonSpell3.performed += OnSummonSpellPerformed2;
             _playerInputs.Gameplay.SummonSpell4.performed += OnSummonSpellPerformed3;
+        }
+
+
+        public void Update()
+        {
+            if (_playerInputs.Gameplay.Movement.inProgress)
+            {
+                _movable.MoveToPoint();
+            }
+        }
+        
+        private void OnMovementPressed(bool condition)
+        {
+            while (condition)
+            {
+                _movable.MoveToPoint();
+            }
         }
 
         private void OnMovementPerformed(InputAction.CallbackContext obj)
