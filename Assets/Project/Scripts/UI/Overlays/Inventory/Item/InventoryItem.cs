@@ -55,7 +55,8 @@ namespace Project.Scripts.Overlays.Inventory
 
         private void PutItemInSlot()
         {
-            if (_newInventorySlot != null && _newInventorySlot.SlotType == SlotType && !_newInventorySlot.IsContainItem)
+            if (_newInventorySlot != null && _newInventorySlot.SlotType == SlotType && !_newInventorySlot.IsContainItem
+                || _newInventorySlot != null && _newInventorySlot.SlotType == SlotType.Inventory && !_newInventorySlot.IsContainItem)
             {
                 CurrentInventorySlot.RemoveItem();
                 _newInventorySlot.AddItem(this);

@@ -210,11 +210,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b034a1d703c4518a882ce39b8a2fca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SlotType: 0
+  SlotType: 4
   _background: {fileID: 6884051571336085457}
   _itemImage: {fileID: 223426466512733493}
   _newInventorySlot: {fileID: 0}
-  _currentInventorySlot: {fileID: 0}
+  CurrentInventorySlot: {fileID: 0}
 --- !u!61 &6798271489694644097
 BoxCollider2D:
   m_ObjectHideFlags: 0
