@@ -1,18 +1,20 @@
 using System;
 using System.Collections;
+using Project.Scripts.Services;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Core
 {
     public class PlayerMover : MonoBehaviour
     {
         public event Action OnDestinationReached;
-        
+
         public NavMeshAgent NavMeshAgent;
 
         [SerializeField] private LayerMask _layerMask;
+
+        private MouseController _mouseController;
 
         private Camera _mainCamera;
         private bool isRunning = false;
@@ -21,31 +23,25 @@ namespace Project.Scripts.Core
         {
             _mainCamera = FindObjectOfType<Camera>();
             NavMeshAgent = GetComponent<NavMeshAgent>();
+
+            _mouseController.Initialize();
         }
 
         public void MoveToPoint()
         {
             StartCoroutine(DeferredCheckAndMove());
         }
-        
+
         private IEnumerator DeferredCheckAndMove()
         {
+            var mousePosition = _mouseController.GetMousePositionInWorld();
+
+            NavMeshAgent.SetDestination(mousePosition);
+            isRunning = true;
+
             yield return null;
-
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                yield break; 
-            }
-
-            var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out var raycastHit, 100, _layerMask))
-            {
-                NavMeshAgent.SetDestination(raycastHit.point);
-                isRunning = true;
-            }
         }
-        
+
         void Update()
         {
             if (HasReachedDestination() && isRunning)
@@ -59,7 +55,7 @@ namespace Project.Scripts.Core
         {
             if (!NavMeshAgent.pathPending)
             {
-                if (NavMeshAgent.remainingDistance <= NavMeshAgent.stoppingDistance)
+                if (NavMeshAgent.remainingDistance <= 0)
                 {
                     if (!NavMeshAgent.hasPath || NavMeshAgent.velocity.sqrMagnitude == 0f)
                     {
@@ -67,6 +63,7 @@ namespace Project.Scripts.Core
                     }
                 }
             }
+
             return false;
         }
     }

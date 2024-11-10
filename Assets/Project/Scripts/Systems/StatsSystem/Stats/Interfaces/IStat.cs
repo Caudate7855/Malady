@@ -14,6 +14,8 @@ namespace Project.Scripts
 
         public void InitializeValuesDefault();
 
+        public void Update();
+
         public void ChangeMaxValue(float newValue)
         {
             if (HasMaxValue)

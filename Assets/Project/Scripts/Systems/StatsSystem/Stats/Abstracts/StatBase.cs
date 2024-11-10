@@ -10,6 +10,11 @@ namespace Project.Scripts
         public abstract bool HasMaxValue { get; set; }
         public abstract void InitializeValuesDefault();
 
+        public void Update()
+        {
+            
+        }
+
         public virtual void InitializeValues(float value, float maxValue = default)
         {
             MinValue = 0;

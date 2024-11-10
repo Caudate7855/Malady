@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine.Rendering;
 
 namespace Project.Scripts
 {
@@ -25,6 +27,16 @@ namespace Project.Scripts
         public List<IStat> GetStats()
         {
             return Stats;
+        }
+
+        public void UpdateStat<T>() where T : IStat
+        {
+            var stat = Stats.OfType<T>().FirstOrDefault();
+
+            if (stat != null)
+            {
+                stat.Update();
+            }
         }
 
         public void DefaultInitialize()
