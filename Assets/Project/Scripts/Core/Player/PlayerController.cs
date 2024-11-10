@@ -60,5 +60,11 @@ namespace Project.Scripts.Core
             StopMovement();
             _playerFsm.SetState<PlayerFsmStateCast>();
         }
+
+        public void Summon()
+        {
+            StopMovement();
+            _playerFsm.SetState<PlayerFsmStateSummon>();
+        }
     }
 }

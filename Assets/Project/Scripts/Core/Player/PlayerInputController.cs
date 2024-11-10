@@ -85,6 +85,7 @@ namespace Project.Scripts.Core
         private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)
         {
             _mainUIController.OnPlayerSpellButtonClicked(1);
+            _castable.Summon();
         }
 
         private void OnPlayerSpellPerformed2(InputAction.CallbackContext obj)
