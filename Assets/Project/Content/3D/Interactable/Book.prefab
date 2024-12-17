@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 8325507722785346025}
   - component: {fileID: 7906178442762076661}
   - component: {fileID: 3511143646827518172}
-  - component: {fileID: 3830970825087791188}
   - component: {fileID: 5754087468614438941}
+  - component: {fileID: 1088283392765502688}
   m_Layer: 0
   m_Name: Book
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8228247423343430801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -126,18 +126,6 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
---- !u!114 &3830970825087791188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8228247423343430801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8c9938bf38e44e592c8b7303c01a49c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &5754087468614438941
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -165,3 +153,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1088283392765502688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8228247423343430801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73980feffc9d45a0964a0b04485c274d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

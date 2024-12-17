@@ -1,3 +1,4 @@
+using Project.Scripts.Core.Abstracts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -38,6 +39,11 @@ namespace Project.Scripts.Services
 
             if (Physics.Raycast(ray, out var raycastHit, 100, _layerMask))
             {
+                if (raycastHit.collider.gameObject.GetComponent<InteractableBase>())
+                {
+                    return default;
+                }
+                
                 return raycastHit.point;
             }
 

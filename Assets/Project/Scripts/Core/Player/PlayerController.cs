@@ -1,3 +1,4 @@
+using System;
 using Project.Scripts.FSM;
 using Project.Scripts.Interfaces;
 using Project.Scripts.Services;
@@ -8,6 +9,9 @@ namespace Project.Scripts.Core
 {
     public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable, IMovable, ICastable
     {
+        public event Action OnDestinationApproach;
+        public bool IsInteractableApproaching;
+
         private PlayerMover _playerMover;
         private IStatSystem _statSystem;
         private PlayerFsm _playerFsm;
@@ -15,18 +19,19 @@ namespace Project.Scripts.Core
 
         private MouseController _mouseController;
 
+
         public void Initialize()
         {
             _playerMover = GetComponent<PlayerMover>();
             _playerFsm = GetComponent<PlayerFsm>();
             _mouseController.Initialize();
-            
+
             _playerMover.OnDestinationReached += Idle;
         }
 
         public void InitializeDependencies(IStatSystem statSystem)
         {
-            _statSystem = statSystem;    
+            _statSystem = statSystem;
             _statSystem.DefaultInitialize();
         }
 
@@ -36,13 +41,37 @@ namespace Project.Scripts.Core
             {
                 return;
             }
-            
-            if (_playerFsm.IsPossibleToMove && _mouseController.GetMouseGroundPositionInWorld() != default)
+
+            if (_playerFsm.IsPossibleToMove && _mouseController.GetMouseGroundPositionInWorld() != default &&
+                IsInteractableApproaching == false)
             {
+                Debug.Log("Move");
+
                 ContinueMovement();
                 _playerMover.MoveToPoint();
                 _playerFsm.SetState<PlayerFsmStateRun>();
             }
+        }
+
+        public void MoveToLocation(Vector3 targetLocation)
+        {
+            if (_playerFsm.IsPossibleToMove && _mouseController.GetMouseGroundPositionInWorld() != default)
+            {
+                Debug.Log("Int");
+
+                IsInteractableApproaching = true;
+
+                ContinueMovement();
+                _playerMover.MoveToPoint(targetLocation);
+                _playerFsm.SetState<PlayerFsmStateRun>();
+                _playerMover.OnDestinationReached += Approach;
+            }
+        }
+
+        private void Approach()
+        {
+            IsInteractableApproaching = false;
+            OnDestinationApproach?.Invoke();
         }
 
         private void StopMovement()
@@ -50,11 +79,6 @@ namespace Project.Scripts.Core
             _playerMover.NavMeshAgent.isStopped = true;
             _playerMover.NavMeshAgent.velocity = Vector3.zero;
         }
-
-        private void RotateToCursor()
-        {
-            
-        } 
 
         private void ContinueMovement()
         {
@@ -65,7 +89,7 @@ namespace Project.Scripts.Core
         {
             _playerFsm.SetState<PlayerFsmStateIdle>();
         }
-        
+
         public void Cast()
         {
             StopMovement();

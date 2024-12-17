@@ -18,6 +18,7 @@ namespace Project.Scripts.Core
 
         private Camera _mainCamera;
         private bool isRunning = false;
+        
 
         private void Awake()
         {
@@ -32,6 +33,19 @@ namespace Project.Scripts.Core
             StartCoroutine(DeferredCheckAndMove());
         }
 
+        public void MoveToPoint(Vector3 location)
+        {
+            StartCoroutine(DeferredCheckAndMove(location));
+        }
+
+        private IEnumerator DeferredCheckAndMove(Vector3 location)
+        {
+            NavMeshAgent.SetDestination(location);
+            isRunning = true;
+
+            yield return null;
+        }
+        
         private IEnumerator DeferredCheckAndMove()
         {
             var mousePosition = _mouseController.GetMouseGroundPositionInWorld();

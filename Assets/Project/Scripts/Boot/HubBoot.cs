@@ -11,6 +11,8 @@ namespace Project.Scripts
 {
     public class HubBoot : MonoBehaviour
     {
+        private DiContainer _diContainer;
+        
         [Inject] private IPanelManager _panelManager;
 
         [Inject] private GameDirector _gameDirector;
@@ -19,6 +21,8 @@ namespace Project.Scripts
         [Inject] private DungeonFactory _dungeonFactory;
         [Inject] private PlayerFactory _playerFactory;
         [Inject] private EnemyFactory _enemyFactory;
+        
+        [Inject] private BookInteractable _book;
 
         private Dungeon _dungeon;
         private PlayerController _playerController;
@@ -40,6 +44,9 @@ namespace Project.Scripts
 
             _mainCamera.Initialize(_playerController);
             _playerInputController.Initialize(_playerController, _playerController, _panelManager);
+
+            _book = Instantiate(_book);
+            _book.Initialize(_playerController);
 
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);
