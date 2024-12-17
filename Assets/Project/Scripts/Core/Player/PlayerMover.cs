@@ -34,7 +34,7 @@ namespace Project.Scripts.Core
 
         private IEnumerator DeferredCheckAndMove()
         {
-            var mousePosition = _mouseController.GetMousePositionInWorld();
+            var mousePosition = _mouseController.GetMouseGroundPositionInWorld();
 
             NavMeshAgent.SetDestination(mousePosition);
             isRunning = true;

@@ -37,7 +37,7 @@ namespace Project.Scripts.Core
                 return;
             }
             
-            if (_playerFsm.IsPossibleToMove && _mouseController.GetMousePositionInWorld() != default)
+            if (_playerFsm.IsPossibleToMove && _mouseController.GetMouseGroundPositionInWorld() != default)
             {
                 ContinueMovement();
                 _playerMover.MoveToPoint();
