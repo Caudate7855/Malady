@@ -49,7 +49,9 @@ namespace Project.Scripts.Core
         {
             if (_playerInputs.Gameplay.Movement.inProgress)
             {
-                _playerController.MoveToPoint(_mouseController.GetMouseGroundPositionInWorld());
+                var targetLocation = _mouseController.GetMouseGroundPositionInWorld(out var interactable);
+                
+                _playerController.MoveToPoint(targetLocation, interactable);
             }
         }
 

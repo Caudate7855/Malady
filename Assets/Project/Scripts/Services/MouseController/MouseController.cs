@@ -13,10 +13,11 @@ namespace Project.Scripts.Services
             _mainCamera = Object.FindObjectOfType<Camera>();
         }
 
-        public Vector3 GetMouseGroundPositionInWorld()
+        public Vector3 GetMouseGroundPositionInWorld(out InteractableBase interactableBase)
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
+                interactableBase = default;
                 return default;
             }
 
@@ -26,12 +27,15 @@ namespace Project.Scripts.Services
             {
                 if (raycastHit.collider.gameObject.GetComponent<InteractableBase>())
                 {
+                    interactableBase = raycastHit.collider.gameObject.GetComponent<InteractableBase>();
                     return raycastHit.collider.gameObject.transform.position;
                 }
-                
+
+                interactableBase = default;
                 return raycastHit.point;
             }
 
+            interactableBase = default;
             return default;
         }
     }

@@ -8,7 +8,6 @@ namespace Project.Scripts.Core
         public override void Interact()
         {
             Debug.Log("INTERACT");
-            OnApproach -= Interact;
         }
     }
 }

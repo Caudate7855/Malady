@@ -1,29 +1,21 @@
-using System;
+using Cysharp.Threading.Tasks;
 using Project.Scripts.Core.Interfaces;
 using UnityEngine;
 
 namespace Project.Scripts.Core.Abstracts
 {
-    public abstract class InteractableBase : MonoBehaviour, IInteractable, IApproachable
+    public abstract class InteractableBase : MonoBehaviour, IInteractable
     {
-        private PlayerController _playerController;
-        public event Action OnApproach;
+        public float InteractionCooldownInSeconds { get; set; } = 3f;
 
-        public void Initialize(PlayerController playerController)
-        {
-            _playerController = playerController;
-        }
-
+        private bool _isPossibleInteract;
+        
         public abstract void Interact();
 
         private void Awake()
         {
+            _isPossibleInteract = true;
             ChangeOutline(false);
-        }
-
-        private void OnMouseDown()
-        {
-            ApproachCharacter();
         }
 
         private void OnMouseEnter()
@@ -36,16 +28,20 @@ namespace Project.Scripts.Core.Abstracts
             ChangeOutline(false);
         }
 
+        public async void InteractWithCooldown()
+        {
+            if (_isPossibleInteract)
+            {
+                _isPossibleInteract = false;
+                Interact();
+                await UniTask.Delay((int)(InteractionCooldownInSeconds * 1000));
+                _isPossibleInteract = true;
+            }
+        }
+
         void ChangeOutline(bool condition)
         {
             gameObject.GetComponent<Outline>().enabled = condition;
-        }
-
-        public void ApproachCharacter()
-        {
-            OnApproach += Interact;
-            _playerController.OnDestinationApproach += (() => OnApproach?.Invoke());
-            _playerController.MoveToPoint(gameObject.transform.position);
         }
     }
 }

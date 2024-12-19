@@ -1,4 +1,5 @@
 using System;
+using Project.Scripts.Core.Abstracts;
 using Project.Scripts.FSM;
 using Project.Scripts.Interfaces;
 using UnityEngine;
@@ -8,9 +9,6 @@ namespace Project.Scripts.Core
 {
     public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable
     {
-        public event Action OnDestinationApproach;
-        public bool IsInteractableApproaching;
-
         private PlayerMover _playerMover;
         private IStatSystem _statSystem;
         private PlayerFsm _playerFsm;
@@ -30,26 +28,24 @@ namespace Project.Scripts.Core
             _statSystem.DefaultInitialize();
         }
         
-        public void MoveToPoint(Vector3 targetLocation)
+        public void MoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;
             }
 
-            if (_playerFsm.IsPossibleToMove && IsInteractableApproaching == false)
+            if (interactable != null)
+            {
+                _playerMover.OnDestinationReached += interactable.InteractWithCooldown;
+            }
+            
+            if (_playerFsm.IsPossibleToMove)
             {
                 ContinueMovement();
                 _playerMover.MoveToPoint(targetLocation);
                 _playerFsm.SetState<PlayerFsmStateRun>();
-                _playerMover.OnDestinationReached += Approach;
             }
-        }
-
-        private void Approach()
-        {
-            IsInteractableApproaching = false;
-            OnDestinationApproach?.Invoke();
         }
 
         private void StopMovement()

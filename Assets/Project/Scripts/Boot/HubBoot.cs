@@ -46,7 +46,6 @@ namespace Project.Scripts
             _playerInputController.Initialize(_playerController, _panelManager);
 
             _book = Instantiate(_book);
-            _book.Initialize(_playerController);
 
             await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, _enemyMeleePosition);
             await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, _enemyRangePosition);

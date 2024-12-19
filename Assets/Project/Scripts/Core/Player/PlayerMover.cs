@@ -37,7 +37,7 @@ namespace Project.Scripts.Core
             if (HasReachedDestination() && isRunning)
             {
                 isRunning = false;
-                OnDestinationReached?.Invoke();
+                //OnDestinationReached?.Invoke();
             }
         }
 
@@ -49,6 +49,7 @@ namespace Project.Scripts.Core
                 {
                     if (!NavMeshAgent.hasPath || NavMeshAgent.velocity.sqrMagnitude == 0f)
                     {
+                        OnDestinationReached?.Invoke();
                         return true;
                     }
                 }
