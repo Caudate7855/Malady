@@ -45,7 +45,7 @@ namespace Project.Scripts.Core.Abstracts
         {
             OnApproach += Interact;
             _playerController.OnDestinationApproach += (() => OnApproach?.Invoke());
-            _playerController.MoveToLocation(gameObject.transform.position);
+            _playerController.MoveToPoint(gameObject.transform.position);
         }
     }
 }

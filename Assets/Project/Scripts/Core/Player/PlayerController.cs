@@ -45,22 +45,22 @@ namespace Project.Scripts.Core
             if (_playerFsm.IsPossibleToMove && _mouseController.GetMouseGroundPositionInWorld() != default &&
                 IsInteractableApproaching == false)
             {
-                Debug.Log("Move");
-
                 ContinueMovement();
                 _playerMover.MoveToPoint();
                 _playerFsm.SetState<PlayerFsmStateRun>();
             }
         }
-
-        public void MoveToLocation(Vector3 targetLocation)
+        
+        public void MoveToPoint(Vector3 targetLocation)
         {
-            if (_playerFsm.IsPossibleToMove && _mouseController.GetMouseGroundPositionInWorld() != default)
+            if (EventSystem.current.IsPointerOverGameObject())
             {
-                Debug.Log("Int");
+                return;
+            }
 
-                IsInteractableApproaching = true;
-
+            if (_playerFsm.IsPossibleToMove &&
+                IsInteractableApproaching == false)
+            {
                 ContinueMovement();
                 _playerMover.MoveToPoint(targetLocation);
                 _playerFsm.SetState<PlayerFsmStateRun>();

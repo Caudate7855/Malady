@@ -7,9 +7,6 @@ namespace Project.Scripts.Core
 {
     public class PlayerInputController
     {
-        private IMovable _movable;
-        private ICastable _castable;
-
         private InventoryController _inventoryController;
         private MainUIController _mainUIController;
 
@@ -17,10 +14,11 @@ namespace Project.Scripts.Core
 
         private bool _isInventoryOpened;
 
-        public void Initialize(IMovable movable, ICastable castable, IPanelManager panelManager)
+        private PlayerController _playerController;
+        
+        public void Initialize(PlayerController playerController, IPanelManager panelManager)
         {
-            _movable = movable;
-            _castable = castable;
+            _playerController = playerController;
 
             _playerInputs.Enable();
 
@@ -45,21 +43,8 @@ namespace Project.Scripts.Core
         {
             if (_playerInputs.Gameplay.Movement.inProgress)
             {
-                _movable.MoveToPoint();
+                _playerController.MoveToPoint();
             }
-        }
-        
-        private void OnMovementPressed(bool condition)
-        {
-            while (condition)
-            {
-                _movable.MoveToPoint();
-            }
-        }
-
-        private void OnMovementPerformed(InputAction.CallbackContext obj)
-        {
-            _movable.MoveToPoint();
         }
 
         private void OnInventoryPerformed(InputAction.CallbackContext obj)
@@ -79,13 +64,13 @@ namespace Project.Scripts.Core
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
             _mainUIController.OnPlayerSpellButtonClicked(0);
-            _castable.Cast();
+            _playerController.Cast();
         }
 
         private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)
         {
             _mainUIController.OnPlayerSpellButtonClicked(1);
-            _castable.Summon();
+            _playerController.Summon();
         }
 
         private void OnPlayerSpellPerformed2(InputAction.CallbackContext obj)

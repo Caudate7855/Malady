@@ -43,7 +43,7 @@ namespace Project.Scripts
             _playerController.InitializeDependencies(_statSystem);
 
             _mainCamera.Initialize(_playerController);
-            _playerInputController.Initialize(_playerController, _playerController, _panelManager);
+            _playerInputController.Initialize(_playerController, _panelManager);
 
             _book = Instantiate(_book);
             _book.Initialize(_playerController);
