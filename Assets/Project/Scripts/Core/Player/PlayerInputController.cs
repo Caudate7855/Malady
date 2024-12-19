@@ -1,12 +1,16 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.Overlays;
 using Project.Scripts.Overlays.Inventory;
+using Project.Scripts.Services;
 using UnityEngine.InputSystem;
+using Zenject;
 
 namespace Project.Scripts.Core
 {
     public class PlayerInputController
     {
+        [Inject] private MouseController _mouseController;
+        
         private InventoryController _inventoryController;
         private MainUIController _mainUIController;
 
@@ -18,6 +22,8 @@ namespace Project.Scripts.Core
         
         public void Initialize(PlayerController playerController, IPanelManager panelManager)
         {
+            _mouseController.Initialize();
+            
             _playerController = playerController;
 
             _playerInputs.Enable();
@@ -43,7 +49,7 @@ namespace Project.Scripts.Core
         {
             if (_playerInputs.Gameplay.Movement.inProgress)
             {
-                _playerController.MoveToPoint();
+                _playerController.MoveToPoint(_mouseController.GetMouseGroundPositionInWorld());
             }
         }
 
