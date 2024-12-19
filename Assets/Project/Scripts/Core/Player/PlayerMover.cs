@@ -11,9 +11,6 @@ namespace Project.Scripts.Core
         
         public NavMeshAgent NavMeshAgent;
 
-        private bool isRunning = false;
-        
-
         private void Awake()
         {
             NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -27,18 +24,18 @@ namespace Project.Scripts.Core
         private IEnumerator DeferredCheckAndMove(Vector3 location)
         {
             NavMeshAgent.SetDestination(location);
-            isRunning = true;
-
             yield return null;
         }
 
+        public void ClearOnDestinationReached()
+        {
+            OnDestinationReached = null;
+        }
+        
+        
         void Update()
         {
-            if (HasReachedDestination() && isRunning)
-            {
-                isRunning = false;
-                //OnDestinationReached?.Invoke();
-            }
+            HasReachedDestination();
         }
 
         private bool HasReachedDestination()

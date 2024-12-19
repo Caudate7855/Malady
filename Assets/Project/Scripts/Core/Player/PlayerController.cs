@@ -1,4 +1,3 @@
-using System;
 using Project.Scripts.Core.Abstracts;
 using Project.Scripts.FSM;
 using Project.Scripts.Interfaces;
@@ -37,7 +36,12 @@ namespace Project.Scripts.Core
 
             if (interactable != null)
             {
-                _playerMover.OnDestinationReached += interactable.InteractWithCooldown;
+                _playerMover.OnDestinationReached += () => Interact(interactable);
+            }
+            else
+            {
+                _playerMover.ClearOnDestinationReached();
+                _playerMover.OnDestinationReached += Idle;
             }
             
             if (_playerFsm.IsPossibleToMove)
@@ -48,7 +52,7 @@ namespace Project.Scripts.Core
             }
         }
 
-        private void StopMovement()
+        public void StopMovement()
         {
             _playerMover.NavMeshAgent.isStopped = true;
             _playerMover.NavMeshAgent.velocity = Vector3.zero;
@@ -59,6 +63,14 @@ namespace Project.Scripts.Core
             _playerMover.NavMeshAgent.isStopped = false;
         }
 
+        public void Interact(InteractableBase interactable = default)
+        {
+            if (interactable != null)
+            {
+                interactable.InteractWithCooldown();
+            }
+        }
+        
         public void Idle()
         {
             _playerFsm.SetState<PlayerFsmStateIdle>();
