@@ -11,6 +11,8 @@ namespace Project.Scripts.Core
         
         public NavMeshAgent NavMeshAgent;
 
+        private float _maxSampleDistance = 5.0f;
+
         private void Awake()
         {
             NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -23,7 +25,13 @@ namespace Project.Scripts.Core
 
         private IEnumerator DeferredCheckAndMove(Vector3 location)
         {
-            NavMeshAgent.SetDestination(location);
+            NavMeshHit hit;
+            
+            if (NavMesh.SamplePosition(location, out hit, _maxSampleDistance, NavMesh.AllAreas))
+            {
+                NavMeshAgent.SetDestination(hit.position);
+            }
+
             yield return null;
         }
 
