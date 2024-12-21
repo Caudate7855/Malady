@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Core.Dungeon
 {
-    public class Dungeon : MonoBehaviour, ICustomInitializable
+    public class HubController : MonoBehaviour, ICustomInitializable
     {
         private NavMeshSurface _navMeshSurface;
         

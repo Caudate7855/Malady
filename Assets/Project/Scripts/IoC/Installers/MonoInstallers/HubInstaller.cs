@@ -11,7 +11,7 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             Container
-                .Bind<DungeonFactory>()
+                .Bind<HubFactory>()
                 .AsSingle();
 
             Container

@@ -1,14 +1,15 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Project.Scripts.Core.Dungeon
 {
     public class DungeonCreator : MonoBehaviour
     {
-        [SerializeField] private Dungeon _dungeon;
+        [FormerlySerializedAs("_hub")] [FormerlySerializedAs("_dungeon")] [SerializeField] private HubController _hubController;
 
         private void Start()
         {
-            Instantiate(_dungeon, new Vector3(0,0,0), Quaternion.identity);
+            Instantiate(_hubController, new Vector3(0,0,0), Quaternion.identity);
         }
     }
 }

@@ -43,11 +43,6 @@ namespace Project.Scripts.App
             _loadingOverlayController.Open();
         }
 
-        public void CloseLoadingScreen()
-        {
-            _loadingOverlayController.Close();
-        }
-
         public void ChangeState(GameStateType gameStateType)
         {
             if (_gameStates.TryGetValue(gameStateType, out var gameState))

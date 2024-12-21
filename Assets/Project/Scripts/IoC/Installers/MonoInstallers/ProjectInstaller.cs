@@ -18,7 +18,7 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<IAssetLoader>()
                 .To<AssetLoader>()
                 .AsSingle();
-
+            
             Container
                 .Bind<HubBoot>()
                 .AsSingle();

@@ -7,15 +7,15 @@ using UnityEngine;
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class DungeonFactory
+    public class HubFactory
     {
-        private const string DUNGEON_ADDRESS = "Dungeon";
+        private const string DUNGEON_ADDRESS = "Hub";
         
         private readonly Vector3 _position = new(0, 0, 0);
 
         private readonly IAssetLoader _assetLoader;
         
-        public DungeonFactory(IAssetLoader assetLoader)
+        public HubFactory(IAssetLoader assetLoader)
         {
             _assetLoader = assetLoader;
         }

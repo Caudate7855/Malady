@@ -23,20 +23,42 @@ namespace Project.Scripts.Services
 
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out var raycastHit, 100))
+            if (Physics.Raycast(ray, out var hit, 100))
             {
-                if (raycastHit.collider.gameObject.GetComponent<InteractableBase>())
+                if (hit.collider.gameObject.GetComponent<InteractableBase>())
                 {
-                    interactableBase = raycastHit.collider.gameObject.GetComponent<InteractableBase>();
-                    return raycastHit.collider.gameObject.transform.position;
+                    interactableBase = hit.collider.gameObject.GetComponent<InteractableBase>();
+                    return hit.collider.gameObject.transform.position;
                 }
 
                 interactableBase = default;
-                return raycastHit.point;
+                return hit.point;
             }
 
             interactableBase = default;
             return default;
+        }
+        
+        public GameObject GetFirstGameObjectUnderMouse()
+        {
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return default;
+            }
+
+            var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var hit, 100))
+            {
+                return hit.collider.gameObject;
+            }
+
+            return default;
+        }
+        
+        public Vector3 GetGameObjectPositionUnderMouse()
+        {
+            return GetFirstGameObjectUnderMouse().transform.position;
         }
     }
 }
