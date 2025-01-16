@@ -42,7 +42,7 @@ namespace Project.Scripts
             _playerInputController.Initialize(_playerController, _panelManager);
 
 
-            await CreateTestEnemies();
+            //await CreateTestEnemies();
             await FinishLoading();
 
             _panelManager.LoadPanel<MainUIController>().Open();
