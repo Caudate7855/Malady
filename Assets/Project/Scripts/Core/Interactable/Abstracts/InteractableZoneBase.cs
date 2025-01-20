@@ -1,9 +1,7 @@
 using DG.Tweening;
-using Itibsoft.PanelManager;
 using Project.Scripts.Core.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
 namespace Project.Scripts.Core.Abstracts
 {
@@ -14,14 +12,15 @@ namespace Project.Scripts.Core.Abstracts
         public float InteractionCooldownInSeconds { get; set; }
         public Button _interactionButton;
         
-        [Inject] protected IPanelManager PanelManager;
-
         private void Awake()
         {
             _interactionButton.interactable = false;
             var color = _interactionButton.GetComponent<Image>().color;
             color.a = 0;
             _interactionButton.GetComponent<Image>().color = color;
+
+
+            _interactionButton.onClick.AddListener(Interact);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -42,7 +41,6 @@ namespace Project.Scripts.Core.Abstracts
 
         public void ShowInteractionButton()
         {
-            
             _interactionButton.gameObject.SetActive(true);
 
             _interactionButton.gameObject.GetComponent<Image>()

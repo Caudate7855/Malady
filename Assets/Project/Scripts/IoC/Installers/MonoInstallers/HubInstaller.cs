@@ -7,6 +7,7 @@ namespace Project.Scripts.IoC.Installers
     public class HubInstaller : MonoInstaller<HubInstaller>
     {
         [SerializeField] private BookInteractable _bookInteractable;
+        [SerializeField] private Blacksmith _blacksmith;
         
         public override void InstallBindings()
         {
@@ -25,6 +26,11 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<BookInteractable>()
                 .FromInstance(_bookInteractable)
+                .AsSingle();
+            
+            Container
+                .Bind<Blacksmith>()
+                .FromInstance(_blacksmith)
                 .AsSingle();
         }
     }

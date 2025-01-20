@@ -1,18 +1,20 @@
-using System;
 using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class LookAtCamera : MonoBehaviour
+    public class LookAtCameraUIElement : MonoBehaviour
     {
         private Camera _mainCamera;
 
         private void Awake()
         {
             _mainCamera = FindObjectOfType<Camera>();
+
+            var canvas = GetComponentInParent<Canvas>();
+            canvas.worldCamera = _mainCamera;
         }
 
-        void Update()
+        private void Update()
         {
             if (_mainCamera != null)
             {

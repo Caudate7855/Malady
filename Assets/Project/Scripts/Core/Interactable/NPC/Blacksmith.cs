@@ -1,9 +1,13 @@
+using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
 
 namespace Project.Scripts.Core
 {
     public class Blacksmith : InteractableZoneBase
     {
+        public IPanelManager PanelManager;
+        private DialogueWindowController _dialogueWindowController;
+        
         public override void Interact()
         {
             CloseButton();
@@ -12,7 +16,8 @@ namespace Project.Scripts.Core
 
         private void ShowDialogue()
         {
-            PanelManager.LoadPanel<DialogueWindowController>();
+            _dialogueWindowController = PanelManager.LoadPanel<DialogueWindowController>();
+            _dialogueWindowController.Open();
         }
     }
 }

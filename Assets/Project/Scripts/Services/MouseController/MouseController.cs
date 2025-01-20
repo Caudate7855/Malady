@@ -1,9 +1,11 @@
+using JetBrains.Annotations;
 using Project.Scripts.Core.Abstracts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Project.Scripts.Services
 {
+    [UsedImplicitly]
     public class MouseController
     {
         private Camera _mainCamera;
