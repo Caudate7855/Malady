@@ -9,17 +9,25 @@ namespace Project.Scripts.Core.Abstracts
     {
         private const float FADE_DURATION = 0.2f;
 
+        private Button _interactionButton;
         public float InteractionCooldownInSeconds { get; set; }
-        public Button _interactionButton;
-        
+
         private void Awake()
         {
+            _interactionButton = GetComponentInChildren<Button>();
+            
+            InitializeButton();
+        }
+
+        private void InitializeButton()
+        {
+            _interactionButton = GetComponentInChildren<Button>(true);
+            
             _interactionButton.interactable = false;
             var color = _interactionButton.GetComponent<Image>().color;
             color.a = 0;
+            
             _interactionButton.GetComponent<Image>().color = color;
-
-
             _interactionButton.onClick.AddListener(Interact);
         }
 

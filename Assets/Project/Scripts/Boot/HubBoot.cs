@@ -12,14 +12,16 @@ namespace Project.Scripts
         [Inject] private HubFactory _hubFactory;
         [Inject] private Blacksmith _blacksmith;
         [Inject] private NpcFactory _npcFactory;
+
+        private HubController _hubController;
         
         protected override async void Initialize()
         {
-            await _hubFactory.Create<HubController>();
+            _hubController =  await _hubFactory.Create<HubController>();
 
-            //Instantiate(_blacksmith).PanelManager = _panelManager;
-
-            await _npcFactory.Create<Blacksmith>(NpcTypes.Blacksmith);
+            await _npcFactory.Create<Undertaker>(NpcTypes.Undertaker, _hubController.GetSpawnPosition(NpcTypes.Undertaker));
+            await _npcFactory.Create<Blacksmith>(NpcTypes.Blacksmith, _hubController.GetSpawnPosition(NpcTypes.Blacksmith));
+            await _npcFactory.Create<Trader>(NpcTypes.Trader, _hubController.GetSpawnPosition(NpcTypes.Trader));
         }
     }
 }

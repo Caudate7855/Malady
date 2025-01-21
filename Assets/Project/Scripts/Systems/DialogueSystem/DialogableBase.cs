@@ -4,16 +4,19 @@ using Zenject;
 
 namespace Project.Scripts.DialogueSystem
 {
-    public class DialogableBase : InteractableZoneBase , IDialogable
+    public abstract class DialogableBase : InteractableZoneBase , IDialogable
     { 
         [Inject] public IPanelManager PanelManager;
         private DialogueWindowController _dialogueWindowController;
+        private DialogueSystem _dialogueSystem;
         
         public override void Interact()
         {
             CloseButton();
             ShowDialogue();
         }
+
+        protected abstract void InitializeDialogueSystem();
 
         public void ShowDialogue()
         {
