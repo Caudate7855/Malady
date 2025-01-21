@@ -1,9 +1,9 @@
 namespace Project.Scripts.Core
 {
-    public enum NpcTypes
+    public enum NpcTypes : byte
     {
-        Blacksmith,
-        Undertaker,
-        Trader
+        Undertaker = 0,
+        Blacksmith = 1,
+        Trader = 2
     }
 }

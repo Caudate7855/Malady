@@ -7,7 +7,7 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             Container
-                .Bind<DialogueFactory>()
+                .Bind<NpcFactory>()
                 .AsSingle();
         }
     }

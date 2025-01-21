@@ -1,6 +1,6 @@
 namespace Project.Scripts.Core
 {
-    public enum EnemyTypes
+    public enum EnemyTypes : byte
     {
         Default = 0,
         Melee = 1,

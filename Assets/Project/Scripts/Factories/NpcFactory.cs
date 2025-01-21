@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Project.Scripts.Core;
-using Project.Scripts.DialogueSystem;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class DialogueFactory
+    public class NpcFactory
     {
         private const string BLACKSMITH_ADDRESS = "Blacksmith";
 
@@ -21,12 +20,12 @@ namespace Project.Scripts
             { NpcTypes.Blacksmith, BLACKSMITH_ADDRESS },
         };
 
-        public DialogueFactory(IAssetLoader assetLoader)
+        public NpcFactory(IAssetLoader assetLoader)
         {
             _assetLoader = assetLoader;
         }
 
-        public async Task<T> Create<T>(NpcTypes npcType) where T : IDialogable
+        public async Task<T> Create<T>(NpcTypes npcType) where T : NpcBase
         {
             if (_npcAddresses.TryGetValue(npcType, out var enemyAddress))
             {
