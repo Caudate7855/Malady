@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Itibsoft.PanelManager;
 using JetBrains.Annotations;
 using Project.Scripts.Core;
 using UnityEngine;
+using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts
@@ -16,6 +18,8 @@ namespace Project.Scripts
         private const string TRADER_ADDRESS = "Trader";
 
         private readonly IAssetLoader _assetLoader;
+        private readonly IPanelManager _panelManger;
+        private DiContainer _diContainer;
 
         private readonly Dictionary<NpcTypes, string> _npcAddresses = new()
         {
@@ -24,9 +28,11 @@ namespace Project.Scripts
             { NpcTypes.Trader, TRADER_ADDRESS },
         };
 
-        public NpcFactory(IAssetLoader assetLoader)
+        public NpcFactory(IAssetLoader assetLoader, IPanelManager panelManager, DiContainer diContainer)
         {
             _assetLoader = assetLoader;
+            _panelManger = panelManager;
+            _diContainer = diContainer;
         }
 
         public async Task<T> Create<T>(NpcTypes npcType) where T : NpcBase
@@ -36,7 +42,8 @@ namespace Project.Scripts
                 var prefab = await _assetLoader.Load<NpcBase>(enemyAddress);
                 var gameObject = Object.Instantiate(prefab, prefab.transform.position, Quaternion.identity);
                 var component = gameObject.GetComponent<T>();
-
+                _diContainer.Inject(component);
+                
                 return component;
             }
 
@@ -50,7 +57,8 @@ namespace Project.Scripts
                 var prefab = await _assetLoader.Load<NpcBase>(enemyAddress);
                 var gameObject = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
                 var component = gameObject.GetComponent<T>();
-
+                _diContainer.Inject(component);
+                
                 return component;
             }
 

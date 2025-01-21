@@ -5,8 +5,9 @@ using Zenject;
 namespace Project.Scripts.DialogueSystem
 {
     public abstract class DialogableBase : InteractableZoneBase , IDialogable
-    { 
+    {
         [Inject] public IPanelManager PanelManager;
+        
         private DialogueWindowController _dialogueWindowController;
         private DialogueSystem _dialogueSystem;
         
@@ -15,8 +16,6 @@ namespace Project.Scripts.DialogueSystem
             CloseButton();
             ShowDialogue();
         }
-
-        protected abstract void InitializeDialogueSystem();
 
         public void ShowDialogue()
         {

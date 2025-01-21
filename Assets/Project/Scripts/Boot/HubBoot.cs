@@ -10,7 +10,6 @@ namespace Project.Scripts
         [Inject] private IPanelManager _panelManager;
         
         [Inject] private HubFactory _hubFactory;
-        [Inject] private Blacksmith _blacksmith;
         [Inject] private NpcFactory _npcFactory;
 
         private HubController _hubController;
