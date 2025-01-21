@@ -11,12 +11,15 @@ namespace Project.Scripts
         
         [Inject] private HubFactory _hubFactory;
         [Inject] private Blacksmith _blacksmith;
+        [Inject] private DialogueFactory _dialogueFactory;
         
         protected override async void Initialize()
         {
             await _hubFactory.Create<HubController>();
 
-            Instantiate(_blacksmith).PanelManager = _panelManager;
+            //Instantiate(_blacksmith).PanelManager = _panelManager;
+
+            await _dialogueFactory.Create<Blacksmith>(NpcTypes.Blacksmith);
         }
     }
 }

@@ -50,11 +50,9 @@ namespace Project.Scripts.Core.Abstracts
 
         public void HideInteractionButton()
         {
-            _interactionButton.interactable = false;
-            
             _interactionButton.gameObject.GetComponent<Image>()
                 .DOFade(0, FADE_DURATION)
-                .OnComplete(() => _interactionButton.gameObject.SetActive(false));
+                .OnComplete(CloseButton);
         }
 
         protected void CloseButton()
