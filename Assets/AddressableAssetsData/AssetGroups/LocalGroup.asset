@@ -73,6 +73,11 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a30f2a7a83bf9b24cbeae16b1433b580
+    m_Address: Undertaker
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ae8882800791e94ab93995184d4563b
     m_Address: Trader
     m_ReadOnly: 0
     m_SerializedLabels: []

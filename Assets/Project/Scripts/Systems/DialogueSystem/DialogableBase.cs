@@ -9,7 +9,7 @@ namespace Project.Scripts.DialogueSystem
         [Inject] public IPanelManager PanelManager;
         
         private DialogueWindowController _dialogueWindowController;
-        private DialogueSystem _dialogueSystem;
+        private DialogueSystem _dialogueSystem = new();
         
         public override void Interact()
         {
