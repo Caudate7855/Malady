@@ -9,9 +9,9 @@ namespace Project.Scripts
     [UsedImplicitly]
     public class DialogueSystemManager
     {
-        public int UndertakerCurrentText;
-        public int BlacksmithCurrentText;
-        public int TraderCurrentText;
+        public int UndertakerCurrentText = 1;
+        public int BlacksmithCurrentText = 1;
+        public int TraderCurrentText = 1;
         
         private const string UNDERTAKER_DIALOGUE_FILE_PATH = "Dialogues/EN_Undertaker_Dialogue";
         private const string BLACKSMITH_DIALOGUE_FILE_PATH = "Dialogues/EN_Blacksmith_Dialogue";
@@ -67,8 +67,30 @@ namespace Project.Scripts
                     break;
             }
 
-            string currentDialogue = currentDialogueList[dialogueCurrentTextId];
+            var currentDialogue = currentDialogueList[dialogueCurrentTextId];
+            return currentDialogue;
+        }
+
+        public string GetNpcName(NpcTypes npcType)
+        {
+            var currentDialogueList = new Dictionary<string, string>();
             
+            switch (npcType)
+            {
+                case NpcTypes.Undertaker:
+                    currentDialogueList = _undertakerDialogue;
+                    break;
+                
+                case NpcTypes.Blacksmith:
+                    currentDialogueList = _blacksmithDialogue;
+                    break;
+                
+                case NpcTypes.Trader:
+                    currentDialogueList = _traderDialogue;
+                    break;
+            }
+
+            var currentDialogue = currentDialogueList[0.ToString()];
             return currentDialogue;
         }
         
