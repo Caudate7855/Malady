@@ -1,32 +1,34 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
+using Newtonsoft.Json;
 using Project.Scripts.Core;
+using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.DialogueSystem
+namespace Project.Scripts
 {
-    public class DialogueSystem
+    [UsedImplicitly]
+    public class DialogueSystemManager
     {
         public string DialogueID { get; set; }
 
         public int UndertakerCurrentText;
         public int BlacksmithCurrentText;
         public int TraderCurrentText;
-
-        [Inject] private IAssetLoader _assetLoader;
-
-        private string DialoguePath = "EN_Dialogue";
+        
+        private string DialoguePath = "Dialogues/EN_Dialogue";
         private string DialogueFile;
 
-        public DialogueSystem()
+        private Dictionary<string, string> _undertakerDialogue = new();
+        private Dictionary<string, string> _blacksmithDialogue = new();
+        private Dictionary<string, string> _traderDialogue = new();
+        
+        public DialogueSystemManager()
         {
-            Initialize();
+            DialogueFile = GetJsonDialogueFile();
         }
 
-        private async void Initialize()
-        {
-            DialogueFile = await GetJsonDialogueFile();
-        }
-        
         public void UpgradeDialogueState(NpcTypes npcType)
         {
             switch (npcType)
@@ -63,10 +65,15 @@ namespace Project.Scripts.DialogueSystem
             }
         }
         
-        private async UniTask<string> GetJsonDialogueFile()
+        private string GetJsonDialogueFile()
         {
-            var dialogueFile = await _assetLoader.Load<string>(DialoguePath);
-            //DialogueFileJSON dialogueFileJson = 
+            var dialogueFile = Resources.LoadAll<TextAsset>(DialoguePath);
+             _undertakerDialogue = JsonConvert.DeserializeObject<Dictionary<string, string>>(dialogueFile[0].text);
+
+            foreach (var entry in _undertakerDialogue)
+            {
+                Debug.Log($"Key: {entry.Key}, Value: {entry.Value}");
+            }
 
             return "123";
         }

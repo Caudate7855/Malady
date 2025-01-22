@@ -1,4 +1,4 @@
-namespace Project.Scripts.DialogueSystem
+namespace Project.Scripts
 {
     public interface IDialogable
     {

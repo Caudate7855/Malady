@@ -2,14 +2,15 @@ using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
 using Zenject;
 
-namespace Project.Scripts.DialogueSystem
+namespace Project.Scripts
 {
     public abstract class DialogableBase : InteractableZoneBase , IDialogable
     {
-        [Inject] public IPanelManager PanelManager;
+        [Inject] private IPanelManager PanelManager;
+        [Inject] private DialogueSystemManager _dialogueSystem;
         
         private DialogueWindowController _dialogueWindowController;
-        private DialogueSystem _dialogueSystem = new();
+
         
         public override void Interact()
         {

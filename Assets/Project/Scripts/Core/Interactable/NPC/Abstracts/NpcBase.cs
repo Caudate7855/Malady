@@ -1,5 +1,4 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.DialogueSystem;
 
 namespace Project.Scripts.Core
 {

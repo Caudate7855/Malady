@@ -1,6 +1,6 @@
 using System;
 
-namespace Project.Scripts.DialogueSystem
+namespace Project.Scripts
 {
     [Serializable]
     public class DialogueFileJSON
