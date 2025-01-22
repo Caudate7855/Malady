@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecb54c1cde6c45859b2f7d4d3c4c82f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactionButton: {fileID: 7821681636634029224}
+  NpcType: 1
 --- !u!135 &4082929171366283420
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -310,14 +310,3 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4289594140755415805, guid: 3b55f751365796d498763d8a30343983, type: 3}
   m_PrefabInstance: {fileID: 8529534406426919352}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7821681636634029224 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1932831868479663376, guid: 3b55f751365796d498763d8a30343983, type: 3}
-  m_PrefabInstance: {fileID: 8529534406426919352}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -1,16 +1,18 @@
+using System;
 using Itibsoft.PanelManager;
+using Project.Scripts.Core;
 using Project.Scripts.Core.Abstracts;
+using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts
 {
     public abstract class DialogableBase : InteractableZoneBase , IDialogable
     {
-        [Inject] private IPanelManager PanelManager;
-        [Inject] private DialogueSystemManager _dialogueSystem;
+        public NpcTypes NpcType;
         
+        [Inject] private IPanelManager PanelManager;
         private DialogueWindowController _dialogueWindowController;
-
         
         public override void Interact()
         {
@@ -21,7 +23,10 @@ namespace Project.Scripts
         public void ShowDialogue()
         {
             _dialogueWindowController = PanelManager.LoadPanel<DialogueWindowController>();
+            _dialogueWindowController.CurrentNpcType = NpcType;
+            
             _dialogueWindowController.Open();
+            _dialogueWindowController.ShowDialogueText();
         }
     }
 }

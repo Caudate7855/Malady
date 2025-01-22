@@ -1,32 +1,29 @@
 using System.Collections.Generic;
-using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Project.Scripts.Core;
 using UnityEngine;
-using Zenject;
 
 namespace Project.Scripts
 {
     [UsedImplicitly]
     public class DialogueSystemManager
     {
-        public string DialogueID { get; set; }
-
         public int UndertakerCurrentText;
         public int BlacksmithCurrentText;
         public int TraderCurrentText;
         
-        private string DialoguePath = "Dialogues/EN_Dialogue";
-        private string DialogueFile;
+        private const string UNDERTAKER_DIALOGUE_FILE_PATH = "Dialogues/EN_Undertaker_Dialogue";
+        private const string BLACKSMITH_DIALOGUE_FILE_PATH = "Dialogues/EN_Blacksmith_Dialogue";
+        private const string TRADER_DIALOGUE_FILE_PATH = "Dialogues/EN_Trader_Dialogue";
 
         private Dictionary<string, string> _undertakerDialogue = new();
         private Dictionary<string, string> _blacksmithDialogue = new();
         private Dictionary<string, string> _traderDialogue = new();
         
         public DialogueSystemManager()
-        {
-            DialogueFile = GetJsonDialogueFile();
+        { 
+            InitializeDialoguesFromFiles();
         }
 
         public void UpgradeDialogueState(NpcTypes npcType)
@@ -46,36 +43,45 @@ namespace Project.Scripts
                     break;
             }
         }
-        
-        private void SearchDialogueText(NpcTypes npcType)
+
+        public string GetCurrentDialogue(NpcTypes npcType)
         {
+            var currentDialogueList = new Dictionary<string, string>();
+            string dialogueCurrentTextId = "";
+
             switch (npcType)
             {
                 case NpcTypes.Undertaker:
-                    
+                    currentDialogueList = _undertakerDialogue;
+                    dialogueCurrentTextId = UndertakerCurrentText.ToString();
                     break;
                 
                 case NpcTypes.Blacksmith:
-
+                    currentDialogueList = _blacksmithDialogue;
+                    dialogueCurrentTextId = BlacksmithCurrentText.ToString();
                     break;
                 
                 case NpcTypes.Trader:
-
+                    currentDialogueList = _traderDialogue;
+                    dialogueCurrentTextId = TraderCurrentText.ToString();
                     break;
             }
+
+            string currentDialogue = currentDialogueList[dialogueCurrentTextId];
+            
+            return currentDialogue;
         }
         
-        private string GetJsonDialogueFile()
+        private void InitializeDialoguesFromFiles()
         {
-            var dialogueFile = Resources.LoadAll<TextAsset>(DialoguePath);
-             _undertakerDialogue = JsonConvert.DeserializeObject<Dictionary<string, string>>(dialogueFile[0].text);
-
-            foreach (var entry in _undertakerDialogue)
-            {
-                Debug.Log($"Key: {entry.Key}, Value: {entry.Value}");
-            }
-
-            return "123";
+            var undertakerDialogueFile = Resources.Load<TextAsset>(UNDERTAKER_DIALOGUE_FILE_PATH);
+             _undertakerDialogue = JsonConvert.DeserializeObject<Dictionary<string, string>>(undertakerDialogueFile.text);
+             
+             var blacksmithDialogueFile = Resources.Load<TextAsset>(BLACKSMITH_DIALOGUE_FILE_PATH);
+             _blacksmithDialogue = JsonConvert.DeserializeObject<Dictionary<string, string>>(blacksmithDialogueFile.text);
+             
+             var traderDialogueFile = Resources.Load<TextAsset>(TRADER_DIALOGUE_FILE_PATH);
+             _traderDialogue = JsonConvert.DeserializeObject<Dictionary<string, string>>(traderDialogueFile.text);
         }
     }
 }
