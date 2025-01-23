@@ -1,6 +1,7 @@
 using Itibsoft.PanelManager;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Project.Scripts
 {
@@ -11,6 +12,7 @@ namespace Project.Scripts
         public TMP_Text NpcName => _npcName;
         public Vector2 StartPosition => _startPosition;
         public Vector2 EndPosition => _endPosition;
+        public Button DialogueChangeButton => _dialogueChangeButton;
         
         
         [SerializeField] private TMP_Text _text;
@@ -19,5 +21,6 @@ namespace Project.Scripts
 
         [SerializeField] private Vector2 _startPosition;
         [SerializeField] private Vector2 _endPosition;
+        [SerializeField] private Button _dialogueChangeButton;
     }
 }

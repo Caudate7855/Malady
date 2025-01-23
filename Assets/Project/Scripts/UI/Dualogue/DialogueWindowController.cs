@@ -1,9 +1,9 @@
-using System.Collections.Generic;
 using DG.Tweening;
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Project.Scripts
@@ -13,6 +13,8 @@ namespace Project.Scripts
     {
         private const float MOVE_DURATION = 0.8f;
         private const float FADE_DURATION = 0.8f;
+        
+        private const string END_DIALOGUE_KEY = "EndDialogue";
         
         public NpcTypes CurrentNpcType;
         
@@ -25,6 +27,8 @@ namespace Project.Scripts
         private RectTransform _rectTransform;
         private Vector2 _startPosition;
         private Vector2 _endPosition;
+
+        private Button _dialogueChangeButton;
         
         protected override void Initialize()
         {
@@ -33,12 +37,21 @@ namespace Project.Scripts
             _startPosition = Panel.StartPosition;
             _endPosition = Panel.EndPosition;
             _npcName = Panel.NpcName;
+            _dialogueChangeButton = Panel.DialogueChangeButton;
+
+            _dialogueChangeButton.onClick.AddListener(IncreaseDialogueStep);
 
             _rectTransform = _textWindow.GetComponent<RectTransform>();
         }
 
         public void ShowDialogueText()
         {
+            if (_dialogueSystemManager.GetCurrentDialogue(CurrentNpcType) == _dialogueSystemManager.EndDialogueKey)
+            {
+                HideDialogueWindow();
+                return;
+            }
+            
             _text.text = _dialogueSystemManager.GetCurrentDialogue(CurrentNpcType);
             _npcName.text = _dialogueSystemManager.GetNpcName(CurrentNpcType);
 
@@ -57,6 +70,17 @@ namespace Project.Scripts
         public void ShowSpeakerImage()
         {
             
+        }
+
+        private void HideDialogueWindow()
+        {
+            Close();
+        }
+
+        private void IncreaseDialogueStep()
+        {
+            _dialogueSystemManager.UpgradeDialogueState(CurrentNpcType);
+            ShowDialogueText();
         }
     }
 }

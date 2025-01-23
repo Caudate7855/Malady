@@ -9,18 +9,24 @@ namespace Project.Scripts
     [UsedImplicitly]
     public class DialogueSystemManager
     {
-        public int UndertakerCurrentText = 1;
-        public int BlacksmithCurrentText = 1;
-        public int TraderCurrentText = 1;
+        public readonly string EndDialogueKey = "EndDialogue";
         
         private const string UNDERTAKER_DIALOGUE_FILE_PATH = "Dialogues/EN_Undertaker_Dialogue";
         private const string BLACKSMITH_DIALOGUE_FILE_PATH = "Dialogues/EN_Blacksmith_Dialogue";
         private const string TRADER_DIALOGUE_FILE_PATH = "Dialogues/EN_Trader_Dialogue";
+        
+        private int _undertakerCurrentText = 1;
+        private int _blacksmithCurrentText = 1;
+        private int _traderCurrentText = 1;
+
+        private Dictionary<NpcTypes, int> _npcDialogueText;
+        private Dictionary<NpcTypes, Dictionary<string,string>> _npcCurrentDialogueList;
 
         private Dictionary<string, string> _undertakerDialogue = new();
         private Dictionary<string, string> _blacksmithDialogue = new();
         private Dictionary<string, string> _traderDialogue = new();
         
+
         public DialogueSystemManager()
         { 
             InitializeDialoguesFromFiles();
@@ -28,47 +34,29 @@ namespace Project.Scripts
 
         public void UpgradeDialogueState(NpcTypes npcType)
         {
-            switch (npcType)
-            {
-                case NpcTypes.Undertaker:
-                    UndertakerCurrentText++;
-                    break;
-                
-                case NpcTypes.Blacksmith:
-                    BlacksmithCurrentText++;
-                    break;
-                
-                case NpcTypes.Trader:
-                    TraderCurrentText++;
-                    break;
-            }
+            _npcDialogueText[npcType]++;
         }
 
         public string GetCurrentDialogue(NpcTypes npcType)
         {
-            var currentDialogueList = new Dictionary<string, string>();
-            string dialogueCurrentTextId = "";
+            var dialogueCurrentTextId = 0;
 
-            switch (npcType)
+            var currentDialogueList = _npcCurrentDialogueList[npcType];
+            dialogueCurrentTextId =  _npcDialogueText[npcType];
+            
+            if (currentDialogueList.Count <= dialogueCurrentTextId)
             {
-                case NpcTypes.Undertaker:
-                    currentDialogueList = _undertakerDialogue;
-                    dialogueCurrentTextId = UndertakerCurrentText.ToString();
-                    break;
-                
-                case NpcTypes.Blacksmith:
-                    currentDialogueList = _blacksmithDialogue;
-                    dialogueCurrentTextId = BlacksmithCurrentText.ToString();
-                    break;
-                
-                case NpcTypes.Trader:
-                    currentDialogueList = _traderDialogue;
-                    dialogueCurrentTextId = TraderCurrentText.ToString();
-                    break;
+                RestartDialogue(npcType);
+                return EndDialogueKey;
             }
-
-            var currentDialogue = currentDialogueList[dialogueCurrentTextId];
+            
+            var currentDialogue = currentDialogueList[dialogueCurrentTextId.ToString()];
             return currentDialogue;
+        }
+
+        public void RestartDialogue(NpcTypes npcType)
+        {
+            _npcDialogueText[npcType] = 1;
         }
 
         public string GetNpcName(NpcTypes npcType)
@@ -104,6 +92,25 @@ namespace Project.Scripts
              
              var traderDialogueFile = Resources.Load<TextAsset>(TRADER_DIALOGUE_FILE_PATH);
              _traderDialogue = JsonConvert.DeserializeObject<Dictionary<string, string>>(traderDialogueFile.text);
+
+             InitializeDialogues();
+        }
+
+        private void InitializeDialogues()
+        {
+            _npcDialogueText = new()
+            {
+                {NpcTypes.Undertaker, _undertakerCurrentText},
+                {NpcTypes.Blacksmith, _blacksmithCurrentText},
+                {NpcTypes.Trader, _traderCurrentText}
+            };
+
+            _npcCurrentDialogueList = new()
+            {
+                {NpcTypes.Undertaker, _undertakerDialogue},
+                {NpcTypes.Blacksmith, _blacksmithDialogue},
+                {NpcTypes.Trader, _traderDialogue}
+            };
         }
     }
 }
