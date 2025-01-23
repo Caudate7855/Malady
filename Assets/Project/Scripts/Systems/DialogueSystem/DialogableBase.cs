@@ -26,7 +26,7 @@ namespace Project.Scripts
             _dialogueWindowController.CurrentNpcType = NpcType;
             
             _dialogueWindowController.Open();
-            _dialogueWindowController.ShowDialogueText();
+            _dialogueWindowController.ShowDialogueWindow();
         }
     }
 }

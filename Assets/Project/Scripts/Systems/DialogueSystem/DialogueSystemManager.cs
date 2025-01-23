@@ -3,6 +3,7 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Project.Scripts.Core;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts
 {
@@ -14,6 +15,12 @@ namespace Project.Scripts
         private const string UNDERTAKER_DIALOGUE_FILE_PATH = "Dialogues/EN_Undertaker_Dialogue";
         private const string BLACKSMITH_DIALOGUE_FILE_PATH = "Dialogues/EN_Blacksmith_Dialogue";
         private const string TRADER_DIALOGUE_FILE_PATH = "Dialogues/EN_Trader_Dialogue";
+
+        private const string UNDERTAKER_SPRITE_FILE_PATH = "Dialogues/Sprites/UndertakerDialogueSprite";
+        private const string BLACKSMITH_SPRITE_FILE_PATH = "Dialogues/Sprites/BlacksmithDialogueSprite";
+        private const string TRADER_SPRITE_FILE_PATH = "Dialogues/Sprites/TraderDialogueSprite";
+
+        [Inject] private IAssetLoader _assetLoader;
         
         private int _undertakerCurrentText = 1;
         private int _blacksmithCurrentText = 1;
@@ -21,20 +28,23 @@ namespace Project.Scripts
 
         private Dictionary<NpcTypes, int> _npcDialogueText;
         private Dictionary<NpcTypes, Dictionary<string,string>> _npcCurrentDialogueList;
+        private Dictionary<NpcTypes, string> _npcSprites;
 
         private Dictionary<string, string> _undertakerDialogue = new();
         private Dictionary<string, string> _blacksmithDialogue = new();
         private Dictionary<string, string> _traderDialogue = new();
-        
+
 
         public DialogueSystemManager()
         { 
             InitializeDialoguesFromFiles();
         }
 
-        public void UpgradeDialogueState(NpcTypes npcType)
+        public string GetNpcName(NpcTypes npcType)
         {
-            _npcDialogueText[npcType]++;
+            var currentDialogueList = _npcCurrentDialogueList[npcType];
+            var currentDialogue = currentDialogueList[0.ToString()];
+            return currentDialogue;
         }
 
         public string GetCurrentDialogue(NpcTypes npcType)
@@ -54,34 +64,22 @@ namespace Project.Scripts
             return currentDialogue;
         }
 
-        public void RestartDialogue(NpcTypes npcType)
+        public Sprite GetCurrentSpeakerSprite(NpcTypes npcType)
+        {
+            var spritePath = _npcSprites[npcType];
+            return Resources.Load<Sprite>(spritePath);
+        }
+
+        public void UpgradeDialogueState(NpcTypes npcType)
+        {
+            _npcDialogueText[npcType]++;
+        }
+
+        private void RestartDialogue(NpcTypes npcType)
         {
             _npcDialogueText[npcType] = 1;
         }
 
-        public string GetNpcName(NpcTypes npcType)
-        {
-            var currentDialogueList = new Dictionary<string, string>();
-            
-            switch (npcType)
-            {
-                case NpcTypes.Undertaker:
-                    currentDialogueList = _undertakerDialogue;
-                    break;
-                
-                case NpcTypes.Blacksmith:
-                    currentDialogueList = _blacksmithDialogue;
-                    break;
-                
-                case NpcTypes.Trader:
-                    currentDialogueList = _traderDialogue;
-                    break;
-            }
-
-            var currentDialogue = currentDialogueList[0.ToString()];
-            return currentDialogue;
-        }
-        
         private void InitializeDialoguesFromFiles()
         {
             var undertakerDialogueFile = Resources.Load<TextAsset>(UNDERTAKER_DIALOGUE_FILE_PATH);
@@ -110,6 +108,13 @@ namespace Project.Scripts
                 {NpcTypes.Undertaker, _undertakerDialogue},
                 {NpcTypes.Blacksmith, _blacksmithDialogue},
                 {NpcTypes.Trader, _traderDialogue}
+            };
+
+            _npcSprites = new()
+            {
+                { NpcTypes.Undertaker, UNDERTAKER_SPRITE_FILE_PATH },
+                { NpcTypes.Blacksmith, BLACKSMITH_SPRITE_FILE_PATH },
+                { NpcTypes.Trader, TRADER_SPRITE_FILE_PATH }
             };
         }
     }

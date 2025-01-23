@@ -14,37 +14,53 @@ namespace Project.Scripts
         private const float MOVE_DURATION = 0.8f;
         private const float FADE_DURATION = 0.8f;
         
-        private const string END_DIALOGUE_KEY = "EndDialogue";
-        
         public NpcTypes CurrentNpcType;
         
         [Inject] private DialogueSystemManager _dialogueSystemManager;
 
         private TMP_Text _text;
         private TMP_Text _npcName;
+        private Image _speakerImage;
+        
         private GameObject _textWindow;
+        private GameObject _imageWindow;
 
-        private RectTransform _rectTransform;
-        private Vector2 _startPosition;
-        private Vector2 _endPosition;
+        private RectTransform _textRectTransform;
+        private RectTransform _imageRectTransform;
+        
+        private Vector2 _startTextPosition;
+        private Vector2 _endTextPosition;
+        
+        private Vector2 _startImagePosition;
+        private Vector2 _endImagePosition;
 
         private Button _dialogueChangeButton;
+        
+        private bool _isImageShowing;
         
         protected override void Initialize()
         {
             _text = Panel.Text;
-            _textWindow = Panel.TextWindow;
-            _startPosition = Panel.StartPosition;
-            _endPosition = Panel.EndPosition;
             _npcName = Panel.NpcName;
+            _speakerImage = Panel.SpeakerImage;
+
+            _startTextPosition = Panel.StartTextPosition;
+            _endTextPosition = Panel.EndTextPosition;
+            _startImagePosition = Panel.StartImagePosition;
+            _endImagePosition = Panel.EndImagePosition;
+            
             _dialogueChangeButton = Panel.DialogueChangeButton;
+            
+            _textWindow = Panel.TextWindow;
+            _imageWindow = Panel.ImageWindow;
 
             _dialogueChangeButton.onClick.AddListener(IncreaseDialogueStep);
 
-            _rectTransform = _textWindow.GetComponent<RectTransform>();
+            _textRectTransform = _textWindow.GetComponent<RectTransform>();
+            _imageRectTransform = _imageWindow.GetComponent<RectTransform>();
         }
 
-        public void ShowDialogueText()
+        public void ShowDialogueWindow()
         {
             if (_dialogueSystemManager.GetCurrentDialogue(CurrentNpcType) == _dialogueSystemManager.EndDialogueKey)
             {
@@ -52,35 +68,62 @@ namespace Project.Scripts
                 return;
             }
             
+            ShowDialogueText();
+            ShowSpeakerImage();
+        }
+
+        private void ShowDialogueText()
+        {
             _text.text = _dialogueSystemManager.GetCurrentDialogue(CurrentNpcType);
             _npcName.text = _dialogueSystemManager.GetNpcName(CurrentNpcType);
 
-            _rectTransform.anchoredPosition = _startPosition;
+            _textRectTransform.anchoredPosition = _startTextPosition;
              
              var color = _text.color;
              color.a = 0;
              _text.color = color;
              
-             Sequence sequence = DOTween.Sequence();
+             var sequence = DOTween.Sequence();
+             
              sequence.
-                 Join(_rectTransform.DOAnchorPos(_endPosition, MOVE_DURATION).SetEase(Ease.Linear))
+                 Join(_textRectTransform.DOAnchorPos(_endTextPosition, MOVE_DURATION).SetEase(Ease.Linear))
                  .Join(_text.DOFade(1f, FADE_DURATION));
         }
 
-        public void ShowSpeakerImage()
+        private void ShowSpeakerImage()
         {
+            if (_isImageShowing)
+            {
+                return;
+            }
+
+            _isImageShowing = true;
             
+            _speakerImage.sprite =  _dialogueSystemManager.GetCurrentSpeakerSprite(CurrentNpcType);
+            
+            _imageRectTransform.anchoredPosition = _startImagePosition;
+             
+            var color = _speakerImage.color;
+            color.a = 0;
+            _speakerImage.color = color;
+             
+            var sequence = DOTween.Sequence();
+            
+            sequence.
+                Join(_imageRectTransform.DOAnchorPos(_endImagePosition, MOVE_DURATION).SetEase(Ease.Linear))
+                .Join(_speakerImage.DOFade(1f, FADE_DURATION));
         }
 
         private void HideDialogueWindow()
         {
+            _isImageShowing = false;
             Close();
         }
 
         private void IncreaseDialogueStep()
         {
             _dialogueSystemManager.UpgradeDialogueState(CurrentNpcType);
-            ShowDialogueText();
+            ShowDialogueWindow();
         }
     }
 }
