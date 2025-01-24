@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Project.Scripts.Interfaces;
+using Project.Scripts.Services;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,15 +23,12 @@ namespace Project.Scripts
         
         public async Task<T> Create<T>() where T : Object, ICustomInitializable
         {
-            var prefab = await _assetLoader.Load<Object>(HUB_ADDRESS);
+            var prefab = await _assetLoader.LoadGameObjectAsync<Object>(HUB_ADDRESS);
             
             var gameObject = Object.Instantiate(prefab, _position, Quaternion.identity);
             var component = gameObject.GetComponent<T>();
             
             component.Initialize();
-
-            _assetLoader.CashedObject = null;
-            
             return component;
         }
     }

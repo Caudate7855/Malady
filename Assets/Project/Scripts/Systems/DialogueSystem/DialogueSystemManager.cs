@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Project.Scripts.Core;
+using Project.Scripts.Services;
 using UnityEngine;
 using Zenject;
 

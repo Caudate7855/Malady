@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
 using Project.Scripts.Core;
+using Project.Scripts.Services;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -39,7 +40,7 @@ namespace Project.Scripts
         {
             if (_npcAddresses.TryGetValue(npcType, out var enemyAddress))
             {
-                var prefab = await _assetLoader.Load<NpcBase>(enemyAddress);
+                var prefab = await _assetLoader.LoadGameObjectAsync<NpcBase>(enemyAddress);
                 var gameObject = Object.Instantiate(prefab, prefab.transform.position, Quaternion.identity);
                 var component = gameObject.GetComponent<T>();
                 _diContainer.Inject(component);
@@ -54,7 +55,7 @@ namespace Project.Scripts
         {
             if (_npcAddresses.TryGetValue(npcType, out var enemyAddress))
             {
-                var prefab = await _assetLoader.Load<NpcBase>(enemyAddress);
+                var prefab = await _assetLoader.LoadGameObjectAsync<NpcBase>(enemyAddress);
                 var gameObject = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
                 var component = gameObject.GetComponent<T>();
                 _diContainer.Inject(component);

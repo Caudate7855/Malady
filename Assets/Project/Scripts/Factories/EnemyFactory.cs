@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Project.Scripts.Core;
 using Project.Scripts.Interfaces;
+using Project.Scripts.Services;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -32,7 +33,7 @@ namespace Project.Scripts
         {
             if (_enemyAddresses.TryGetValue(enemyType, out var enemyAddress))
             {
-                var prefab = await _assetLoader.Load<EnemyBase>(enemyAddress);
+                var prefab = await _assetLoader.LoadGameObjectAsync<EnemyBase>(enemyAddress);
                 var gameObject = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
                 var component = gameObject.GetComponent<T>();
 

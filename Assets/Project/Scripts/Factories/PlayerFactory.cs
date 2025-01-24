@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Project.Scripts.Interfaces;
+using Project.Scripts.Services;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ namespace Project.Scripts
         
         public async Task<T> Create<T>(Vector3 spawnPosition) where T : Object, ICustomInitializable
         {
-            var prefab = await _assetLoader.Load<Object>(PLAYER_ADDRESS);
+            var prefab = await _assetLoader.LoadGameObjectAsync<Object>(PLAYER_ADDRESS);
             
             var gameObject = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
             var component = gameObject.GetComponent<T>();

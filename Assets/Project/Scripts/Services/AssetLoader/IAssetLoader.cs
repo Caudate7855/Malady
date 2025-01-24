@@ -1,12 +1,11 @@
-using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     public interface IAssetLoader
     {
-        public GameObject CashedObject { get; set; }
-        public Task<T> Load<T>(string path);
-        public void Unload();
+        public UniTask<T> LoadGameObjectAsync<T>(string path);
+        public UniTask<T> LoadNotGameObjectAsync<T>(string path);
     }
 }

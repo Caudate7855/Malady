@@ -1,32 +1,45 @@
-using System.Threading.Tasks;
+using System;
+using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     [UsedImplicitly]
     public class AssetLoader : IAssetLoader
     {
-        public GameObject CashedObject { get; set; }
-
-        public async Task<T> Load<T>(string path)
+        public async UniTask<T> LoadGameObjectAsync<T>(string path)
         {
             var handle = Addressables.LoadAssetAsync<GameObject>(path);
-            CashedObject = await handle.Task;
-            
-            var result = handle.Result.GetComponent<T>();
-            
-            return result;
+
+            var loadedObject = await handle;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                var component = loadedObject.GetComponent<T>();
+
+                if (component != null)
+                {
+                    return component;
+                }
+            }
+
+            throw new Exception($"Cannot load GameObject with path: {path}");
         }
 
-        public void Unload()
+        public async UniTask<T> LoadNotGameObjectAsync<T>(string path)
         {
-            if (CashedObject != null)
+            var handle = Addressables.LoadAssetAsync<T>(path);
+            var result = await handle;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
             {
-                Addressables.ReleaseInstance(CashedObject);
-                CashedObject = null;
+                return result;
             }
+
+            throw new Exception($"Failed to load TextAsset from path: {path}");
         }
     }
 }
