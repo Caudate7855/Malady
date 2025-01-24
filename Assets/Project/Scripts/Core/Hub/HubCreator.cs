@@ -1,9 +1,8 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Project.Scripts.Core.Dungeon
+namespace Project.Scripts.Core.Hub
 {
-    public class DungeonCreator : MonoBehaviour
+    public class HubCreator : MonoBehaviour
     {
         [SerializeField] private HubController _hubController;
 

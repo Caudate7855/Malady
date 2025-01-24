@@ -67,7 +67,7 @@ namespace Project.Scripts
                 HideDialogueWindow();
                 return;
             }
-            
+
             ShowDialogueText();
             ShowSpeakerImage();
         }
@@ -99,7 +99,7 @@ namespace Project.Scripts
 
             _isImageShowing = true;
             
-            _speakerImage.sprite =  _dialogueSystemManager.GetCurrentSpeakerSprite(CurrentNpcType);
+            _speakerImage.sprite = _dialogueSystemManager.GetCurrentSpeakerSprite(CurrentNpcType);
             
             _imageRectTransform.anchoredPosition = _startImagePosition;
              

@@ -1,6 +1,6 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
-using Project.Scripts.Core.Dungeon;
+using Project.Scripts.Core.Hub;
 using Zenject;
 
 namespace Project.Scripts
@@ -11,11 +11,14 @@ namespace Project.Scripts
         
         [Inject] private HubFactory _hubFactory;
         [Inject] private NpcFactory _npcFactory;
+        [Inject] private DialogueSystemManager _dialogueSystemManager;
 
         private HubController _hubController;
         
         protected override async void Initialize()
         {
+            _dialogueSystemManager.Initialize();
+            
             _hubController =  await _hubFactory.Create<HubController>();
 
             await _npcFactory.Create<Undertaker>(NpcTypes.Undertaker, _hubController.GetSpawnPosition(NpcTypes.Undertaker));

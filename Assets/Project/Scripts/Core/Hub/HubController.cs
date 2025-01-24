@@ -2,8 +2,9 @@ using System;
 using Project.Scripts.Interfaces;
 using Unity.AI.Navigation;
 using UnityEngine;
+using Zenject;
 
-namespace Project.Scripts.Core.Dungeon
+namespace Project.Scripts.Core.Hub
 {
     public class HubController : MonoBehaviour, ICustomInitializable
     {
