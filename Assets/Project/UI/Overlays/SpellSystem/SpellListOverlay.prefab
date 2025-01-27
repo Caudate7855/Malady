@@ -203,6 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936561766350915876}
   - component: {fileID: 3484444686125542305}
+  - component: {fileID: 1017263176872078265}
   m_Layer: 0
   m_Name: SpellListOverlay
   m_TagString: Untagged
@@ -242,6 +243,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd2033793070ef47a9acacf882fa5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1017263176872078265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3287490586914648882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8031402663f4a59b6c85b588f772d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bloodSpellsList: []
+  _soulsSpellsList: []
+  _bonesSpellsList: []
+  _fleshSpellsList: []
 --- !u!1 &4484092264199866759
 GameObject:
   m_ObjectHideFlags: 0

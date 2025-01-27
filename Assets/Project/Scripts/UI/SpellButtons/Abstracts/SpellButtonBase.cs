@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,26 @@ namespace Project.Scripts
         public void UpdateImage(Sprite newSprite)
         {
             _image.sprite = newSprite;
+        }
+
+        public void OnMouseEnter()
+        {
+            ShowSpellTip();
+        }
+
+        public void OnMouseExit()
+        {
+            HideSpellTip();
+        }
+
+        private void ShowSpellTip()
+        {
+                
+        }
+
+        private void HideSpellTip()
+        {
+            
         }
     }
 }
