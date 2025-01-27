@@ -82,6 +82,36 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e7883eb5580ada45a6b2dd19f181a70
+    m_Address: EN_Undertaker_Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f1082c7707ab8d4dbfb35679bcd1f09
+    m_Address: EN_Trader_Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5188ec88dce5ea48a537e69b12e7a54
+    m_Address: EN_Blacksmith_Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5038110f7712d084e974511766d41f53
+    m_Address: BlacksmithDialogueSprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 985bb5e9fd41ae74295ace00a81e9116
+    m_Address: TraderDialogueSprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d83840105d0d5e84da8cac15005dc39a
+    m_Address: UndertakerDialogueSprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 923281dfbaa17ca4bacd81c0531902be, type: 2}
   m_SchemaSet:

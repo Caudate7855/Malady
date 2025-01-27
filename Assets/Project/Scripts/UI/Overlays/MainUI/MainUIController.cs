@@ -40,12 +40,13 @@ namespace Project.Scripts.Overlays
 
             for (int i = 0, count = SummonSpellButtons.Count; i < count; i++)
             {
-                PayerSpellButtons[i].Image.sprite = _spellsSpriteContainerSO.GetPlayerImage($"PS_{i}");
+                PayerSpellButtons[i].UpdateImage(_spellsSpriteContainerSO.GetPlayerImage($"PS_{i}"));
             }
 
             for (int i = 0, count = SummonSpellButtons.Count; i < count; i++)
             {
-                SummonSpellButtons[i].Image.sprite = _spellsSpriteContainerSO.GetSummonImage($"SS_{i}");
+                SummonSpellButtons[i].UpdateImage(_spellsSpriteContainerSO.GetSummonImage($"SS_{i}"));
+                
             }
         }
 

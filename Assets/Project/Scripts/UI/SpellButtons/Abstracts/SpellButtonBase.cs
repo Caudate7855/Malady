@@ -8,31 +8,25 @@ namespace Project.Scripts
     public class SpellButtonBase : MonoBehaviour
     {
         public SpellType SpellType;
-        public SpellBaseType SpellBaseType;
         
-        public Button Button;
-        public Image Image;
+        private Button _button;
+        private Image _image;
 
         private void Awake()
         {
-            Button = GetComponent<Button>();
-            Image = GetComponent<Image>();
+            _button = GetComponent<Button>();
+            _image = GetComponent<Image>();
         }
 
         public void Interact()
         {
-            Button.Select();
-            Button.onClick.Invoke();
-        }
-        
-        private void UpdateImage()
-        {
-            
+            _button.Select();
+            _button.onClick.Invoke();
         }
 
-        private void UpdateSpell()
+        public void UpdateImage(Sprite newSprite)
         {
-            UpdateImage();
+            _image.sprite = newSprite;
         }
     }
 }
