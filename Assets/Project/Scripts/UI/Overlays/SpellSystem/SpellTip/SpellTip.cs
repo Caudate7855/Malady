@@ -7,8 +7,6 @@ namespace Project.Scripts.Overlays
 {
     public class SpellTip : MonoBehaviour
     {
-        [SerializeField] private GameObject _container;
-        
         [SerializeField] private TMP_Text _label;
         [SerializeField] private TMP_Text _description;
         
@@ -26,16 +24,17 @@ namespace Project.Scripts.Overlays
         {
             _rectTransform = GetComponent<RectTransform>();
             _canvas = FindObjectOfType<PanelDispatcher>(true).GetComponent<Canvas>();
+            Close();
         }
 
         public void Open()
         {
-            _container.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
         public void Close()
         {
-            _container.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
 
         private void Update()

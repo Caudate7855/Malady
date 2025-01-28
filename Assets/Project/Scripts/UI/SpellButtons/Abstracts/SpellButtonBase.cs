@@ -1,15 +1,19 @@
 using System;
+using Project.Scripts.Overlays;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Project.Scripts
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]
-    public class SpellButtonBase : MonoBehaviour
+    public class SpellButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public SpellType SpellType;
-        
+
+        private SpellTipHandler _spellTipHandler;
+        public SpellTip _spellTip;
         private Button _button;
         private Image _image;
 
@@ -25,29 +29,25 @@ namespace Project.Scripts
             _button.onClick.Invoke();
         }
 
+        public void SetSpellTipHandler(SpellTipHandler spellTipHandler)
+        {
+            _spellTipHandler = spellTipHandler;
+            _spellTip = _spellTipHandler.GetSpellTip();
+        }
+
         public void UpdateImage(Sprite newSprite)
         {
             _image.sprite = newSprite;
         }
 
-        public void OnMouseEnter()
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            ShowSpellTip();
+            _spellTip.gameObject.SetActive(true);
         }
 
-        public void OnMouseExit()
+        public void OnPointerExit(PointerEventData eventData)
         {
-            HideSpellTip();
-        }
-
-        private void ShowSpellTip()
-        {
-                
-        }
-
-        private void HideSpellTip()
-        {
-            
+            _spellTip.gameObject.SetActive(false);
         }
     }
 }

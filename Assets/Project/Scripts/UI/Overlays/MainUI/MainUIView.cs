@@ -13,14 +13,14 @@ namespace Project.Scripts.Overlays
         
         [SerializeField] private List<ElementalBarBase> _elementalSliders;
 
-        [SerializeField] private List<SummonSpellButton> _summonSpellsButtons;
-        [SerializeField] private List<PlayerSpellButton> _playerSpellsButtons;
+        [SerializeField] private List<SpellButtonBase> _summonSpellsButtons;
+        [SerializeField] private List<SpellButtonBase> _playerSpellsButtons;
         
         public HpBar HpSlider =>_hpSlider;
         public EssenceBar EssenceSlider =>_essenceSlider;
         public BossBar BossBar => _bossBar;
         public List<ElementalBarBase> ElementalBars => _elementalSliders;
-        public List<SummonSpellButton> SummonSpellsButtons => _summonSpellsButtons;
-        public List<PlayerSpellButton> PlayerSpellButton => _playerSpellsButtons;
+        public List<SpellButtonBase> SummonSpellsButtons => _summonSpellsButtons;
+        public List<SpellButtonBase> PlayerSpellButton => _playerSpellsButtons;
     }
 }
