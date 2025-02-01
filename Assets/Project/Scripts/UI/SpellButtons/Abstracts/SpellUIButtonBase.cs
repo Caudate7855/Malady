@@ -1,3 +1,4 @@
+using System;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -9,19 +10,23 @@ namespace Project.Scripts
     [RequireComponent(typeof(Button))]
     public class SpellUIButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        private SpellSo _spell;
-        private SpellTip _spellTip;
+        [SerializeField] private Sprite _defaultSprite;
         
         private Image _image;
         private Button _button;
         
+        private SpellSo _spell;
+        private SpellTip _spellTip;
         private SpellTipHandler _spellTipHandler;
+        
         private bool _isSetted;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
             _image = GetComponent<Image>();
+            
+            ClearSpell();
         }
 
         public void Interact()
@@ -41,6 +46,7 @@ namespace Project.Scripts
         public void ClearSpell()
         {
             _isSetted = false;
+            _image.sprite = _defaultSprite;
         }
 
         public void SetSpellTipHandler(SpellTipHandler spellTipHandler)
