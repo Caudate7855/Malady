@@ -1,3 +1,4 @@
+using System;
 using Itibsoft.PanelManager;
 using TMPro;
 using UnityEngine;
@@ -19,6 +20,7 @@ namespace Project.Scripts
         public Vector2 EndImagePosition => _endImagePosition;
         
         public Button DialogueChangeButton => _dialogueChangeButton;
+        public Button CloseButton => _closeButton;
         
         
         [SerializeField] private TMP_Text _text;
@@ -34,5 +36,6 @@ namespace Project.Scripts
         [SerializeField] private Vector2 _endImagePosition;
 
         [SerializeField] private Button _dialogueChangeButton;
+        [SerializeField] private Button _closeButton;
     }
 }

@@ -35,6 +35,7 @@ namespace Project.Scripts
         private Vector2 _endImagePosition;
 
         private Button _dialogueChangeButton;
+        private Button _closeButton;
         
         private bool _isImageShowing;
         
@@ -50,11 +51,13 @@ namespace Project.Scripts
             _endImagePosition = Panel.EndImagePosition;
             
             _dialogueChangeButton = Panel.DialogueChangeButton;
+            _closeButton = Panel.CloseButton;
             
             _textWindow = Panel.TextWindow;
             _imageWindow = Panel.ImageWindow;
 
             _dialogueChangeButton.onClick.AddListener(IncreaseDialogueStep);
+            _closeButton.onClick.AddListener(Close);
 
             _textRectTransform = _textWindow.GetComponent<RectTransform>();
             _imageRectTransform = _imageWindow.GetComponent<RectTransform>();

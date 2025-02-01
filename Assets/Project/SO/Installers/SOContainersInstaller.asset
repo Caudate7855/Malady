@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680c49923884981b29a8b9b7ee8cc61, type: 3}
   m_Name: SOContainersInstaller
   m_EditorClassIdentifier: 
-  _spellSpriteContainerSO: {fileID: 11400000, guid: 4527026acb8220244871e0dad1f8c58b, type: 2}
+  _spellsContainerSo: {fileID: 11400000, guid: e23f9c790218c5f49b2bcd47b9c127d9, type: 2}

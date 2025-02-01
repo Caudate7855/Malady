@@ -1,6 +1,5 @@
 using JetBrains.Annotations;
 using Project.Scripts.Core;
-using Project.Scripts.Markers;
 using UnityEngine;
 using Zenject;
 

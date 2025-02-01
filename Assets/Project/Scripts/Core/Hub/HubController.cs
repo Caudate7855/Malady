@@ -1,6 +1,5 @@
 using System;
 using Project.Scripts.Interfaces;
-using Project.Scripts.Markers;
 using Unity.AI.Navigation;
 using UnityEngine;
 using Zenject;
