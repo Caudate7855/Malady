@@ -6,10 +6,10 @@ namespace Project.Scripts.Overlays
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "SpellListOverlay")]
     public class SpellListOverlayController : PanelControllerBase<SpellListOverlay>
     {
-        private List<SpellButtonBase> _bloodSpellsList;
-        private List<SpellButtonBase> _soulsSpellsList;
-        private List<SpellButtonBase> _bonesSpellsList;
-        private List<SpellButtonBase> _fleshSpellsList;
+        private List<SpellUIButtonBase> _bloodSpellsList;
+        private List<SpellUIButtonBase> _soulsSpellsList;
+        private List<SpellUIButtonBase> _bonesSpellsList;
+        private List<SpellUIButtonBase> _fleshSpellsList;
         
         protected override void Initialize()
         {

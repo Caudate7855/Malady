@@ -7,14 +7,14 @@ namespace Project.Scripts.Overlays
 {
     public class SpellListOverlay : PanelBase
     {
-        public List<SpellButtonBase> BloodSpellsList => _bloodSpellsList;
-        public List<SpellButtonBase> SoulsSpellsList => _soulsSpellsList;
-        public List<SpellButtonBase> BonesSpellsList => _bonesSpellsList;
-        public List<SpellButtonBase> FleshSpellsList => _fleshSpellsList;
+        public List<SpellUIButtonBase> BloodSpellsList => _bloodSpellsList;
+        public List<SpellUIButtonBase> SoulsSpellsList => _soulsSpellsList;
+        public List<SpellUIButtonBase> BonesSpellsList => _bonesSpellsList;
+        public List<SpellUIButtonBase> FleshSpellsList => _fleshSpellsList;
         
-        [SerializeField] private List<SpellButtonBase> _bloodSpellsList;
-        [SerializeField] private List<SpellButtonBase> _soulsSpellsList;
-        [SerializeField] private List<SpellButtonBase> _bonesSpellsList;
-        [SerializeField] private List<SpellButtonBase> _fleshSpellsList;
+        [SerializeField] private List<SpellUIButtonBase> _bloodSpellsList;
+        [SerializeField] private List<SpellUIButtonBase> _soulsSpellsList;
+        [SerializeField] private List<SpellUIButtonBase> _bonesSpellsList;
+        [SerializeField] private List<SpellUIButtonBase> _fleshSpellsList;
     }
 }

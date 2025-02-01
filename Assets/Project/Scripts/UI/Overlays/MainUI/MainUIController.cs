@@ -7,8 +7,8 @@ namespace Project.Scripts.Overlays
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainUIView")]
     public class MainUIController : PanelControllerBase<MainUIView>
     {
-        private List<SpellButtonBase> _summonSpellButtons;
-        private List<SpellButtonBase> _payerSpellButtons;
+        private List<SpellUIButtonBase> _summonSpellButtons;
+        private List<SpellUIButtonBase> _payerSpellButtons;
         
         [Inject] private SpellTipHandler _spellTipHandler;
         [Inject] private SpellsContainerSo _spellsContainerSo;
@@ -17,14 +17,15 @@ namespace Project.Scripts.Overlays
         {
             _payerSpellButtons = Panel.PlayerSpellButton;
             _summonSpellButtons = Panel.SummonSpellsButtons;
-            
-            SetSpellsSprites();
+
+            SetSpellSprite(0);
+                
             SetSpellTip(_summonSpellButtons);
             SetSpellTip(_payerSpellButtons);
         }
 
 
-        private void SetSpellTip(List<SpellButtonBase> list)
+        private void SetSpellTip(List<SpellUIButtonBase> list)
         {
             foreach (var spell in list)
             {
@@ -32,9 +33,9 @@ namespace Project.Scripts.Overlays
             }
         }
 
-        private void SetSpellsSprites()
+        private void SetSpellSprite(int spellIndex)
         {
-            _payerSpellButtons[0].SetSpellInfo(_spellsContainerSo.GetSpell($"ps_1"));
+            _payerSpellButtons[spellIndex].SetSpellInfo(_spellsContainerSo.GetSpell($"ps_1"));
         }
 
         public void OnPlayerSpellButtonClicked(int index)
