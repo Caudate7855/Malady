@@ -9,6 +9,7 @@ namespace Project.Scripts.Overlays
     {
         [SerializeField] private TMP_Text _label;
         [SerializeField] private TMP_Text _description;
+        [SerializeField] private TMP_Text _spellType;
         [SerializeField] private Image _image;
         [SerializeField] private Image _resourceTypeImage;
         [SerializeField] private Image _resourceTypeImage2;
@@ -39,6 +40,8 @@ namespace Project.Scripts.Overlays
         public void SetSpell(SpellSo spellSo)
         {
             _label.text = spellSo.Name;
+            _spellType.text = spellSo.Type.ToString();
+            
             _description.text = spellSo.Description;
             _image.sprite = spellSo.Icon;
 

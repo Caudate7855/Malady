@@ -1,4 +1,3 @@
-using System;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -67,6 +66,11 @@ namespace Project.Scripts
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (!_isSetted)
+            {
+                return;
+            }
+            
             _spellTip.Close();
         }
 

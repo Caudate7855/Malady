@@ -35,23 +35,8 @@ namespace Project.Scripts
             _panelManger = panelManager;
             _diContainer = diContainer;
         }
-
-        public async Task<T> Create<T>(NpcTypes npcType) where T : NpcBase
-        {
-            if (_npcAddresses.TryGetValue(npcType, out var enemyAddress))
-            {
-                var prefab = await _assetLoader.LoadGameObjectAsync<NpcBase>(enemyAddress);
-                var gameObject = Object.Instantiate(prefab, prefab.transform.position, Quaternion.identity);
-                var component = gameObject.GetComponent<T>();
-                _diContainer.Inject(component);
-                
-                return component;
-            }
-
-            throw new Exception("Cannot find requested NPC address.");
-        }
         
-        public async Task<T> Create<T>(NpcTypes npcType, Vector3 spawnPosition) where T : NpcBase
+        public async Task<T> CreateNpcAsync<T>(NpcTypes npcType, Vector3 spawnPosition) where T : NpcBase
         {
             if (_npcAddresses.TryGetValue(npcType, out var enemyAddress))
             {

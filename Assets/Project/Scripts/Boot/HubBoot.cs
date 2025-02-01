@@ -11,6 +11,7 @@ namespace Project.Scripts
         
         [Inject] private HubFactory _hubFactory;
         [Inject] private NpcFactory _npcFactory;
+        [Inject] private InteractableFactory _interactableFactory;
         [Inject] private DialogueSystemManager _dialogueSystemManager;
 
         private HubController _hubController;
@@ -21,9 +22,11 @@ namespace Project.Scripts
             
             _hubController =  await _hubFactory.Create<HubController>();
 
-            await _npcFactory.Create<Undertaker>(NpcTypes.Undertaker, _hubController.GetSpawnPosition(NpcTypes.Undertaker));
-            await _npcFactory.Create<Blacksmith>(NpcTypes.Blacksmith, _hubController.GetSpawnPosition(NpcTypes.Blacksmith));
-            await _npcFactory.Create<Trader>(NpcTypes.Trader, _hubController.GetSpawnPosition(NpcTypes.Trader));
+            _interactableFactory.CreateBook(_hubController.GetBookParentObject());
+            
+            await _npcFactory.CreateNpcAsync<Undertaker>(NpcTypes.Undertaker, _hubController.GetNpcSpawnPosition(NpcTypes.Undertaker));
+            await _npcFactory.CreateNpcAsync<Blacksmith>(NpcTypes.Blacksmith, _hubController.GetNpcSpawnPosition(NpcTypes.Blacksmith));
+            await _npcFactory.CreateNpcAsync<Trader>(NpcTypes.Trader, _hubController.GetNpcSpawnPosition(NpcTypes.Trader));
         }
     }
 }

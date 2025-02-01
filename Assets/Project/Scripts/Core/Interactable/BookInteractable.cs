@@ -1,13 +1,25 @@
+using System;
+using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
-using UnityEngine;
+using Project.Scripts.Overlays;
+using Zenject;
 
 namespace Project.Scripts.Core
 {
     public class BookInteractable : InteractableBase
     {
+        [Inject] private IPanelManager _panelManager;
+
+        private SpellListOverlayController _spellListOverlayController;
+
+        private void Start()
+        {
+            _spellListOverlayController = _panelManager.LoadPanel<SpellListOverlayController>();
+        }
+
         public override void Interact()
         {
-            Debug.Log("INTERACT");
+            _spellListOverlayController.Open();
         }
     }
 }

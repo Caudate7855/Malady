@@ -1,5 +1,6 @@
 using System;
 using Project.Scripts.Interfaces;
+using Project.Scripts.Markers;
 using Unity.AI.Navigation;
 using UnityEngine;
 using Zenject;
@@ -16,7 +17,12 @@ namespace Project.Scripts.Core.Hub
             _navMeshSurface.BuildNavMesh();
         }
 
-        public Vector3 GetSpawnPosition(NpcTypes npcType)
+        public GameObject GetBookParentObject()
+        {
+            return GetComponentInChildren<BookPositionMarker>().gameObject;
+        }
+        
+        public Vector3 GetNpcSpawnPosition(NpcTypes npcType)
         {
             var spawnPoints = GetComponentsInChildren<NpcSpawnPoint>();
 
