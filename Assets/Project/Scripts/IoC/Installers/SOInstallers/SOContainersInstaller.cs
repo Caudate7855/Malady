@@ -6,13 +6,13 @@ namespace Project.Scripts.IoC.Installers
     [CreateAssetMenu(fileName = "SOContainersInstaller", menuName = "Installers/SOContainersInstaller")]
     public class SOContainersInstaller : ScriptableObjectInstaller<SOContainersInstaller>
     {
-        [SerializeField] private SpellsSpriteContainerSO _spellSpriteContainerSO;
+        [SerializeField] private SpellsContainerSo _spellsContainerSo;
             
         public override void InstallBindings()
         {
             Container
-                .Bind<SpellsSpriteContainerSO>()
-                .FromInstance(_spellSpriteContainerSO)
+                .Bind<SpellsContainerSo>()
+                .FromInstance(_spellsContainerSo)
                 .AsSingle();
         }
     }

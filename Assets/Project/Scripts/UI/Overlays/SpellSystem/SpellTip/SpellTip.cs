@@ -9,9 +9,7 @@ namespace Project.Scripts.Overlays
     {
         [SerializeField] private TMP_Text _label;
         [SerializeField] private TMP_Text _description;
-        
         [SerializeField] private Image _image;
-
         [SerializeField] private Image _resourceTypeImage;
         [SerializeField] private Image _resourceTypeImage2;
         [SerializeField] private TMP_Text _resourcesCost;
@@ -35,6 +33,19 @@ namespace Project.Scripts.Overlays
         public void Close()
         {
             gameObject.SetActive(false);
+        }
+
+        public void SetSpell(SpellSo spellSo)
+        {
+            _label.text = spellSo.Name;
+            _description.text = spellSo.Description;
+            _image.sprite = spellSo.Icon;
+
+            _resourceTypeImage.sprite = spellSo.SpellCost[0].Resource.Sprite;
+            _resourcesCost.text = spellSo.SpellCost[0].Cost.ToString();
+            
+            _resourceTypeImage2.sprite = spellSo.SpellCost[1].Resource.Sprite;
+            _resourcesCost2.text = spellSo.SpellCost[1].Cost.ToString();
         }
 
         private void Update()

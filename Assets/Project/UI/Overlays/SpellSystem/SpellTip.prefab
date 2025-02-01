@@ -938,7 +938,7 @@ MonoBehaviour:
   _resourceTypeImage: {fileID: 4386514803152367811}
   _resourceTypeImage2: {fileID: 3852496301592531203}
   _resourcesCost: {fileID: 5702338933158696143}
-  _resourcesCost2: {fileID: 0}
+  _resourcesCost2: {fileID: 8774872996630326732}
 --- !u!225 &2860015452030295130
 CanvasGroup:
   m_ObjectHideFlags: 0

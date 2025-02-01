@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,12 +11,13 @@ namespace Project.Scripts
     [RequireComponent(typeof(Button))]
     public class SpellButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public SpellType SpellType;
-
-        private SpellTipHandler _spellTipHandler;
+        public SpellSo _spell;
         public SpellTip _spellTip;
-        private Button _button;
+        
         private Image _image;
+        private Button _button;
+        
+        private SpellTipHandler _spellTipHandler;
 
         private void Awake()
         {
@@ -29,29 +31,32 @@ namespace Project.Scripts
             _button.onClick.Invoke();
         }
 
+        public void SetSpellInfo(SpellSo spellSo)
+        {
+            _spell = spellSo;
+            _image.sprite = spellSo.Icon;
+        }
+
         public void SetSpellTipHandler(SpellTipHandler spellTipHandler)
         {
             _spellTipHandler = spellTipHandler;
             _spellTip = _spellTipHandler.GetSpellTip();
         }
 
-        public void UpdateImage(Sprite newSprite)
-        {
-            _image.sprite = newSprite;
-        }
-
         public void OnPointerEnter(PointerEventData eventData)
         {
-            Debug.Log("POINT ENTER");
-            
-            _spellTip.gameObject.SetActive(true);
+            ShowTip();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            Debug.Log("POINT EXIT");
-            
             _spellTip.gameObject.SetActive(false);
+        }
+
+        private void ShowTip()
+        {
+            _spellTip.SetSpell(_spell);
+            _spellTip.gameObject.SetActive(true);
         }
     }
 }
