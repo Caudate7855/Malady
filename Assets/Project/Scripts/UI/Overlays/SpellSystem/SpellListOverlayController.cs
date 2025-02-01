@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Project.Scripts.Overlays
@@ -15,6 +16,8 @@ namespace Project.Scripts.Overlays
         private List<SpellUIButtonBase> _bonesSpellsList;
         private List<SpellUIButtonBase> _fleshSpellsList;
 
+        private Button _closeButton;
+
         private bool _isTipSetted;
         
         protected override void Initialize()
@@ -23,6 +26,10 @@ namespace Project.Scripts.Overlays
             _soulsSpellsList = Panel.SoulsSpellsList;
             _bonesSpellsList = Panel.BonesSpellsList;
             _fleshSpellsList = Panel.FleshSpellsList;
+
+            _closeButton = Panel.CloseButton;
+            
+            _closeButton.onClick.AddListener(Close);
         }
 
         protected override void OnOpenBefore()
@@ -49,6 +56,8 @@ namespace Project.Scripts.Overlays
                     _bloodSpellsList[i].SetSpellTipHandler(_spellTipHandler);
                 }
             }
+
+            _isTipSetted = true;
 
             SetSpell(_bloodSpellsList, 0);
         }
