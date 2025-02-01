@@ -28,6 +28,7 @@ namespace Project.Scripts.Overlays
         public void Open()
         {
             gameObject.SetActive(true);
+            SetPositionToMouse();
         }
 
         public void Close()
@@ -49,6 +50,11 @@ namespace Project.Scripts.Overlays
         }
 
         private void Update()
+        {
+            SetPositionToMouse();
+        }
+
+        private void SetPositionToMouse()
         {
             Vector2 mousePosition = Input.mousePosition;
 

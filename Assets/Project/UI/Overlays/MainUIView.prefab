@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &124046035427002399
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -570,8 +568,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &1192012300642691910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1022,7 +1018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1095,8 +1091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &2186150888300461099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1230,8 +1224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &2261607017348429719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1469,7 +1461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1542,8 +1534,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &2946377966655728161
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,7 +2666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2749,8 +2739,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &5161316104674876330
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,7 +3077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3162,8 +3150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9925d008295a418082412865d4c65b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &6540651131588969189
 GameObject:
   m_ObjectHideFlags: 0
@@ -3299,7 +3285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3372,8 +3358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18716174d66b4c3ab9bd7efd894631c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spell: {fileID: 0}
-  _spellTip: {fileID: 0}
 --- !u!1 &7210773073661359334
 GameObject:
   m_ObjectHideFlags: 0

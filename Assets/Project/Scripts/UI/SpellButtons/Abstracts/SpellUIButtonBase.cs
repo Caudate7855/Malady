@@ -9,8 +9,8 @@ namespace Project.Scripts
     [RequireComponent(typeof(Button))]
     public class SpellUIButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
-        public SpellSo _spell;
-        public SpellTip _spellTip;
+        private SpellSo _spell;
+        private SpellTip _spellTip;
         
         private Image _image;
         private Button _button;
