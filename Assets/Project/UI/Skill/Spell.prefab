@@ -287,9 +287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellType: 0
-  SpellBaseType: 0
-  Button: {fileID: 0}
-  Image: {fileID: 0}
+  _spellTip: {fileID: 0}
 --- !u!1 &8117998523452131360
 GameObject:
   m_ObjectHideFlags: 0

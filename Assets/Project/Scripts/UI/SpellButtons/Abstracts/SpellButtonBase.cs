@@ -42,11 +42,15 @@ namespace Project.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            Debug.Log("POINT ENTER");
+            
             _spellTip.gameObject.SetActive(true);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            Debug.Log("POINT EXIT");
+            
             _spellTip.gameObject.SetActive(false);
         }
     }

@@ -280,10 +280,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1912149800486163477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 450, y: 600}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9127415518069035769
 CanvasRenderer:
@@ -889,6 +889,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912149800486163477}
   - component: {fileID: 2792804366118566888}
+  - component: {fileID: 2860015452030295130}
   m_Layer: 5
   m_Name: SpellTip
   m_TagString: Untagged
@@ -916,7 +917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2, y: 2}
   m_SizeDelta: {x: 450, y: 600}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2792804366118566888
@@ -931,7 +932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70303f6575c24cf1bcc9c7699e58c7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 0}
   _label: {fileID: 4343630273184545091}
   _description: {fileID: 9161363037758359736}
   _image: {fileID: 7700123147370748527}
@@ -939,6 +939,18 @@ MonoBehaviour:
   _resourceTypeImage2: {fileID: 3852496301592531203}
   _resourcesCost: {fileID: 5702338933158696143}
   _resourcesCost2: {fileID: 0}
+--- !u!225 &2860015452030295130
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8567144107796290310}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8945063112646658300
 GameObject:
   m_ObjectHideFlags: 0
