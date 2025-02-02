@@ -137,9 +137,16 @@ namespace Project.Scripts
 
             if (_spellDragImage.GetTargetSpellUIButtonBase() != null)
             {
-                _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(_spell);
-                _spell = null;
-                ClearSpell();
+                if (_spellDragImage.GetTargetSpellUIButtonBase()._spellParentType == SpellParentType.MainUi)
+                {
+                    _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(_spell);
+                }
+
+                if (_spellParentType == SpellParentType.MainUi)
+                {
+                    _spell = null;
+                    ClearSpell();
+                }
             }
             else
             {
