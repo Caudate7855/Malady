@@ -1,3 +1,4 @@
+using System;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -94,13 +95,18 @@ namespace Project.Scripts
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if (!_isSetted)
+            {
+                return;
+            }
+            
             _spellTip.Close();
 
             _spellDragImage.SetSprite(_spell.Icon);
             _spellDragImage.ChangeVisibility(true);
             _spellDragImage.gameObject.transform.position = transform.position;
             _spellDragImage.gameObject.transform.position = Input.mousePosition;
-            
+
             if (_spellParentType == SpellParentType.MainUi)
             {
                 _image.sprite = _emptySpellSprite;
@@ -112,22 +118,34 @@ namespace Project.Scripts
 
         public void OnDrag(PointerEventData eventData)
         {
+            if (!_isSetted)
+            {
+                return;
+            }
+            
             _spellDragImage.gameObject.transform.position = Input.mousePosition;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            _spellDragImage.gameObject.transform.position = _savedPosition;
-            _spellDragImage.ChangeVisibility(false);
-            
-            if (_spellParentType == SpellParentType.MainUi)
+            if (!_isSetted)
             {
-                _spellDragImage.gameObject.transform.position = _savedPosition;
-                _spellDragImage.ChangeVisibility(false);
-
-                _image.sprite = _spell.Icon;
+                return;
             }
             
+            _spellDragImage.ChangeVisibility(false);
+
+            if (_spellDragImage.GetTargetSpellUIButtonBase() != null)
+            {
+                _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(_spell);
+                _spell = null;
+                ClearSpell();
+            }
+            else
+            {
+                _image.sprite = _spell.Icon;
+            }
+
             _isDragging = false;
         }
     }
