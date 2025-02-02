@@ -2881,6 +2881,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (2)
@@ -2994,6 +2998,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton
@@ -3107,6 +3115,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (1)
@@ -3220,6 +3232,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton
@@ -3333,6 +3349,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (1)
@@ -3446,6 +3466,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (3)
@@ -3559,6 +3583,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (2)
@@ -3672,6 +3700,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
+    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (3)

@@ -11,6 +11,7 @@ namespace Project.Scripts.Overlays
         private List<SpellUIButtonBase> _payerSpellButtons;
         
         [Inject] private SpellTipHandler _spellTipHandler;
+        [Inject] private SpellDragImageHandler _spellDragImageHandler;
         [Inject] private SpellsContainerSo _spellsContainerSo;
         
         protected override void Initialize()
@@ -29,7 +30,7 @@ namespace Project.Scripts.Overlays
         {
             foreach (var spell in list)
             {
-                spell.SetSpellTipHandler(_spellTipHandler);
+                spell.SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
             }
         }
 

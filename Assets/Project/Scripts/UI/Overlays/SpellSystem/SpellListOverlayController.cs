@@ -9,8 +9,9 @@ namespace Project.Scripts.Overlays
     public class SpellListOverlayController : PanelControllerBase<SpellListOverlay>
     {
         [Inject] private SpellTipHandler _spellTipHandler;
+        [Inject] private SpellDragImageHandler _spellDragImageHandler;
         [Inject] private SpellsContainerSo _spellsContainerSo;
-        
+
         private List<SpellUIButtonBase> _bloodSpellsList;
         private List<SpellUIButtonBase> _soulsSpellsList;
         private List<SpellUIButtonBase> _bonesSpellsList;
@@ -19,7 +20,7 @@ namespace Project.Scripts.Overlays
         private Button _closeButton;
 
         private bool _isTipSetted;
-        
+
         protected override void Initialize()
         {
             _bloodSpellsList = Panel.BloodSpellsList;
@@ -28,7 +29,7 @@ namespace Project.Scripts.Overlays
             _fleshSpellsList = Panel.FleshSpellsList;
 
             _closeButton = Panel.CloseButton;
-            
+
             _closeButton.onClick.AddListener(Close);
         }
 
@@ -38,22 +39,22 @@ namespace Project.Scripts.Overlays
             {
                 for (int i = 0; i < _bloodSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellTipHandler(_spellTipHandler);
+                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
-                
+
                 for (int i = 0; i < _soulsSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellTipHandler(_spellTipHandler);
+                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
-                
+
                 for (int i = 0; i < _bonesSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellTipHandler(_spellTipHandler);
+                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
-                
+
                 for (int i = 0; i < _fleshSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellTipHandler(_spellTipHandler);
+                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
             }
 
@@ -61,8 +62,8 @@ namespace Project.Scripts.Overlays
 
             SetSpell(_bloodSpellsList, 0);
         }
-        
-        private void SetSpell(List<SpellUIButtonBase> spellList,int spellIndex)
+
+        private void SetSpell(List<SpellUIButtonBase> spellList, int spellIndex)
         {
             spellList[spellIndex].SetSpellInfo(_spellsContainerSo.GetSpell($"ps_1"));
         }

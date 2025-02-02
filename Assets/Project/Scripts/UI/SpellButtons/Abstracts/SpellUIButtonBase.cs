@@ -7,27 +7,32 @@ namespace Project.Scripts
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]
-    public class SpellUIButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+    public class SpellUIButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler,
+        IEndDragHandler, IDragHandler
     {
         [SerializeField] private Sprite _emptySpellSprite;
+        [SerializeField] private SpellParentType _spellParentType;
         
         private Image _image;
         private Button _button;
-        
+        private RectTransform _rectTransform;
+
         private SpellSo _spell;
         private SpellTip _spellTip;
+        private SpellDragImage _spellDragImage;
         private SpellTipHandler _spellTipHandler;
-        
+        private SpellDragImageHandler _spellDragImageHandler;
+
         private bool _isSetted;
-        
+
         private Vector2 _savedPosition;
         private bool _isDragging;
-        
+
         private void Awake()
         {
             _button = GetComponent<Button>();
             _image = GetComponent<Image>();
-            
+
             ClearSpell();
         }
 
@@ -51,10 +56,14 @@ namespace Project.Scripts
             _image.sprite = _emptySpellSprite;
         }
 
-        public void SetSpellTipHandler(SpellTipHandler spellTipHandler)
+        public void SetSpellHandlers(SpellTipHandler spellTipHandler, SpellDragImageHandler spellDragImageHandler)
         {
             _spellTipHandler = spellTipHandler;
             _spellTip = _spellTipHandler.GetSpellTip();
+
+            _spellDragImageHandler = spellDragImageHandler;
+            _spellDragImage = _spellDragImageHandler.GetSpellDragImage();
+            _spellDragImage.ChangeVisibility(false);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -63,7 +72,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             ShowTip();
         }
 
@@ -73,7 +82,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _spellTip.Close();
         }
 
@@ -85,21 +94,48 @@ namespace Project.Scripts
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _savedPosition = transform.position;
-            transform.position = Input.mousePosition;
-            
+            _spellTip.Close();
+
+            if (_spellParentType == SpellParentType.Book)
+            {
+                _spellDragImage.SetSprite(_spell.Icon);
+                _spellDragImage.ChangeVisibility(true);
+                _spellDragImage.gameObject.transform.position = transform.position;
+                _spellDragImage.gameObject.transform.position = Input.mousePosition;
+            }
+            else
+            {
+                _savedPosition = transform.position;
+                transform.position = Input.mousePosition;
+            }
+
             _isDragging = true;
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            transform.position = Input.mousePosition; 
+            if (_spellParentType == SpellParentType.Book)
+            {
+                _spellDragImage.gameObject.transform.position = Input.mousePosition;
+            }
+            else
+            {
+                transform.position = Input.mousePosition;
+            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            transform.position = _savedPosition;
-            
+            if (_spellParentType == SpellParentType.Book)
+            {
+                _spellDragImage.gameObject.transform.position = _savedPosition;
+                _spellDragImage.ChangeVisibility(false);
+            }
+            else
+            {
+                transform.position = _savedPosition;
+            }
+
             _isDragging = false;
         }
     }

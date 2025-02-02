@@ -7,6 +7,7 @@ namespace Project.Scripts.IoC.Installers
     public class UIInstaller : MonoInstaller<UIInstaller>
     {
         [SerializeField] private SpellTip _spellTip;
+        [SerializeField] private SpellDragImage _spellDragImage;
             
         public override void InstallBindings()
         {
@@ -14,9 +15,18 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<SpellTip>()
                 .FromInstance(_spellTip)
                 .AsSingle();
+            
+            Container
+                .Bind<SpellDragImage>()
+                .FromInstance(_spellDragImage)
+                .AsSingle();
 
             Container
                 .Bind<SpellTipHandler>()
+                .AsSingle();
+
+            Container
+                .Bind<SpellDragImageHandler>()
                 .AsSingle();
         }
     }

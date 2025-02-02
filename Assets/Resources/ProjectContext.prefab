@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spellTip: {fileID: 2792804366118566888, guid: 50bf70b3ba1155e4883eae2b48b8d8ab, type: 3}
+  _spellDragImage: {fileID: 4828133982478021831, guid: 389d61c727260c34bbf9cbb5c5b8b803, type: 3}
