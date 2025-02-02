@@ -12,7 +12,7 @@ namespace Project.Scripts
     {
         [SerializeField] private Sprite _emptySpellSprite;
         [SerializeField] private SpellParentType _spellParentType;
-        
+
         private Image _image;
         private Button _button;
         private RectTransform _rectTransform;
@@ -96,17 +96,15 @@ namespace Project.Scripts
         {
             _spellTip.Close();
 
-            if (_spellParentType == SpellParentType.Book)
+            _spellDragImage.SetSprite(_spell.Icon);
+            _spellDragImage.ChangeVisibility(true);
+            _spellDragImage.gameObject.transform.position = transform.position;
+            _spellDragImage.gameObject.transform.position = Input.mousePosition;
+            
+            if (_spellParentType == SpellParentType.MainUi)
             {
-                _spellDragImage.SetSprite(_spell.Icon);
-                _spellDragImage.ChangeVisibility(true);
-                _spellDragImage.gameObject.transform.position = transform.position;
-                _spellDragImage.gameObject.transform.position = Input.mousePosition;
-            }
-            else
-            {
+                _image.sprite = _emptySpellSprite;
                 _savedPosition = transform.position;
-                transform.position = Input.mousePosition;
             }
 
             _isDragging = true;
@@ -114,28 +112,22 @@ namespace Project.Scripts
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (_spellParentType == SpellParentType.Book)
-            {
-                _spellDragImage.gameObject.transform.position = Input.mousePosition;
-            }
-            else
-            {
-                transform.position = Input.mousePosition;
-            }
+            _spellDragImage.gameObject.transform.position = Input.mousePosition;
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (_spellParentType == SpellParentType.Book)
+            _spellDragImage.gameObject.transform.position = _savedPosition;
+            _spellDragImage.ChangeVisibility(false);
+            
+            if (_spellParentType == SpellParentType.MainUi)
             {
                 _spellDragImage.gameObject.transform.position = _savedPosition;
                 _spellDragImage.ChangeVisibility(false);
-            }
-            else
-            {
-                transform.position = _savedPosition;
-            }
 
+                _image.sprite = _spell.Icon;
+            }
+            
             _isDragging = false;
         }
     }
