@@ -7,6 +7,9 @@ namespace Project.Scripts.Overlays
 {
     public class SpellTip : MonoBehaviour
     {
+        private const float TOP_PADDING = 130f;
+        private const float DOWN_PADDING = 150f;
+        
         [SerializeField] private TMP_Text _label;
         [SerializeField] private TMP_Text _description;
         [SerializeField] private TMP_Text _spellType;
@@ -29,6 +32,11 @@ namespace Project.Scripts.Overlays
         public void Open()
         {
             gameObject.SetActive(true);
+
+            float textHeight = _description.preferredHeight;
+            float newHeight = textHeight + TOP_PADDING + DOWN_PADDING;
+            _rectTransform.sizeDelta = new Vector2(_rectTransform.sizeDelta.x, newHeight);
+            
             SetPositionToMouse();
         }
 
