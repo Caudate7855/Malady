@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5f883a07d544f485ecf221d95bb49a, type: 3}
+  m_Name: Blood Absorbtion
+  m_EditorClassIdentifier: 
+  Id: ps_1
+  Type: 1
+  Name: Raise Skeleton
+  Icon: {fileID: 21300000, guid: 3ad3f6b978acdbf4b8282d5f95706b30, type: 3}
+  Description: Taking bones from corpse to raise the skeleton
+  SpellCost:
+  - Resource:
+      Sprite: {fileID: 21300000, guid: 3d226d695ba4e004a9f090f408b9668d, type: 3}
+      Type: 1
+    Cost: 10
+  - Resource:
+      Sprite: {fileID: 21300000, guid: be8ab38ae14666d47bbbcef23adf21c8, type: 3}
+      Type: 4
+    Cost: 1

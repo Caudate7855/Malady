@@ -44,28 +44,37 @@ namespace Project.Scripts.Overlays
 
                 for (int i = 0; i < _soulsSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
+                    _soulsSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
 
                 for (int i = 0; i < _bonesSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
+                    _bonesSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
 
                 for (int i = 0; i < _fleshSpellsList.Count; i++)
                 {
-                    _bloodSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
+                    _fleshSpellsList[i].SetSpellHandlers(_spellTipHandler, _spellDragImageHandler);
                 }
             }
 
             _isTipSetted = true;
 
-            SetSpell(_bloodSpellsList, 0);
+            SetSpells();
+        }
+        
+        private void SetSpells()
+        {
+            SetSpell(_bloodSpellsList, 0, "ps_0"); 
+            SetSpell(_bloodSpellsList, 5, "ps_1"); 
+            SetSpell(_fleshSpellsList, 0, "ps_2"); 
+            SetSpell(_bonesSpellsList, 0, "ps_3"); 
+            SetSpell(_soulsSpellsList, 0, "ps_4"); 
         }
 
-        private void SetSpell(List<SpellUIButtonBase> spellList, int spellIndex)
+        private void SetSpell(List<SpellUIButtonBase> spellList, int spellIndex, string spellID)
         {
-            spellList[spellIndex].SetSpellInfo(_spellsContainerSo.GetSpell($"ps_1"));
+            spellList[spellIndex].SetSpellInfo(_spellsContainerSo.GetSpell(spellID));
         }
     }
 }
