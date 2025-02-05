@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5f883a07d544f485ecf221d95bb49a, type: 3}
   m_Name: Blood Lance
   m_EditorClassIdentifier: 
-  Id: ps_1
+  Id: blood_1_2
   Type: 1
   Name: Blood lance
   Icon: {fileID: 21300000, guid: d633e54cd0af8264f8bac0a8b7927e46, type: 3}
