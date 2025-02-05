@@ -19,8 +19,6 @@ namespace Project.Scripts.Overlays
             _payerSpellButtons = Panel.PlayerSpellButton;
             _summonSpellButtons = Panel.SummonSpellsButtons;
 
-            SetSpell(0);
-                
             SetSpellTip(_summonSpellButtons);
             SetSpellTip(_payerSpellButtons);
         }
@@ -34,9 +32,9 @@ namespace Project.Scripts.Overlays
             }
         }
 
-        private void SetSpell(int spellIndex)
+        private void SetSpell(int index, SpellElementType type, int row, int column)
         {
-            _payerSpellButtons[spellIndex].SetSpellInfo(_spellsContainerSo.GetSpell($"ps_1"));
+            _payerSpellButtons[index].SetSpellInfo(_spellsContainerSo.GetSpell(type, row, column));
         }
 
         public void OnPlayerSpellButtonClicked(int index)

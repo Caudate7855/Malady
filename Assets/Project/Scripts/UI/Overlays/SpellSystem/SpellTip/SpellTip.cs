@@ -55,9 +55,13 @@ namespace Project.Scripts.Overlays
 
             _resourceTypeImage.sprite = spellSo.SpellCost[0].Resource.Sprite;
             _resourcesCost.text = spellSo.SpellCost[0].Cost.ToString();
-            
-            _resourceTypeImage2.sprite = spellSo.SpellCost[1].Resource.Sprite;
-            _resourcesCost2.text = spellSo.SpellCost[1].Cost.ToString();
+
+
+            if (spellSo.SpellCost.Count == 2)
+            {
+                _resourceTypeImage2.sprite = spellSo.SpellCost[1].Resource.Sprite;
+                _resourcesCost2.text = spellSo.SpellCost[1].Cost.ToString();
+            }
         }
 
         private void Update()

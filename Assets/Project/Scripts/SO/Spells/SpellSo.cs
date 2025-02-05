@@ -9,6 +9,7 @@ namespace Project.Scripts
     {
         public string Id;
         public SpellType Type;
+        public SpellElementType SpellElementType;  
         public string Name;
         public Sprite Icon;
         [TextArea(1,20)] public string Description;

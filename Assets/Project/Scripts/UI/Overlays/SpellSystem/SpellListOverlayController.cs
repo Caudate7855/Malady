@@ -65,16 +65,28 @@ namespace Project.Scripts.Overlays
         
         private void SetSpells()
         {
-            SetSpell(_bloodSpellsList, 0, "ps_0"); 
-            SetSpell(_bloodSpellsList, 5, "ps_1"); 
-            SetSpell(_fleshSpellsList, 0, "ps_2"); 
-            SetSpell(_bonesSpellsList, 0, "ps_3"); 
-            SetSpell(_soulsSpellsList, 0, "ps_4"); 
+            SetSpell(_bloodSpellsList, 0, 0); 
+            SetSpell(_bloodSpellsList, 0, 1); 
+            SetSpell(_fleshSpellsList, 0, 0); 
+            SetSpell(_fleshSpellsList, 0, 1); 
+            SetSpell(_bonesSpellsList, 0, 0); 
+            SetSpell(_bonesSpellsList, 0, 1); 
+            SetSpell(_soulsSpellsList, 0, 0); 
+            SetSpell(_soulsSpellsList, 0, 1); 
         }
 
-        private void SetSpell(List<SpellUIButtonBase> spellList, int spellIndex, string spellID)
+        private void SetSpell(List<SpellUIButtonBase> spellList, int row, int column)
         {
-            spellList[spellIndex].SetSpellInfo(_spellsContainerSo.GetSpell(spellID));
+            var index = row;
+            
+            if (column > 0)
+            {
+                index += 5;
+            }
+            
+            var spell = spellList[index];
+            
+            spell.SetSpellInfo(_spellsContainerSo.GetSpell(spell.GetSpellElementType(), row, column));
         }
     }
 }

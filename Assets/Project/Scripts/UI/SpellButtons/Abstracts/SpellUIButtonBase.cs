@@ -13,6 +13,7 @@ namespace Project.Scripts
     {
         [SerializeField] private Sprite _emptySpellSprite;
         [SerializeField] private SpellParentType _spellParentType;
+        [SerializeField] private SpellElementType _spellElementType;
 
         private Image _image;
         private Button _button;
@@ -37,6 +38,10 @@ namespace Project.Scripts
             ClearSpell();
         }
 
+        public SpellElementType GetSpellElementType()
+        {
+            return _spellElementType;
+        }
         public void Interact()
         {
             _button.Select();

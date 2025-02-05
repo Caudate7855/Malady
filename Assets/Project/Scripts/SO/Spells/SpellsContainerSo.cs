@@ -9,17 +9,21 @@ namespace Project.Scripts
     {
         [SerializeField] private List<SpellSo> Spells;
         
-        public SpellSo GetSpell(string id)
+        public SpellSo GetSpell(SpellElementType type, int row, int column)
         {
+            var typeString = type.ToString().ToLower();
+            
+            var spellId = $"{typeString}_{row}_{column}";
+            
             for (int i = 0, count = Spells.Count; i < count; i++)
             {
-                if (Spells[i].Id == id)
+                if (Spells[i].Id == spellId)
                 {
                     return Spells[i];
                 }
             }
 
-            throw new Exception($"SpellSystem: Cannot find spell with id {id}");
+            throw new Exception($"SpellSystem: Cannot find spell with id {spellId}");
         }
     }
 }
