@@ -1,38 +1,53 @@
 using System;
-using System.Collections;
+using Cysharp.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerMover : MonoBehaviour
+    [UsedImplicitly]
+    public class PlayerMover : ITickable
     {
         public event Action OnDestinationReached;
-        
-        public NavMeshAgent NavMeshAgent;
 
+        private NavMeshAgent _navMeshAgent;
         private float _maxSampleDistance = 5.0f;
+        private bool _isSetted;
 
-        private void Awake()
+        public void SetNavMeshAgent(NavMeshAgent navMeshAgent)
         {
-            NavMeshAgent = GetComponent<NavMeshAgent>();
+            _navMeshAgent = navMeshAgent;
+            _isSetted = true;
         }
 
-        public void MoveToPoint(Vector3 location)
+        public void StopMovement()
         {
-            StartCoroutine(DeferredCheckAndMove(location));
+            _navMeshAgent.isStopped = true;
+            _navMeshAgent.velocity = Vector3.zero;
         }
 
-        private IEnumerator DeferredCheckAndMove(Vector3 location)
+        public void ContinueMovement()
         {
+            _navMeshAgent.isStopped = false;
+        }
+        
+        public async void MoveToPoint(Vector3 location)
+        {
+            if (_navMeshAgent == null)
+            {
+                return;
+            }
+            
             NavMeshHit hit;
             
             if (NavMesh.SamplePosition(location, out hit, _maxSampleDistance, NavMesh.AllAreas))
             {
-                NavMeshAgent.SetDestination(hit.position);
+                _navMeshAgent.SetDestination(hit.position);
             }
 
-            yield return null;
+            await UniTask.WaitForEndOfFrame();
         }
 
         public void ClearOnDestinationReached()
@@ -40,19 +55,23 @@ namespace Project.Scripts.Core
             OnDestinationReached = null;
         }
         
-        
-        void Update()
+        public void Tick()
         {
             HasReachedDestination();
         }
 
         private bool HasReachedDestination()
         {
-            if (!NavMeshAgent.pathPending)
+            if (!_isSetted)
             {
-                if (NavMeshAgent.remainingDistance <= 0)
+                return false;
+            }
+            
+            if (!_navMeshAgent.pathPending)
+            {
+                if (_navMeshAgent.remainingDistance <= 0)
                 {
-                    if (!NavMeshAgent.hasPath || NavMeshAgent.velocity.sqrMagnitude == 0f)
+                    if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
                     {
                         OnDestinationReached?.Invoke();
                         return true;

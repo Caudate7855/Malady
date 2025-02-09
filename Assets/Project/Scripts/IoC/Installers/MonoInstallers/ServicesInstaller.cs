@@ -1,3 +1,4 @@
+using Project.Scripts.Core;
 using Project.Scripts.Services;
 using Zenject;
 
@@ -15,6 +16,10 @@ namespace Project.Scripts.IoC.Installers
             
             Container
                 .Bind<MouseController>()
+                .AsSingle();
+
+            Container
+                .BindInterfacesAndSelfTo<PlayerMover>()
                 .AsSingle();
         }
     }

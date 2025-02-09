@@ -1,23 +1,26 @@
 using Project.Scripts.Core.Abstracts;
 using Project.Scripts.Interfaces;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Project.Scripts.Core
 {
     public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable
     {
-        private PlayerMover _playerMover;
+        [Inject] private PlayerMover _playerMover;
+        [Inject] private PlayerFsm _playerFsm;
+        
         private IStatSystem _statSystem;
-        private PlayerFsm _playerFsm;
         private PlayerStats _playerStats;
 
         public void Initialize()
         {
-            _playerMover = GetComponent<PlayerMover>();
-            _playerFsm = GetComponent<PlayerFsm>();
-
+            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
             _playerMover.OnDestinationReached += Idle;
+            
+            _playerFsm.Initialize(GetComponent<NavMeshAgent>(), GetComponentInChildren<Animator>());
         }
 
         public void InitializeDependencies(IStatSystem statSystem)
@@ -51,18 +54,17 @@ namespace Project.Scripts.Core
             }
         }
 
-        public void StopMovement()
+        private void StopMovement()
         {
-            _playerMover.NavMeshAgent.isStopped = true;
-            _playerMover.NavMeshAgent.velocity = Vector3.zero;
+            _playerMover.StopMovement();
         }
 
         private void ContinueMovement()
         {
-            _playerMover.NavMeshAgent.isStopped = false;
+            _playerMover.ContinueMovement();
         }
 
-        public void Interact(InteractableBase interactable = default)
+        private void Interact(InteractableBase interactable = default)
         {
             if (interactable != null)
             {
@@ -70,7 +72,7 @@ namespace Project.Scripts.Core
             }
         }
         
-        public void Idle()
+        private void Idle()
         {
             _playerFsm.SetState<PlayerFsmStateIdle>();
         }

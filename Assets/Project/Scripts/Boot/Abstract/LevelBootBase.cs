@@ -32,7 +32,7 @@ namespace Project.Scripts
             _coreUpdater.OnUpdatePerformed += _playerInputController.Update;
             
             Initialize();
-            _playerController = await _playerFactory.Create<PlayerController>(_playerPosition);
+            _playerController = await _playerFactory.Create(_playerPosition);
             _playerController.InitializeDependencies(_statSystem);
 
             _mainCamera.Initialize(_playerController);

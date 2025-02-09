@@ -1,9 +1,12 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 namespace Project.Scripts
 {
-    public class PlayerFsm : MonoBehaviour
+    [UsedImplicitly]
+    public class PlayerFsm : ITickable
     {
         public bool IsPossibleToMove = true;
         
@@ -11,12 +14,15 @@ namespace Project.Scripts
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
 
-        private void Start()
-        {
-            _fsm = new Fsm();
-            _navMeshAgent = GetComponent<NavMeshAgent>();
-            _animator = GetComponentInChildren<Animator>();
+        private bool _isInitialzied;
 
+        public void Initialize(NavMeshAgent navMeshAgent, Animator animator)
+        {
+            _navMeshAgent = navMeshAgent;
+            _animator = animator;
+            
+            _fsm = new Fsm();
+            
             _fsm.AddState(new PlayerFsmStateIdle(_fsm, _navMeshAgent, _animator));
             _fsm.AddState(new PlayerFsmStateRun(_fsm, _navMeshAgent, _animator));
             _fsm.AddState(new PlayerFsmStateCast(_fsm, _animator, this));
@@ -25,14 +31,19 @@ namespace Project.Scripts
             _fsm.SetState<PlayerFsmStateIdle>();
         }
 
-        private void Update()
-        {
-            _fsm.Update();
-        }
-
         public void SetState<T>() where T : FsmStateBase
         {
             _fsm.SetState<T>();
+        }
+
+        public void Tick()
+        {
+            if (!_isInitialzied)
+            {
+                return;
+            }
+            
+            _fsm.Update();
         }
     }
 }

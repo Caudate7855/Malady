@@ -33,7 +33,7 @@ namespace Project.Scripts.Core.Abstracts
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.GetComponent<PlayerMover>())
+            if (other.GetComponent<PlayerController>())
             {
                 ShowInteractionButton();
             }
@@ -41,7 +41,7 @@ namespace Project.Scripts.Core.Abstracts
 
         private void OnTriggerExit(Collider other)
         {
-            if (other.GetComponent<PlayerMover>())
+            if (other.GetComponent<PlayerController>())
             {
                 HideInteractionButton();
             }
