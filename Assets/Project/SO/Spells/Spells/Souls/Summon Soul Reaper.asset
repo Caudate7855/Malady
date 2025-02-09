@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5f883a07d544f485ecf221d95bb49a, type: 3}
   m_Name: Summon Soul Reaper
   m_EditorClassIdentifier: 
-  Id: soul_2
+  Id: souls_0_1
   Type: 1
+  SpellElementType: 0
   Name: Summon Soul reaper
   Icon: {fileID: 21300000, guid: 10d541343ba98f6438a4e3fae5b16921, type: 3}
   Description: "\u041F\u0440\u0438\u0437\u044B\u0432\u0430\u0435\u0442 \u0438\u0437

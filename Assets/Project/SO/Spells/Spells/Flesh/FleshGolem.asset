@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5f883a07d544f485ecf221d95bb49a, type: 3}
   m_Name: FleshGolem
   m_EditorClassIdentifier: 
-  Id: flesh_1
+  Id: flesh_0_1
   Type: 1
+  SpellElementType: 0
   Name: Flesh golem
   Icon: {fileID: 21300000, guid: 8dee1d7aa0c1bf549af0993f8c7d51a8, type: 3}
   Description: "\u041F\u0440\u0438\u0437\u044B\u0432\u0430\u0435\u0442 \u0433\u043E\u043B\u0435\u043C\u0430
