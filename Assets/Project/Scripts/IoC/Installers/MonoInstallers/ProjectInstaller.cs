@@ -9,8 +9,6 @@ namespace Project.Scripts.IoC.Installers
 {
     public class ProjectInstaller : MonoInstaller<ProjectInstaller>
     {
-        [SerializeField] private PlayerController _playerController;
-
         private GameDirector _gameDirector;
 
         public override void InstallBindings()
@@ -18,11 +16,6 @@ namespace Project.Scripts.IoC.Installers
             PanelManagerInstaller.Install(Container, default, null);
 
             _gameDirector = FindObjectOfType<GameDirector>();
-
-            Container
-                .Bind<IAssetLoader>()
-                .To<AssetLoader>()
-                .AsSingle();
 
             Container
                 .Bind<HubBoot>()
@@ -35,20 +28,6 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<GameDirector>()
                 .FromInstance(_gameDirector)
-                .AsSingle();
-
-            Container
-                .Bind<IStatSystem>()
-                .To<StatsSystem>()
-                .AsSingle();
-
-            Container
-                .Bind<PlayerController>()
-                .FromInstance(_playerController)
-                .AsSingle();
-
-            Container
-                .BindInterfacesAndSelfTo<PlayerFsm>()
                 .AsSingle();
         }
     }

@@ -9,6 +9,11 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             Container
+                .Bind<IAssetLoader>()
+                .To<AssetLoader>()
+                .AsSingle();
+            
+            Container
                 .Bind<ISceneLoader>()
                 .To<SceneLoader>()
                 .FromNew()
@@ -17,14 +22,12 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<MouseController>()
                 .AsSingle();
-
+            
             Container
-                .BindInterfacesAndSelfTo<PlayerMover>()
+                .Bind<DialogueSystemManager>()
                 .AsSingle();
-
-            Container
-                .Bind<PlayerStats>()
-                .AsSingle();
+            
+            
         }
     }
 }

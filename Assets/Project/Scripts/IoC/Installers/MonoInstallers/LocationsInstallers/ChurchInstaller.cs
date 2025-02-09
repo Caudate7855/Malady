@@ -7,7 +7,6 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             InstallLocationFactories();
-            InstallCoreFactories();
             InstallInteractableFactories();
         }
 
@@ -22,17 +21,6 @@ namespace Project.Scripts.IoC.Installers
         {
             Container
                 .Bind<InteractableFactory>()
-                .AsSingle();
-        }
-        
-        private void InstallCoreFactories()
-        {
-            Container
-                .Bind<PlayerFactory>()
-                .AsSingle();
-
-            Container
-                .Bind<EnemyFactory>()
                 .AsSingle();
         }
     }

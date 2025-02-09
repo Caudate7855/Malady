@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 851045673}
   - component: {fileID: 851045672}
   - component: {fileID: 851045674}
-  - component: {fileID: 851045675}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -157,7 +156,6 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 851045674}
-  - {fileID: 851045675}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -205,18 +203,6 @@ MonoBehaviour:
   _bookInteractable: {fileID: 1088283392765502688, guid: 9a5683af8768d6741b042ec99958aaf8, type: 3}
   _blacksmith: {fileID: 6339055740734493142, guid: 39cc553f4cb32c948b7a432a4a8fe107, type: 3}
   _exit: {fileID: 6434271907546203438, guid: 04c79e261c4203f43b83e1768c2a3fd6, type: 3}
---- !u!114 &851045675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851045670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14545dc623af42629731ae2c30022a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1520261716
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,8 +355,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInitialized: 0
-  _cameraOffsetPosition: {x: -4, y: 10, z: -4}
-  _cameraOffsetRotation: {x: 60, y: 45, z: 0}
 --- !u!114 &1778848438
 MonoBehaviour:
   m_ObjectHideFlags: 0
