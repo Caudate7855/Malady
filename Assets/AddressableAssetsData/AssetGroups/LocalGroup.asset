@@ -18,7 +18,7 @@ MonoBehaviour:
   m_GUID: 17f0f43c8a2e57e44a3c63ef3a90993a
   m_SerializeEntries:
   - m_GUID: 35ae3673abf151d40a594e65732da9f7
-    m_Address: Dungeon
+    m_Address: Locations
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -119,6 +119,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf672c55c7abb0e4c8edcb9133a6b60c
     m_Address: EmptySpellIcon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 081e332d3efb6f24aa975d2d50330914
+    m_Address: Church
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

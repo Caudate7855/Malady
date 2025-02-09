@@ -23,6 +23,10 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<HubBoot>()
                 .AsSingle();
+            
+            Container
+                .Bind<ChurchBoot>()
+                .AsSingle();
 
             Container
                 .Bind<GameDirector>()

@@ -1,5 +1,4 @@
 using Project.Scripts.Core.Abstracts;
-using Project.Scripts.FSM;
 using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.EventSystems;

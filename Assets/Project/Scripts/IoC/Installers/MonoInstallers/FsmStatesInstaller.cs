@@ -1,4 +1,3 @@
-using Project.Scripts.FSM;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers

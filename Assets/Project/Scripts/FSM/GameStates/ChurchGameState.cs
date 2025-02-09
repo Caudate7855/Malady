@@ -1,15 +1,15 @@
 namespace Project.Scripts
 {
-    public class HubGameState : GameStateBase
+    public class ChurchGameState: GameStateBase
     {
-        public HubGameState(Fsm fsm, ISceneLoader sceneLoader) : base(fsm, sceneLoader)
+        public ChurchGameState(Fsm fsm, ISceneLoader sceneLoader) : base(fsm, sceneLoader)
         {
             _sceneLoader = sceneLoader;
         }
 
         public override void Enter()
         {
-            _sceneLoader.LoadScene(GameStateType.Hub);
+            _sceneLoader.LoadScene(GameStateType.Church);
         }
 
         public override void Exit()

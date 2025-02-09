@@ -1,7 +1,4 @@
-using Project.Scripts.App;
-using Zenject;
-
-namespace Project.Scripts.FSM
+namespace Project.Scripts
 {
     public class MainMenuGameStateBase : GameStateBase
     {

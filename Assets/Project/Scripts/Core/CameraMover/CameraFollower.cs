@@ -6,15 +6,15 @@ namespace Project.Scripts.Core
     {
         public bool IsInitialized;
 
-        [SerializeField] private Vector3 _cameraOffsetPosition;
-        [SerializeField] private Vector3 _cameraOffsetRotation;
+        private readonly Vector3 _cameraOffsetPosition = new Vector3(-4, 10, -4);
+        private readonly Vector3 _cameraOffsetRotation = new Vector3(60, 45, 0);
 
         private PlayerController _playerController;
 
         public void Initialize(PlayerController playerController)
         {
             _playerController = playerController;
-            
+
             IsInitialized = true;
         }
 
@@ -23,7 +23,7 @@ namespace Project.Scripts.Core
             if (IsInitialized)
             {
                 transform.position = _playerController.transform.position + _cameraOffsetPosition;
-                
+
                 var rotation = transform.rotation;
                 rotation.eulerAngles = _cameraOffsetRotation;
                 transform.rotation = rotation;

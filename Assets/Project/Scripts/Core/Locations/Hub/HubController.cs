@@ -20,6 +20,11 @@ namespace Project.Scripts.Core.Hub
         {
             return GetComponentInChildren<BookPositionMarker>().gameObject;
         }
+
+        public GameObject GetExitParentObject()
+        {
+            return GetComponentInChildren<ExitPositionMarker>().gameObject;
+        }
         
         public Vector3 GetNpcSpawnPosition(NpcTypes npcType)
         {

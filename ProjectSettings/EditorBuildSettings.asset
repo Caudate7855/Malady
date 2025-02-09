@@ -6,10 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Project/Scenes/Boot/BootScene.unity
+    guid: f4f970bcfcf68f24dad5314b8b26f423
+  - enabled: 1
     path: Assets/Project/Scenes/MainMenu/MainMenuScene.unity
     guid: a85dcea4f838aaf4ca68334af0e5f1d5
   - enabled: 1
     path: Assets/Project/Scenes/Hub/HubScene.unity
     guid: e006865cb7271934a88ed86e06188dff
+  - enabled: 1
+    path: Assets/Project/Scenes/Church/ChurchScene.unity
+    guid: 848dbf8804beca2438c5ecc60bea9bcd
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 65ecd81f81a570b479a1e2fc7fa883c9, type: 2}

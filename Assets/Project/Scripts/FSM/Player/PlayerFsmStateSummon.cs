@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Project.Scripts.FSM
+namespace Project.Scripts
 {
     public class PlayerFsmStateSummon : FsmStateBase
     {

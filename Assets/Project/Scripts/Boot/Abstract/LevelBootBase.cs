@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using Itibsoft.PanelManager;
 using Project.Scripts.App;
@@ -33,7 +34,7 @@ namespace Project.Scripts
             InitializeCoreUpdater();
 
             _coreUpdater.OnUpdatePerformed += _playerInputController.Update;
-
+            
             Initialize();
             _playerController = await _playerFactory.Create<PlayerController>(_playerPosition);
             _playerController.InitializeDependencies(_statSystem);
@@ -46,6 +47,11 @@ namespace Project.Scripts
             await FinishLoading();
 
             _panelManager.LoadPanel<MainUIController>().Open();
+        }
+
+        private void OnDisable()
+        {
+            _coreUpdater.OnUpdatePerformed -= _playerInputController.Update;
         }
 
         protected abstract void Initialize();

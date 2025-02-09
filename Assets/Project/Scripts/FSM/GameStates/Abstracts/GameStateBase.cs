@@ -1,8 +1,8 @@
 using Zenject;
 
-namespace Project.Scripts.FSM
+namespace Project.Scripts
 {
-    public class GameStateBase : FsmStateBase
+    public abstract class GameStateBase : FsmStateBase
     {
         [Inject] protected ISceneLoader _sceneLoader;
         

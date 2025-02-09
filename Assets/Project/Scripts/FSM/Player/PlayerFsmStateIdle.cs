@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Project.Scripts.FSM
+namespace Project.Scripts
 {
     public class PlayerFsmStateIdle : FsmStateBase
     {

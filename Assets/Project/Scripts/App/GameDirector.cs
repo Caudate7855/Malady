@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
-using Project.Scripts.FSM;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using Zenject;
@@ -21,6 +20,7 @@ namespace Project.Scripts.App
         {
             { GameStateType.MainMenu, typeof(MainMenuGameStateBase) },
             { GameStateType.Hub, typeof(HubGameState) },
+            { GameStateType.Church, typeof(ChurchGameState) }
         };
 
         private void Awake()
@@ -57,6 +57,7 @@ namespace Project.Scripts.App
         {
             _gameStateFsm.AddState(new MainMenuGameStateBase(_gameStateFsm, _sceneLoader));
             _gameStateFsm.AddState(new HubGameState(_gameStateFsm, _sceneLoader));
+            _gameStateFsm.AddState(new ChurchGameState(_gameStateFsm, _sceneLoader));
 
             _gameStateFsm.SetState<MainMenuGameStateBase>();
         }
