@@ -45,6 +45,8 @@ namespace Project.Scripts.App
 
         public void ChangeState(GameStateType gameStateType)
         {
+            ShowLoadingScreen();
+            
             if (_gameStates.TryGetValue(gameStateType, out var gameState))
             {
                 var method = _gameStateFsm.GetType().GetMethod("SetState");

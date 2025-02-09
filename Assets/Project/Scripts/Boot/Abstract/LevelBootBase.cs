@@ -12,20 +12,16 @@ namespace Project.Scripts
 {
     public abstract class LevelBootBase : MonoBehaviour
     {
+        [SerializeField] private CameraFollower _mainCamera;
+        
         [Inject] private IPanelManager _panelManager;
         [Inject] private IStatSystem _statSystem;
-
         [Inject] private PlayerFactory _playerFactory;
         [Inject] private EnemyFactory _enemyFactory;
-
-        private PlayerController _playerController;
-
         [Inject] private PlayerInputController _playerInputController;
 
-        [SerializeField] private CameraFollower _mainCamera;
-
         private readonly Vector3 _playerPosition = new(0, 0, 0);
-
+        private PlayerController _playerController;
         private CoreUpdater _coreUpdater;
         
 
