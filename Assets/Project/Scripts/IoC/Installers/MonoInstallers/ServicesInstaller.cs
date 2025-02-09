@@ -21,6 +21,10 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .BindInterfacesAndSelfTo<PlayerMover>()
                 .AsSingle();
+
+            Container
+                .Bind<PlayerStats>()
+                .AsSingle();
         }
     }
 }

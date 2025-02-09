@@ -11,9 +11,7 @@ namespace Project.Scripts.Core
     {
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
-        
-        private IStatSystem _statSystem;
-        private PlayerStats _playerStats;
+        [Inject] private PlayerStats _playerStats;
 
         public void Initialize()
         {
@@ -21,14 +19,9 @@ namespace Project.Scripts.Core
             _playerMover.OnDestinationReached += Idle;
             
             _playerFsm.Initialize(GetComponent<NavMeshAgent>(), GetComponentInChildren<Animator>());
+            _playerStats.DefaultInitialize();
         }
 
-        public void InitializeDependencies(IStatSystem statSystem)
-        {
-            _statSystem = statSystem;
-            _statSystem.DefaultInitialize();
-        }
-        
         public void MoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
         {
             if (EventSystem.current.IsPointerOverGameObject())

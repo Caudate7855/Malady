@@ -10,10 +10,10 @@ namespace Project.Scripts.Core
     [UsedImplicitly]
     public class PlayerMover : ITickable
     {
+        private const float MAX_REACH_DISTANCE = 5.0f;
         public event Action OnDestinationReached;
 
         private NavMeshAgent _navMeshAgent;
-        private float _maxSampleDistance = 5.0f;
         private bool _isSetted;
 
         public void SetNavMeshAgent(NavMeshAgent navMeshAgent)
@@ -42,7 +42,7 @@ namespace Project.Scripts.Core
             
             NavMeshHit hit;
             
-            if (NavMesh.SamplePosition(location, out hit, _maxSampleDistance, NavMesh.AllAreas))
+            if (NavMesh.SamplePosition(location, out hit, MAX_REACH_DISTANCE, NavMesh.AllAreas))
             {
                 _navMeshAgent.SetDestination(hit.position);
             }
@@ -60,11 +60,11 @@ namespace Project.Scripts.Core
             HasReachedDestination();
         }
 
-        private bool HasReachedDestination()
+        private void HasReachedDestination()
         {
             if (!_isSetted)
             {
-                return false;
+                return;
             }
             
             if (!_navMeshAgent.pathPending)
@@ -74,12 +74,9 @@ namespace Project.Scripts.Core
                     if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
                     {
                         OnDestinationReached?.Invoke();
-                        return true;
                     }
                 }
             }
-
-            return false;
         }
     }
 }

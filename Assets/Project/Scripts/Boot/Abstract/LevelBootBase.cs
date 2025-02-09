@@ -15,7 +15,6 @@ namespace Project.Scripts
         [SerializeField] private CameraFollower _mainCamera;
         
         [Inject] private IPanelManager _panelManager;
-        [Inject] private IStatSystem _statSystem;
         [Inject] private PlayerFactory _playerFactory;
         [Inject] private EnemyFactory _enemyFactory;
         [Inject] private PlayerInputController _playerInputController;
@@ -33,7 +32,6 @@ namespace Project.Scripts
             
             Initialize();
             _playerController = await _playerFactory.Create(_playerPosition);
-            _playerController.InitializeDependencies(_statSystem);
 
             _mainCamera.Initialize(_playerController);
             _playerInputController.Initialize(_playerController, _panelManager);
