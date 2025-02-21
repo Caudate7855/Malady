@@ -48,6 +48,7 @@ namespace Project.Scripts.Core
 
         public void Explode()
         {
+            
         }
     }
 }
