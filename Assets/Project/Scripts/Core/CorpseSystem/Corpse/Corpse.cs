@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,15 +11,20 @@ namespace Project.Scripts.Core
         [SerializeField] private CorpseBlood _blood;
         [SerializeField] private CorpseBones _bones;
 
-        private Animator _animator;
-
         private Dictionary<ResourceType, CorpseResource> _resourcesObjects;
 
+        ResourceFinder _resourceFinder = new ();
+        
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
-
             InitializeResources();
+        }
+
+        private void Start()
+        {
+            var resource = _resourceFinder.GetAllCorpseResources<CorpseSoul>(transform.position, 10f);
+            
+            resource.SwitchState(false);
         }
 
         private void InitializeResources()

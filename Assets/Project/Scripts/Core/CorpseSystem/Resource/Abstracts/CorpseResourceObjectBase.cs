@@ -5,6 +5,7 @@ namespace Project.Scripts.Core
 {
     public class CorpseResourceObjectBase : MonoBehaviour
     {
+        public ResourceType ResourceType { get; private set; }
         private Animator _animator;
 
         private void Start()
