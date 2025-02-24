@@ -1,6 +1,7 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
 using Project.Scripts.Core.Hub;
+using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts
@@ -11,6 +12,7 @@ namespace Project.Scripts
         
         [Inject] private HubFactory _hubFactory;
         [Inject] private NpcFactory _npcFactory;
+        [Inject] private CorpseFactory _corpseFactory;
         [Inject] private InteractableFactory _interactableFactory;
         [Inject] private DialogueSystemManager _dialogueSystemManager;
 
@@ -28,6 +30,7 @@ namespace Project.Scripts
             await _npcFactory.CreateNpcAsync<Undertaker>(NpcTypes.Undertaker, _hubController.GetNpcSpawnPosition(NpcTypes.Undertaker));
             await _npcFactory.CreateNpcAsync<Blacksmith>(NpcTypes.Blacksmith, _hubController.GetNpcSpawnPosition(NpcTypes.Blacksmith));
             await _npcFactory.CreateNpcAsync<Trader>(NpcTypes.Trader, _hubController.GetNpcSpawnPosition(NpcTypes.Trader));
+            await _corpseFactory.Create<Corpse>(true,true,true,true, new Vector3(3,0,2));
         }
     }
 }

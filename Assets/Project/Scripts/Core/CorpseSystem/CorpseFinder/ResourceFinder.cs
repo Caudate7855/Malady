@@ -1,16 +1,19 @@
-using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Project.Scripts.Core
 {
+    [UsedImplicitly]
     public class ResourceFinder
     {
-        public CorpseResourceObjectBase GetAllCorpseResources<T>(Vector3 initialPosition, float distance) where T : CorpseResourceObjectBase
+        public List<CorpseResourceObjectBase> GetCorpseResourceInRadius<T>(Vector3 initialPosition, float distance, int resourcesCount) where T : CorpseResourceObjectBase
         {
-            List<CorpseResourceObjectBase> corpseResourceObjectBase = new();
+            List<CorpseResourceObjectBase> foundedResourcesInDistance = new();
+            List<CorpseResourceObjectBase> correctResourcesInDistance = new();
+            
             var colliders = Physics.OverlapSphere(initialPosition, distance);
-
+            
             if (colliders.Length == 0)
             {
                 return null;
@@ -22,24 +25,27 @@ namespace Project.Scripts.Core
 
                 for (int j = 0; j < resourcesOnCorpse.Length; j++)
                 {
-                    corpseResourceObjectBase.Add(resourcesOnCorpse[j]);
+                    foundedResourcesInDistance.Add(resourcesOnCorpse[j]);
                 }
             }
 
-            if (corpseResourceObjectBase.Count == 0)
+            if (foundedResourcesInDistance.Count == 0)
             {
                 return null;
             }
             
-            for (int i = 0; i < corpseResourceObjectBase.Count; i++)
+            for (int i = 0; i < foundedResourcesInDistance.Count; i++)
             {
-                if (corpseResourceObjectBase[i].GetType() == typeof(T))
+                if (foundedResourcesInDistance[i].GetType() == typeof(T))
                 {
-                    return corpseResourceObjectBase[i];
+                    if (i <= resourcesCount)
+                    {
+                        correctResourcesInDistance.Add(foundedResourcesInDistance[i]);
+                    }
                 }
             }
 
-            return null;
+            return correctResourcesInDistance;
         }
     }
 }

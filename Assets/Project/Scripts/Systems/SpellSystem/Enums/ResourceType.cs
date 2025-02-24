@@ -5,7 +5,7 @@ namespace Project.Scripts
         Health,
         Essence,
         Blood,
-        Souls,
+        Soul,
         Bones,
         Flesh
     }

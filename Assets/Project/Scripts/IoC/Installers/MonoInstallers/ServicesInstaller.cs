@@ -27,7 +27,9 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<DialogueSystemManager>()
                 .AsSingle();
             
-            
+            Container
+                .Bind<ResourceFinder>()
+                .AsSingle();
         }
     }
 }

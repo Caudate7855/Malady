@@ -17,6 +17,10 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<EnemyFactory>()
                 .AsSingle();
+            
+            Container
+                .Bind<CorpseFactory>()
+                .AsSingle();
         }
     }
 }

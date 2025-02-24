@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f1c6380fc34944aa72203fd9ab9b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resourceType: 0
 --- !u!1 &5779752397103312215
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7604fc857906453498853fed5fb41253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _resourceType: 0
 --- !u!1001 &1488379764992771599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +343,10 @@ PrefabInstance:
     - target: {fileID: 352724868251853211, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: m_Lightmapping
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1465612647058424698, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
+      propertyPath: _resourceType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4519496001520821487, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: m_IsActive
@@ -455,6 +461,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4222457410002460710}
     m_Modifications:
+    - target: {fileID: 1733686355595615486, guid: 1a8092de004bae24195fcbe5e28b939a, type: 3}
+      propertyPath: _resourceType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2625944293361496223, guid: 1a8092de004bae24195fcbe5e28b939a, type: 3}
       propertyPath: m_Name
       value: Blood

@@ -1,10 +1,10 @@
-using System;
 using System.Collections.Generic;
+using Project.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class Corpse : MonoBehaviour
+    public class Corpse : MonoBehaviour, ICustomInitializable
     {
         [SerializeField] private CorpseSoul _soul;
         [SerializeField] private CorpseFlesh _flesh;
@@ -13,25 +13,21 @@ namespace Project.Scripts.Core
 
         private Dictionary<ResourceType, CorpseResource> _resourcesObjects;
 
-        ResourceFinder _resourceFinder = new ();
-        
+        public void Initialize()
+        {
+            
+        }
+
         private void Awake()
         {
             InitializeResources();
-        }
-
-        private void Start()
-        {
-            var resource = _resourceFinder.GetAllCorpseResources<CorpseSoul>(transform.position, 10f);
-            
-            resource.SwitchState(false);
         }
 
         private void InitializeResources()
         {
             _resourcesObjects = new()
             {
-                { ResourceType.Souls, new CorpseResource(ResourceType.Souls, _soul) },
+                { ResourceType.Soul, new CorpseResource(ResourceType.Soul, _soul) },
                 { ResourceType.Flesh, new CorpseResource(ResourceType.Flesh, _flesh) },
                 { ResourceType.Blood, new CorpseResource(ResourceType.Blood, _blood) },
                 { ResourceType.Bones, new CorpseResource(ResourceType.Bones, _bones) }
@@ -50,11 +46,6 @@ namespace Project.Scripts.Core
             {
                 RemoveResource(corpseResource.Key);
             }
-        }
-
-        public void Explode()
-        {
-            
         }
     }
 }
