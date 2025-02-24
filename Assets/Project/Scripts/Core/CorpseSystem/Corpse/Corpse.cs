@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class Corpse : MonoBehaviour, ICustomInitializable
+    public class Corpse : MonoBehaviour
     {
         [SerializeField] private CorpseSoul _soul;
         [SerializeField] private CorpseFlesh _flesh;
@@ -12,11 +12,6 @@ namespace Project.Scripts.Core
         [SerializeField] private CorpseBones _bones;
 
         private Dictionary<ResourceType, CorpseResource> _resourcesObjects;
-
-        public void Initialize()
-        {
-            
-        }
 
         private void Awake()
         {

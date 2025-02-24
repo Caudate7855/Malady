@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Project.Scripts.Core;
-using Project.Scripts.Interfaces;
 using Project.Scripts.Services;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -19,17 +18,41 @@ namespace Project.Scripts
         {
             _assetLoader = assetLoader;
         }
+        
+        public async Task<Corpse> CreateCustomCorpse(bool hasSoul, bool hasBlood, bool hasFlesh, bool hasBones, Vector3 spawnPosition)
+        {
+            var corpseComponent = await CreateDefaultCorpse(spawnPosition);
 
-        public async Task<T> Create<T>(bool hasSoul, bool hasBlood, bool hasFlesh, bool hasBones, Vector3 spawnPosition)
-            where T : Corpse, ICustomInitializable
+            if (!hasSoul)
+            {
+                corpseComponent.RemoveResource(ResourceType.Soul);
+            }
+            
+            if (!hasBlood)
+            {
+                corpseComponent.RemoveResource(ResourceType.Blood);
+            }
+            
+            if (!hasFlesh)
+            {
+                corpseComponent.RemoveResource(ResourceType.Flesh);
+            }
+            
+            if (!hasBones)
+            {
+                corpseComponent.RemoveResource(ResourceType.Bones);
+            }
+
+            return corpseComponent;
+        }
+        
+        public async Task<Corpse> CreateDefaultCorpse(Vector3 spawnPosition)
         {
             var prefab = await _assetLoader.LoadGameObjectAsync<Corpse>(CORPSE_ADDRESS);
             var gameObject = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
-            var component = gameObject.GetComponent<T>();
+            var corpseComponent = gameObject.GetComponent<Corpse>();
 
-            component.Initialize();
-
-            return component;
+            return corpseComponent;
         }
     }
 }
