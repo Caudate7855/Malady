@@ -7,7 +7,7 @@ namespace Project.Scripts.Overlays.MainMenu
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainMenuView")]
     public class MainMenuController : PanelControllerBase<MainMenuView>
     {
-        [Inject] private GameDirector _gameDirector;
+        [Inject] private Main _main;
 
         protected override void Initialize()
         {
@@ -20,7 +20,7 @@ namespace Project.Scripts.Overlays.MainMenu
         
         private void OnStartGameButtonClicked()
         {
-            _gameDirector.ChangeState(GameStateType.Hub);
+            _main.ChangeState(GameStateType.Hub);
             Close();
         }
 

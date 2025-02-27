@@ -31,6 +31,7 @@ namespace Project.Scripts
             await _npcFactory.CreateNpcAsync<Blacksmith>(NpcTypes.Blacksmith, _hubController.GetNpcSpawnPosition(NpcTypes.Blacksmith));
             await _npcFactory.CreateNpcAsync<Trader>(NpcTypes.Trader, _hubController.GetNpcSpawnPosition(NpcTypes.Trader));
             await _corpseFactory.CreateCustomCorpse(true,false,false,true, new Vector3(3,0,2));
+            await _corpseFactory.CreateDefaultCorpse(new Vector3(3,0,0));
         }
     }
 }

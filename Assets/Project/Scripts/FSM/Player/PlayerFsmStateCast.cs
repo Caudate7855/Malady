@@ -10,6 +10,8 @@ namespace Project.Scripts
         private readonly Animator _animator;
         private Fsm _fsm;
         private PlayerFsm _playerFsm;
+
+        private int _castDurationInMilliseconds = 500;
         
         public PlayerFsmStateCast(Fsm fsm, Animator animator, PlayerFsm playerFsm) : base(fsm)
         {
@@ -27,7 +29,7 @@ namespace Project.Scripts
 
         private async UniTask CastDelay()
         {
-            await UniTask.Delay(500);
+            await UniTask.Delay(_castDurationInMilliseconds);
             _playerFsm.IsPossibleToMove = true;
             _fsm.SetState<PlayerFsmStateIdle>();
         }

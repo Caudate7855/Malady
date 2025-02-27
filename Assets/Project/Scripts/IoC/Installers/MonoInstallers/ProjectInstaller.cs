@@ -9,13 +9,13 @@ namespace Project.Scripts.IoC.Installers
 {
     public class ProjectInstaller : MonoInstaller<ProjectInstaller>
     {
-        private GameDirector _gameDirector;
+        private Main _main;
 
         public override void InstallBindings()
         {
             PanelManagerInstaller.Install(Container, default, null);
 
-            _gameDirector = FindObjectOfType<GameDirector>();
+            _main = FindObjectOfType<Main>();
 
             Container
                 .Bind<HubBoot>()
@@ -26,8 +26,8 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
 
             Container
-                .Bind<GameDirector>()
-                .FromInstance(_gameDirector)
+                .Bind<Main>()
+                .FromInstance(_main)
                 .AsSingle();
         }
     }

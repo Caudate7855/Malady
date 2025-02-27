@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Project.Scripts.App
 {
-    public class GameDirector : MonoBehaviour
+    public class Main : MonoBehaviour
     {
         [Inject] private IPanelManager _panelManager;
         [Inject] private ISceneLoader _sceneLoader;

@@ -1,3 +1,4 @@
+using System;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
@@ -34,6 +35,11 @@ namespace Project.Scripts
         public void SetState<T>() where T : FsmStateBase
         {
             _fsm.SetState<T>();
+        }
+
+        public Type GetCurrentStateType()
+        {
+            return _fsm.CurrentState.GetType();
         }
 
         public void Tick()

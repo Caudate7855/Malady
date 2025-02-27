@@ -6,11 +6,11 @@ namespace Project.Scripts.Core
 {
     public class Exit : InteractableZoneBase
     {
-        [Inject] private GameDirector _gameDirector;
+        [Inject] private Main _main;
         
         public override void Interact()
         {
-            _gameDirector.ChangeState(GameStateType.Church);
+            _main.ChangeState(GameStateType.Church);
             CloseButton();
         }
     }
