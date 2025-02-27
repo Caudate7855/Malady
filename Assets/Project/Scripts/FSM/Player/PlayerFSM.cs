@@ -15,7 +15,7 @@ namespace Project.Scripts
         private NavMeshAgent _navMeshAgent;
         private Animator _animator;
 
-        private bool _isInitialzied;
+        private bool _isInitialized;
 
         public void Initialize(NavMeshAgent navMeshAgent, Animator animator)
         {
@@ -44,7 +44,7 @@ namespace Project.Scripts
 
         public void Tick()
         {
-            if (!_isInitialzied)
+            if (!_isInitialized)
             {
                 return;
             }

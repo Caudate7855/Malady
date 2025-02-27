@@ -274,8 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInitialized: 0
-  _cameraOffsetPosition: {x: 0, y: 0, z: 0}
-  _cameraOffsetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &1509142010
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +330,6 @@ GameObject:
   - component: {fileID: 2006437058}
   - component: {fileID: 2006437057}
   - component: {fileID: 2006437060}
-  - component: {fileID: 2006437059}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -355,7 +352,6 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 2006437060}
-  - {fileID: 2006437059}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -388,18 +384,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2006437059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006437056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14545dc623af42629731ae2c30022a05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2006437060
 MonoBehaviour:
   m_ObjectHideFlags: 0

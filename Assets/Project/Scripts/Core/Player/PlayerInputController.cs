@@ -2,6 +2,7 @@ using Itibsoft.PanelManager;
 using Project.Scripts.Overlays;
 using Project.Scripts.Overlays.Inventory;
 using Project.Scripts.Services;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -51,10 +52,13 @@ namespace Project.Scripts.Core
             {
                 var targetLocation = _mouseController.GetMouseGroundPositionInWorld(out var interactable);
 
-                if (targetLocation != default)
+                if (targetLocation == default ||
+                    Vector3.Distance(targetLocation, _playerController.transform.position) < 1)
                 {
-                    _playerController.MoveToPoint(targetLocation, interactable);
+                    return;
                 }
+
+                _playerController.TryMoveToPoint(targetLocation, interactable);
             }
         }
 

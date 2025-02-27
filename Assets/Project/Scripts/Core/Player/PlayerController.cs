@@ -22,7 +22,7 @@ namespace Project.Scripts.Core
             _playerStats.DefaultInitialize();
         }
 
-        public void MoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
+        public void TryMoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
         {
             if (EventSystem.current.IsPointerOverGameObject())
             {
