@@ -46,7 +46,9 @@ namespace Project.Scripts.Core
             {
                 _navMeshAgent.SetDestination(hit.position);
             }
-
+            
+            Debug.Log("MoveToPoint");
+            
             await UniTask.WaitForEndOfFrame();
         }
 

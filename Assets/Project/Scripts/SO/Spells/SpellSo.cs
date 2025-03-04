@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Project.Scripts
@@ -14,5 +13,6 @@ namespace Project.Scripts
         public Sprite Icon;
         [TextArea(1,20)] public string Description;
         public List<SpellCost> SpellCost;
+        public string AnimationName;
     }
 }

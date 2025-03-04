@@ -44,6 +44,7 @@ namespace Project.Scripts.Core
                 ContinueMovement();
                 _playerMover.MoveToPoint(targetLocation);
                 _playerFsm.SetState<PlayerFsmStateRun>();
+                _playerFsm.GetCurrentState().Update();
             }
         }
 

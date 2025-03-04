@@ -42,6 +42,11 @@ namespace Project.Scripts
             return _fsm.CurrentState.GetType();
         }
 
+        public FsmStateBase GetCurrentState()
+        {
+            return _fsm.CurrentState;
+        }
+
         public void Tick()
         {
             if (!_isInitialized)

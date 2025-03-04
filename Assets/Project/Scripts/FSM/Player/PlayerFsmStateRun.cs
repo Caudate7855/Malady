@@ -20,5 +20,10 @@ namespace Project.Scripts
         {
             _animator.Play(AnimationName);
         }
+
+        public override void Update()
+        {
+            _animator.Play(AnimationName);
+        }
     }
 }
