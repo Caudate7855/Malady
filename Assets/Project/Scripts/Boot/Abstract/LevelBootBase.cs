@@ -1,7 +1,5 @@
-using System;
 using Cysharp.Threading.Tasks;
 using Itibsoft.PanelManager;
-using Project.Scripts.App;
 using Project.Scripts.Core;
 using Project.Scripts.Overlays;
 using Project.Scripts.Services;
@@ -23,24 +21,24 @@ namespace Project.Scripts
         private PlayerController _playerController;
         private CoreUpdater _coreUpdater;
         
-
         private async void Start()
         {
-            InitializeCoreUpdater();
-
-            _coreUpdater.OnUpdatePerformed += _playerInputController.Update;
-            
             Initialize();
+         
             _playerController = await _playerFactory.Create(_playerPosition);
 
             _mainCamera.Initialize(_playerController);
             _playerInputController.Initialize(_playerController, _panelManager);
-
-
-            //await CreateTestEnemies();
+            
             await FinishLoading();
 
             _panelManager.LoadPanel<MainUIController>().Open();
+        }
+        
+        private void OnEnable()
+        {
+            _coreUpdater = FindObjectOfType<CoreUpdater>();
+            _coreUpdater.OnUpdatePerformed += _playerInputController.Update;
         }
 
         private void OnDisable()
@@ -50,16 +48,6 @@ namespace Project.Scripts
 
         protected abstract void Initialize();
 
-        private void InitializeCoreUpdater()
-        {
-            _coreUpdater = FindObjectOfType<CoreUpdater>();
-        }
-
-        private async UniTask CreateTestEnemies()
-        {
-            await _enemyFactory.Create<EnemyMelee>(EnemyTypes.Melee, new Vector3(1, 0, 0));
-            await _enemyFactory.Create<EnemyRange>(EnemyTypes.Range, new Vector3(2, 0, 0));
-        }
 
         private async UniTask FinishLoading()
         {

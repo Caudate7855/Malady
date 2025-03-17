@@ -3,7 +3,8 @@ namespace Project.Scripts
     public enum GameStateType : byte
     {
         MainMenu = 0,
-        Hub = 1,
-        Church = 2
+        SandBox = 1,
+        Hub = 2,
+        Church = 3
     }
 }

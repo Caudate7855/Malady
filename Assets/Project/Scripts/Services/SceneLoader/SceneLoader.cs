@@ -8,9 +8,10 @@ namespace Project.Scripts
     {
         private Dictionary<GameStateType, int> _scenes = new()
         {
-            {GameStateType.MainMenu, 1},
-            {GameStateType.Hub, 2},
-            {GameStateType.Church, 3}
+            {GameStateType.SandBox, 1},
+            {GameStateType.MainMenu, 2},
+            {GameStateType.Hub, 3},
+            {GameStateType.Church, 4}
         };
         
         public void LoadScene(GameStateType gameState)

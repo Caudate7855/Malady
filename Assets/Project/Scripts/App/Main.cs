@@ -9,6 +9,8 @@ namespace Project.Scripts.App
 {
     public class Main : MonoBehaviour
     {
+        [SerializeField] private bool _isSandBox;
+        
         [Inject] private IPanelManager _panelManager;
         [Inject] private ISceneLoader _sceneLoader;
 
@@ -19,6 +21,7 @@ namespace Project.Scripts.App
         private Dictionary<GameStateType, Type> _gameStates = new()
         {
             { GameStateType.MainMenu, typeof(MainMenuGameStateBase) },
+            { GameStateType.SandBox, typeof(SandBoxGameState) },
             { GameStateType.Hub, typeof(HubGameState) },
             { GameStateType.Church, typeof(ChurchGameState) }
         };
@@ -34,6 +37,12 @@ namespace Project.Scripts.App
 
         private void Start()
         {
+            if (_isSandBox)
+            {
+                ChangeState(GameStateType.SandBox);
+                return;
+            }
+            
             ShowLoadingScreen();
             ChangeState(GameStateType.MainMenu);
         }
@@ -57,11 +66,20 @@ namespace Project.Scripts.App
 
         private void InitializeGameFsm()
         {
+            _gameStateFsm.AddState(new SandBoxGameState(_gameStateFsm, _sceneLoader));
             _gameStateFsm.AddState(new MainMenuGameStateBase(_gameStateFsm, _sceneLoader));
             _gameStateFsm.AddState(new HubGameState(_gameStateFsm, _sceneLoader));
             _gameStateFsm.AddState(new ChurchGameState(_gameStateFsm, _sceneLoader));
 
-            _gameStateFsm.SetState<MainMenuGameStateBase>();
+            
+            if(_isSandBox)
+            {
+                _gameStateFsm.SetState<SandBoxGameState>();
+            }
+            else
+            {
+                _gameStateFsm.SetState<MainMenuGameStateBase>();
+            }
         }
     }
 }

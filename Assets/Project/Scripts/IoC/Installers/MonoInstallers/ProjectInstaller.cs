@@ -18,6 +18,10 @@ namespace Project.Scripts.IoC.Installers
             _main = FindObjectOfType<Main>();
 
             Container
+                .Bind<SandBoxBoot>()
+                .AsSingle();
+            
+            Container
                 .Bind<HubBoot>()
                 .AsSingle();
 
