@@ -11,10 +11,9 @@ namespace Project.Scripts
     public abstract class LevelBootBase : MonoBehaviour
     {
         [SerializeField] private CameraFollower _mainCamera;
-        
-        [Inject] private IPanelManager _panelManager;
-        [Inject] private PlayerFactory _playerFactory;
-        [Inject] private EnemyFactory _enemyFactory;
+
+        [Inject] protected GlobalFactory GlobalFactory;
+        [Inject] protected IPanelManager PanelManager;
         [Inject] private PlayerInputController _playerInputController;
 
         private readonly Vector3 _playerPosition = new(0, 0, 0);
@@ -25,14 +24,14 @@ namespace Project.Scripts
         {
             Initialize();
          
-            _playerController = await _playerFactory.Create(_playerPosition);
+            _playerController = await GlobalFactory.CreatePlayer(_playerPosition);
 
             _mainCamera.Initialize(_playerController);
-            _playerInputController.Initialize(_playerController, _panelManager);
+            _playerInputController.Initialize(_playerController, PanelManager);
             
             await FinishLoading();
 
-            _panelManager.LoadPanel<MainUIController>().Open();
+            PanelManager.LoadPanel<MainUIController>().Open();
         }
         
         private void OnEnable()
@@ -51,8 +50,8 @@ namespace Project.Scripts
 
         private async UniTask FinishLoading()
         {
-            var controller = _panelManager.LoadPanel<LoadingOverlayController>();
-            var fader = _panelManager.LoadPanel<FaderController>();
+            var controller = PanelManager.LoadPanel<LoadingOverlayController>();
+            var fader = PanelManager.LoadPanel<FaderController>();
 
             fader.Open();
             fader.FadeIn();

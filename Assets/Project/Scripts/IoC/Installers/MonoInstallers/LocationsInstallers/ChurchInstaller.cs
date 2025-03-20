@@ -6,22 +6,7 @@ namespace Project.Scripts.IoC.Installers
     {
         public override void InstallBindings()
         {
-            InstallLocationFactories();
-            InstallInteractableFactories();
-        }
-
-        private void InstallLocationFactories()
-        {
-            Container
-                .Bind<ChurchFactory>()
-                .AsSingle();
-        }
-        
-        private void InstallInteractableFactories()
-        {
-            Container
-                .Bind<InteractableFactory>()
-                .AsSingle();
+           
         }
     }
 }

@@ -8,12 +8,6 @@ namespace Project.Scripts
 {
     public class HubBoot : LevelBootBase
     {
-        [Inject] private IPanelManager _panelManager;
-        
-        [Inject] private HubFactory _hubFactory;
-        [Inject] private NpcFactory _npcFactory;
-        [Inject] private CorpseFactory _corpseFactory;
-        [Inject] private InteractableFactory _interactableFactory;
         [Inject] private DialogueSystemManager _dialogueSystemManager;
 
         private HubController _hubController;
@@ -22,16 +16,17 @@ namespace Project.Scripts
         {
             _dialogueSystemManager.Initialize();
             
-            _hubController =  await _hubFactory.Create<HubController>();
+            _hubController =  await GlobalFactory.CreateAndInitializeAsync<HubController>("Hub");
 
-            _interactableFactory.CreateBook(_hubController.GetBookParentObject());
-            _interactableFactory.CreateExit(_hubController.GetExitParentObject());
+            GlobalFactory.CreateBook(_hubController.GetBookParentObject());
+            GlobalFactory.CreateExit(_hubController.GetExitParentObject());
             
-            await _npcFactory.CreateNpcAsync<Undertaker>(NpcTypes.Undertaker, _hubController.GetNpcSpawnPosition(NpcTypes.Undertaker));
-            await _npcFactory.CreateNpcAsync<Blacksmith>(NpcTypes.Blacksmith, _hubController.GetNpcSpawnPosition(NpcTypes.Blacksmith));
-            await _npcFactory.CreateNpcAsync<Trader>(NpcTypes.Trader, _hubController.GetNpcSpawnPosition(NpcTypes.Trader));
-            await _corpseFactory.CreateCustomCorpse(true,false,false,true, new Vector3(3,0,2));
-            await _corpseFactory.CreateDefaultCorpse(new Vector3(3,0,0));
+            await GlobalFactory.CreateNpcAsync<Undertaker>("Undertaker", _hubController.GetNpcSpawnPosition(NpcTypes.Undertaker));
+            await GlobalFactory.CreateNpcAsync<Blacksmith>("Blacksmith", _hubController.GetNpcSpawnPosition(NpcTypes.Blacksmith));
+            await GlobalFactory.CreateNpcAsync<Trader>("Trader", _hubController.GetNpcSpawnPosition(NpcTypes.Trader));
+            
+            await GlobalFactory.CreateCustomCorpseAsync(true,false,false,true, new Vector3(3,0,2));
+            await GlobalFactory.CreateDefaultCorpseAsync(new Vector3(3,0,0));
         }
     }
 }

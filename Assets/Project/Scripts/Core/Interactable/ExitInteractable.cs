@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Project.Scripts.Core
 {
-    public class Exit : InteractableZoneBase
+    public class ExitInteractable : InteractableZoneBase
     {
         [Inject] private Main _main;
         

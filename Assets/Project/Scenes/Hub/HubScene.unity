@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bookInteractable: {fileID: 1088283392765502688, guid: 9a5683af8768d6741b042ec99958aaf8, type: 3}
   _blacksmith: {fileID: 6339055740734493142, guid: 39cc553f4cb32c948b7a432a4a8fe107, type: 3}
-  _exit: {fileID: 6434271907546203438, guid: 04c79e261c4203f43b83e1768c2a3fd6, type: 3}
+  _exitInteractable: {fileID: 6434271907546203438, guid: 04c79e261c4203f43b83e1768c2a3fd6, type: 3}
 --- !u!1 &1520261716
 GameObject:
   m_ObjectHideFlags: 0

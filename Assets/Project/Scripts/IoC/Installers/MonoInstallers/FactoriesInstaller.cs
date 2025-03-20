@@ -7,19 +7,7 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             Container
-                .Bind<NpcFactory>()
-                .AsSingle();
-            
-            Container
-                .Bind<PlayerFactory>()
-                .AsSingle();
-
-            Container
-                .Bind<EnemyFactory>()
-                .AsSingle();
-            
-            Container
-                .Bind<CorpseFactory>()
+                .Bind<GlobalFactory>()
                 .AsSingle();
         }
     }
