@@ -5,7 +5,8 @@ namespace Project.Scripts.Core
 {
     public abstract class EnemyBase : MonoBehaviour, IEnemy, ICustomInitializable
     {
-        protected Fsm _fsm;
+        [SerializeField] protected Animator Animator;
+        protected Fsm Fsm;
         
         public IPlayer Player { get; set; }
 

@@ -4,10 +4,10 @@ namespace Project.Scripts.Core
     {
         protected override void InitializeFsm()
         {
-            _fsm.AddState(new EnemyRangeIdleState(_fsm));
-            _fsm.AddState(new EnemyRangeMoveState(_fsm));
+            Fsm.AddState(new EnemyRangeIdleState(Fsm, Animator));
+            Fsm.AddState(new EnemyRangeMoveState(Fsm, Animator));
             
-            _fsm.SetState<EnemyRangeIdleState>();
+            Fsm.SetState<EnemyRangeIdleState>();
         }
 
         public override void Idle()

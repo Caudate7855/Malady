@@ -4,7 +4,7 @@ namespace Project.Scripts.Core
     {
         protected override void InitializeFsm()
         {
-            
+               
         }
 
         public override void Idle()

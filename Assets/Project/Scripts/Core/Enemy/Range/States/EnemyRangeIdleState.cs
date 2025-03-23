@@ -1,10 +1,14 @@
-﻿namespace Project.Scripts.Core
+﻿using UnityEngine;
+
+namespace Project.Scripts.Core
 {
     public class EnemyRangeIdleState : FsmStateBase
     {
-        public EnemyRangeIdleState(Fsm fsm) : base(fsm)
+        private Animator _animator;
+        
+        public EnemyRangeIdleState(Fsm fsm, Animator animator) : base(fsm)
         {
-            
+            _animator = animator;
         }
 
         public override void Enter()
