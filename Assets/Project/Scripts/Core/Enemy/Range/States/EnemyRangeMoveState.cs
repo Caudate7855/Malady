@@ -2,21 +2,23 @@
 
 namespace Project.Scripts.Core
 {
-    public class EnemyRangeMoveState : FsmStateBase
+    public class EnemyRangeMoveState : EnemyFsmStateBase
     {
-        private Animator _animator;
-        
-        public EnemyRangeMoveState(Fsm fsm, Animator animator) : base(fsm)
+        public EnemyRangeMoveState(Fsm fsm, Animator animator, EnemyBase enemyController) : base(fsm, animator, enemyController)
         {
-            _animator = animator;
         }
         
         public override void Enter()
         {
-            
+            Debug.Log($"EnemyRange - state - MOVE");
         }
 
         public override void Exit()
+        {
+            
+        }
+        
+        public override void Update()
         {
             
         }

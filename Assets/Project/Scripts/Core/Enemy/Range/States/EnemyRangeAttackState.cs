@@ -2,15 +2,16 @@
 
 namespace Project.Scripts.Core
 {
-    public class EnemyRangeIdleState : EnemyFsmStateBase
+    public class EnemyRangeAttackState : EnemyFsmStateBase
     {
-        public EnemyRangeIdleState(Fsm fsm, Animator animator, EnemyBase enemyController) : base(fsm, animator, enemyController)
+        public EnemyRangeAttackState(Fsm fsm, Animator animator, EnemyBase enemyController) : base(fsm, animator, enemyController)
         {
+            
         }
-
+        
         public override void Enter()
         {
-            Debug.Log($"EnemyRange - state - IDLE");
+            Debug.Log($"EnemyRange - state - ATTACK");
         }
 
         public override void Exit()
