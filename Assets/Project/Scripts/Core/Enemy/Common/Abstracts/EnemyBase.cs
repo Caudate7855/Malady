@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public abstract class EnemyBase : MonoBehaviour, IEnemy, ICustomInitializable
+    public abstract class EnemyBase : AiBehaviourBase, IEnemy, ICustomInitializable
     {
         [SerializeField] protected Animator Animator;
         protected Fsm Fsm = new();
