@@ -11,7 +11,7 @@ namespace Project.Scripts.Core
         
         public override void Enter()
         {
-            Debug.Log($"EnemyRange - state - ATTACK");
+            
         }
 
         public override void Exit()

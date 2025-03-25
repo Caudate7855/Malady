@@ -30,7 +30,6 @@ namespace Project.Scripts
 
             if (other.GetComponent(_targetObject.GetType()))
             {
-                Debug.Log($"Enter trigger {other.name}");
                 OnTriggerEnterEvent?.Invoke();
             }
         }

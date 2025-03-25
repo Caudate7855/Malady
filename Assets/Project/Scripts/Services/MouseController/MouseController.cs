@@ -3,7 +3,7 @@ using Project.Scripts.Core.Abstracts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     [UsedImplicitly]
     public class MouseController
@@ -24,16 +24,17 @@ namespace Project.Scripts.Services
             }
 
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            int groundLayerMask = LayerMask.GetMask("Clickable");
 
-            if (Physics.Raycast(ray, out var hit, 100))
+            if (Physics.Raycast(ray, out var hit, 100, groundLayerMask))
             {
-                if (hit.collider.gameObject.GetComponent<InteractableBase>())
+                interactableBase = hit.collider.gameObject.GetComponent<InteractableBase>();
+
+                if (interactableBase != null)
                 {
-                    interactableBase = hit.collider.gameObject.GetComponent<InteractableBase>();
                     return hit.collider.gameObject.transform.position;
                 }
 
-                interactableBase = default;
                 return hit.point;
             }
 
