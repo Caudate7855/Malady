@@ -53,7 +53,7 @@ namespace Project.Scripts.Core
                 var targetLocation = _mouseController.GetMouseGroundPositionInWorld(out var interactable);
 
                 if (targetLocation == default ||
-                    Vector3.Distance(targetLocation, _playerController.transform.position) < 1)
+                    Vector3.Distance(targetLocation, _playerController.transform.position) < 0.2)
                 {
                     return;
                 }

@@ -72,7 +72,7 @@ namespace Project.Scripts.Core
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
-            if (randomBehaviourIndex <= 2)
+            if (randomBehaviourIndex <= 1)
             {
                 _aiBehaviourBase.Idle();
             }
