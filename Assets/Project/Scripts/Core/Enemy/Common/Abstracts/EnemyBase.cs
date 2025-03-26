@@ -8,7 +8,8 @@ namespace Project.Scripts.Core
         [SerializeField] protected Animator Animator;
         protected Fsm Fsm = new();
         
-        public IPlayer Player { get; set; }
+        public PlayerController Player { get; set; }
+        
 
         public void Initialize()
         {
@@ -17,9 +18,6 @@ namespace Project.Scripts.Core
         }
         
         protected abstract void InitializeFsm();
-        public abstract void Idle();
-        public abstract void Move();
-        public abstract void Attack();
 
         private void Update()
         {

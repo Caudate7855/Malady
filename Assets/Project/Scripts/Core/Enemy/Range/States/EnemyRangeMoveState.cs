@@ -10,7 +10,7 @@ namespace Project.Scripts.Core
         
         public override void Enter()
         {
-            
+            Debug.Log("move");
         }
 
         public override void Exit()

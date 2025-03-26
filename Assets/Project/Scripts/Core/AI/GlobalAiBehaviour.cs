@@ -4,14 +4,17 @@ using Random = System.Random;
 
 namespace Project.Scripts.Core
 {
-    public class GlobalAiBehaviour : MonoBehaviour
+    public abstract class GlobalAiBehaviour : MonoBehaviour
     {
         private const float CYCLE_DELAY = 3.0f;
 
+        public bool IsOpponentInAttackDistance;
+        public bool IsOpponentInFollowDistance;
+        
         private AiBehaviourBase _aiBehaviourBase;
-        private bool _isAlive;
+        private bool _isAlive = true;
         private Random _random = new();
-
+        
         private void Awake()
         {
             _aiBehaviourBase = GetComponent<AiBehaviourBase>();
@@ -19,8 +22,11 @@ namespace Project.Scripts.Core
 
         private void Start()
         {
+            Initialize();
             StartCoroutine(BehaviourCycle());
         }
+        
+        protected abstract void Initialize();
 
         private IEnumerator BehaviourCycle()
         {
@@ -31,26 +37,24 @@ namespace Project.Scripts.Core
             }
         }
 
-        private void TryChangeBehaviour()
+        protected void TryChangeBehaviour()
         {
-            if (_aiBehaviourBase.IsOpponentInAttackDistance)
+            if (IsOpponentInAttackDistance)
             {
                 SetAttackRandomBehaviour();
                 return;
             }
 
-            if (_aiBehaviourBase.IsOpponentInFollowDistance)
+            if (IsOpponentInFollowDistance)
             {
                 SetFollowRandomBehaviour();
+                return;
             }
 
-            if (!_aiBehaviourBase.IsOpponentInFollowDistance)
-            {
-                
-            }
+            SetIdleRandomBehaviour();
         }
 
-        private void SetDefaultRandomBehaviour()
+        public void SetIdleRandomBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
@@ -64,7 +68,7 @@ namespace Project.Scripts.Core
             }
         }
 
-        private void SetFollowRandomBehaviour()
+        public void SetFollowRandomBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
@@ -77,8 +81,8 @@ namespace Project.Scripts.Core
                 _aiBehaviourBase.Move();
             }
         }
-        
-        private void SetAttackRandomBehaviour()
+
+        public void SetAttackRandomBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 

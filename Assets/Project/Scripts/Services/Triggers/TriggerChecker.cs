@@ -27,7 +27,7 @@ namespace Project.Scripts
             {
                 return;
             }
-
+            
             if (other.GetComponent(_targetObject.GetType()))
             {
                 OnTriggerEnterEvent?.Invoke();
@@ -41,12 +41,22 @@ namespace Project.Scripts
                 return;
             }
             
+            if (other.gameObject == gameObject)
+            {
+                return;
+            }
+            
             IsStayInTrigger = true;
         }
 
         private void OnTriggerExit(Collider other)
         {
             if (!_isInitialized)
+            {
+                return;
+            }
+            
+            if (other.gameObject == gameObject)
             {
                 return;
             }

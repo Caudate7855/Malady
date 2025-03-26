@@ -11,7 +11,7 @@ namespace Project.Scripts.Core
         
         public override void Enter()
         {
-            
+            Debug.Log("attack");
         }
 
         public override void Exit()
