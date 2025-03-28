@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 4411916859190253477}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.94, y: -3.159, z: 7.397}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -136,7 +136,7 @@ VisualEffect:
       m_Array: []
     m_NamedObject:
       m_Array:
-      - m_Value: {fileID: 2800000, guid: 46fe5ab99259ce24986edf80bc234024, type: 3}
+      - m_Value: {fileID: 2800000, guid: 184b4f530b532104cb36b129969fb6fa, type: 3}
         m_Name: SoulTexture
         m_Overridden: 1
     m_Bool:
