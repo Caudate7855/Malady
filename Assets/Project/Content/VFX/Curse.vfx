@@ -27,22 +27,10 @@ MonoBehaviour:
     - model: {fileID: 8926484042661616682}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661616731}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661616720}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661616687}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661616749}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661616755}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661616758}
       id: 0
       isStickyNote: 0
   - title: Fire
@@ -110,9 +98,6 @@ MonoBehaviour:
     - model: {fileID: 8926484042661616146}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661616656}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661616236}
       id: 0
       isStickyNote: 0
@@ -138,18 +123,6 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661616151}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661616173}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661616369}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661616179}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 0}
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
@@ -6849,7 +6822,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616327}
   m_ExposedName: Use Flipbook
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -6945,7 +6918,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616331}
   m_ExposedName: Texture
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -7025,7 +6998,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616333}
   m_ExposedName: Soft Particle Fade Distance
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -7105,7 +7078,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616335}
   m_ExposedName: Flipbook Size
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
@@ -7264,7 +7237,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616339}
   m_ExposedName: Wind Direction
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 5
   m_Category: 
   m_Min:
     m_Type:
@@ -7480,7 +7453,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616345}
   m_ExposedName: Flipbook Animation Speed
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -7560,7 +7533,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616351}
   m_ExposedName: Smokiness
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
@@ -7640,7 +7613,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616353}
   m_ExposedName: Pivot
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
@@ -7822,7 +7795,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616358}
   m_ExposedName: Width Scale
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 9
   m_Category: 
   m_Min:
     m_Type:
@@ -7902,7 +7875,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616362}
   m_ExposedName: Up Vector
   m_Exposed: 1
-  m_Order: 15
+  m_Order: 10
   m_Category: 
   m_Min:
     m_Type:
@@ -8110,7 +8083,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616368}
   m_ExposedName: Wind Drag Intensity
   m_Exposed: 1
-  m_Order: 16
+  m_Order: 11
   m_Category: 
   m_Min:
     m_Type:
