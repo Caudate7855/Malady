@@ -13,8 +13,6 @@ namespace Project.Scripts.Core
         
         public override async void Enter()
         {
-            Debug.Log("move");
-
             EnemyController.CanChangeState = false;
             await UniTask.Delay(1500);
             EnemyController.CanChangeState = true;
