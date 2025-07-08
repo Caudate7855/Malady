@@ -17,28 +17,28 @@ namespace Project.Scripts
 
         public Vector3 GetMouseGroundPositionInWorld(out InteractableBase interactableBase)
         {
+            interactableBase = null;
+
             if (EventSystem.current.IsPointerOverGameObject())
-            {
-                interactableBase = default;
                 return default;
-            }
 
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-            int groundLayerMask = LayerMask.GetMask("Clickable");
 
-            if (Physics.Raycast(ray, out var hit, 100, groundLayerMask))
+            int clickableLayerMask = LayerMask.GetMask("Clickable");
+            if (Physics.Raycast(ray, out var hit, 100f, clickableLayerMask))
             {
-                interactableBase = hit.collider.gameObject.GetComponent<InteractableBase>();
+                var go = hit.collider.gameObject;
+                interactableBase = go.GetComponent<InteractableBase>();
 
-                if (interactableBase != null)
-                {
-                    return hit.collider.gameObject.transform.position;
-                }
+                return go.transform.position;
+            }
 
+            int groundLayerMask = LayerMask.GetMask("Ground");
+            if (Physics.Raycast(ray, out hit, 100f, groundLayerMask))
+            {
                 return hit.point;
             }
 
-            interactableBase = default;
             return default;
         }
         
