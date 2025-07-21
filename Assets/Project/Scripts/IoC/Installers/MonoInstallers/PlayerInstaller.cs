@@ -31,6 +31,10 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<IStatSystem>()
                 .To<StatsSystem>()
                 .AsSingle();
+
+            Container
+                .Bind<SpellSystemController>()
+                .AsSingle();
             
             Container
                 .Bind<PlayerInputController>()

@@ -12,6 +12,7 @@ namespace Project.Scripts.Core
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
         [Inject] private PlayerStats _playerStats;
+        [Inject] private SpellSystemController _spellSystemController;
 
         public void Initialize()
         {

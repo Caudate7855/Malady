@@ -7,6 +7,9 @@ namespace Project.Scripts.Overlays
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainUIView")]
     public class MainUIController : PanelControllerBase<MainUIView>
     {
+        public SpellList SummonSpellList => _summonSpellList;
+        public SpellList PlayerSpellList => _playerSpellList;
+        
         private SpellList _summonSpellList;
         private SpellList _playerSpellList;
         
@@ -22,8 +25,7 @@ namespace Project.Scripts.Overlays
             SetSpellTip(_summonSpellList.SpellUIButtonBase);
             SetSpellTip(_playerSpellList.SpellUIButtonBase);
         }
-
-
+        
         private void SetSpellTip(List<SpellUIButtonBase> list)
         {
             foreach (var spell in list)
