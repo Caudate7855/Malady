@@ -106,16 +106,8 @@ MonoBehaviour:
   - {fileID: 8982563607614830937}
   - {fileID: 4240159306708412235}
   - {fileID: 7884515393959762244}
-  _summonSpellsButtons:
-  - {fileID: 2953086058337529045}
-  - {fileID: 6532613152722994088}
-  - {fileID: 7792582520382997591}
-  - {fileID: 8054410023281655727}
-  _playerSpellsButtons:
-  - {fileID: 5934187242496511253}
-  - {fileID: 6288884590917635387}
-  - {fileID: 2441367455780160883}
-  - {fileID: 8616375033611218262}
+  _summonSpellList: {fileID: 1237591317640198678}
+  _playerSpellList: {fileID: 1002563772779034390}
 --- !u!1 &624939912415060523
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1029,6 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4164612109000517890}
   - component: {fileID: 5824562244370123117}
+  - component: {fileID: 1002563772779034390}
   m_Layer: 0
   m_Name: PlayerSpells
   m_TagString: Untagged
@@ -1085,6 +1078,24 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1002563772779034390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3109391329400693287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e604c8ccdaf4ab19fd07ca0aa8d1b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spellsType: 1
+  _spellUIButtonBase:
+  - {fileID: 5934187242496511253}
+  - {fileID: 6288884590917635387}
+  - {fileID: 2441367455780160883}
+  - {fileID: 8616375033611218262}
 --- !u!1 &3252906022870548714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1281,6 +1292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3770312511426757388}
   - component: {fileID: 489953490813428409}
+  - component: {fileID: 1237591317640198678}
   m_Layer: 0
   m_Name: SummonSpellsList
   m_TagString: Untagged
@@ -1337,6 +1349,24 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1237591317640198678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705545920029016639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e604c8ccdaf4ab19fd07ca0aa8d1b29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spellsType: 0
+  _spellUIButtonBase:
+  - {fileID: 2953086058337529045}
+  - {fileID: 6532613152722994088}
+  - {fileID: 7792582520382997591}
+  - {fileID: 8054410023281655727}
 --- !u!1 &3902187237441313269
 GameObject:
   m_ObjectHideFlags: 0

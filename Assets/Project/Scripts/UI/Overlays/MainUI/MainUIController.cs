@@ -7,8 +7,8 @@ namespace Project.Scripts.Overlays
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainUIView")]
     public class MainUIController : PanelControllerBase<MainUIView>
     {
-        private List<SpellUIButtonBase> _summonSpellButtons;
-        private List<SpellUIButtonBase> _payerSpellButtons;
+        private SpellList _summonSpellList;
+        private SpellList _playerSpellList;
         
         [Inject] private SpellTipHandler _spellTipHandler;
         [Inject] private SpellDragImageHandler _spellDragImageHandler;
@@ -16,11 +16,11 @@ namespace Project.Scripts.Overlays
         
         protected override void Initialize()
         {
-            _payerSpellButtons = Panel.PlayerSpellButton;
-            _summonSpellButtons = Panel.SummonSpellsButtons;
+            _summonSpellList = Panel.SummonSpellList;
+            _playerSpellList = Panel.PlayerSpellList;
 
-            SetSpellTip(_summonSpellButtons);
-            SetSpellTip(_payerSpellButtons);
+            SetSpellTip(_summonSpellList.SpellUIButtonBase);
+            SetSpellTip(_playerSpellList.SpellUIButtonBase);
         }
 
 
@@ -34,17 +34,17 @@ namespace Project.Scripts.Overlays
 
         private void SetSpell(int index, SpellElementType type, int row, int column)
         {
-            _payerSpellButtons[index].SetSpellInfo(_spellsContainerSo.GetSpell(type, row, column));
+            _playerSpellList.SpellUIButtonBase[index].SetSpellInfo(_spellsContainerSo.GetSpell(type, row, column));
         }
 
         public void OnPlayerSpellButtonClicked(int index)
         {
-            _payerSpellButtons[index].Interact();
+            _playerSpellList.SpellUIButtonBase[index].Interact();
         }
         
         public void OnSummonSpellButtonClicked(int index)
         {
-            _summonSpellButtons[index].Interact();
+            _summonSpellList.SpellUIButtonBase[index].Interact();
         }
     }
 }
