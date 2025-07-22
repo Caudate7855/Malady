@@ -148,9 +148,12 @@ namespace Project.Scripts
             {
                 if (_spellDragImage.GetTargetSpellUIButtonBase()._spellParentType == SpellParentType.MainUi)
                 {
-                    _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(Spell);
-                    _spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SetSpell(Spell,
-                        _spellDragImage.GetTargetSpellUIButtonBase()._index);
+                    if (_spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SpellsType == Spell.Type)
+                    {
+                        _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(Spell);
+                        _spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SetSpell(Spell,
+                            _spellDragImage.GetTargetSpellUIButtonBase()._index);
+                    }
                 }
 
                 if (_spellParentType == SpellParentType.MainUi)

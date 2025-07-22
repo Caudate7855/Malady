@@ -9,8 +9,8 @@ namespace Project.Scripts
     {
         public List<SpellSo> ChosenSpells => _chosenSpells;
         public List<SpellUIButtonBase> SpellUIButtonBase => _spellUIButtonBase;
-        
-        [SerializeField] private SpellType _spellsType;
+
+        public SpellType SpellsType;
         [SerializeField] private List<SpellUIButtonBase> _spellUIButtonBase = new();
         [SerializeField] private List<SpellSo> _chosenSpells = new();
 

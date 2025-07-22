@@ -1090,12 +1090,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e604c8ccdaf4ab19fd07ca0aa8d1b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellsType: 1
+  SpellsType: 1
   _spellUIButtonBase:
   - {fileID: 5934187242496511253}
   - {fileID: 6288884590917635387}
   - {fileID: 2441367455780160883}
   - {fileID: 8616375033611218262}
+  _chosenSpells: []
 --- !u!1 &3252906022870548714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,12 +1362,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e604c8ccdaf4ab19fd07ca0aa8d1b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spellsType: 0
+  SpellsType: 0
   _spellUIButtonBase:
   - {fileID: 2953086058337529045}
   - {fileID: 6532613152722994088}
   - {fileID: 7792582520382997591}
   - {fileID: 8054410023281655727}
+  _chosenSpells: []
 --- !u!1 &3902187237441313269
 GameObject:
   m_ObjectHideFlags: 0
