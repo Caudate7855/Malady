@@ -18,7 +18,6 @@ namespace Project.Scripts
 
         public override void Enter()
         {
-            Debug.Log("Idle");
             _animator.Play(AnimationName);
         }
     }

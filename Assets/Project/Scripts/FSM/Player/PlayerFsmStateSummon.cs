@@ -22,8 +22,6 @@ namespace Project.Scripts
 
         public override void Enter()
         {
-            Debug.Log("Summon");
-
             _playerFsm.IsPossibleToMove = false;
             _animator.Play(ANIMATION_NAME);
 
