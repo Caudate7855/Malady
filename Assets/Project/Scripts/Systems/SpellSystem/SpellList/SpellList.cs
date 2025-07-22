@@ -27,10 +27,9 @@ namespace Project.Scripts
         {
             Debug.Log(_chosenSpells.Count);
             
-            //RemoveSpell(indexToSet); 
+            RemoveSpell(indexToSet); 
             _chosenSpells[indexToSet] = spellToSet;
             _spellUIButtonBase[indexToSet].Spell = spellToSet;
-            _spellUIButtonBase[indexToSet].SetSpellInfo(spellToSet);
         }
         
         private void RemoveSpell(int indexToRemove)

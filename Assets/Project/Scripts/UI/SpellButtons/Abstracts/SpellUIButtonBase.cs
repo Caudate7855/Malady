@@ -154,7 +154,8 @@ namespace Project.Scripts
 
 
                     _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(Spell);
-                    _spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SetSpell(Spell, _index);
+                    _spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SetSpell(Spell,
+                        _spellDragImage.GetTargetSpellUIButtonBase()._index);
                 }
 
                 if (_spellParentType == SpellParentType.MainUi)
