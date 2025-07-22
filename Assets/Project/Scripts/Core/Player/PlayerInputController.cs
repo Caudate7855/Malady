@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Project.Scripts.Overlays;
 using Project.Scripts.Overlays.Inventory;
@@ -11,7 +12,8 @@ namespace Project.Scripts.Core
     public class PlayerInputController
     {
         [Inject] private MouseController _mouseController;
-        
+        [Inject] private SpellSystemController _spellSystemController;
+
         private InventoryController _inventoryController;
         private MainUIController _mainUIController;
 
@@ -20,10 +22,11 @@ namespace Project.Scripts.Core
         private bool _isInventoryOpened;
 
         private PlayerController _playerController;
-        
+
         public void Initialize(PlayerController playerController, IPanelManager panelManager)
         {
             _mouseController.Initialize();
+            _spellSystemController.Initialize();
             
             _playerController = playerController;
 
@@ -34,15 +37,15 @@ namespace Project.Scripts.Core
 
             _playerInputs.Gameplay.Inventory.performed += OnInventoryPerformed;
 
-            _playerInputs.Gameplay.PlayerSpell1.performed += OnPlayerSpellPerformed0;
-            _playerInputs.Gameplay.PlayerSpell2.performed += OnPlayerSpellPerformed1;
-            _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
-            _playerInputs.Gameplay.PlayerSpell4.performed += OnPlayerSpellPerformed3;
-
             _playerInputs.Gameplay.SummonSpell1.performed += OnSummonSpellPerformed0;
             _playerInputs.Gameplay.SummonSpell2.performed += OnSummonSpellPerformed1;
             _playerInputs.Gameplay.SummonSpell3.performed += OnSummonSpellPerformed2;
             _playerInputs.Gameplay.SummonSpell4.performed += OnSummonSpellPerformed3;
+            
+            _playerInputs.Gameplay.PlayerSpell1.performed += OnPlayerSpellPerformed0;
+            _playerInputs.Gameplay.PlayerSpell2.performed += OnPlayerSpellPerformed1;
+            _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
+            _playerInputs.Gameplay.PlayerSpell4.performed += OnPlayerSpellPerformed3;
         }
 
 
@@ -78,24 +81,62 @@ namespace Project.Scripts.Core
 
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 0) == false)
+            {
+                Debug.Log(false);
+                return;
+            }
+            
+            Debug.Log(true);
+            
             _mainUIController.OnPlayerSpellButtonClicked(0);
-            _playerController.Cast();
+            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[0].AnimationType);
+            _spellSystemController.CastPlayerSpellByIndex(0);
         }
 
         private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 1) == false)
+            {
+                Debug.Log(false);
+                return;
+            }
+            
+            Debug.Log(true);
+            
             _mainUIController.OnPlayerSpellButtonClicked(1);
-            _playerController.Summon();
+            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[1].AnimationType);
+            _spellSystemController.CastPlayerSpellByIndex(1);
         }
 
         private void OnPlayerSpellPerformed2(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 2) == false)
+            {
+                Debug.Log(false);
+                return;
+            }
+            
+            Debug.Log(true);
+            
             _mainUIController.OnPlayerSpellButtonClicked(2);
+            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[2].AnimationType);
+            _spellSystemController.CastPlayerSpellByIndex(2);
         }
 
         private void OnPlayerSpellPerformed3(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 3) == false)
+            {
+                Debug.Log(false);
+                return;
+            }
+            
+            Debug.Log(true);
+            
             _mainUIController.OnPlayerSpellButtonClicked(3);
+            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[3].AnimationType);
+            _spellSystemController.CastPlayerSpellByIndex(3);
         }
 
         private void OnSummonSpellPerformed0(InputAction.CallbackContext obj)
@@ -116,6 +157,21 @@ namespace Project.Scripts.Core
         private void OnSummonSpellPerformed3(InputAction.CallbackContext obj)
         {
             _mainUIController.OnSummonSpellButtonClicked(3);
+        }
+
+        private bool CheckSpell(List<SpellSo> list, int index)
+        {
+            if (list.Count == 0)
+            {
+                return false;
+            }
+            
+            if (list[index] == default)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

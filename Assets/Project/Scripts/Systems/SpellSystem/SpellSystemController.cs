@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
 using Project.Scripts.Overlays;
@@ -12,22 +11,25 @@ namespace Project.Scripts
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerFsm _playerFsm;
 
-        private MainUIController _mainUIController;
-        
-        private SpellList _summonedSpellList;
-        private SpellList _playerSpellList;
+        public SpellList SummonedSpellList { get; private set; }
+        public SpellList PlayerSpellList { get; private set; }
 
-        public SpellSystemController()
+        public void Initialize()
         {
-            _mainUIController = _panelManager.LoadPanel<MainUIController>();
+            var mainUIController = _panelManager.LoadPanel<MainUIController>();
 
-            _summonedSpellList = _mainUIController.SummonSpellList;
-            _playerSpellList = _mainUIController.PlayerSpellList;
+            SummonedSpellList = mainUIController.SummonSpellList;
+            PlayerSpellList = mainUIController.PlayerSpellList;
+        }
+
+        public void CastSummonSpellByIndex(int indexToCast)
+        {
+            SummonedSpellList.ChosenSpells[indexToCast].Cast();
         }
         
-        public void CastSpell(SpellSo spell)
+        public void CastPlayerSpellByIndex(int indexToCast)
         {
-            
+            PlayerSpellList.ChosenSpells[indexToCast].Cast();
         }
     }
 }

@@ -30,6 +30,10 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<ResourceFinder>()
                 .AsSingle();
+            
+            Container
+                .Bind<SpellSystemController>()
+                .AsSingle();
         }
     }
 }

@@ -12,7 +12,6 @@ namespace Project.Scripts.Core
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
         [Inject] private PlayerStats _playerStats;
-        [Inject] private SpellSystemController _spellSystemController;
 
         public void Initialize()
         {
@@ -72,16 +71,21 @@ namespace Project.Scripts.Core
             _playerFsm.SetState<PlayerFsmStateIdle>();
         }
 
-        public void Cast()
+        public void PlayCastAnimation(PlayerCastAnimations animationType)
         {
             StopMovement();
-            _playerFsm.SetState<PlayerFsmStateCast>();
-        }
 
-        public void Summon()
-        {
-            StopMovement();
-            _playerFsm.SetState<PlayerFsmStateSummon>();
+
+            switch (animationType)
+            {
+                case PlayerCastAnimations.Cast:
+                    _playerFsm.SetState<PlayerFsmStateCast>();
+                    break;
+                
+                case PlayerCastAnimations.Summon:
+                    _playerFsm.SetState<PlayerFsmStateSummon>();
+                    break;
+            }
         }
     }
 }

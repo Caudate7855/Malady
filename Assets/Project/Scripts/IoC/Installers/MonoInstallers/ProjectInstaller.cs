@@ -1,8 +1,5 @@
 using Itibsoft.PanelManager.External;
 using Project.Scripts.App;
-using Project.Scripts.Core;
-using Project.Scripts.Services;
-using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers

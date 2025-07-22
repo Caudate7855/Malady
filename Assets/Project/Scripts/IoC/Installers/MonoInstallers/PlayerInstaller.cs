@@ -26,14 +26,10 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .BindInterfacesAndSelfTo<PlayerFsm>()
                 .AsSingle();
-            
+
             Container
                 .Bind<IStatSystem>()
                 .To<StatsSystem>()
-                .AsSingle();
-
-            Container
-                .Bind<SpellSystemController>()
                 .AsSingle();
             
             Container
