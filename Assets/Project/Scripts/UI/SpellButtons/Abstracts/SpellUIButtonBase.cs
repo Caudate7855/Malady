@@ -148,11 +148,6 @@ namespace Project.Scripts
             {
                 if (_spellDragImage.GetTargetSpellUIButtonBase()._spellParentType == SpellParentType.MainUi)
                 {
-                    Debug.Log(_spellDragImage.GetTargetSpellUIButtonBase().Spell);
-                    Debug.Log(_spellDragImage.GetTargetSpellUIButtonBase()._index);
-                    Debug.Log(_spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList);
-
-
                     _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(Spell);
                     _spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SetSpell(Spell,
                         _spellDragImage.GetTargetSpellUIButtonBase()._index);

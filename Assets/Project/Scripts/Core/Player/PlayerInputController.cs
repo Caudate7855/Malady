@@ -83,11 +83,8 @@ namespace Project.Scripts.Core
         {
             if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 0) == false)
             {
-                Debug.Log(false);
                 return;
             }
-            
-            Debug.Log(true);
             
             _mainUIController.OnPlayerSpellButtonClicked(0);
             _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[0].AnimationType);
@@ -98,11 +95,8 @@ namespace Project.Scripts.Core
         {
             if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 1) == false)
             {
-                Debug.Log(false);
                 return;
             }
-            
-            Debug.Log(true);
             
             _mainUIController.OnPlayerSpellButtonClicked(1);
             _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[1].AnimationType);
@@ -113,11 +107,8 @@ namespace Project.Scripts.Core
         {
             if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 2) == false)
             {
-                Debug.Log(false);
                 return;
             }
-            
-            Debug.Log(true);
             
             _mainUIController.OnPlayerSpellButtonClicked(2);
             _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[2].AnimationType);
@@ -128,11 +119,8 @@ namespace Project.Scripts.Core
         {
             if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 3) == false)
             {
-                Debug.Log(false);
                 return;
             }
-            
-            Debug.Log(true);
             
             _mainUIController.OnPlayerSpellButtonClicked(3);
             _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[3].AnimationType);

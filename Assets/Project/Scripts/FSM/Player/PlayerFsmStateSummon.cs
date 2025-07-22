@@ -19,17 +19,21 @@ namespace Project.Scripts
             _fsm = fsm;
             _playerFsm = playerFsm;
         }
-        
-        public override async void Enter()
+
+        public override void Enter()
         {
+            Debug.Log("Summon");
+
             _playerFsm.IsPossibleToMove = false;
             _animator.Play(ANIMATION_NAME);
-            await CastDelay();
+
+            CastAndExit().Forget();
         }
 
-        private async UniTask CastDelay()
+        private async UniTaskVoid CastAndExit()
         {
             await UniTask.Delay(_castDurationInMilliseconds);
+
             _playerFsm.IsPossibleToMove = true;
             _fsm.SetState<PlayerFsmStateIdle>();
         }

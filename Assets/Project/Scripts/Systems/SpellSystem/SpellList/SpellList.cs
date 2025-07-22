@@ -25,8 +25,6 @@ namespace Project.Scripts
 
         public void SetSpell(SpellSo spellToSet, int indexToSet)
         {
-            Debug.Log(_chosenSpells.Count);
-            
             RemoveSpell(indexToSet); 
             _chosenSpells[indexToSet] = spellToSet;
             _spellUIButtonBase[indexToSet].Spell = spellToSet;

@@ -15,6 +15,7 @@ namespace Project.Scripts.Core
 
         private NavMeshAgent _navMeshAgent;
         private bool _isSetted;
+        private bool _isMoving = false;
 
         public void SetNavMeshAgent(NavMeshAgent navMeshAgent)
         {
@@ -36,17 +37,15 @@ namespace Project.Scripts.Core
         public async void MoveToPoint(Vector3 location)
         {
             if (_navMeshAgent == null)
-            {
                 return;
-            }
-            
+
             NavMeshHit hit;
-            
             if (NavMesh.SamplePosition(location, out hit, MAX_REACH_DISTANCE, NavMesh.AllAreas))
             {
+                _isMoving = true;
                 _navMeshAgent.SetDestination(hit.position);
             }
-            
+
             await UniTask.WaitForEndOfFrame();
         }
 
@@ -62,17 +61,16 @@ namespace Project.Scripts.Core
 
         private void HasReachedDestination()
         {
-            if (!_isSetted)
-            {
+            if (!_isSetted || !_isMoving)
                 return;
-            }
-            
+
             if (!_navMeshAgent.pathPending)
             {
                 if (_navMeshAgent.remainingDistance <= 0)
                 {
                     if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
                     {
+                        _isMoving = false; // сбрасываем
                         OnDestinationReached?.Invoke();
                     }
                 }
