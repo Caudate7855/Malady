@@ -16,18 +16,14 @@ namespace Editor.AutoBootLoader
         
         private static void OnPlayModeChanged(PlayModeStateChange state)
         {
-            if (state == PlayModeStateChange.ExitingEditMode) 
-                return;
-            
-            if (SceneManager.GetActiveScene().path.Equals(BootScenePath)) 
-                return;
-            
-            EditorApplication.isPlaying = false;
-
-            EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
-            EditorSceneManager.OpenScene(BootScenePath);
-
-            EditorApplication.delayCall += () => { EditorApplication.isPlaying = true; };
+            if (state == PlayModeStateChange.ExitingEditMode)
+            {
+                if (SceneManager.GetActiveScene().path.Equals(BootScenePath)) 
+                    return;
+                EditorApplication.isPlaying = false;
+                EditorSceneManager.OpenScene(BootScenePath);
+                EditorApplication.delayCall += () => { EditorApplication.isPlaying = true; };
+            }
         }
     }
 }
