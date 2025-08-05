@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
+using JetBrains.Annotations;
 using Project.Scripts.Overlays;
 using Project.Scripts.Overlays.Inventory;
 using Project.Scripts.Services;
@@ -9,6 +10,7 @@ using Zenject;
 
 namespace Project.Scripts.Core
 {
+    [UsedImplicitly]
     public class PlayerInputController
     {
         [Inject] private MouseController _mouseController;
@@ -53,15 +55,7 @@ namespace Project.Scripts.Core
         {
             if (_playerInputs.Gameplay.Movement.inProgress)
             {
-                var targetLocation = _mouseController.GetMouseGroundPositionInWorld(out var interactable);
-
-                if (targetLocation == default ||
-                    Vector3.Distance(targetLocation, _playerController.transform.position) < 0.2)
-                {
-                    return;
-                }
-
-                _playerController.TryMoveToPoint(targetLocation, interactable);
+                _playerController.TryMoveToPoint(_mouseController.MouseTarget.TargetPosition, _mouseController.MouseTarget.Interactable);
             }
         }
 

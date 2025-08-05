@@ -4,56 +4,56 @@ namespace Project.Scripts.Core
 {
     public class EnemyBehaviour : GlobalAiBehaviour
     {
-        [SerializeField] private TriggerChecker _followRunTrigger;
-        [SerializeField] private TriggerChecker _attackTrigger;
+        [SerializeField] private RangeBehaviourChecker followRunRangeBehaviour;
+        [SerializeField] private RangeBehaviourChecker attackRangeBehaviour;
         
         private  AiBehaviourBase _aiBehaviour;
 
         private void OnEnable()
         {
-            _followRunTrigger.OnTriggerEnterEvent += OnFollowTriggerEnter;
-            _followRunTrigger.OnTriggerExitEvent += OnFollowTriggerExit;
+            followRunRangeBehaviour.OnTriggerEnterEvent += OnFollowRangeBehaviourEnter;
+            followRunRangeBehaviour.OnTriggerExitEvent += OnFollowRangeBehaviourExit;
             
-            _attackTrigger.OnTriggerEnterEvent += OnAttackTriggerEnter;
-            _attackTrigger.OnTriggerExitEvent += OnAttackTriggerExit;
+            attackRangeBehaviour.OnTriggerEnterEvent += OnAttackRangeBehaviourEnter;
+            attackRangeBehaviour.OnTriggerExitEvent += OnAttackRangeBehaviourExit;
         }
         
         private void OnDisable()
         {
-            _followRunTrigger.OnTriggerEnterEvent -= OnFollowTriggerEnter;
-            _followRunTrigger.OnTriggerExitEvent -= OnFollowTriggerExit;
+            followRunRangeBehaviour.OnTriggerEnterEvent -= OnFollowRangeBehaviourEnter;
+            followRunRangeBehaviour.OnTriggerExitEvent -= OnFollowRangeBehaviourExit;
             
-            _attackTrigger.OnTriggerEnterEvent -= OnAttackTriggerEnter;
-            _attackTrigger.OnTriggerExitEvent -= OnAttackTriggerExit;
+            attackRangeBehaviour.OnTriggerEnterEvent -= OnAttackRangeBehaviourEnter;
+            attackRangeBehaviour.OnTriggerExitEvent -= OnAttackRangeBehaviourExit;
         }
         
         protected override void Initialize()
         {
             var player = FindObjectOfType<PlayerController>();
-            _followRunTrigger.Initialize(player);
-            _attackTrigger.Initialize(player);
+            followRunRangeBehaviour.Initialize(player);
+            attackRangeBehaviour.Initialize(player);
         }
 
-        private void OnFollowTriggerEnter()
+        private void OnFollowRangeBehaviourEnter()
         {
             IsOpponentInFollowDistance = true;
             SetFollowRandomBehaviour();
         }
         
-        private void OnFollowTriggerExit()
+        private void OnFollowRangeBehaviourExit()
         {
             IsOpponentInFollowDistance = false;
             SetIdleRandomBehaviour();
         }
         
-        private void OnAttackTriggerEnter()
+        private void OnAttackRangeBehaviourEnter()
         {
             IsOpponentInAttackDistance = true;
             IsOpponentInFollowDistance = false;
             SetAttackRandomBehaviour();
         }
         
-        private void OnAttackTriggerExit()
+        private void OnAttackRangeBehaviourExit()
         {
             IsOpponentInAttackDistance = false;
             IsOpponentInFollowDistance = true;

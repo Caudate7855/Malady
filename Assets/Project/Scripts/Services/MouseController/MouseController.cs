@@ -1,67 +1,95 @@
 using JetBrains.Annotations;
+using Project.Scripts.Core;
 using Project.Scripts.Core.Abstracts;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class MouseController
+    public class MouseController : ITickable
     {
+        [Inject] private MouseFsm _mouseFsm;
+        
         private Camera _mainCamera;
+
+        private int _clickableLayerMaskIndex;
+        private int _groundLayerMaskIndex;
+        private int _attackableLayerMaskIndex;
+        
+        
+        private bool _isInitialized;
+
+        public MouseTarget MouseTarget { get; } = new();
 
         public void Initialize()
         {
             _mainCamera = Object.FindObjectOfType<Camera>();
+            _mouseFsm.Initialize();
+
+            _clickableLayerMaskIndex = LayerMask.GetMask("Clickable");
+            _groundLayerMaskIndex = LayerMask.GetMask("Ground");
+            _attackableLayerMaskIndex = LayerMask.GetMask("Attackable");
+
+            _isInitialized = true;
         }
 
-        public Vector3 GetMouseGroundPositionInWorld(out InteractableBase interactableBase)
+        public void Tick()
         {
-            interactableBase = null;
-
-            if (EventSystem.current.IsPointerOverGameObject())
-                return default;
-
-            var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-
-            int clickableLayerMask = LayerMask.GetMask("Clickable");
-            if (Physics.Raycast(ray, out var hit, 100f, clickableLayerMask))
+            if (!_isInitialized)
             {
-                var go = hit.collider.gameObject;
-                interactableBase = go.GetComponent<InteractableBase>();
-
-                return go.transform.position;
-            }
-
-            int groundLayerMask = LayerMask.GetMask("Ground");
-            if (Physics.Raycast(ray, out hit, 100f, groundLayerMask))
-            {
-                return hit.point;
-            }
-
-            return default;
-        }
-        
-        public GameObject GetFirstGameObjectUnderMouse()
-        {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                return default;
+                return;
             }
 
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out var hit, 100))
+            
+            if(Physics.Raycast(ray, out var raycastHit, 100f))
             {
-                return hit.collider.gameObject;
-            }
+                int hitLayer = raycastHit.transform.gameObject.layer;
+                
+                // Сравнение масок.
+                // 1 << hitLayer - превращение индекса слоя в битовую маску
+                // & - Побитовое сравнение
+                // !=0 - Слой входит в указанный LayerMask
+                
+                if (((1 << hitLayer) & _clickableLayerMaskIndex) != 0) 
+                {
+                    _mouseFsm.SetState<OverInteractableMouseState>();
+                    
+                    UpdateMouseTarget(MouseTargetType.Interactable, 
+                        raycastHit.transform.position, 
+                        raycastHit.collider.gameObject.GetComponent<InteractableBase>());
+                    
+                    return;
+                }
 
-            return default;
+                if (((1 << hitLayer) & _attackableLayerMaskIndex) != 0)
+                {
+                    _mouseFsm.SetState<OverAttackableMouseState>();
+                    
+                    UpdateMouseTarget(MouseTargetType.Attackable, 
+                        raycastHit.transform.position,
+                        null,
+                        raycastHit.transform.gameObject.GetComponent<EnemyBase>());
+                    return;
+                }
+                
+                if (((1 << hitLayer) & _groundLayerMaskIndex) != 0)
+                {
+                    _mouseFsm.SetState<DefaultMouseState>();
+                    
+                    UpdateMouseTarget(MouseTargetType.Ground, 
+                        raycastHit.point);
+                }
+            }
         }
         
-        public Vector3 GetGameObjectPositionUnderMouse()
+        private void UpdateMouseTarget(MouseTargetType mouseTargetType, Vector3 targetPosition, InteractableBase interactable = null, EnemyBase attackable = null)
         {
-            return GetFirstGameObjectUnderMouse().transform.position;
+            MouseTarget.MouseTargetType = mouseTargetType;
+            MouseTarget.TargetPosition = targetPosition;
+            MouseTarget.Interactable = interactable;
+            MouseTarget.Enemy = attackable;
         }
     }
 }

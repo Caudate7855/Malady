@@ -20,7 +20,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
             
             Container
-                .Bind<MouseController>()
+                .BindInterfacesAndSelfTo<MouseController>()
                 .AsSingle();
             
             Container
@@ -33,6 +33,10 @@ namespace Project.Scripts.IoC.Installers
             
             Container
                 .Bind<SpellSystemController>()
+                .AsSingle();
+
+            Container
+                .Bind<MouseFsm>()
                 .AsSingle();
         }
     }
