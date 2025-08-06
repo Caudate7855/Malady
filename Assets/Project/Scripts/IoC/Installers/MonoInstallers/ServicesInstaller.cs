@@ -24,15 +24,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
             
             Container
-                .Bind<DialogueSystemManager>()
-                .AsSingle();
-            
-            Container
                 .Bind<ResourceFinder>()
-                .AsSingle();
-            
-            Container
-                .Bind<SpellSystemController>()
                 .AsSingle();
 
             Container
