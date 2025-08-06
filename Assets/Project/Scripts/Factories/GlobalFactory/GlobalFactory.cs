@@ -85,6 +85,11 @@ namespace Project.Scripts
             return await CreateAndInitializeAsync<T>(enemyAssetAddress, spawnPosition);
         }
 
+        public async UniTask<T> CreateSummonAsync<T>(string summonUnitAssetAddress, Vector3 spawnPosition) where T : SummonUnitBase
+        {
+            return await CreateAndInitializeAsync<T>(summonUnitAssetAddress, spawnPosition);
+        }
+
         #endregion
 
         #region Corpse
