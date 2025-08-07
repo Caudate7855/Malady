@@ -33,7 +33,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
             
             Container
-                .Bind<PlayerInputController>()
+                .Bind<InputController>()
                 .AsSingle();
         }
     }

@@ -1,17 +1,16 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
+using Project.Scripts.Core;
 using Project.Scripts.Overlays;
 using Project.Scripts.Overlays.Inventory;
-using Project.Scripts.Services;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class PlayerInputController
+    public class InputController
     {
         [Inject] private MouseController _mouseController;
         [Inject] private SpellSystemController _spellSystemController;

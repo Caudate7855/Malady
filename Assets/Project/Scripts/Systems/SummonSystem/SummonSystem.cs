@@ -11,9 +11,9 @@ namespace Project.Scripts
     {
         [Inject] private GlobalFactory _globalFactory;
 
-        private const string SkeletonWarriorAddress = "SkeletonWarrior";
-        private const string SkeletonArcherAddress = "SkeletonArcher";
-        private const string SkeletonMageAddress = "SkeletonMage";
+        private const string SkeletonWarriorAddress = "SummonSkeletonWarrior";
+        private const string SkeletonArcherAddress = "SummonSkeletonArcher";
+        private const string SkeletonMageAddress = "SummonSkeletonMage";
 
         public async UniTask<SkeletonWarrior> CreateSkeletonWarriorAsync(Vector3 spawnPosition)
         {

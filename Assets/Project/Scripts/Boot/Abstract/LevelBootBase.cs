@@ -14,7 +14,7 @@ namespace Project.Scripts
 
         [Inject] protected GlobalFactory GlobalFactory;
         [Inject] protected IPanelManager PanelManager;
-        [Inject] private PlayerInputController _playerInputController;
+        [Inject] private InputController _inputController;
 
         private readonly Vector3 _playerPosition = new(0, 0, 0);
         private PlayerController _playerController;
@@ -27,7 +27,7 @@ namespace Project.Scripts
             _playerController = await GlobalFactory.CreatePlayer(_playerPosition);
 
             _mainCamera.Initialize(_playerController);
-            _playerInputController.Initialize(_playerController, PanelManager);
+            _inputController.Initialize(_playerController, PanelManager);
             
             await FinishLoading();
 
@@ -37,12 +37,12 @@ namespace Project.Scripts
         private void OnEnable()
         {
             _coreUpdater = FindObjectOfType<CoreUpdater>();
-            _coreUpdater.OnUpdatePerformed += _playerInputController.Update;
+            _coreUpdater.OnUpdatePerformed += _inputController.Update;
         }
 
         private void OnDisable()
         {
-            _coreUpdater.OnUpdatePerformed -= _playerInputController.Update;
+            _coreUpdater.OnUpdatePerformed -= _inputController.Update;
         }
 
         protected abstract void Initialize();

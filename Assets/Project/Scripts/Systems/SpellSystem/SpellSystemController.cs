@@ -1,6 +1,7 @@
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
 using Project.Scripts.Overlays;
+using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts
@@ -10,6 +11,8 @@ namespace Project.Scripts
     {
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerFsm _playerFsm;
+        [Inject] private SummonSystem _summonSystem;
+        [Inject] private SpellsLogicsList _spellsLogicsList;
 
         public SpellList SummonedSpellList { get; private set; }
         public SpellList PlayerSpellList { get; private set; }
@@ -29,7 +32,7 @@ namespace Project.Scripts
         
         public void CastPlayerSpellByIndex(int indexToCast)
         {
-            PlayerSpellList.ChosenSpells[indexToCast].Cast();
+            _spellsLogicsList.CastSpell(PlayerSpellList.ChosenSpells[indexToCast].Id);
         }
     }
 }

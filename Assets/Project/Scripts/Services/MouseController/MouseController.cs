@@ -52,8 +52,6 @@ namespace Project.Scripts
                 // & - Побитовое сравнение
                 // !=0 - Слой входит в указанный LayerMask
                 
-                Debug.Log(raycastHit.transform.gameObject.layer);
-                
                 if (((1 << hitLayer) & _clickableLayerMaskIndex) != 0) 
                 {
                     _mouseFsm.SetState<OverInteractableMouseState>();
@@ -84,6 +82,24 @@ namespace Project.Scripts
                         raycastHit.point);
                 }
             }
+        }
+
+        public Vector3 GetGroundPosition()
+        {
+            if (!_isInitialized)
+            {
+                return default;
+            }
+            
+            var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var raycastHit, 100f, Physics.DefaultRaycastLayers,
+                    QueryTriggerInteraction.Ignore))
+            {
+                return raycastHit.point;
+            }
+
+            return default;
         }
         
         private void UpdateMouseTarget(MouseTargetType mouseTargetType, Vector3 targetPosition, InteractableBase interactable = null, EnemyBase attackable = null)
