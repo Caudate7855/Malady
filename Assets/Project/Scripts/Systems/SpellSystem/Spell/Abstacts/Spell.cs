@@ -1,3 +1,4 @@
+using Project.Scripts.Core;
 using Zenject;
 
 namespace Project.Scripts
@@ -7,6 +8,7 @@ namespace Project.Scripts
         public string ID;
         [Inject] protected SummonSystem SummonSystem;
         [Inject] protected MouseController MouseController;
+        [Inject] protected PlayerStats PlayerStats;
 
         protected bool IsInitialized;
 

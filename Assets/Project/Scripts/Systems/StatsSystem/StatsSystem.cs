@@ -13,7 +13,7 @@ namespace Project.Scripts
             {new EssenceStat()},
             
             {new DamageStat()},
-            { new AttackSpeedStat()},
+            {new AttackSpeedStat()},
             
             {new MoveSpeedStat()},
             
@@ -21,7 +21,10 @@ namespace Project.Scripts
             {new CritDamageStat()},
             
             {new ArmorStat()},
-            {new MagicResistStat()}
+            {new MagicResistStat()},
+            
+            {new SkeletonsCountStat()},
+            {new MagicResistStat()},
         };
 
         public List<IStat> GetStats()
@@ -51,7 +54,7 @@ namespace Project.Scripts
 
         public void InitializeFromSaves()
         {
-            //TODO: создать логику инициализации из JSON сохранения
+            //TODO: создать логику инициализации из бинарника сохранения
         }
 
         public void Initialize()

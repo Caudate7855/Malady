@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Project.Scripts.Core;
-using UnityEditor;
 using UnityEngine;
 
 namespace Project.Scripts
@@ -16,10 +15,5 @@ namespace Project.Scripts
         [TextArea(1,20)] public string Description;
         public List<SpellCost> SpellCost;
         public PlayerCastAnimations AnimationType;
-        
-        public void Cast()
-        {
-            
-        }
     }
 }

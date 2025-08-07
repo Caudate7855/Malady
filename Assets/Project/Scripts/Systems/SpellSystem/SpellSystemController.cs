@@ -27,7 +27,7 @@ namespace Project.Scripts
 
         public void CastSummonSpellByIndex(int indexToCast)
         {
-            SummonedSpellList.ChosenSpells[indexToCast].Cast();
+            //SummonedSpellList.ChosenSpells[indexToCast].Cast();
         }
         
         public void CastPlayerSpellByIndex(int indexToCast)
