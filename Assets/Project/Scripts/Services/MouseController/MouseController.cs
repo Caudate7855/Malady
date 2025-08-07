@@ -43,7 +43,7 @@ namespace Project.Scripts
 
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             
-            if(Physics.Raycast(ray, out var raycastHit, 100f))
+            if(Physics.Raycast(ray, out var raycastHit, 100f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
             {
                 int hitLayer = raycastHit.transform.gameObject.layer;
                 
@@ -51,6 +51,8 @@ namespace Project.Scripts
                 // 1 << hitLayer - превращение индекса слоя в битовую маску
                 // & - Побитовое сравнение
                 // !=0 - Слой входит в указанный LayerMask
+                
+                Debug.Log(raycastHit.transform.gameObject.layer);
                 
                 if (((1 << hitLayer) & _clickableLayerMaskIndex) != 0) 
                 {
@@ -74,7 +76,7 @@ namespace Project.Scripts
                     return;
                 }
                 
-                if (((1 << hitLayer) & _groundLayerMaskIndex) != 0)
+                if (((1 << hitLayer) & _groundLayerMaskIndex) != 0 || hitLayer == 0)
                 {
                     _mouseFsm.SetState<DefaultMouseState>();
                     
