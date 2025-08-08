@@ -17,6 +17,7 @@ namespace Project.Scripts
 
         [Inject] private BookInteractable _bookInteractable;
         [Inject] private ExitInteractable _exitInteractable;
+        [Inject] private PlayerController _playerController;
 
         public GlobalFactory(IAssetLoader assetLoader, DiContainer diContainer)
         {
@@ -41,6 +42,7 @@ namespace Project.Scripts
             var gameObject = Object.Instantiate(prefab, position, Quaternion.identity);
             var component = gameObject.GetComponent<T>();
             component.Initialize();
+            component.InitializePlayerController();
 
             return component;
         }

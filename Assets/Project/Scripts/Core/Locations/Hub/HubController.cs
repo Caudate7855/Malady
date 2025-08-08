@@ -9,7 +9,9 @@ namespace Project.Scripts.Core.Hub
     public class HubController : MonoBehaviour, ICustomInitializable
     {
         private NavMeshSurface _navMeshSurface;
-        
+
+        public PlayerController PlayerControllerObject { get; set; }
+
         public void Initialize()
         {
             _navMeshSurface = GetComponent<NavMeshSurface>();

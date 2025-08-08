@@ -13,6 +13,8 @@ namespace Project.Scripts.Core
         [Inject] private PlayerFsm _playerFsm;
         [Inject] private PlayerStats _playerStats;
 
+        public PlayerController PlayerControllerObject { get; set; }
+
         public void Initialize()
         {
             _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());

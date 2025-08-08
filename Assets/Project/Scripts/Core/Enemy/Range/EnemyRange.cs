@@ -28,7 +28,7 @@ namespace Project.Scripts.Core
         public override void Move()
         {
             _enemyMoveSystem.ContinueMovement();
-            _enemyMoveSystem.FollowTarget(Player.transform);
+            _enemyMoveSystem.FollowTarget(PlayerControllerObject.transform);
             Fsm.SetState<EnemyRangeMoveState>();
         }
 
