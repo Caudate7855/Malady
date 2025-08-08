@@ -11,7 +11,7 @@ namespace Project.Scripts
         public override bool HasMaxValue { get; set; }
         public override void InitializeValuesDefault()
         {
-            
+            InitializeValues(0, 3);
         }
     }
 }

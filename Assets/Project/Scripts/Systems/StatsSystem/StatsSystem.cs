@@ -27,21 +27,6 @@ namespace Project.Scripts
             {new MagicResistStat()},
         };
 
-        public List<IStat> GetStats()
-        {
-            return Stats;
-        }
-
-        public void UpdateStat<T>() where T : IStat
-        {
-            var stat = Stats.OfType<T>().FirstOrDefault();
-
-            if (stat != null)
-            {
-                stat.Update();
-            }
-        }
-
         public void DefaultInitialize()
         {
             for (int i = 0, count = Stats.Count; i < count; i++)
@@ -66,6 +51,34 @@ namespace Project.Scripts
             else
             {
                 InitializeFromSaves();
+            }
+        }
+        
+        public List<IStat> GetStats()
+        {
+            return Stats;
+        }
+
+        public StatBase GetStat<T>() where T : StatBase
+        {
+            for (int i = 0; i < Stats.Count; i++)
+            {
+                if (Stats[i].GetType() == typeof(T))
+                {
+                    return Stats[i] as StatBase;
+                }
+            }
+
+            return null;
+        }
+
+        public void UpdateStat<T>() where T : IStat
+        {
+            var stat = Stats.OfType<T>().FirstOrDefault();
+
+            if (stat != null)
+            {
+                stat.Update();
             }
         }
     }

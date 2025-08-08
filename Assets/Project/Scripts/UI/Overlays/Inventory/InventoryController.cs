@@ -52,7 +52,10 @@ namespace Project.Scripts.Overlays.Inventory
         {
             var stats = _statSystem.GetStats();
 
-            for (int i = 0, count = stats.Count; i < count; i++)
+            Debug.Log(stats.Count);
+            Debug.Log(_statsViewList.Count);
+            
+            for (int i = 0, count = _statsViewList.Count; i < count; i++)
             {
                 _statsViewList[i].text = stats[i].Value.ToString();
             }
