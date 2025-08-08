@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Project.Scripts
 {
@@ -13,7 +11,6 @@ namespace Project.Scripts
         public SpellType SpellsType;
         [SerializeField] private List<SpellUIButtonBase> _spellUIButtonBase = new();
         [SerializeField] private List<SpellSo> _chosenSpells = new();
-
 
         private void Awake()
         {
@@ -30,7 +27,7 @@ namespace Project.Scripts
             _spellUIButtonBase[indexToSet].Spell = spellToSet;
         }
         
-        private void RemoveSpell(int indexToRemove)
+        public void RemoveSpell(int indexToRemove)
         {
             _chosenSpells[indexToRemove] = null;
         }

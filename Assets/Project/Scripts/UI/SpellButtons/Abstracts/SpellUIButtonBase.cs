@@ -13,7 +13,7 @@ namespace Project.Scripts
         IEndDragHandler, IDragHandler
     {
         public SpellSo Spell;
-        
+
         [SerializeField] private Sprite _emptySpellSprite;
         [SerializeField] private SpellParentType _spellParentType;
         [SerializeField] private SpellElementType _spellElementType;
@@ -30,8 +30,6 @@ namespace Project.Scripts
         private SpellDragImageHandler _spellDragImageHandler;
 
         private bool _isSetted;
-
-        private Vector2 _savedPosition;
         private bool _isDragging;
 
         private void Awake()
@@ -41,11 +39,12 @@ namespace Project.Scripts
 
             ClearSpell();
         }
-        
+
         public SpellElementType GetSpellElementType()
         {
             return _spellElementType;
         }
+
         public void Interact()
         {
             _button.Select();
@@ -56,7 +55,7 @@ namespace Project.Scripts
         {
             Spell = spellSo;
             _image.sprite = spellSo.Icon;
-            
+
             _isSetted = true;
         }
 
@@ -64,6 +63,7 @@ namespace Project.Scripts
         {
             _isSetted = false;
             _image.sprite = _emptySpellSprite;
+            Spell = null;
         }
 
         public void SetSpellHandlers(SpellTipHandler spellTipHandler, SpellDragImageHandler spellDragImageHandler)
@@ -108,7 +108,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _spellTip.Close();
 
             _spellDragImage.SetSprite(Spell.Icon);
@@ -119,7 +119,6 @@ namespace Project.Scripts
             if (_spellParentType == SpellParentType.MainUi)
             {
                 _image.sprite = _emptySpellSprite;
-                _savedPosition = transform.position;
             }
 
             _isDragging = true;
@@ -131,7 +130,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _spellDragImage.gameObject.transform.position = Input.mousePosition;
         }
 
@@ -141,7 +140,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _spellDragImage.ChangeVisibility(false);
 
             if (_spellDragImage.GetTargetSpellUIButtonBase() != null)
@@ -153,6 +152,11 @@ namespace Project.Scripts
                         _spellDragImage.GetTargetSpellUIButtonBase().SetSpellInfo(Spell);
                         _spellDragImage.GetTargetSpellUIButtonBase()._parentSpellList.SetSpell(Spell,
                             _spellDragImage.GetTargetSpellUIButtonBase()._index);
+                        
+                        if (_parentSpellList != null)
+                        {
+                            _parentSpellList.RemoveSpell(_index);
+                        }
                     }
                 }
 
