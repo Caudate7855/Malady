@@ -2,7 +2,7 @@ namespace Project.Scripts
 {
     public enum StatType : byte
     { 
-        HP = 0,
+        Health = 0,
         Essence = 1,
         Damage = 2,
         AttackSpeed = 3,
