@@ -23,6 +23,7 @@ namespace Project.Scripts.Overlays.Inventory
         
         private List<InventorySlot> _inventorySlots;
         private RectTransform _itemsContainer;
+        private RectTransform _statsContainer;
 
         protected override void Initialize()
         {
@@ -30,6 +31,7 @@ namespace Project.Scripts.Overlays.Inventory
             _statsListView = Panel.StatsListView;
             _inventorySlots = Panel.InventorySlots;
             _itemsContainer = Panel.ItemsContainer;
+            _statsContainer = Panel.StatsContainer;
             
             InitializeTestItems();
             
@@ -52,9 +54,18 @@ namespace Project.Scripts.Overlays.Inventory
         {
             var stats = _statSystem.GetStats();
 
-            for (int i = 0, count = _statsListView.StatViews.Count; i < count; i++)
+            for (int i = 0; i < stats.Count; i++)
             {
-                _statsListView.StatViews[i].ValueText.text = stats[i].Value.ToString();
+                var statView = Object.Instantiate(_statView, _statsContainer);
+                statView.NameText.text = stats[i].Name;
+                statView.ValueText.text = stats[i].Value.ToString();
+                
+                var rectTransform = statView.GetComponent<RectTransform>();
+                var size = rectTransform.sizeDelta;
+                size.x = 280f;
+                rectTransform.sizeDelta = size;
+                
+                _statsListView.StatViews.Add(statView);
             }
             
             CloseStatsWindow();
