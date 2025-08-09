@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using Project.Scripts.Core;
+using Project.Scripts.Overlays.Inventory;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts
 {
@@ -15,6 +17,8 @@ namespace Project.Scripts
             IsInitialized = true;
             
             _skeletonsCountStat = PlayerStats.GetStat<SkeletonsCountStat>() as  SkeletonsCountStat;
+            InventoryController = PanelManager.LoadPanel<InventoryController>();
+            Type = _skeletonsCountStat.Type;
         }
         
         public async override void Cast()
@@ -22,7 +26,11 @@ namespace Project.Scripts
             if (_skeletonsCountStat.Value < _skeletonsCountStat.MaxValue)
             {
                 _skeletonMages.Add(await SummonSystem.CreateSkeletonMageAsync(MouseController.MouseTarget.TargetPosition));
+
                 _skeletonsCountStat.Value++;
+                
+                PlayerStats.UpdateStat<SkeletonsCountStat>(_skeletonsCountStat.Value);
+                InventoryController.UpdateStatView(Type, _skeletonsCountStat.Value);
             }
             else
             {

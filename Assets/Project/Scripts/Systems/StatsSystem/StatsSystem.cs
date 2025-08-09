@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine.Rendering;
 
 namespace Project.Scripts
@@ -72,13 +73,13 @@ namespace Project.Scripts
             return null;
         }
 
-        public void UpdateStat<T>() where T : IStat
+        public void UpdateStat<T>(float newValue) where T : IStat
         {
             var stat = Stats.OfType<T>().FirstOrDefault();
 
             if (stat != null)
             {
-                stat.Update();
+                stat.Update(newValue);
             }
         }
     }

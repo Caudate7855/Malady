@@ -59,6 +59,7 @@ namespace Project.Scripts.Overlays.Inventory
                 var statView = Object.Instantiate(_statView, _statsContainer);
                 statView.NameText.text = stats[i].Name;
                 statView.ValueText.text = stats[i].Value.ToString();
+                statView.Type =  stats[i].Type;
                 
                 var rectTransform = statView.GetComponent<RectTransform>();
                 var size = rectTransform.sizeDelta;
@@ -69,6 +70,17 @@ namespace Project.Scripts.Overlays.Inventory
             }
             
             CloseStatsWindow();
+        }
+
+        public void UpdateStatView(StatType type, float newValue)
+        {
+            for (int i = 0; i <  _statsListView.StatViews.Count; i++)
+            {
+                if (_statsListView.StatViews[i].Type == type)
+                {
+                    _statsListView.StatViews[i].ValueText.text = newValue.ToString();
+                }
+            }
         }
 
         private void OnStatsButtonClicked()

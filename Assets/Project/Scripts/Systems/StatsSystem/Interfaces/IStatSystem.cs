@@ -9,7 +9,7 @@ namespace Project.Scripts
         public List<IStat> GetStats();
         public List<IStat> Stats { get; set; }
 
-        public void UpdateStat<T>() where T : IStat;
+        public void UpdateStat<T>(float newValue) where T : IStat;
 
         public void DefaultInitialize();
         public void InitializeFromSaves();

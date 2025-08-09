@@ -10,6 +10,7 @@ namespace Project.Scripts
         CritChance = 5,
         CritDamage = 6,
         Armor = 7,
-        MagicResist = 8
+        MagicResist = 8,
+        SkeletonsCountStat = 9,
     }
 }
