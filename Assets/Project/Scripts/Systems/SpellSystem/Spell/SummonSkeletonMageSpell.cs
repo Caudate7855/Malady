@@ -9,7 +9,7 @@ namespace Project.Scripts
     [UsedImplicitly]
     public class SummonSkeletonMageSpell : SpellBase
     {
-        private SkeletonsCountStat _skeletonsCountStat;
+        private SkeletonMagesCountStat _skeletonMagesCountStat;
         private List<SkeletonMage> _skeletonMages = new();
         
         public override void Initialize()
@@ -17,28 +17,28 @@ namespace Project.Scripts
             ID  = "bones_0_0";
             IsInitialized = true;
             
-            _skeletonsCountStat = PlayerStats.GetStat<SkeletonsCountStat>();
+            _skeletonMagesCountStat = PlayerStats.GetStat<SkeletonMagesCountStat>();
             InventoryController = PanelManager.LoadPanel<InventoryController>();
-            Type = _skeletonsCountStat.Type;
+            Type = _skeletonMagesCountStat.Type;
         }
         
         public async override void Cast()
         {
-            if (_skeletonsCountStat.Value < _skeletonsCountStat.MaxValue)
+            if (_skeletonMagesCountStat.Value < _skeletonMagesCountStat.MaxValue)
             {
                 _skeletonMages.Add(await SummonSystem.CreateSkeletonMageAsync(MouseController.MouseTarget.TargetPosition));
 
-                _skeletonsCountStat.Value++;
+                _skeletonMagesCountStat.Value++;
                 
-                PlayerStats.UpdateStat<SkeletonsCountStat>(_skeletonsCountStat.Value);
-                InventoryController.UpdateStatView(Type, _skeletonsCountStat.Value);
+                PlayerStats.UpdateStat<SkeletonMagesCountStat>(_skeletonMagesCountStat.Value);
+                InventoryController.UpdateStatView(Type, _skeletonMagesCountStat.Value);
             }
             else
             {
                 Object.Destroy(_skeletonMages[0].gameObject);
                 _skeletonMages.RemoveAt(0);
                 _skeletonMages.Add(await SummonSystem.CreateSkeletonMageAsync(MouseController.MouseTarget.TargetPosition));
-                _skeletonsCountStat.Value++;
+                _skeletonMagesCountStat.Value++;
             }
         }
 

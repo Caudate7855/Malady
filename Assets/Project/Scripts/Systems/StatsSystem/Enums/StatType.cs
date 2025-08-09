@@ -11,6 +11,8 @@ namespace Project.Scripts
         CritDamage = 6,
         Armor = 7,
         MagicResist = 8,
-        SkeletonsCountStat = 9,
+        SkeletonWarriorsCountStat = 9,
+        SkeletonArchersCountStat = 10,
+        SkeletonMagesCountStat = 11,
     }
 }

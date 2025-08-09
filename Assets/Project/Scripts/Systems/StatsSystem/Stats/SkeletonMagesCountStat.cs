@@ -1,10 +1,9 @@
 namespace Project.Scripts
 {
-    public class SkeletonsCountStat : StatBase
-    
+    public class SkeletonMagesCountStat : StatBase
     {
         public override string Name { get; set; } = "SkeletonMagesCount";
-        public override StatType Type { get; set; } = StatType.SkeletonsCountStat;
+        public override StatType Type { get; set; } = StatType.SkeletonMagesCountStat;
         public override float Value { get; set; }
         public override float MaxValue { get; set; }
         public override float MinValue { get; set; } = 0;

@@ -8,6 +8,7 @@ namespace Project.Scripts
     public class StatsSystem : IStatSystem
     {
         public bool IsInitialized { get; set; }
+
         public List<IStat> Stats { get; set; } = new()
         {
             {new HpStat()},
@@ -16,16 +17,17 @@ namespace Project.Scripts
             {new DamageStat()},
             {new AttackSpeedStat()},
             
-            {new MoveSpeedStat()},
-            
             {new CritChanceStat()},
             {new CritDamageStat()},
+            
+            {new MoveSpeedStat()},
             
             {new ArmorStat()},
             {new MagicResistStat()},
             
-            {new SkeletonsCountStat()},
-            {new MagicResistStat()},
+            {new SkeletonWarriorsCountStat()},
+            {new SkeletonArchersCountStat()},
+            {new SkeletonMagesCountStat()},
         };
 
         public void DefaultInitialize()
