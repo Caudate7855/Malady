@@ -1,4 +1,3 @@
-using System;
 using Project.Scripts.Core;
 using Project.Scripts.Interfaces;
 using UnityEngine;
