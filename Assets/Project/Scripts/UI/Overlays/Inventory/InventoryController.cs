@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Itibsoft.PanelManager;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -15,7 +14,7 @@ namespace Project.Scripts.Overlays.Inventory
         [Inject] private InventoryItem _baseItem;
 
         private Button _statsWindowButton;
-        private List<TMP_Text> _statsViewList;
+        private StatsListView _statsListView;
         private bool _isStatsWindowOpened;
         
         private RectTransform _statsWindowRectTransform;
@@ -27,7 +26,7 @@ namespace Project.Scripts.Overlays.Inventory
         protected override void Initialize()
         {
             _statsWindowButton = Panel.StatsButton;
-            _statsViewList = Panel.StatsViewList;
+            _statsListView = Panel.StatsListView;
             _inventorySlots = Panel.InventorySlots;
             _itemsContainer = Panel.ItemsContainer;
             
@@ -52,9 +51,9 @@ namespace Project.Scripts.Overlays.Inventory
         {
             var stats = _statSystem.GetStats();
 
-            for (int i = 0, count = _statsViewList.Count; i < count; i++)
+            for (int i = 0, count = _statsListView.StatViews.Count; i < count; i++)
             {
-                _statsViewList[i].text = stats[i].Value.ToString();
+                _statsListView.StatViews[i].ValueText.text = stats[i].Value.ToString();
             }
             
             CloseStatsWindow();

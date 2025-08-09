@@ -18,7 +18,7 @@ namespace Project.Scripts
 
         public override void Enter()
         {
-            _animator.Play(AnimationName);
+           // _animator.Play(AnimationName);
         }
     }
 }
