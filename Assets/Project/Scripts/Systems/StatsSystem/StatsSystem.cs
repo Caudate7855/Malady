@@ -60,13 +60,13 @@ namespace Project.Scripts
             return Stats;
         }
 
-        public StatBase GetStat<T>() where T : StatBase
+        public T GetStat<T>() where T : StatBase
         {
             for (int i = 0; i < Stats.Count; i++)
             {
                 if (Stats[i].GetType() == typeof(T))
                 {
-                    return Stats[i] as StatBase;
+                    return Stats[i] as T;
                 }
             }
 

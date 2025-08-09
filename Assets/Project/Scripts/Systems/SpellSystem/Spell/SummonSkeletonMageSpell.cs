@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Project.Scripts.Core;
 using Project.Scripts.Overlays.Inventory;
 using UnityEngine;
-using Zenject;
 
 namespace Project.Scripts
 {
+    [UsedImplicitly]
     public class SummonSkeletonMageSpell : SpellBase
     {
         private SkeletonsCountStat _skeletonsCountStat;
@@ -16,7 +17,7 @@ namespace Project.Scripts
             ID  = "bones_0_0";
             IsInitialized = true;
             
-            _skeletonsCountStat = PlayerStats.GetStat<SkeletonsCountStat>() as  SkeletonsCountStat;
+            _skeletonsCountStat = PlayerStats.GetStat<SkeletonsCountStat>();
             InventoryController = PanelManager.LoadPanel<InventoryController>();
             Type = _skeletonsCountStat.Type;
         }
