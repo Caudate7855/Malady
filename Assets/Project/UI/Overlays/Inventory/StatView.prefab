@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 2374545440582485600}
   - component: {fileID: 2598592385149114557}
   m_Layer: 0
-  m_Name: InventoryStat
+  m_Name: StatView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

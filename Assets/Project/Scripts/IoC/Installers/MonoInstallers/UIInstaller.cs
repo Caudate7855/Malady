@@ -8,6 +8,7 @@ namespace Project.Scripts.IoC.Installers
     {
         [SerializeField] private SpellTip _spellTip;
         [SerializeField] private SpellDragImage _spellDragImage;
+        [SerializeField] private StatView _statViewPrefab;
             
         public override void InstallBindings()
         {
@@ -19,6 +20,11 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<SpellDragImage>()
                 .FromInstance(_spellDragImage)
+                .AsSingle();
+            
+            Container
+                .Bind<StatView>()
+                .FromInstance(_statViewPrefab)
                 .AsSingle();
 
             Container

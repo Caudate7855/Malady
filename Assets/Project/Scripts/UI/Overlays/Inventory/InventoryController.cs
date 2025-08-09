@@ -12,6 +12,7 @@ namespace Project.Scripts.Overlays.Inventory
     {
         [Inject] private IStatSystem _statSystem;
         [Inject] private InventoryItem _baseItem;
+        [Inject] private StatView _statView;
 
         private Button _statsWindowButton;
         private StatsListView _statsListView;
