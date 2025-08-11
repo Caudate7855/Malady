@@ -1028,6 +1028,8 @@ MonoBehaviour:
   - {fileID: 1557352622714808722}
   - {fileID: 5551730544078524409}
   - {fileID: 3724500311849009472}
+  _passivePerksButton: {fileID: 3125708894553899722}
+  _memoriesPerksButton: {fileID: 1881293981263021076}
 --- !u!1 &3594339877493016836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.59607846}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
