@@ -1,8 +1,6 @@
-using System;
 using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Project.Scripts
