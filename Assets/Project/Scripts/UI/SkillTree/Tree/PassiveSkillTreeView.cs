@@ -7,13 +7,14 @@ namespace Project.Scripts.SkillTree
 {
     public class PassiveSkillTreeView : PanelBase
     {
-        public List<Skill> SkillsList => _skillsList;
+        public GameObject ParentObject => _parentObject;
         
+        [SerializeField] private GameObject _parentObject;
         [SerializeField] private List<Skill> _skillsList = new();
 
-        public void CreateSkillsList()
+        public List<Skill> GetSkillsList()
         {
-            _skillsList = GetComponentsInChildren<Skill>(true).ToList();
+            return GetComponentsInChildren<Skill>(true).ToList();
         }
     }
 }

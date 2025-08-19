@@ -4,18 +4,14 @@ namespace Project.Scripts.SkillTree
 {
     public class Edge : MonoBehaviour
     {
-        [SerializeField] private Skill _startedSkill;
-        [SerializeField] private Skill _secondSkill;
+        public Skill StartedSkill;
+        public Skill SecondSkill;
+        
+        [SerializeField] private RectTransform _imageRectTransform;
 
-
-        public Skill GetStartedSkill()
+        public void SetWidth(float newWidth)
         {
-            return _startedSkill;
-        }
-
-        public Skill GetSecondSkill()
-        {
-            return _secondSkill;
+            _imageRectTransform.sizeDelta = new Vector2(newWidth, _imageRectTransform.sizeDelta.y);
         }
     }
 }

@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: LocalGroup
   m_EditorClassIdentifier: 
   m_GroupName: LocalGroup
-  m_Data:
-    m_SerializedData: []
   m_GUID: 17f0f43c8a2e57e44a3c63ef3a90993a
   m_SerializeEntries:
-  - m_GUID: 35ae3673abf151d40a594e65732da9f7
-    m_Address: Locations
+  - m_GUID: 025397ed74194274b9ad7abeb4eaea63
+    m_Address: Fader
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -27,18 +25,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2a4715c843da6fe41bfc5c091c210d2a
-    m_Address: EnemyRange
+  - m_GUID: 081e332d3efb6f24aa975d2d50330914
+    m_Address: Church
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e0762b276ca036545aaaa515efb5d545
-    m_Address: MainMenuView
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6d146d76be21d0a46a49bbbbf9e2c5a4
-    m_Address: InventoryView
+  - m_GUID: 195e5341c3b30e2478c11fbeb7b3a845
+    m_Address: SummonSkeletonMage
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -47,23 +40,13 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eb8819980f5f46d4e91a4b165366ce22
-    m_Address: MainUIView
+  - m_GUID: 2a4715c843da6fe41bfc5c091c210d2a
+    m_Address: EnemyRange
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 538d3c0eef7a02b459de30058fa2b2b8
-    m_Address: GameDirector
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 025397ed74194274b9ad7abeb4eaea63
-    m_Address: Fader
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf773a51920c3eb409ec67db148fdf95
-    m_Address: DialogueWindow
+  - m_GUID: 35ae3673abf151d40a594e65732da9f7
+    m_Address: Locations
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -72,8 +55,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a30f2a7a83bf9b24cbeae16b1433b580
-    m_Address: Undertaker
+  - m_GUID: 4281dc5d069ecb94d991ca85e8315928
+    m_Address: Corpse
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -87,13 +70,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8f1082c7707ab8d4dbfb35679bcd1f09
-    m_Address: EN_Trader_Dialogue
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d5188ec88dce5ea48a537e69b12e7a54
-    m_Address: EN_Blacksmith_Dialogue
+  - m_GUID: 4e78ae29d8b0b7947abd93b72ab899be
+    m_Address: SpellListOverlay
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -102,18 +80,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 538d3c0eef7a02b459de30058fa2b2b8
+    m_Address: GameDirector
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66468f9410af8884c81166bead786488
+    m_Address: Edge
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d146d76be21d0a46a49bbbbf9e2c5a4
+    m_Address: InventoryView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f1082c7707ab8d4dbfb35679bcd1f09
+    m_Address: EN_Trader_Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 985bb5e9fd41ae74295ace00a81e9116
     m_Address: TraderDialogueSprite
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d83840105d0d5e84da8cac15005dc39a
-    m_Address: UndertakerDialogueSprite
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4e78ae29d8b0b7947abd93b72ab899be
-    m_Address: SpellListOverlay
+  - m_GUID: a30f2a7a83bf9b24cbeae16b1433b580
+    m_Address: Undertaker
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -122,23 +115,33 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 081e332d3efb6f24aa975d2d50330914
-    m_Address: Church
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4281dc5d069ecb94d991ca85e8315928
-    m_Address: Corpse
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 195e5341c3b30e2478c11fbeb7b3a845
-    m_Address: SummonSkeletonMage
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c34ce863c4f117e41840f62e31e40878
     m_Address: PassiveSkillTreeWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf773a51920c3eb409ec67db148fdf95
+    m_Address: DialogueWindow
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5188ec88dce5ea48a537e69b12e7a54
+    m_Address: EN_Blacksmith_Dialogue
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d83840105d0d5e84da8cac15005dc39a
+    m_Address: UndertakerDialogueSprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0762b276ca036545aaaa515efb5d545
+    m_Address: MainMenuView
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb8819980f5f46d4e91a4b165366ce22
+    m_Address: MainUIView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -146,5 +149,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 923281dfbaa17ca4bacd81c0531902be, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: df46abe7a014a534db645038dbab0b3f, type: 2}
     - {fileID: 11400000, guid: 1b27d0e476dd9c54895600a4986ecdf2, type: 2}
+    - {fileID: 11400000, guid: df46abe7a014a534db645038dbab0b3f, type: 2}
