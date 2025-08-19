@@ -96,7 +96,7 @@ namespace Project.Scripts
             _spellTip.Close();
         }
 
-        private void ShowTip()
+        private void ShowTip() 
         {
             _spellTip.SetSpell(Spell);
             _spellTip.Open();
