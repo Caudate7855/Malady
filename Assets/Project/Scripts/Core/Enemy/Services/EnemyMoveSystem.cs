@@ -8,12 +8,10 @@ namespace Project.Scripts.Core
     {
         private const float MAX_REACH_DISTANCE = 3.0f;
         private NavMeshAgent _navMeshAgent;
-        private bool _isSetted;
 
         public void SetNavMeshAgent(NavMeshAgent navMeshAgent)
         {
             _navMeshAgent = navMeshAgent;
-            _isSetted = true;
         }
 
         public void StopMovement()

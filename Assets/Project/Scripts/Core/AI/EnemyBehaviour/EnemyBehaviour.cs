@@ -29,7 +29,7 @@ namespace Project.Scripts.Core
         
         protected override void Initialize()
         {
-            var player = FindObjectOfType<PlayerController>();
+            var player = FindFirstObjectByType<PlayerController>();
             followRunRangeBehaviour.Initialize(player);
             attackRangeBehaviour.Initialize(player);
         }

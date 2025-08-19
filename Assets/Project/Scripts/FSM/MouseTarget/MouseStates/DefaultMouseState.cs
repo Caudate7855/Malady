@@ -11,12 +11,10 @@ namespace Project.Scripts
         
         public override void Enter()
         {
-            Debug.Log("Default Enter");
         }
 
         public override void Exit()
         {
-            Debug.Log("Default Exit");
         }
     }
 }

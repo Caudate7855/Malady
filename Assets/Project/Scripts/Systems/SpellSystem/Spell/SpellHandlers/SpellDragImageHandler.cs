@@ -11,6 +11,7 @@ namespace Project.Scripts
     {
         [Inject] private SpellDragImage _spellDragImage;
         [Inject] private DiContainer _diContainer;
+        [Inject] private IPanelManager _panelManager;
 
         private bool _isCreated;
         
@@ -19,7 +20,7 @@ namespace Project.Scripts
             if (_isCreated == false)
             {
                 _spellDragImage = _diContainer.InstantiatePrefabForComponent<SpellDragImage>(_spellDragImage,
-                    Object.FindObjectOfType<PanelDispatcher>().GetComponent<Canvas>().transform);
+                    _panelManager.PanelDispatcher.Canvas.transform);
                 
                 _isCreated = true;
             }

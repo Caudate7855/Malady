@@ -24,7 +24,7 @@ namespace Project.Scripts
 
         public void Initialize()
         {
-            _mainCamera = Object.FindObjectOfType<Camera>();
+            _mainCamera = Object.FindFirstObjectByType<Camera>();
             _mouseFsm.Initialize();
 
             _clickableLayerMaskIndex = LayerMask.GetMask("Clickable");

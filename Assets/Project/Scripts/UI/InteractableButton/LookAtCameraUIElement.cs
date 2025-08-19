@@ -8,7 +8,7 @@ namespace Project.Scripts
 
         private void Awake()
         {
-            _mainCamera = FindObjectOfType<Camera>();
+            _mainCamera = FindFirstObjectByType<Camera>();
 
             var canvas = GetComponentInParent<Canvas>();
             canvas.worldCamera = _mainCamera;

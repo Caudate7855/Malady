@@ -11,6 +11,7 @@ namespace Project.Scripts
     {
         [Inject] private DiContainer _diContainer;
         [Inject] private SpellTip _spellTip;
+        [Inject] private IPanelManager _panelManager;
 
         private bool _isCreated;
 
@@ -24,7 +25,7 @@ namespace Project.Scripts
             if (_isCreated == false)
             {
                 _spellTip = _diContainer.InstantiatePrefabForComponent<SpellTip>(_spellTip,
-                    Object.FindObjectOfType<PanelDispatcher>().GetComponent<Canvas>().transform);
+                    _panelManager.PanelDispatcher.Canvas.transform);
                 
                 _isCreated = true;
             }

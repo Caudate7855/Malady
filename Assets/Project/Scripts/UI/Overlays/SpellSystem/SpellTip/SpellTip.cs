@@ -25,7 +25,7 @@ namespace Project.Scripts.Overlays
         private void Start()
         {
             _rectTransform = GetComponent<RectTransform>();
-            _canvas = FindObjectOfType<PanelDispatcher>(true).GetComponent<Canvas>();
+            _canvas = FindFirstObjectByType<PanelDispatcher>(FindObjectsInactive.Include).GetComponent<Canvas>();
             Close();
         }
 

@@ -36,7 +36,7 @@ namespace Project.Scripts
         
         private void OnEnable()
         {
-            _coreUpdater = FindObjectOfType<CoreUpdater>();
+            _coreUpdater = FindFirstObjectByType<CoreUpdater>();
             _coreUpdater.OnUpdatePerformed += _inputController.Update;
         }
 

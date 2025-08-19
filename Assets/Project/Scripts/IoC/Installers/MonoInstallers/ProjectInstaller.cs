@@ -12,7 +12,7 @@ namespace Project.Scripts.IoC.Installers
         {
             PanelManagerInstaller.Install(Container, default, null);
 
-            _main = FindObjectOfType<Main>();
+            _main = FindFirstObjectByType<Main>();
 
             Container
                 .Bind<SandBoxBoot>()
