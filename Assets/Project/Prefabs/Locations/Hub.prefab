@@ -76,9 +76,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366669456879093719}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0.33871907, b: 0, a: 1}
   m_Intensity: 10
   m_Range: 23.31
@@ -128,8 +127,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &9067002301725578306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,9 +197,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130446553443271500}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 1, g: 0.33871907, b: 0, a: 1}
   m_Intensity: 10
   m_Range: 23.31
@@ -246,8 +248,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &1335009668343907716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,9 +407,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114504981287019237}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.06728373, g: 0.6792453, b: 0.6454183, a: 1}
   m_Intensity: 15
   m_Range: 9
@@ -411,7 +416,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -453,8 +458,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &2562195415395788017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,9 +560,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2733000298240634563}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.06728373, g: 0.6792453, b: 0.6454183, a: 1}
   m_Intensity: 15
   m_Range: 9
@@ -561,7 +569,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -603,8 +611,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &585700447087439205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,9 +681,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3810316089559994373}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.06728373, g: 0.6792453, b: 0.6454183, a: 1}
   m_Intensity: 15
   m_Range: 9
@@ -679,7 +690,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -721,8 +732,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &6443653865875436332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -899,9 +914,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4754485588624465801}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.06728373, g: 0.6792453, b: 0.6454183, a: 1}
   m_Intensity: 15
   m_Range: 9
@@ -909,7 +923,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -951,8 +965,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &5480115034790997478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,9 +1035,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5699746644802172452}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.06728373, g: 0.6792453, b: 0.6454183, a: 1}
   m_Intensity: 15
   m_Range: 9
@@ -1027,7 +1044,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1069,8 +1086,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &2429135827273152155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1283,6 +1304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -1399,9 +1421,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7378176193184130490}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 0
-  m_Shape: 0
   m_Color: {r: 0, g: 0.87746024, b: 1, a: 1}
   m_Intensity: 300.3
   m_Range: 12.8
@@ -1409,8 +1430,8 @@ Light:
   m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
-    m_Resolution: -1
+    m_Type: 1
+    m_Resolution: 128
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
@@ -1451,8 +1472,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &7334592362242193539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1467,7 +1492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Version: 3
   m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
+  m_AdditionalLightsShadowResolutionTier: 0
   m_LightLayerMask: 1
   m_RenderingLayers: 1
   m_CustomShadowLayers: 0
@@ -1517,9 +1542,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7546764665541960926}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.06728373, g: 0.6792453, b: 0.6454183, a: 1}
   m_Intensity: 15
   m_Range: 9
@@ -1527,7 +1551,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1569,8 +1593,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!114 &2949381422729877537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1925,6 +1953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -1982,6 +2011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -2082,6 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -2140,6 +2171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
@@ -2245,6 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_AgentTypeID: 0
   m_CollectObjects: 0
   m_Size: {x: 10, y: 10, z: 10}
