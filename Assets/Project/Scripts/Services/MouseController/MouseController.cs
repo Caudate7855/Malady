@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using Project.Scripts.Core;
 using Project.Scripts.Core.Abstracts;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Zenject;
 
 namespace Project.Scripts
@@ -43,7 +44,7 @@ namespace Project.Scripts
 
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             
-            if(Physics.Raycast(ray, out var raycastHit, 100f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+            if(Physics.Raycast(ray, out var raycastHit, 100f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide))
             {
                 int hitLayer = raycastHit.transform.gameObject.layer;
                 

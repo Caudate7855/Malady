@@ -52,7 +52,7 @@ namespace Project.Scripts
 
                 edgeRect.anchoredPosition  = fromPos;
 
-                edge.SetWidth(distance);
+                edge.Initialize(distance, firstSkill, linkedSkill);
 
                 var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 edgeRect.rotation = Quaternion.Euler(0, 0, angle);
