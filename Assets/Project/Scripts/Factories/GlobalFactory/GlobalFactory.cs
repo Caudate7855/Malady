@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Mono.Cecil;
@@ -32,27 +33,44 @@ namespace Project.Scripts
         public async UniTask<List<SkillTree.Edge>> CreateSkillEdge(Skill firstSkill, Transform parent = null)
         {
             List<SkillTree.Edge> edgeList = new();
-            
+
             var edgePrefab = await _assetLoader.LoadGameObjectAsync<SkillTree.Edge>("Edge");
             var linkedSkills = firstSkill.GetLinkedSkills();
 
             foreach (var linkedSkill in linkedSkills)
             {
+                var existingEdge = firstSkill.GetLinkedEdges()
+                    .Intersect(linkedSkill.GetLinkedEdges())
+                    .FirstOrDefault();
+
+                if (existingEdge != null)
+                {
+                    continue;
+                }
+
                 var edge = GameObject.Instantiate(edgePrefab, parent);
 
                 var edgeRect = edge.GetComponent<RectTransform>();
                 var fromRect = firstSkill.GetComponent<RectTransform>();
-                var toRect   = linkedSkill.GetComponent<RectTransform>();
+                var toRect = linkedSkill.GetComponent<RectTransform>();
 
                 var fromPos = fromRect.anchoredPosition;
-                var toPos   = toRect.anchoredPosition;
+                var toPos = toRect.anchoredPosition;
 
                 var dir = (toPos - fromPos).normalized;
                 var distance = Vector2.Distance(fromPos, toPos);
 
-                edgeRect.anchoredPosition  = fromPos;
+                edgeRect.anchoredPosition = fromPos;
 
                 edge.Initialize(distance, firstSkill, linkedSkill);
+
+                firstSkill.AddEdge(edge);
+                linkedSkill.AddEdge(edge);
+
+                if (!firstSkill.GetLinkedSkills().Contains(linkedSkill))
+                    firstSkill.GetLinkedSkills().Add(linkedSkill);
+                if (!linkedSkill.GetLinkedSkills().Contains(firstSkill))
+                    linkedSkill.GetLinkedSkills().Add(firstSkill);
 
                 var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 edgeRect.rotation = Quaternion.Euler(0, 0, angle);
@@ -62,7 +80,8 @@ namespace Project.Scripts
 
             return edgeList;
         }
-        
+
+
         public async UniTask<T> CreateAsync<T>(string assetAddress, Vector3 position = default)
             where T : Object
         {
@@ -95,37 +114,39 @@ namespace Project.Scripts
 
             return component;
         }
-        
-        public async UniTask<T> CreateForComponentAndInitialize<T>(string assetAddress, Vector3 spawnPosition) where T : Object
+
+        public async UniTask<T> CreateForComponentAndInitialize<T>(string assetAddress, Vector3 spawnPosition)
+            where T : Object
         {
             var prefab = await _assetLoader.LoadGameObjectAsync<PlayerController>(assetAddress);
-            
+
             var gameObject = _diContainer.InstantiatePrefabForComponent<PlayerController>(prefab);
             var component = gameObject.GetComponent<PlayerController>();
-            
+
             component.Initialize();
-            
+
             return component as T;
         }
-        
+
         #region Characters
 
         public async UniTask<PlayerController> CreatePlayer(Vector3 spawnPosition)
         {
-            return await CreateForComponentAndInitialize<PlayerController>("Player",spawnPosition);
+            return await CreateForComponentAndInitialize<PlayerController>("Player", spawnPosition);
         }
 
         public async UniTask<T> CreateNpcAsync<T>(string npcAssetAddress, Vector3 spawnPosition) where T : NpcBase
         {
             return await CreateAndInjectAsync<T>(npcAssetAddress, spawnPosition);
         }
-        
+
         public async UniTask<T> CreateEnemyAsync<T>(string enemyAssetAddress, Vector3 spawnPosition) where T : EnemyBase
         {
             return await CreateAndInitializeAsync<T>(enemyAssetAddress, spawnPosition);
         }
 
-        public async UniTask<T> CreateSummonAsync<T>(string summonUnitAssetAddress, Vector3 spawnPosition) where T : SummonUnitBase
+        public async UniTask<T> CreateSummonAsync<T>(string summonUnitAssetAddress, Vector3 spawnPosition)
+            where T : SummonUnitBase
         {
             return await CreateAndInitializeAsync<T>(summonUnitAssetAddress, spawnPosition);
         }
@@ -168,7 +189,7 @@ namespace Project.Scripts
         }
 
         #endregion
-        
+
         #region Interactable
 
         public void CreateBook(GameObject parentObject)

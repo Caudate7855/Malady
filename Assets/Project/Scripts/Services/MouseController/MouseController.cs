@@ -42,6 +42,11 @@ namespace Project.Scripts
                 return;
             }
 
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+            
             var ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
             
             if(Physics.Raycast(ray, out var raycastHit, 100f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Collide))

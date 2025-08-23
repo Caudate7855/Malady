@@ -40,11 +40,6 @@ namespace Project.Scripts.Core.Abstracts
             }
         }
 
-        public void OnMouseDown()
-        {
-            Interact();
-        }
-
         void ChangeOutline(bool condition)
         {
             gameObject.GetComponent<Outline>().enabled = condition;

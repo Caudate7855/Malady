@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,6 +29,11 @@ namespace Project.Scripts.SkillTree
             _button.onClick.RemoveListener(OnPassiveSkillPressed);
         }
 
+        public void AddEdge(Edge newEdge)
+        {
+            _linkedEdges.Add(newEdge);
+        }
+
         private void OnPassiveSkillPressed()
         {
             var edge = FindEdgeWithLinkedSkill();
@@ -38,6 +44,7 @@ namespace Project.Scripts.SkillTree
 
                 if (edge != null)
                 {
+                    Debug.Log(edge.gameObject.name);
                     edge.Enable();
                 }
             }
@@ -54,26 +61,23 @@ namespace Project.Scripts.SkillTree
 
         private Edge FindEdgeWithLinkedSkill()
         {
-            for (int i = 0, count = _linkedSkills.Count; i < count; i++)
+            foreach (var skill in _linkedSkills)
             {
-                if (_linkedSkills[i].IsEnabled)
+                Debug.Log($"{name} checking neighbor {skill.name}, enabled={skill.IsEnabled}");
+        
+                if (!skill.IsEnabled) 
+                    continue;
+
+                var commonEdge = _linkedEdges.Intersect(skill._linkedEdges).FirstOrDefault();
+                if (commonEdge != null)
                 {
-                    for (int j = 0; j < _linkedEdges.Count; j++)
-                    {
-                        for (int k = 0; k < _linkedSkills[i]._linkedEdges.Count; k++)
-                        {
-                            if (_linkedEdges[i] == _linkedSkills[i]._linkedEdges[k])
-                            {
-                                return _linkedEdges[i];
-                            }                            
-                        }
-                    }
+                    Debug.Log($"{name} found common edge {commonEdge.name} with {skill.name}");
+                    return commonEdge;
                 }
             }
-            
+
             return null;
         }
-        
         
         public List<Skill> GetLinkedSkills()
         {

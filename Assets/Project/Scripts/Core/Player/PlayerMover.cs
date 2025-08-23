@@ -70,7 +70,7 @@ namespace Project.Scripts.Core
                 {
                     if (!_navMeshAgent.hasPath || _navMeshAgent.velocity.sqrMagnitude == 0f)
                     {
-                        _isMoving = false; // сбрасываем
+                        _isMoving = false;
                         OnDestinationReached?.Invoke();
                     }
                 }
