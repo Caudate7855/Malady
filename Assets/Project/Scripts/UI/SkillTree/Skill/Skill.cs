@@ -7,11 +7,14 @@ namespace Project.Scripts.SkillTree
 {
     public class Skill : MonoBehaviour
     {
+        
+        
         public bool IsEnabled;
 
+        [SerializeField] private bool _isStartedSkill;
         [SerializeField] private List<Skill> _linkedSkills = new();
         [SerializeField] private List<Edge> _linkedEdges = new();
-        
+
         private Button _button;
 
         private void Awake()
@@ -37,23 +40,32 @@ namespace Project.Scripts.SkillTree
         private void OnPassiveSkillPressed()
         {
             var edge = FindEdgeWithLinkedSkill();
-            
+
             if (!IsEnabled)
             {
-                IsEnabled = true;
-
+                if (_isStartedSkill)
+                {
+                    IsEnabled = true;
+                    return;
+                }
+                
                 if (edge != null)
                 {
-                    Debug.Log(edge.gameObject.name);
+                    IsEnabled = true;
                     edge.Enable();
                 }
             }
             else
             {
-                IsEnabled = false;
-
+                if (_isStartedSkill)
+                {
+                    IsEnabled = false;
+                    return;
+                }
+                
                 if (edge != null)
                 {
+                    IsEnabled = false;
                     edge.Disable();
                 }
             }
@@ -64,8 +76,8 @@ namespace Project.Scripts.SkillTree
             foreach (var skill in _linkedSkills)
             {
                 Debug.Log($"{name} checking neighbor {skill.name}, enabled={skill.IsEnabled}");
-        
-                if (!skill.IsEnabled) 
+
+                if (!skill.IsEnabled)
                     continue;
 
                 var commonEdge = _linkedEdges.Intersect(skill._linkedEdges).FirstOrDefault();
@@ -78,7 +90,7 @@ namespace Project.Scripts.SkillTree
 
             return null;
         }
-        
+
         public List<Skill> GetLinkedSkills()
         {
             return _linkedSkills;

@@ -1191,6 +1191,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9120338492065769426, guid: 26baee7c9d4775e42b3849dc696d7da9, type: 3}
+      propertyPath: _isStartedSkill
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9120338492065769426, guid: 26baee7c9d4775e42b3849dc696d7da9, type: 3}
       propertyPath: _linkedSkills.Array.size
       value: 4
       objectReference: {fileID: 0}
