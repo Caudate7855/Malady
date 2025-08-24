@@ -81,6 +81,7 @@ namespace Project.Scripts.SkillTree
                     continue;
 
                 var commonEdge = _linkedEdges.Intersect(skill._linkedEdges).FirstOrDefault();
+                
                 if (commonEdge != null)
                 {
                     Debug.Log($"{name} found common edge {commonEdge.name} with {skill.name}");
