@@ -14,12 +14,18 @@ namespace Project.Scripts.SkillTree
         [SerializeField] private bool _isStartedSkill;
         [SerializeField] private List<Skill> _linkedSkills = new();
         [SerializeField] private List<Edge> _linkedEdges = new();
-
+        
         private Button _button;
+        
+        //todo: Delete after basic design will be created
+        private readonly Color _enabledColor = Color.green;
+        private readonly Color _disabledColor = Color.white;
+        private Image _image;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
+            _image = GetComponent<Image>();
         }
 
         private void OnEnable()
@@ -45,13 +51,13 @@ namespace Project.Scripts.SkillTree
             {
                 if (_isStartedSkill)
                 {
-                    IsEnabled = true;
+                    EnableSkill();
                     return;
                 }
                 
                 if (edge != null)
                 {
-                    IsEnabled = true;
+                    EnableSkill();
                     edge.Enable();
                 }
             }
@@ -59,16 +65,28 @@ namespace Project.Scripts.SkillTree
             {
                 if (_isStartedSkill)
                 {
-                    IsEnabled = false;
+                    DisableSkill();
                     return;
                 }
                 
                 if (edge != null)
                 {
-                    IsEnabled = false;
+                    DisableSkill();
                     edge.Disable();
                 }
             }
+        }
+
+        private void EnableSkill()
+        {
+            _image.color = _enabledColor;
+            IsEnabled = true;
+        }
+
+        private void DisableSkill()
+        {
+            _image.color = _disabledColor;
+            IsEnabled = false;
         }
 
         private Edge FindEdgeWithLinkedSkill()

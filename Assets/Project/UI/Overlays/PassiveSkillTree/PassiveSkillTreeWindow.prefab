@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 4783600750797263786}
   - component: {fileID: 1240778744533441585}
   - component: {fileID: 9018227392735291272}
+  - component: {fileID: 1189918463255753453}
   m_Layer: 0
   m_Name: PassiveSkillTreeWindow
   m_TagString: Untagged
@@ -344,6 +345,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _parentObject: {fileID: 3028928080757571372}
   _skillsList: []
+--- !u!114 &1189918463255753453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023170728867158812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80360c13312e4f5f908038531beaeb73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 6441149194608772801}
+  _zoomSpeed: 0.7
+  _minScale: 0.5
+  _maxScale: 2
 --- !u!1 &7813672971044191567
 GameObject:
   m_ObjectHideFlags: 0
