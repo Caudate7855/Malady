@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Project.Scripts.Overlays
 {
     public class MainUIView : PanelBase
     {
-        [SerializeField] private HpBar _hpSlider;
-        [SerializeField] private EssenceBar _essenceSlider;
+        [SerializeField] private HpBar _hpBar;
+        [SerializeField] private EssenceBar _essenceBar;
 
         [SerializeField] private BossBar _bossBar;
         
@@ -17,8 +18,8 @@ namespace Project.Scripts.Overlays
         [SerializeField] private SpellList _summonSpellList;
         [SerializeField] private SpellList _playerSpellList;
         
-        public HpBar HpSlider =>_hpSlider;
-        public EssenceBar EssenceSlider =>_essenceSlider;
+        public HpBar HpBar =>_hpBar;
+        public EssenceBar EssenceBar =>_essenceBar;
         public BossBar BossBar => _bossBar;
         public List<ElementalBarBase> ElementalBars => _elementalSliders;
         

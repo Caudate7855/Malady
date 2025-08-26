@@ -1,5 +1,7 @@
+using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
 using Project.Scripts.Interfaces;
+using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
@@ -9,14 +11,21 @@ namespace Project.Scripts.Core
 {
     public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable
     {
+        [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
         [Inject] private PlayerStats _playerStats;
 
         public PlayerController PlayerControllerObject { get; set; }
+        private MainUIController  _mainUIController;
 
         public void Initialize()
         {
+            _mainUIController = _panelManager.LoadPanel<MainUIController>();
+            
+            _mainUIController.UpdateBar<HpBar>(_playerStats.GetStat<HpStat>().Value, _playerStats.GetStat<HpStat>().MaxValue);
+            _mainUIController.UpdateBar<EssenceBar>(_playerStats.GetStat<EssenceStat>().Value,  _playerStats.GetStat<EssenceStat>().MaxValue);
+            
             _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
             _playerMover.OnDestinationReached += Idle;
             
@@ -76,8 +85,7 @@ namespace Project.Scripts.Core
         public void PlayCastAnimation(PlayerCastAnimations animationType)
         {
             StopMovement();
-
-
+            
             switch (animationType)
             {
                 case PlayerCastAnimations.Cast:

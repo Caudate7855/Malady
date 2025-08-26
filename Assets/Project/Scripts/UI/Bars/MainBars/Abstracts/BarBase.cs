@@ -6,20 +6,21 @@ namespace Project.Scripts
     [RequireComponent(typeof(Slider))]
     public class BarBase : MonoBehaviour, IBar
     {
-        private Slider Slider;
+        private Slider _slider;
+        
         private void Awake()
         {
-            Slider = GetComponent<Slider>();
+            _slider = GetComponent<Slider>();
         }
 
         public void Initialize(float maxValue)
         {
-            Slider.maxValue = maxValue;            
+            _slider.maxValue = maxValue;            
         }
 
         public void UpdateBar(float newValue)
         {
-            Slider.value = newValue;
+            _slider.value = newValue;
         }
     }
 }
