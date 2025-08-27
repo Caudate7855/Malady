@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
-using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Overlays
+namespace Project.Scripts.UI
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainUIView")]
     public class MainUIController : PanelControllerBase<MainUIView>

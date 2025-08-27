@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Overlays.Inventory
+namespace Project.Scripts.UI.Inventory
 {
     public class InventoryView : PanelBase
     {

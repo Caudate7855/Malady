@@ -3,7 +3,7 @@ using Itibsoft.PanelManager;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Overlays
+namespace Project.Scripts.UI
 {
     public class SpellListOverlay : PanelBase
     {

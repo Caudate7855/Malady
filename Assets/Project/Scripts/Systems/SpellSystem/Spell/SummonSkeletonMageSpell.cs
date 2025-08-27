@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using Project.Scripts.Core;
-using Project.Scripts.Overlays.Inventory;
+using Project.Scripts.UI.Inventory;
 using UnityEngine;
 
 namespace Project.Scripts

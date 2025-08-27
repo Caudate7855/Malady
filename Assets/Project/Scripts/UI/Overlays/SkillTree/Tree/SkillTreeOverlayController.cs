@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Itibsoft.PanelManager;
-using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.SkillTree
+namespace Project.Scripts.UI
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "PassiveSkillTreeOverlay")]
     public class SkillTreeOverlayController : PanelControllerBase<PassiveSkillTreeView>
@@ -17,6 +16,7 @@ namespace Project.Scripts.SkillTree
         private List<Skill> _skillsList = new();
         private GameObject _edgesParent;        
         private Button _skillListButton;
+        private Button _closeButton;
         
         private SpellListOverlayController _spellListOverlayController;
         
@@ -25,8 +25,10 @@ namespace Project.Scripts.SkillTree
             _skillsList = Panel.GetSkillsList();
             _edgesParent = Panel.ParentObject;
             _skillListButton = Panel.SkillListButton;
+            _closeButton = Panel.CloseButton;
             
             _skillListButton.onClick.AddListener(OnSkillListButtonClick);
+            _closeButton.onClick.AddListener(Close);
             
             await CreateSkillsEdges(_skillsList);
         }

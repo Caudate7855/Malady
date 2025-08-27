@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts
+namespace Project.Scripts.UI
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "DialogueWindow")]
     public class DialogueWindowController : PanelControllerBase<DialogueWindow>

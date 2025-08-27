@@ -2,7 +2,7 @@ using DG.Tweening;
 using Itibsoft.PanelManager;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Overlays
+namespace Project.Scripts.UI
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "Fader")]
     public class FaderController : PanelControllerBase<FaderOverlayView>

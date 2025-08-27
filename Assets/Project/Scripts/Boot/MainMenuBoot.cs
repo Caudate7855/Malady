@@ -1,5 +1,5 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.Overlays.MainMenu;
+using Project.Scripts.UI.MainMenu;
 using UnityEngine;
 using Zenject;
 

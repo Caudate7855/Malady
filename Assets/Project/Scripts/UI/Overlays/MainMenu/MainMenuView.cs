@@ -2,7 +2,7 @@ using Itibsoft.PanelManager;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Overlays.MainMenu
+namespace Project.Scripts.UI.MainMenu
 {
     public class MainMenuView : PanelBase
     {

@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.SkillTree
+namespace Project.Scripts.UI
 {
     public class Skill : MonoBehaviour
     {

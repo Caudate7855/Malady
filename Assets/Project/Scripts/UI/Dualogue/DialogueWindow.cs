@@ -1,11 +1,9 @@
-using System;
 using Itibsoft.PanelManager;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace Project.Scripts
+namespace Project.Scripts.UI
 {
     public class DialogueWindow : PanelBase
     {

@@ -7,10 +7,11 @@ using NUnit.Framework;
 using Project.Scripts.Core;
 using Project.Scripts.Interfaces;
 using Project.Scripts.Services;
-using Project.Scripts.SkillTree;
+using Project.Scripts.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
+using Edge = Project.Scripts.UI.Edge;
 
 namespace Project.Scripts
 {
@@ -30,11 +31,11 @@ namespace Project.Scripts
             _assetLoader = assetLoader;
         }
 
-        public async UniTask<List<SkillTree.Edge>> CreateSkillEdge(Skill firstSkill, Transform parent = null)
+        public async UniTask<List<Edge>> CreateSkillEdge(Skill firstSkill, Transform parent = null)
         {
-            List<SkillTree.Edge> edgeList = new();
+            List<Edge> edgeList = new();
 
-            var edgePrefab = await _assetLoader.LoadGameObjectAsync<SkillTree.Edge>("Edge");
+            var edgePrefab = await _assetLoader.LoadGameObjectAsync<Edge>("Edge");
             var linkedSkills = firstSkill.GetLinkedSkills();
 
             foreach (var linkedSkill in linkedSkills)

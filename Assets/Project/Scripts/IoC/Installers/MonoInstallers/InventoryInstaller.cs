@@ -1,4 +1,4 @@
-using Project.Scripts.Overlays.Inventory;
+using Project.Scripts.UI.Inventory;
 using UnityEngine;
 using Zenject;
 

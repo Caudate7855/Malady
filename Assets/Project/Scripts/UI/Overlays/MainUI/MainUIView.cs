@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Project.Scripts.Overlays
+namespace Project.Scripts.UI
 {
     public class MainUIView : PanelBase
     {

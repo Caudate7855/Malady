@@ -1,9 +1,8 @@
-using Project.Scripts.Overlays;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Project.Scripts
+namespace Project.Scripts.UI
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]

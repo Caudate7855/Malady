@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.SkillTree
+namespace Project.Scripts.UI
 {
     public class PassiveSkillTreeScaler : MonoBehaviour
     {

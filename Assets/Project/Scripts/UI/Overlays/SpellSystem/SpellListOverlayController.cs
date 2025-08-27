@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
-using Project.Scripts.SkillTree;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.Overlays
+namespace Project.Scripts.UI
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "SpellListOverlay")]
     public class SpellListOverlayController : PanelControllerBase<SpellListOverlay>

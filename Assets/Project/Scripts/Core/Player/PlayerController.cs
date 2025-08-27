@@ -1,7 +1,7 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
 using Project.Scripts.Interfaces;
-using Project.Scripts.Overlays;
+using Project.Scripts.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;

@@ -1,8 +1,8 @@
 using Cysharp.Threading.Tasks;
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
-using Project.Scripts.Overlays;
 using Project.Scripts.Services;
+using Project.Scripts.UI;
 using UnityEngine;
 using Zenject;
 

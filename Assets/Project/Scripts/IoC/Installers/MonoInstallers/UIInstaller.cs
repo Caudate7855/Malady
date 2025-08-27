@@ -1,4 +1,4 @@
-using Project.Scripts.Overlays;
+using Project.Scripts.UI;
 using UnityEngine;
 using Zenject;
 

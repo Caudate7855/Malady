@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.Overlays.Inventory
+namespace Project.Scripts.UI.Inventory
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "InventoryView")]
     public class InventoryController : PanelControllerBase<InventoryView>

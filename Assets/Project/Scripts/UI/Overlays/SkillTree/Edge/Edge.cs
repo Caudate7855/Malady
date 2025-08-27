@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.SkillTree
+namespace Project.Scripts.UI
 {
     public class Edge : MonoBehaviour
     {

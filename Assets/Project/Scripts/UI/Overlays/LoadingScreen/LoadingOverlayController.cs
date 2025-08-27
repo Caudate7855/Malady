@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.Overlays
+namespace Project.Scripts.UI
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "LoadingScreen")]
     public class LoadingOverlayController : PanelControllerBase<LoadingOverlayView>

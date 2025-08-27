@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Scripts.Overlays.Inventory
+namespace Project.Scripts.UI.Inventory
 {
     public class InventorySlot : MonoBehaviour
     {
