@@ -116,7 +116,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c34ce863c4f117e41840f62e31e40878
-    m_Address: PassiveSkillTreeWindow
+    m_Address: PassiveSkillTreeOverlay
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

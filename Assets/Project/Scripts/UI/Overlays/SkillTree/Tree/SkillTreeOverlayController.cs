@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Project.Scripts.SkillTree
 {
-    [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "PassiveSkillTreeWindow")]
+    [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "PassiveSkillTreeOverlay")]
     public class SkillTreeOverlayController : PanelControllerBase<PassiveSkillTreeView>
     {
         [Inject] private GlobalFactory _globalFactory;

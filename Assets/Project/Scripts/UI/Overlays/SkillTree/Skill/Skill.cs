@@ -7,20 +7,18 @@ namespace Project.Scripts.SkillTree
 {
     public class Skill : MonoBehaviour
     {
-        
-        
         public bool IsEnabled;
 
         [SerializeField] private bool _isStartedSkill;
         [SerializeField] private List<Skill> _linkedSkills = new();
         [SerializeField] private List<Edge> _linkedEdges = new();
+        [SerializeField] private Image _closeOverlay;
         
         private Button _button;
-        
-        //todo: Delete after basic design will be created
-        private readonly Color _enabledColor = Color.green;
-        private readonly Color _disabledColor = Color.white;
         private Image _image;
+        
+        private readonly Color _enabledColor = new (0,0,0,0);
+        private readonly Color _disabledColor = new (0,0,0,150);
 
         private void Awake()
         {
@@ -79,13 +77,13 @@ namespace Project.Scripts.SkillTree
 
         private void EnableSkill()
         {
-            _image.color = _enabledColor;
             IsEnabled = true;
+            _closeOverlay.color = _enabledColor;
         }
 
         private void DisableSkill()
         {
-            _image.color = _disabledColor;
+            _closeOverlay.color = _disabledColor;
             IsEnabled = false;
         }
 
