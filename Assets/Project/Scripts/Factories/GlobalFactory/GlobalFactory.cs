@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
@@ -12,6 +13,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
 using Edge = Project.Scripts.UI.Edge;
+using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
@@ -147,9 +149,22 @@ namespace Project.Scripts
         }
 
         public async UniTask<T> CreateSummonAsync<T>(string summonUnitAssetAddress, Vector3 spawnPosition)
-            where T : SummonUnitBase
+            where T : SummonUnitBase, ICustomInitializable
         {
-            return await CreateAndInitializeAsync<T>(summonUnitAssetAddress, spawnPosition);
+            var summonUnit = await _assetLoader.LoadGameObjectAsync<Object>(summonUnitAssetAddress);
+            var instance = _diContainer.InstantiatePrefabForComponent<SkeletonMage>(summonUnit) as T;
+
+            if (instance == null)
+            {
+                throw new Exception("Cannot instantiate SkeletonMage");
+            }
+            
+            instance.Initialize();
+            instance.InitializePlayerController();
+            instance.transform.position = spawnPosition;
+            
+            
+            return instance;
         }
 
         #endregion

@@ -10,7 +10,7 @@ namespace Project.Scripts.Interfaces
 
         public void InitializePlayerController()
         {
-            PlayerControllerObject = Object.FindFirstObjectByType<PlayerController>();
+            PlayerControllerObject = PlayerController.Instance;
         }
     }
 }

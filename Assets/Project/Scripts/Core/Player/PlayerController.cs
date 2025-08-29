@@ -1,3 +1,4 @@
+using System;
 using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
 using Project.Scripts.Interfaces;
@@ -11,6 +12,9 @@ namespace Project.Scripts.Core
 {
     public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable
     {
+        public static PlayerController Instance { get; private set; }
+
+
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
@@ -18,6 +22,11 @@ namespace Project.Scripts.Core
 
         public PlayerController PlayerControllerObject { get; set; }
         private MainUIController  _mainUIController;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         public void Initialize()
         {

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7967045121945942719}
   - component: {fileID: 4389079331389434916}
   - component: {fileID: 2342392191783027694}
+  - component: {fileID: 9183836926412961288}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -194,3 +195,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b0b296e1a81426f8e85901e9e1bd1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9183836926412961288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132461961285685871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fcdf1f28dcf4a5299f556af3474f2f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skeletonMagePrefab: {fileID: 7405005380051324519, guid: 195e5341c3b30e2478c11fbeb7b3a845, type: 3}
