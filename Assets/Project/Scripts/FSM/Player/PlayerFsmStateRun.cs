@@ -18,12 +18,12 @@ namespace Project.Scripts
         
         public override void Enter()
         {
-            //_animator.Play(AnimationName);
+            _animator.Play(AnimationName);
         }
 
-        public override void Update()
+        /*public override void Update()
         {
-            //_animator.Play(AnimationName);
-        }
+            _animator.Play(AnimationName);
+        }*/
     }
 }
