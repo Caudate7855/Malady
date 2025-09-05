@@ -32,5 +32,6 @@ namespace Project.Scripts
             return await _globalFactory.CreateSummonAsync<SummonUnitBase>(SkeletonMageAddress, spawnPosition) as
                 SkeletonMage;
         }
+        
     }
 }

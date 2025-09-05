@@ -152,7 +152,7 @@ namespace Project.Scripts
             where T : SummonUnitBase, ICustomInitializable
         {
             var summonUnit = await _assetLoader.LoadGameObjectAsync<Object>(summonUnitAssetAddress);
-            var instance = _diContainer.InstantiatePrefabForComponent<SkeletonMage>(summonUnit) as T;
+            var instance = _diContainer.InstantiatePrefabForComponent<SummonUnitBase>(summonUnit) as T;
 
             if (instance == null)
             {
@@ -162,7 +162,6 @@ namespace Project.Scripts
             instance.Initialize();
             instance.InitializePlayerController();
             instance.transform.position = spawnPosition;
-            
             
             return instance;
         }

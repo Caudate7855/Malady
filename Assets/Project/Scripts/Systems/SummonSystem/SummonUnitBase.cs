@@ -14,7 +14,7 @@ namespace Project.Scripts
         public PlayerController PlayerControllerObject { get; set; }
         [SerializeField] private PlayerController _playerController;
 
-        [SerializeField] private Animator _animator;
+        [SerializeField] protected Animator Animator;
         [SerializeField] private NavMeshAgent _agent;
 
         protected Fsm Fsm = new();
@@ -24,24 +24,24 @@ namespace Project.Scripts
             _playerController = PlayerControllerObject;
         }
 
-        public void Initialize()
+        public virtual void Initialize()
         {
-            Fsm.AddState(new SummonUnitFsmStateRun(_animator, Fsm));
-            Fsm.AddState(new SummonUnitFsmStateIdle(_animator, Fsm));
-            Fsm.AddState(new SummonUnitFsmStateAttack(_animator, Fsm));
+            Fsm.AddState(new SummonUnitFsmStateRun(Animator, Fsm));
+            Fsm.AddState(new SummonUnitFsmStateIdle(Animator, Fsm));
+            Fsm.AddState(new SummonUnitFsmStateAttack(Animator, Fsm));
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
             Fsm.SetState<SummonUnitFsmStateAttack>();
         }
 
-        public void Idle()
+        public virtual void Idle()
         {
             Fsm.SetState<SummonUnitFsmStateIdle>();
         }
 
-        public void MoveToPoint()
+        public virtual void MoveToPoint()
         {
             Fsm.SetState<SummonUnitFsmStateRun>();
         }

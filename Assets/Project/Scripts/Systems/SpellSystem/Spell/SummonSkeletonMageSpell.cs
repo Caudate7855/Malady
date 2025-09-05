@@ -14,7 +14,8 @@ namespace Project.Scripts
         
         public override void Initialize()
         {
-            ID  = "bones_0_0";
+            //todo: Пофиксить
+            ID  = "bones_0_0_qweqweqwe";
             IsInitialized = true;
             
             _skeletonMagesCountStat = PlayerStats.GetStat<SkeletonMagesCountStat>();

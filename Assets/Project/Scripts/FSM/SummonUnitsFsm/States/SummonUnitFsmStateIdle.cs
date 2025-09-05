@@ -6,6 +6,8 @@ namespace Project.Scripts.States
     {
         public SummonUnitFsmStateIdle(Animator animator, Fsm fsm) : base(animator, fsm)
         {
+            Animator = animator;
         }
+
     }
 }

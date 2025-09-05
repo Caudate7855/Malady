@@ -6,7 +6,7 @@ namespace Project.Scripts.States
     {
         public SummonUnitFsmStateRun(Animator animator, Fsm fsm) : base(animator, fsm)
         {
-            
+            Animator = animator;
         }
     }
 }
