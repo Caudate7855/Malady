@@ -13,7 +13,7 @@ namespace Project.Scripts.Core
             Fsm.AddState(new SkeletonArcherFsmStateAttack(Animator, BowAnimator, Fsm));
             Fsm.AddState(new SkeletonArcherFsmStateRun(Animator, BowAnimator, Fsm));
             
-            Fsm.SetState<SkeletonArcherFsmStateAttack>();
+            Fsm.SetState<SkeletonArcherFsmStateIdle>();
         }
     }
 }

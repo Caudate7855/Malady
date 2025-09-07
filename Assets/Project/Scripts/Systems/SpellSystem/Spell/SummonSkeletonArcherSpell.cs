@@ -15,7 +15,8 @@ namespace Project.Scripts
         
         public override void Initialize()
         {
-            ID  = "bones_0_0";
+            //todo: расширить список скиллов для скелетов
+            ID  = "bones_0_0_1";
             IsInitialized = true;
             
             _skeletonArchersCountStat = PlayerStats.GetStat<SkeletonArchersCountStat>();
