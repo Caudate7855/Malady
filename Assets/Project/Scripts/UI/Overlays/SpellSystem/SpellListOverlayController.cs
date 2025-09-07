@@ -89,10 +89,14 @@ namespace Project.Scripts.UI
         {
             SetSpell(_bloodSpellsList, 0, 0); 
             SetSpell(_bloodSpellsList, 0, 1); 
+            
             SetSpell(_fleshSpellsList, 0, 0); 
             SetSpell(_fleshSpellsList, 0, 1); 
+            
             SetSpell(_bonesSpellsList, 0, 0); 
             SetSpell(_bonesSpellsList, 0, 1); 
+            SetSpell(_bonesSpellsList, 1, 0); 
+            
             SetSpell(_soulsSpellsList, 0, 0); 
             SetSpell(_soulsSpellsList, 0, 1); 
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5f883a07d544f485ecf221d95bb49a, type: 3}
   m_Name: Raise Skeleton
   m_EditorClassIdentifier: 
-  Id: bones_0_0
+  Id: bones_5_0
   Type: 1
   SpellElementType: 1
   Name: Raise Skeleton
