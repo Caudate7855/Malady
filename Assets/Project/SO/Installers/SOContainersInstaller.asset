@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: SOContainersInstaller
   m_EditorClassIdentifier: 
   _spellsContainerSo: {fileID: 11400000, guid: e23f9c790218c5f49b2bcd47b9c127d9, type: 2}
+  _spellModificatorsConfigsContainer: {fileID: 11400000, guid: 93da8f50e3cb90943b3dfc3e2c45098b, type: 2}

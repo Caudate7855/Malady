@@ -26,6 +26,8 @@ namespace Project.Scripts
             {new SkeletonWarriorsCountStat()},
             {new SkeletonArchersCountStat()},
             {new SkeletonMagesCountStat()},
+            
+            {new BloodLanceBonusDamageStat()}
         };
 
         public void DefaultInitialize()

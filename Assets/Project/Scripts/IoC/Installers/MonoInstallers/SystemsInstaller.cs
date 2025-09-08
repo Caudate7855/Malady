@@ -1,4 +1,3 @@
-using Project.Scripts.Core;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers
@@ -19,6 +18,9 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<SummonSystem>()
                 .AsSingle();
 
+            Container
+                .Bind<PlayerSpellModificatorsSystem>()
+                .AsSingle();
         }
     }
 }

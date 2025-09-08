@@ -19,6 +19,11 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<SpellBase>()
                 .To<SummonSkeletonArcherSpell>()
                 .AsSingle();
+            
+            Container
+                .Bind<SpellBase>()
+                .To<TrowBloodLanceSpell>()
+                .AsSingle();
 
         }
     }
