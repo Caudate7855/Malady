@@ -96,6 +96,7 @@ namespace Project.Scripts.UI
             SetSpell(_bonesSpellsList, 0, 0); 
             SetSpell(_bonesSpellsList, 0, 1); 
             SetSpell(_bonesSpellsList, 1, 0); 
+            SetSpell(_bonesSpellsList, 1, 1); 
             
             SetSpell(_soulsSpellsList, 0, 0); 
             SetSpell(_soulsSpellsList, 0, 1); 
