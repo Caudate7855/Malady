@@ -14,7 +14,6 @@ namespace Project.Scripts.Core
     {
         public static PlayerController Instance { get; private set; }
 
-
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;

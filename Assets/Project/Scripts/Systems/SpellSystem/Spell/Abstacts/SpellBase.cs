@@ -15,7 +15,6 @@ namespace Project.Scripts
         [Inject] protected PlayerStats PlayerStats;
         [Inject] protected PlayerSpellModificatorsSystem PlayerSpellModificatorsSystem;
         [Inject] protected IPanelManager PanelManager;
-        protected PlayerController PlayerController;
 
         protected StatType Type;
 

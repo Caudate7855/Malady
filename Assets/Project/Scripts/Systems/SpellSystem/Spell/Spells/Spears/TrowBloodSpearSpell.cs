@@ -1,6 +1,5 @@
 ﻿using JetBrains.Annotations;
 using Project.Scripts.Core;
-using Project.Scripts.UI.Inventory;
 using UnityEngine;
 
 namespace Project.Scripts
@@ -12,27 +11,36 @@ namespace Project.Scripts
         
         public override void Initialize()
         {
-            PlayerController = Object.FindFirstObjectByType<PlayerController>();
+            base.Initialize();
+            
             _bloodSpearBonusDamageStat = PlayerStats.GetStat<BloodSpearBonusDamageStat>();
-            InventoryController = PanelManager.LoadPanel<InventoryController>();
             Type = _bloodSpearBonusDamageStat.Type;
             
             ID = "blood_0_1";
             IsInitialized = true;
 
-            //todo: переместить место добавления модификаторов при эквипе шмота / прокачке passive skills / прокачке memories
-            PlayerSpellModificatorsSystem.AddModificator(new BloodSpearModificatorArea());
+            //PlayerSpellModificatorsSystem.AddModificator(new BloodSpearModificatorArea());
         }
 
-        public override void Cast()
+        public override async void Cast()
         {
             if (PlayerSpellModificatorsSystem.GetModificatorByType<BloodSpearModificatorArea>() != null)
             {
-                Debug.Log("MODIF");
+                var projectileCount = 12;
+                var angleStep = 360f / projectileCount;
+
+                for (int i = 0; i < projectileCount; i++)
+                {
+                    var angle = i * angleStep;
+                    var rad = Mathf.Deg2Rad * angle;
+
+                    var dir = new Vector3(Mathf.Cos(rad), 0, Mathf.Sin(rad));
+                    await CastProjectile(PlayerController.Instance.transform.position, dir);
+                }
             }
             else
             {
-                Debug.Log("No_MODIF");
+                await CastProjectile(PlayerController.Instance.transform.position, MouseController.GetGroundPosition());
             }
         }
 
