@@ -22,7 +22,7 @@ namespace Project.Scripts.IoC.Installers
             
             Container
                 .Bind<SpellBase>()
-                .To<TrowBloodLanceSpell>()
+                .To<TrowBloodSpearSpell>()
                 .AsSingle();
 
         }

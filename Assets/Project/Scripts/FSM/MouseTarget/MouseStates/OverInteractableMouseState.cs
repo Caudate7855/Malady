@@ -11,12 +11,12 @@ namespace Project.Scripts
 
         public override void Enter()
         {
-            Debug.Log("Interactable Enter");
+            
         }
 
         public override void Exit()
         {
-            Debug.Log("Interactable Exit");
+            
         }
     }
 }

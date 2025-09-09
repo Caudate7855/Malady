@@ -45,7 +45,7 @@ namespace Project.Scripts
                 }
             }
 
-            throw new Exception("Cannot find spell modificator by type.");
+            return null;
         }
         
         public SpellModificatorBase GetModificatorByID(string id)
@@ -58,7 +58,7 @@ namespace Project.Scripts
                 }
             }
 
-            throw new Exception("Cannot find spell modificator by ID.");
+            return null;
         }
     }
 }

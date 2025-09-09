@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Project.Scripts.Core;
 using Project.Scripts.UI.Inventory;
@@ -12,11 +13,14 @@ namespace Project.Scripts
         [Inject] protected SummonSystem SummonSystem;
         [Inject] protected MouseController MouseController;
         [Inject] protected PlayerStats PlayerStats;
+        [Inject] protected PlayerSpellModificatorsSystem PlayerSpellModificatorsSystem;
         [Inject] protected IPanelManager PanelManager;
-        
+        protected PlayerController PlayerController;
+
         protected StatType Type;
 
         protected InventoryController InventoryController;
+        protected List<SpellModificatorBase> SpellModificators = new();
 
         protected bool IsInitialized;
 
