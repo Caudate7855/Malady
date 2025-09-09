@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f4966c7432bdab4194499c7f8aa660d
+    m_Address: BloodSpear
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 135a311a41b2f204da90584ac1b2be9a
     m_Address: SummonSkeletonArcher
     m_ReadOnly: 0

@@ -6,6 +6,7 @@ using Project.Scripts.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Project.Scripts.Core
@@ -18,6 +19,7 @@ namespace Project.Scripts.Core
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
         [Inject] private PlayerStats _playerStats;
+        [Inject] private MouseController _mouseController;
 
         public PlayerController PlayerControllerObject { get; set; }
         private MainUIController  _mainUIController;
@@ -93,6 +95,12 @@ namespace Project.Scripts.Core
         public void PlayCastAnimation(PlayerCastAnimations animationType)
         {
             StopMovement();
+            
+            var direction = (_mouseController.GetGroundPosition());
+            direction.y = 0; 
+            direction.Normalize();
+            
+            transform.rotation = Quaternion.LookRotation(_mouseController.GetGroundPosition());
             
             switch (animationType)
             {
