@@ -29,8 +29,6 @@ namespace Project.Scripts
             direction.y = 0; 
             direction.Normalize();
 
-            await UniTask.Delay(100);
-            
             var instance = await _globalFactory.CreateAsync<BloodSpear>(BloodSpearAddress, startPosition);
 
             var pos = instance.transform.position;
