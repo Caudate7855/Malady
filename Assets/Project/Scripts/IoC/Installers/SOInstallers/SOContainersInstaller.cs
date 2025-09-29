@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers
@@ -8,10 +7,16 @@ namespace Project.Scripts.IoC.Installers
     public class SOContainersInstaller : ScriptableObjectInstaller<SOContainersInstaller>
     {
         [SerializeField] private SpellsContainerSo _spellsContainerSo;
-        [FormerlySerializedAs("_spellModificatorsList")] [SerializeField] private SpellModificatorsConfigsContainer _spellModificatorsConfigsContainer;
-            
+        [SerializeField] private ItemsContainerSo _itemsContainerSo;
+        [SerializeField] private SpellModificatorsConfigsContainer _spellModificatorsConfigsContainer;
+        
         public override void InstallBindings()
         {
+            Container
+                .Bind<ItemsContainerSo>()
+                .FromInstance(_itemsContainerSo)
+                .AsSingle();
+            
             Container
                 .Bind<SpellsContainerSo>()
                 .FromInstance(_spellsContainerSo)

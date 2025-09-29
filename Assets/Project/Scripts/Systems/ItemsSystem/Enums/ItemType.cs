@@ -5,6 +5,7 @@ namespace Project.Scripts
         Weapon = 0,
         Offhand = 1,
         Armor = 2,
-        Accessory = 3
+        Necklace = 3,
+        Ring = 4
     }
 }

@@ -53,7 +53,7 @@ namespace Project.Scripts
         public void Update()
         {
             if (_playerInputs.Gameplay.Movement.inProgress)
-            {
+            { 
                 _playerController.TryMoveToPoint(_mouseController.MouseTarget.TargetPosition, _mouseController.MouseTarget.Interactable);
             }
         }
