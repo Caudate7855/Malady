@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9092044365813352658}
   - component: {fileID: 4788754023477747276}
-  - component: {fileID: 2523002309733869939}
   - component: {fileID: 6131514302934296164}
   m_Layer: 0
   m_Name: Corpse
@@ -51,23 +50,6 @@ MonoBehaviour:
   _flesh: {fileID: 5741251049952931882}
   _blood: {fileID: 438653389383893179}
   _bones: {fileID: 8371833389752670790}
---- !u!114 &2523002309733869939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2850828634929975740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 0
-  priority: 1
-  blendDistance: 3
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 7d84f4550b987b44f87aa2e1d92ed784, type: 2}
 --- !u!136 &6131514302934296164
 CapsuleCollider:
   m_ObjectHideFlags: 0
