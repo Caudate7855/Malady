@@ -1,4 +1,3 @@
-using Itibsoft.PanelManager;
 using Project.Scripts.Core;
 using Project.Scripts.Core.Hub;
 using UnityEngine;
@@ -18,8 +17,8 @@ namespace Project.Scripts
             
             _hubController =  await GlobalFactory.CreateAndInitializeAsync<HubController>("Hub");
 
-            GlobalFactory.CreateBook(_hubController.GetBookParentObject());
-            GlobalFactory.CreateExit(_hubController.GetExitParentObject());
+            GlobalFactory.CreateBook(_hubController.GetBookPosition().transform.position);
+            GlobalFactory.CreateExit(_hubController.GetExitPosition().transform.position);
             
             await GlobalFactory.CreateNpcAsync<Undertaker>("Undertaker", _hubController.GetNpcSpawnPosition(NpcTypes.Undertaker));
             await GlobalFactory.CreateNpcAsync<Blacksmith>("Blacksmith", _hubController.GetNpcSpawnPosition(NpcTypes.Blacksmith));

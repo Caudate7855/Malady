@@ -17,14 +17,14 @@ namespace Project.Scripts.Core
             _navMeshSurface.BuildNavMesh();
         }
 
-        public GameObject GetBookParentObject()
+        public GameObject GetBookPosition()
         {
-            return GetComponentInChildren<BookPositionMarker>().gameObject;
+            return FindFirstObjectByType<BookPositionMarker>().gameObject;
         }
 
-        public GameObject GetExitParentObject()
+        public GameObject GetExitPosition()
         {
-            return GetComponentInChildren<ExitPositionMarker>().gameObject;
+            return FindFirstObjectByType<BookPositionMarker>().gameObject;
         }
         
         public Vector3 GetNpcSpawnPosition(NpcTypes npcType)

@@ -12,6 +12,8 @@ namespace Project.Scripts
 
         protected override async void Initialize()
         {
+            _globalFactory.CreateBook(_sandBoxController.GetBookPosition().transform.position);
+            
             await _globalFactory.CreateCustomCorpseAsync(true,false,false,true, new Vector3(3,0,2));
             await _globalFactory.CreateDefaultCorpseAsync(new Vector3(3,0,0));
 

@@ -18,12 +18,12 @@ namespace Project.Scripts.Core.Hub
             _navMeshSurface.BuildNavMesh();
         }
 
-        public GameObject GetBookParentObject()
+        public GameObject GetBookPosition()
         {
             return GetComponentInChildren<BookPositionMarker>().gameObject;
         }
 
-        public GameObject GetExitParentObject()
+        public GameObject GetExitPosition()
         {
             return GetComponentInChildren<ExitPositionMarker>().gameObject;
         }

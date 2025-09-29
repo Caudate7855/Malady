@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class BookPositionMarker : MonoBehaviour
+    public class BookPositionMarker : PositionMarker
     {
         
     }

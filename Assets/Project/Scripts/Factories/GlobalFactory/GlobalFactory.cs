@@ -158,11 +158,11 @@ namespace Project.Scripts
             {
                 throw new Exception("Cannot instantiate SkeletonMage");
             }
-            
+
             instance.Initialize();
             instance.InitializePlayerController();
             instance.transform.position = spawnPosition;
-            
+
             return instance;
         }
 
@@ -207,22 +207,20 @@ namespace Project.Scripts
 
         #region Interactable
 
-        public void CreateBook(GameObject parentObject)
+        public BookInteractable CreateBook(Vector3 position)
         {
-            if (parentObject != null)
-            {
-                _diContainer.InstantiatePrefabForComponent<BookInteractable>(_bookInteractable, parentObject.transform);
-            }
+            var instance = _diContainer.InstantiatePrefabForComponent<BookInteractable>(_bookInteractable);
+            instance.transform.position = position;
+            return instance;
         }
 
-        public void CreateExit(GameObject parentObject)
+        public ExitInteractable CreateExit(Vector3 position)
         {
-            if (parentObject != null)
-            {
-                _diContainer.InstantiatePrefabForComponent<ExitInteractable>(_exitInteractable, parentObject.transform);
-            }
+            var instance = _diContainer.InstantiatePrefabForComponent<ExitInteractable>(_exitInteractable);
+            instance.transform.position = position;
+            return instance;
         }
-
+        
         #endregion
     }
 }

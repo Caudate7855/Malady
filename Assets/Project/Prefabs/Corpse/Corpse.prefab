@@ -334,11 +334,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 352724868251853211, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: m_Range
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 352724868251853211, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: m_Intensity
-      value: 0.12
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 352724868251853211, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: m_RenderMode
@@ -350,7 +350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 352724868251853211, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: m_Shadows.m_Type
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 352724868251853211, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1465612647058424698, guid: 6b5558788b6f2364799a71e9c7bf9883, type: 3}
       propertyPath: _resourceType

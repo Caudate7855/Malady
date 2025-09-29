@@ -379,7 +379,7 @@ MonoBehaviour:
     m_Value: 0
   streaksLength:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.572
   streaksOrientation:
     m_OverrideState: 1
     m_Value: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
     m_Value: 4
   chromaticAbberationIntensity:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 0.614
 --- !u!114 &-1911072652982671158
 MonoBehaviour:
   m_ObjectHideFlags: 3
