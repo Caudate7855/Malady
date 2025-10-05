@@ -7,9 +7,11 @@ namespace Project.Scripts.Core
     public abstract class GlobalAiBehaviour : MonoBehaviour
     {
         private const float CYCLE_DELAY = 3.0f;
-
+        
         public bool IsOpponentInAttackDistance;
         public bool IsOpponentInFollowDistance;
+
+        [SerializeField] protected bool IsAiEnabled = true;
         
         private AiBehaviourBase _aiBehaviourBase;
         private bool _isAlive = true;

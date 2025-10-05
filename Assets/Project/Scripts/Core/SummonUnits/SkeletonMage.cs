@@ -1,4 +1,5 @@
 using Project.Scripts.States.SkeletonMageFsmStates;
+using UnityEngine;
 
 namespace Project.Scripts.Core
 {

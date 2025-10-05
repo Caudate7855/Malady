@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class SummonUnitBase : MonoBehaviour, ICustomInitializable
+    public abstract class SummonUnitBase : AiBehaviourBase, ICustomInitializable
     {
         [Inject] public IStatSystem StatsSystem;
         
@@ -31,19 +31,22 @@ namespace Project.Scripts
             Fsm.AddState(new SummonUnitFsmStateAttack(Animator, Fsm));
         }
 
-        public virtual void Attack()
+        public override void Attack()
         {
             Fsm.SetState<SummonUnitFsmStateAttack>();
+            Debug.Log("Summon unit attack");
         }
 
-        public virtual void Idle()
+        public override void Idle()
         {
             Fsm.SetState<SummonUnitFsmStateIdle>();
+            Debug.Log("Summon unit idle");
         }
 
         public virtual void MoveToPoint()
         {
             Fsm.SetState<SummonUnitFsmStateRun>();
+            Debug.Log("Summon unit move to point");
         }
     }
 }

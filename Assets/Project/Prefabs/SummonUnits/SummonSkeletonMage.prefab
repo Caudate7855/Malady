@@ -41,8 +41,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5072203741175282067}
-  - component: {fileID: 7405005380051324519}
   - component: {fileID: 4633515827912893920}
+  - component: {fileID: 7405005380051324519}
+  - component: {fileID: 2292037924764119543}
+  - component: {fileID: 5718531692715910263}
+  - component: {fileID: 4849911427398086137}
   m_Layer: 0
   m_Name: SummonSkeletonMage
   m_TagString: Untagged
@@ -66,21 +69,6 @@ Transform:
   - {fileID: 4061661044076149194}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7405005380051324519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5360051581978066540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c45f593bf74d78a64e1283e0145ee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
-  Animator: {fileID: 8220117577757227666}
-  _agent: {fileID: 4633515827912893920}
 --- !u!195 &4633515827912893920
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -103,6 +91,68 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &7405005380051324519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360051581978066540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c45f593bf74d78a64e1283e0145ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerController: {fileID: 0}
+  Animator: {fileID: 8220117577757227666}
+  _agent: {fileID: 4633515827912893920}
+--- !u!114 &2292037924764119543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360051581978066540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78a0598d3294618989c6c35f4f4c251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsOpponentInAttackDistance: 0
+  IsOpponentInFollowDistance: 0
+  IsAiEnabled: 1
+  followRunRangeBehaviour: {fileID: 5718531692715910263}
+  attackRangeBehaviour: {fileID: 4849911427398086137}
+--- !u!114 &5718531692715910263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360051581978066540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Follow
+  _checkDistanceRadius: 7.8
+  _gizmoColor: {r: 0.14747143, g: 0, b: 1, a: 1}
+--- !u!114 &4849911427398086137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360051581978066540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Attack
+  _checkDistanceRadius: 6.13
+  _gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &2556123515810563843
 PrefabInstance:
   m_ObjectHideFlags: 0

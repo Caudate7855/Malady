@@ -1,8 +1,9 @@
+﻿using Project.Scripts.Core;
 using UnityEngine;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
-    public class EnemyBehaviour : GlobalAiBehaviour
+    public class SummonUnitAI : GlobalAiBehaviour
     {
         [SerializeField] private RangeBehaviourChecker followRunRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker attackRangeBehaviour;
