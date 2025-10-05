@@ -13,7 +13,7 @@ namespace Project.Scripts.Core
 
         [SerializeField] protected bool IsAiEnabled = true;
         
-        private AiBehaviourBase _aiBehaviourBase;
+        protected AiBehaviourBase _aiBehaviourBase;
         private bool _isAlive = true;
         private Random _random = new();
         
@@ -39,7 +39,7 @@ namespace Project.Scripts.Core
             }
         }
 
-        protected void TryChangeBehaviour()
+        protected virtual void TryChangeBehaviour()
         {
             if (IsOpponentInAttackDistance)
             {
@@ -56,21 +56,21 @@ namespace Project.Scripts.Core
             SetIdleRandomBehaviour();
         }
 
-        public void SetIdleRandomBehaviour()
+        public virtual void SetAttackRandomBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
-            if (randomBehaviourIndex <= 3)
-            {
-                _aiBehaviourBase.Patrol();
-            }
-            else
+            if (randomBehaviourIndex <= 2)
             {
                 _aiBehaviourBase.Idle();
             }
+            else
+            {
+                _aiBehaviourBase.Attack();
+            }
         }
 
-        public void SetFollowRandomBehaviour()
+        public virtual void SetFollowRandomBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
@@ -84,17 +84,17 @@ namespace Project.Scripts.Core
             }
         }
 
-        public void SetAttackRandomBehaviour()
+        public virtual void SetIdleRandomBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
-            if (randomBehaviourIndex <= 2)
+            if (randomBehaviourIndex <= 3)
             {
-                _aiBehaviourBase.Idle();
+                _aiBehaviourBase.Patrol();
             }
             else
             {
-                _aiBehaviourBase.Attack();
+                _aiBehaviourBase.Idle();
             }
         }
     }

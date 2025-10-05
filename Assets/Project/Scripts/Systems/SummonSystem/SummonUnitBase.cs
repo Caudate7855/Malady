@@ -43,6 +43,12 @@ namespace Project.Scripts
             Debug.Log("Summon unit idle");
         }
 
+        public override void Move()
+        {
+            Fsm.SetState<SummonUnitFsmStateRun>();
+            Debug.Log("Summon unit move");
+        }
+
         public virtual void MoveToPoint()
         {
             Fsm.SetState<SummonUnitFsmStateRun>();

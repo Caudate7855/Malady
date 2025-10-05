@@ -121,8 +121,8 @@ MonoBehaviour:
   IsOpponentInAttackDistance: 0
   IsOpponentInFollowDistance: 0
   IsAiEnabled: 1
-  followRunRangeBehaviour: {fileID: 5718531692715910263}
-  attackRangeBehaviour: {fileID: 4849911427398086137}
+  _followRunRangeBehaviour: {fileID: 5718531692715910263}
+  _attackRangeBehaviour: {fileID: 4849911427398086137}
 --- !u!114 &5718531692715910263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +136,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Follow
-  _checkDistanceRadius: 7.8
+  _checkDistanceRadius: 8.71
   _gizmoColor: {r: 0.14747143, g: 0, b: 1, a: 1}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 503
 --- !u!114 &4849911427398086137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,8 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Attack
-  _checkDistanceRadius: 6.13
+  _checkDistanceRadius: 3.78
   _gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 503
 --- !u!1001 &2556123515810563843
 PrefabInstance:
   m_ObjectHideFlags: 0

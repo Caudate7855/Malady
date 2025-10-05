@@ -29,9 +29,8 @@ namespace Project.Scripts.Core
         
         protected override void Initialize()
         {
-            var player = FindFirstObjectByType<PlayerController>();
-            followRunRangeBehaviour.Initialize(player);
-            attackRangeBehaviour.Initialize(player);
+            followRunRangeBehaviour.Initialize<PlayerController>();
+            attackRangeBehaviour.Initialize<PlayerController>();
         }
 
         private void OnFollowRangeBehaviourEnter()
