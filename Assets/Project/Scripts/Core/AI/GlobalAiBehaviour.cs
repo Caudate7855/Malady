@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = System.Random;
 
@@ -12,14 +13,15 @@ namespace Project.Scripts.Core
         public bool IsOpponentInFollowDistance;
 
         [SerializeField] protected bool IsAiEnabled = true;
-        
-        protected AiBehaviourBase _aiBehaviourBase;
+
+        protected AiBehaviourBase AiBehaviourBase { get; set; } 
         private bool _isAlive = true;
+        
         private Random _random = new();
         
         private void Awake()
         {
-            _aiBehaviourBase = GetComponent<AiBehaviourBase>();
+            AiBehaviourBase = GetComponent<AiBehaviourBase>();
         }
 
         private void Start()
@@ -32,7 +34,7 @@ namespace Project.Scripts.Core
 
         private IEnumerator BehaviourCycle()
         {
-            while (_isAlive)
+            while (_isAlive && IsAiEnabled)
             {
                 TryChangeBehaviour();
                 yield return new WaitForSeconds(CYCLE_DELAY);
@@ -43,58 +45,58 @@ namespace Project.Scripts.Core
         {
             if (IsOpponentInAttackDistance)
             {
-                SetAttackRandomBehaviour();
+                SetAttackBehaviour();
                 return;
             }
 
             if (IsOpponentInFollowDistance)
             {
-                SetFollowRandomBehaviour();
+                SetFollowBehaviour();
                 return;
             }
 
-            SetIdleRandomBehaviour();
+            SetIdleBehaviour();
         }
 
-        public virtual void SetAttackRandomBehaviour()
+        public virtual void SetAttackBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
             if (randomBehaviourIndex <= 2)
             {
-                _aiBehaviourBase.Idle();
+                AiBehaviourBase.Idle();
             }
             else
             {
-                _aiBehaviourBase.Attack();
+                AiBehaviourBase.Attack();
             }
         }
 
-        public virtual void SetFollowRandomBehaviour()
+        public virtual void SetFollowBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
             if (randomBehaviourIndex <= 1)
             {
-                _aiBehaviourBase.Idle();
+                AiBehaviourBase.Idle();
             }
             else
             {
-                _aiBehaviourBase.Move();
+                AiBehaviourBase.Move();
             }
         }
 
-        public virtual void SetIdleRandomBehaviour()
+        public virtual void SetIdleBehaviour()
         {
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
             if (randomBehaviourIndex <= 3)
             {
-                _aiBehaviourBase.Patrol();
+                AiBehaviourBase.Patrol();
             }
             else
             {
-                _aiBehaviourBase.Idle();
+                AiBehaviourBase.Idle();
             }
         }
     }

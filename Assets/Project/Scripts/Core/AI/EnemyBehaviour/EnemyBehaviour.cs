@@ -41,7 +41,7 @@ namespace Project.Scripts.Core
             }
             
             IsOpponentInFollowDistance = true;
-            SetFollowRandomBehaviour();
+            SetFollowBehaviour();
         }
         
         private void OnFollowRangeBehaviourExit()
@@ -52,7 +52,7 @@ namespace Project.Scripts.Core
             }
             
             IsOpponentInFollowDistance = false;
-            SetIdleRandomBehaviour();
+            SetIdleBehaviour();
         }
         
         private void OnAttackRangeBehaviourEnter()
@@ -64,7 +64,7 @@ namespace Project.Scripts.Core
             
             IsOpponentInAttackDistance = true;
             IsOpponentInFollowDistance = false;
-            SetAttackRandomBehaviour();
+            SetAttackBehaviour();
         }
         
         private void OnAttackRangeBehaviourExit()
@@ -76,7 +76,7 @@ namespace Project.Scripts.Core
             
             IsOpponentInAttackDistance = false;
             IsOpponentInFollowDistance = true;
-            SetFollowRandomBehaviour();
+            SetFollowBehaviour();
         }
     }
 }

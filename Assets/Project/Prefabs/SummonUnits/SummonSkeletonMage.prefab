@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2292037924764119543}
   - component: {fileID: 5718531692715910263}
   - component: {fileID: 4849911427398086137}
+  - component: {fileID: 2316102195402651504}
   m_Layer: 0
   m_Name: SummonSkeletonMage
   m_TagString: Untagged
@@ -121,8 +122,9 @@ MonoBehaviour:
   IsOpponentInAttackDistance: 0
   IsOpponentInFollowDistance: 0
   IsAiEnabled: 1
-  _followRunRangeBehaviour: {fileID: 5718531692715910263}
+  _followEnemyRangeBehaviour: {fileID: 5718531692715910263}
   _attackRangeBehaviour: {fileID: 4849911427398086137}
+  _followPlayerRangeBehaviour: {fileID: 2316102195402651504}
 --- !u!114 &5718531692715910263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,12 +137,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Follow
+  _name: FollowEnemy
   _checkDistanceRadius: 8.71
   _gizmoColor: {r: 0.14747143, g: 0, b: 1, a: 1}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 512
 --- !u!114 &4849911427398086137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,12 +155,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Attack
+  _name: AttackEnemy
   _checkDistanceRadius: 3.78
   _gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 512
+--- !u!114 &2316102195402651504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360051581978066540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.RangeBehaviourChecker
+  _name: FollowPlayer
+  _checkDistanceRadius: 14
+  _gizmoColor: {r: 0.9507582, g: 1, b: 0, a: 1}
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1001 &2556123515810563843
 PrefabInstance:
   m_ObjectHideFlags: 0

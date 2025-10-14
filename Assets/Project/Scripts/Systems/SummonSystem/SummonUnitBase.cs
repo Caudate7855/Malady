@@ -49,6 +49,12 @@ namespace Project.Scripts
             Debug.Log("Summon unit move");
         }
 
+        public override void MoveToPlayer()
+        {
+            Fsm.SetState<SummonUnitFsmStateRun>();
+            Debug.Log("Summon unit follow player");
+        }
+        
         public virtual void MoveToPoint()
         {
             Fsm.SetState<SummonUnitFsmStateRun>();

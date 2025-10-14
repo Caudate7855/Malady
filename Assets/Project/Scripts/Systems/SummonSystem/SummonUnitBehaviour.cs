@@ -5,109 +5,122 @@ namespace Project.Scripts
 {
     public class SummonUnitBehaviour : GlobalAiBehaviour
     {
-        [SerializeField] private RangeBehaviourChecker _followRunRangeBehaviour;
+        [SerializeField] private RangeBehaviourChecker _followEnemyRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker _attackRangeBehaviour;
-        
+        [SerializeField] private RangeBehaviourChecker _followPlayerRangeBehaviour;
+
+        public bool IsPlayerInFollowDistance;
+
+        protected override void Initialize()
+        {
+            _followEnemyRangeBehaviour.Initialize<PlayerController>();
+            _attackRangeBehaviour.Initialize<PlayerController>();
+            _followPlayerRangeBehaviour.Initialize<PlayerController>();
+        }
+
         private void OnEnable()
         {
-            _followRunRangeBehaviour.OnTriggerEnterEvent += OnFollowRangeBehaviourEnter;
-            _followRunRangeBehaviour.OnTriggerExitEvent += OnFollowRangeBehaviourExit;
+            _followEnemyRangeBehaviour.OnTriggerEnterEvent += OnFollowRangeBehaviourEnter;
+            _followEnemyRangeBehaviour.OnTriggerExitEvent += OnFollowRangeBehaviourExit;
             
             _attackRangeBehaviour.OnTriggerEnterEvent += OnAttackRangeBehaviourEnter;
             _attackRangeBehaviour.OnTriggerExitEvent += OnAttackRangeBehaviourExit;
+
+            _followPlayerRangeBehaviour.OnTriggerEnterEvent += OnFollowPlayerRangeBehaviourEnter;
+            _followPlayerRangeBehaviour.OnTriggerExitEvent += OnFollowPlayerRangeBehaviourExit;
         }
-        
+
         private void OnDisable()
         {
-            _followRunRangeBehaviour.OnTriggerEnterEvent -= OnFollowRangeBehaviourEnter;
-            _followRunRangeBehaviour.OnTriggerExitEvent -= OnFollowRangeBehaviourExit;
+            _followEnemyRangeBehaviour.OnTriggerEnterEvent -= OnFollowRangeBehaviourEnter;
+            _followEnemyRangeBehaviour.OnTriggerExitEvent -= OnFollowRangeBehaviourExit;
             
             _attackRangeBehaviour.OnTriggerEnterEvent -= OnAttackRangeBehaviourEnter;
             _attackRangeBehaviour.OnTriggerExitEvent -= OnAttackRangeBehaviourExit;
-        }
-        
-        protected override void Initialize()
-        {
-            _followRunRangeBehaviour.Initialize<PlayerController>();
-            _attackRangeBehaviour.Initialize<PlayerController>();
+            
+            _followPlayerRangeBehaviour.OnTriggerEnterEvent -= OnFollowPlayerRangeBehaviourEnter;
+            _followPlayerRangeBehaviour.OnTriggerExitEvent -= OnFollowPlayerRangeBehaviourExit;
         }
 
         private void OnFollowRangeBehaviourEnter()
         {
-            if (!IsAiEnabled)
-            {
-                return;
-            }
-            
             IsOpponentInFollowDistance = true;
-            SetFollowRandomBehaviour();
+            SetFollowBehaviour();
         }
         
         private void OnFollowRangeBehaviourExit()
         {
-            if (!IsAiEnabled)
-            {
-                return;
-            }
-            
             IsOpponentInFollowDistance = false;
-            SetIdleRandomBehaviour();
+            SetIdleBehaviour();
         }
         
         private void OnAttackRangeBehaviourEnter()
         {
-            if (!IsAiEnabled)
-            {
-                return;
-            }
-            
             IsOpponentInAttackDistance = true;
             IsOpponentInFollowDistance = false;
-            SetAttackRandomBehaviour();
+            SetAttackBehaviour();
         }
         
         private void OnAttackRangeBehaviourExit()
         {
-            if (!IsAiEnabled)
-            {
-                return;
-            }
-            
             IsOpponentInAttackDistance = false;
             IsOpponentInFollowDistance = true;
-            SetFollowRandomBehaviour();
+            SetFollowBehaviour();
+        }
+
+        private void OnFollowPlayerRangeBehaviourEnter()
+        {
+            IsPlayerInFollowDistance = true;
+            SetIdleBehaviour();
+        }
+
+        private void OnFollowPlayerRangeBehaviourExit()
+        {
+            IsPlayerInFollowDistance = false;
+            SetFollowPlayerBehaviour();
         }
 
         protected override void TryChangeBehaviour()
         {
+            if (!IsPlayerInFollowDistance)
+            {
+                SetFollowPlayerBehaviour();
+                return;
+            }
+            
             if (IsOpponentInAttackDistance)
             {
-                SetAttackRandomBehaviour();
+                SetAttackBehaviour();
                 return;
             }
 
             if (IsOpponentInFollowDistance)
             {
-                SetFollowRandomBehaviour();
+                SetFollowBehaviour();
                 return;
             }
 
-            SetIdleRandomBehaviour();
+            SetIdleBehaviour();
         }
 
-        public override void  SetAttackRandomBehaviour()
+        public void SetFollowPlayerBehaviour()
         {
-            _aiBehaviourBase.Attack();
+            AiBehaviourBase.MoveToPlayer();
+        }
+        
+        public override void SetAttackBehaviour()
+        {
+            AiBehaviourBase.Attack();
         }
 
-        public override void SetFollowRandomBehaviour()
+        public override void SetFollowBehaviour()
         {
-            _aiBehaviourBase.Move();
+            AiBehaviourBase.Move();
         }
 
-        public override void SetIdleRandomBehaviour()
+        public override void SetIdleBehaviour()
         {
-            _aiBehaviourBase.Idle();
+            AiBehaviourBase.Idle();
         }
     }
 }
