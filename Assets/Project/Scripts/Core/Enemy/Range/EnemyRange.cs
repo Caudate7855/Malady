@@ -21,14 +21,14 @@ namespace Project.Scripts.Core
                 return;
             }
             
-            _enemyMoveSystem.StopMovement();
+            AiMoveSystem.StopMovement();
             Fsm.SetState<EnemyRangeIdleState>();
         }
 
-        public override void Move()
+        public override void MoveTo(Transform targetTransform)
         {
-            _enemyMoveSystem.ContinueMovement();
-            _enemyMoveSystem.FollowTarget(PlayerControllerObject.transform);
+            AiMoveSystem.ContinueMovement();
+            AiMoveSystem.FollowTarget(targetTransform);
             Fsm.SetState<EnemyRangeMoveState>();
         }
 
@@ -39,7 +39,7 @@ namespace Project.Scripts.Core
                 return;
             }
             
-            _enemyMoveSystem.StopMovement();
+            AiMoveSystem.StopMovement();
             Fsm.SetState<EnemyRangeAttackState>();
         }
 
@@ -50,7 +50,7 @@ namespace Project.Scripts.Core
                 return;
             }
             
-            _enemyMoveSystem.StopMovement();
+            AiMoveSystem.StopMovement();
             Fsm.SetState<EnemyRangePatrolState>();
         }
     }

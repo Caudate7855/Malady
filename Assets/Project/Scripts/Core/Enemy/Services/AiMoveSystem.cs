@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 namespace Project.Scripts.Core
 {
-    public class EnemyMoveSystem
+    public class AiMoveSystem
     {
         private const float MAX_REACH_DISTANCE = 3.0f;
         private NavMeshAgent _navMeshAgent;
@@ -31,7 +31,8 @@ namespace Project.Scripts.Core
             {
                 return;
             }
-            
+
+            ContinueMovement();
             NavMeshHit hit;
             
             if (NavMesh.SamplePosition(location, out hit, MAX_REACH_DISTANCE, NavMesh.AllAreas))
@@ -49,6 +50,8 @@ namespace Project.Scripts.Core
                 return;
             }
 
+            ContinueMovement();
+            
             while (target != null)
             {
                 float distance = Vector3.Distance(_navMeshAgent.transform.position, target.position);

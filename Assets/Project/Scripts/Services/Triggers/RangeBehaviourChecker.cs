@@ -10,14 +10,15 @@ namespace Project.Scripts
 
         [SerializeField] private float _checkDistanceRadius = 5f;
         [SerializeField] private Color _gizmoColor = Color.red;
-        [SerializeField] private LayerMask _layerMask = ~0;
 
-        public event Action OnTriggerEnterEvent;
+        public event Action<GameObject> OnTriggerEnterEvent;
         public event Action OnTriggerExitEvent;
 
         private Type _followType;
         private bool _isInitialized;
         private bool _isObjectEntered;
+
+        private GameObject TargetObject;
 
         public void Initialize<T>() where T : MonoBehaviour
         {
@@ -31,15 +32,20 @@ namespace Project.Scripts
             if (!_isInitialized)
                 return;
 
-            Collider[] hits = Physics.OverlapSphere(transform.position, _checkDistanceRadius, _layerMask);
+            Collider[] hits = Physics.OverlapSphere(transform.position, _checkDistanceRadius);
             bool found = false;
 
             for (int i = 0; i < hits.Length; i++)
             {
-                if (hits[i] == null) continue;
+                if (hits[i] == null)
+                {
+                    continue;
+                }
+                
                 if (hits[i].TryGetComponent(_followType, out _))
                 {
                     found = true;
+                    TargetObject = hits[i].gameObject;
                     break;
                 }
             }
@@ -47,7 +53,7 @@ namespace Project.Scripts
             if (found && !_isObjectEntered)
             {
                 _isObjectEntered = true;
-                OnTriggerEnterEvent?.Invoke();
+                OnTriggerEnterEvent?.Invoke(TargetObject);
             }
             else if (!found && _isObjectEntered)
             {

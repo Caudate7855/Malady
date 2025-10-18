@@ -8,5 +8,11 @@ namespace Project.Scripts.States
         {
             Animator = animator;
         }
+
+        public override void Enter()
+        {
+            Debug.Log("Enter - Attack");
+            Animator.Play("Attack");
+        }
     }
 }

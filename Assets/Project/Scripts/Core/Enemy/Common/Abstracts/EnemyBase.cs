@@ -10,14 +10,14 @@ namespace Project.Scripts.Core
 
         [SerializeField] protected Animator Animator;
         protected Fsm Fsm = new();
-        protected EnemyMoveSystem _enemyMoveSystem = new();
+        protected AiMoveSystem AiMoveSystem = new();
 
         public PlayerController PlayerControllerObject { get; set; }
 
-        public void Initialize()
+        public override void Initialize()
         {
             InitializeFsm();
-            _enemyMoveSystem.SetNavMeshAgent(GetComponent<NavMeshAgent>());
+            AiMoveSystem.SetNavMeshAgent(GetComponent<NavMeshAgent>());
         }
 
         protected abstract void InitializeFsm();

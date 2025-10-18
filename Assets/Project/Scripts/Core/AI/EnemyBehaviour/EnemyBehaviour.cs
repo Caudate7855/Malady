@@ -33,7 +33,7 @@ namespace Project.Scripts.Core
             attackRangeBehaviour.Initialize<PlayerController>();
         }
 
-        private void OnFollowRangeBehaviourEnter()
+        private void OnFollowRangeBehaviourEnter(GameObject targetObject)
         {
             if (!IsAiEnabled)
             {
@@ -55,7 +55,7 @@ namespace Project.Scripts.Core
             SetIdleBehaviour();
         }
         
-        private void OnAttackRangeBehaviourEnter()
+        private void OnAttackRangeBehaviourEnter(GameObject targetObject)
         {
             if (!IsAiEnabled)
             {

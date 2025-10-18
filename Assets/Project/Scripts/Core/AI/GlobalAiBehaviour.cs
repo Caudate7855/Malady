@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using Random = System.Random;
 
@@ -14,7 +13,8 @@ namespace Project.Scripts.Core
 
         [SerializeField] protected bool IsAiEnabled = true;
 
-        protected AiBehaviourBase AiBehaviourBase { get; set; } 
+        protected AiBehaviourBase AiBehaviourBase { get; set; }
+        protected GameObject TargetObject { get; set; }
         private bool _isAlive = true;
         
         private Random _random = new();
@@ -82,7 +82,7 @@ namespace Project.Scripts.Core
             }
             else
             {
-                AiBehaviourBase.Move();
+                AiBehaviourBase.MoveTo(TargetObject.transform);
             }
         }
 
@@ -98,6 +98,11 @@ namespace Project.Scripts.Core
             {
                 AiBehaviourBase.Idle();
             }
+        }
+
+        public virtual void SetMoveToBehaviour(Transform targetTransform)
+        {
+            AiBehaviourBase.MoveTo(targetTransform);
         }
     }
 }

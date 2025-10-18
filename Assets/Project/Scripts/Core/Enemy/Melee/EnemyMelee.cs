@@ -12,11 +12,6 @@ namespace Project.Scripts.Core
             
         }
 
-        public override void Move()
-        {
-            
-        }
-
         public override void Attack()
         {
             

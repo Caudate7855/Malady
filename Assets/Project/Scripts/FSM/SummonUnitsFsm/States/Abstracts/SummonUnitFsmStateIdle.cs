@@ -9,5 +9,10 @@ namespace Project.Scripts.States
             Animator = animator;
         }
 
+        public override void Enter()
+        {
+            Debug.Log("Enter - Idle");
+            Animator.Play("Idle");
+        }
     }
 }

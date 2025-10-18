@@ -5,16 +5,16 @@ namespace Project.Scripts
 {
     public class SummonUnitBehaviour : GlobalAiBehaviour
     {
+        public bool IsPlayerInFollowDistance;
+        
         [SerializeField] private RangeBehaviourChecker _followEnemyRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker _attackRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker _followPlayerRangeBehaviour;
 
-        public bool IsPlayerInFollowDistance;
-
         protected override void Initialize()
         {
-            _followEnemyRangeBehaviour.Initialize<PlayerController>();
-            _attackRangeBehaviour.Initialize<PlayerController>();
+            _followEnemyRangeBehaviour.Initialize<EnemyBase>();
+            _attackRangeBehaviour.Initialize<EnemyBase>();
             _followPlayerRangeBehaviour.Initialize<PlayerController>();
         }
 
@@ -42,8 +42,9 @@ namespace Project.Scripts
             _followPlayerRangeBehaviour.OnTriggerExitEvent -= OnFollowPlayerRangeBehaviourExit;
         }
 
-        private void OnFollowRangeBehaviourEnter()
+        private void OnFollowRangeBehaviourEnter(GameObject targetObject)
         {
+            TargetObject = targetObject;
             IsOpponentInFollowDistance = true;
             SetFollowBehaviour();
         }
@@ -54,8 +55,9 @@ namespace Project.Scripts
             SetIdleBehaviour();
         }
         
-        private void OnAttackRangeBehaviourEnter()
+        private void OnAttackRangeBehaviourEnter(GameObject targetObject)
         {
+            TargetObject = targetObject;
             IsOpponentInAttackDistance = true;
             IsOpponentInFollowDistance = false;
             SetAttackBehaviour();
@@ -68,8 +70,9 @@ namespace Project.Scripts
             SetFollowBehaviour();
         }
 
-        private void OnFollowPlayerRangeBehaviourEnter()
+        private void OnFollowPlayerRangeBehaviourEnter(GameObject targetObject)
         {
+            TargetObject = targetObject;
             IsPlayerInFollowDistance = true;
             SetIdleBehaviour();
         }
@@ -115,7 +118,7 @@ namespace Project.Scripts
 
         public override void SetFollowBehaviour()
         {
-            AiBehaviourBase.Move();
+            AiBehaviourBase.MoveTo(TargetObject.transform);
         }
 
         public override void SetIdleBehaviour()
