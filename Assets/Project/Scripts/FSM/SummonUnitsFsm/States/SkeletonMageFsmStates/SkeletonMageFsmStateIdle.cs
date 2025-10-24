@@ -10,7 +10,7 @@ namespace Project.Scripts.States.SkeletonMageFsmStates
 
         public override void Enter()
         {
-            Animator.Play("Idle");
+            Animator.CrossFade("Idle", 0.25f);
         }
     }
 }
