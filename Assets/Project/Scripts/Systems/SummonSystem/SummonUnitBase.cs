@@ -11,13 +11,13 @@ namespace Project.Scripts
         [Inject] public IStatSystem StatsSystem;
         
         public PlayerController PlayerControllerObject { get; set; }
-        [SerializeField] private PlayerController _playerController;
-
+        
         [SerializeField] protected Animator Animator;
-        [SerializeField] private NavMeshAgent _agent;
-
+        
         protected Fsm Fsm = new();
         protected AiMoveSystem AiMoveSystem = new();
+
+        private PlayerController _playerController;
 
         private void Start()
         {
