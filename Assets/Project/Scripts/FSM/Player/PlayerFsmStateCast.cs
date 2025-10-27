@@ -23,7 +23,7 @@ namespace Project.Scripts
         public override async void Enter()
         {
             _playerFsm.IsPossibleToMove = false;
-            _animator.Play(AnimationName);
+            _animator.CrossFade(AnimationName, 0.25f);
             await CastDelay();
         }
 

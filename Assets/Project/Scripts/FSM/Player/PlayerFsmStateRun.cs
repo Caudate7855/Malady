@@ -18,12 +18,7 @@ namespace Project.Scripts
         
         public override void Enter()
         {
-            _animator.Play(AnimationName);
+            _animator.CrossFade(AnimationName, 0.25f);
         }
-
-        /*public override void Update()
-        {
-            _animator.Play(AnimationName);
-        }*/
     }
 }

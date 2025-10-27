@@ -23,7 +23,7 @@ namespace Project.Scripts
         public override void Enter()
         {
             _playerFsm.IsPossibleToMove = false;
-            _animator.Play(ANIMATION_NAME);
+            _animator.CrossFade(ANIMATION_NAME, 0.25f);
 
             CastAndExit().Forget();
         }
