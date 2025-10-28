@@ -10,7 +10,7 @@ namespace Project.Scripts.UI.Inventory
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "InventoryView")]
     public class InventoryController : PanelControllerBase<InventoryView>
     {
-        [Inject] private IStatSystem _statSystem;
+        [Inject] private PlayerStats _statSystem;
         [Inject] private InventoryItem _baseItem;
         [Inject] private StatView _statView;
 

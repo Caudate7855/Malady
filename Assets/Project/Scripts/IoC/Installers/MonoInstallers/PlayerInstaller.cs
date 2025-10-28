@@ -28,9 +28,8 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
 
             Container
-                .Bind<IStatSystem>()
-                .To<StatsSystem>()
-                .AsSingle();
+                .Bind<EnemyStats>()
+                .AsTransient();
             
             Container
                 .Bind<InputController>()

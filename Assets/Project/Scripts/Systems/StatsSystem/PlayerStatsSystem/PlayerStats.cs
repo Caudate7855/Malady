@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Project.Scripts
 {
-    public class StatsSystem : IStatSystem
+    public class PlayerStats : IStatSystem
     {
         public bool IsInitialized { get; set; }
 

@@ -7,6 +7,7 @@ namespace Project.Scripts
     {
         public bool IsInitialized { get; set; }
         public List<IStat> GetStats();
+        public T GetStat<T>() where T : StatBase;
         public List<IStat> Stats { get; set; }
 
         public void UpdateStat<T>(float newValue) where T : IStat;

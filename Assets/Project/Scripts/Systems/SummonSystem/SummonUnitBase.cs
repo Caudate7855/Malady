@@ -8,7 +8,7 @@ namespace Project.Scripts
 {
     public abstract class SummonUnitBase : AiBehaviourBase, ICustomInitializable
     {
-        [Inject] public IStatSystem StatsSystem;
+        [Inject] public PlayerStats PlayerStats;
         
         public PlayerController PlayerControllerObject { get; set; }
         
