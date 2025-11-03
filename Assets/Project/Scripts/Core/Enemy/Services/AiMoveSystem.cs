@@ -23,6 +23,7 @@ namespace Project.Scripts.Core
         public void ContinueMovement()
         {
             _navMeshAgent.isStopped = false;
+            _navMeshAgent.updateRotation = true;
         }
         
         public async void MoveToPoint(Vector3 location)
@@ -71,6 +72,14 @@ namespace Project.Scripts.Core
 
                 await UniTask.Yield();
             }
+        }
+
+        public void RotateToPoint(Vector3 point)
+        {
+            _navMeshAgent.updateRotation = false;
+            var direction = point - _navMeshAgent.transform.position;
+            direction.y = 0;
+            _navMeshAgent.transform.rotation = Quaternion.LookRotation(direction);
         }
     }
 }

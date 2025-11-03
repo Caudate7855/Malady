@@ -113,6 +113,7 @@ namespace Project.Scripts
         
         public override void SetAttackBehaviour()
         {
+            AiBehaviourBase.RotateToPoint(TargetObject.transform.position);
             AiBehaviourBase.Attack();
         }
 

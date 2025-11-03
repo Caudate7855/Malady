@@ -24,5 +24,10 @@ namespace Project.Scripts
             _playerController = PlayerControllerObject;
             AiMoveSystem.SetNavMeshAgent(GetComponent<NavMeshAgent>());
         }
+
+        public override void RotateToPoint(Vector3 point)
+        {
+            AiMoveSystem.RotateToPoint(point);
+        }
     }
 }
