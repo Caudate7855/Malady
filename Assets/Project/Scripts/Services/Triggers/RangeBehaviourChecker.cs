@@ -1,5 +1,4 @@
 ﻿using System;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Project.Scripts
@@ -18,7 +17,7 @@ namespace Project.Scripts
         private bool _isInitialized;
         private bool _isObjectEntered;
 
-        private GameObject TargetObject;
+        private GameObject _targetObject;
 
         public void Initialize<T>() where T : MonoBehaviour
         {
@@ -45,7 +44,7 @@ namespace Project.Scripts
                 if (hits[i].TryGetComponent(_followType, out _))
                 {
                     found = true;
-                    TargetObject = hits[i].gameObject;
+                    _targetObject = hits[i].gameObject;
                     break;
                 }
             }
@@ -53,7 +52,7 @@ namespace Project.Scripts
             if (found && !_isObjectEntered)
             {
                 _isObjectEntered = true;
-                OnTriggerEnterEvent?.Invoke(TargetObject);
+                OnTriggerEnterEvent?.Invoke(_targetObject);
             }
             else if (!found && _isObjectEntered)
             {
