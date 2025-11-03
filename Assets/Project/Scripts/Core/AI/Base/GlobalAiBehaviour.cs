@@ -6,15 +6,16 @@ namespace Project.Scripts.Core
 {
     public abstract class GlobalAiBehaviour : MonoBehaviour
     {
-        private const float CYCLE_DELAY = 3.0f;
-        
+        protected virtual float CycleDelay { get; set; } = 3f;
+
         public bool IsOpponentInAttackDistance;
         public bool IsOpponentInFollowDistance;
 
         [SerializeField] protected bool IsAiEnabled = true;
 
         protected AiBehaviourBase AiBehaviourBase { get; set; }
-        protected GameObject TargetObject { get; set; }
+        protected GameObject FollowObject { get; set; }
+        protected GameObject AttackObject { get; set; }
         private bool _isAlive = true;
         
         private Random _random = new();
@@ -37,7 +38,7 @@ namespace Project.Scripts.Core
             while (_isAlive && IsAiEnabled)
             {
                 TryChangeBehaviour();
-                yield return new WaitForSeconds(CYCLE_DELAY);
+                yield return new WaitForSeconds(CycleDelay);
             }
         }
 
@@ -82,7 +83,7 @@ namespace Project.Scripts.Core
             }
             else
             {
-                AiBehaviourBase.MoveTo(TargetObject.transform);
+                AiBehaviourBase.MoveTo(FollowObject.transform);
             }
         }
 

@@ -6,7 +6,8 @@ namespace Project.Scripts
     public class SummonUnitBehaviour : GlobalAiBehaviour
     {
         public bool IsPlayerInFollowDistance;
-        
+        protected override float CycleDelay { get; set; } = 0.5f;
+
         [SerializeField] private RangeBehaviourChecker _followEnemyRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker _attackRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker _followPlayerRangeBehaviour;
@@ -44,43 +45,37 @@ namespace Project.Scripts
 
         private void OnFollowRangeBehaviourEnter(GameObject targetObject)
         {
-            TargetObject = targetObject;
+            FollowObject = targetObject;
             IsOpponentInFollowDistance = true;
-            SetFollowBehaviour();
         }
         
         private void OnFollowRangeBehaviourExit()
         {
             IsOpponentInFollowDistance = false;
-            SetIdleBehaviour();
         }
         
         private void OnAttackRangeBehaviourEnter(GameObject targetObject)
         {
-            TargetObject = targetObject;
+            AttackObject = targetObject;
             IsOpponentInAttackDistance = true;
             IsOpponentInFollowDistance = false;
-            SetAttackBehaviour();
         }
         
         private void OnAttackRangeBehaviourExit()
         {
             IsOpponentInAttackDistance = false;
             IsOpponentInFollowDistance = true;
-            SetFollowBehaviour();
         }
 
         private void OnFollowPlayerRangeBehaviourEnter(GameObject targetObject)
         {
-            TargetObject = targetObject;
+            FollowObject = targetObject;
             IsPlayerInFollowDistance = true;
-            SetIdleBehaviour();
         }
 
         private void OnFollowPlayerRangeBehaviourExit()
         {
             IsPlayerInFollowDistance = false;
-            SetFollowPlayerBehaviour();
         }
 
         protected override void TryChangeBehaviour()
@@ -113,13 +108,13 @@ namespace Project.Scripts
         
         public override void SetAttackBehaviour()
         {
-            AiBehaviourBase.RotateToPoint(TargetObject.transform.position);
+            AiBehaviourBase.RotateToPoint(AttackObject.transform.position);
             AiBehaviourBase.Attack();
         }
 
         public override void SetFollowBehaviour()
         {
-            AiBehaviourBase.MoveTo(TargetObject.transform);
+            AiBehaviourBase.MoveTo(FollowObject.transform);
         }
 
         public override void SetIdleBehaviour()
