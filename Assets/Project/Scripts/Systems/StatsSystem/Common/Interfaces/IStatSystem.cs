@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Project.Scripts
@@ -6,15 +5,12 @@ namespace Project.Scripts
     public interface IStatSystem
     {
         public bool IsInitialized { get; set; }
-        public List<IStat> GetStats();
-        public T GetStat<T>() where T : StatBase;
         public List<IStat> Stats { get; set; }
 
-        public void UpdateStat<T>(float newValue) where T : IStat;
-
-        public void DefaultInitialize();
-        public void InitializeFromSaves();
-
         public void Initialize();
+        public List<IStat> GetAllStats();
+        public T GetStat<T>() where T : StatBase;
+        public void UpdateStat<T>(float newValue) where T : IStat;
+        public void ChangeStat<T>(float changeValue) where T : IStat;
     }
 }

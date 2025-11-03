@@ -40,7 +40,7 @@ namespace Project.Scripts.Core
             _playerMover.OnDestinationReached += Idle;
             
             _playerFsm.Initialize(GetComponent<NavMeshAgent>(), GetComponentInChildren<Animator>());
-            _playerStats.DefaultInitialize();
+            _playerStats.Initialize();
         }
 
         public void TryMoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)

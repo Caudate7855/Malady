@@ -2,38 +2,16 @@
 
 namespace Project.Scripts
 {
-    public class EnemyStats : IStatSystem
+    public class EnemyStats : StatSystemBase
     {
-        public bool IsInitialized { get; set; }
-        public List<IStat> GetStats()
+        public override List<IStat> Stats { get; set; } = new()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public T GetStat<T>() where T : StatBase
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<IStat> Stats { get; set; }
-        public void UpdateStat<T>(float newValue) where T : IStat
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void DefaultInitialize()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void InitializeFromSaves()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Initialize()
-        {
-            throw new System.NotImplementedException();
-        }
+            {new HpStat()},
+            {new DamageStat()},
+            {new AttackSpeedStat()},
+            {new MoveSpeedStat()},
+            {new ArmorStat()},
+            {new MagicResistStat()}
+        };
     }
 }

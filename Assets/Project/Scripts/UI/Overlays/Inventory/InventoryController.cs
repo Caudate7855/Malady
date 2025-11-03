@@ -52,7 +52,7 @@ namespace Project.Scripts.UI.Inventory
 
         private void InitializeStatsView()
         {
-            var stats = _statSystem.GetStats();
+            var stats = _statSystem.GetAllStats();
 
             for (int i = 0; i < stats.Count; i++)
             {
