@@ -11,6 +11,7 @@ namespace Project.Scripts.States.SkeletonMageFsmStates
         public override void Enter()
         {
             Animator.CrossFade("Idle", 0.25f);
+            Debug.Log("Summon unit idle");
         }
     }
 }

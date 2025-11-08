@@ -11,6 +11,7 @@ namespace Project.Scripts.States.SkeletonMageFsmStates
         public override void Enter()
         {
             Animator.CrossFade("Attack", 0.25f);
+            Debug.Log("Summon unit attack");
         }
     }
 }

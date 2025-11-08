@@ -19,14 +19,12 @@ namespace Project.Scripts.Core
         {
             AiMoveSystem.StopMovement();
             Fsm.SetState<SkeletonMageFsmStateAttack>();
-            Debug.Log("Summon unit attack");
         }
 
         public override void Idle()
         {
             AiMoveSystem.StopMovement();
             Fsm.SetState<SkeletonMageFsmStateIdle>();
-            Debug.Log("Summon unit idle");
         }
 
         public override void MoveToPlayer()
@@ -34,15 +32,13 @@ namespace Project.Scripts.Core
             AiMoveSystem.ContinueMovement();
             AiMoveSystem.FollowTarget(PlayerControllerObject.transform);
             Fsm.SetState<SkeletonMageFsmStateRun>();
-            Debug.Log("Summon unit follow player");
         }
         
         public override void MoveTo(Transform targetTransform)
         {
             AiMoveSystem.ContinueMovement();
-            AiMoveSystem.MoveToPoint(targetTransform.position);
+            AiMoveSystem.FollowTarget(targetTransform);
             Fsm.SetState<SkeletonMageFsmStateRun>();
-            Debug.Log("Summon unit move to point");
         }
     }
 }

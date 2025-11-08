@@ -16,12 +16,16 @@ namespace Project.Scripts.Core
 
         public void StopMovement()
         {
+            _navMeshAgent.ResetPath();
+            
             _navMeshAgent.isStopped = true;
             _navMeshAgent.velocity = Vector3.zero;
         }
 
         public void ContinueMovement()
         {
+            ResetPath();
+            
             _navMeshAgent.isStopped = false;
             _navMeshAgent.updateRotation = true;
         }
@@ -52,25 +56,33 @@ namespace Project.Scripts.Core
             }
 
             ContinueMovement();
-            
+
             while (target != null)
             {
                 float distance = Vector3.Distance(_navMeshAgent.transform.position, target.position);
 
-                if (distance > 1.5f)
+                if (distance > 2f)
                 {
-                    NavMeshHit hit;
-                    if (NavMesh.SamplePosition(target.position, out hit, MAX_REACH_DISTANCE, NavMesh.AllAreas))
+                    if (NavMesh.SamplePosition(target.position, out NavMeshHit hit, MAX_REACH_DISTANCE, NavMesh.AllAreas))
                     {
                         _navMeshAgent.SetDestination(hit.position);
                     }
                 }
                 else
                 {
-                    _navMeshAgent.ResetPath();
+                    ResetPath();
+                    break;
                 }
 
-                await UniTask.Yield();
+                await UniTask.Yield(PlayerLoopTiming.Update);
+            }
+        }
+
+        public void ResetPath()
+        {
+            if (_navMeshAgent.hasPath)
+            {
+                _navMeshAgent.ResetPath();
             }
         }
 

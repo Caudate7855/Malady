@@ -100,10 +100,5 @@ namespace Project.Scripts.Core
                 AiBehaviourBase.Idle();
             }
         }
-
-        public virtual void SetMoveToBehaviour(Transform targetTransform)
-        {
-            AiBehaviourBase.MoveTo(targetTransform);
-        }
     }
 }

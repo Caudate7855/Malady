@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4633515827912893920}
   - component: {fileID: 7405005380051324519}
   - component: {fileID: 2292037924764119543}
-  - component: {fileID: 5718531692715910263}
   - component: {fileID: 4849911427398086137}
   - component: {fileID: 2316102195402651504}
   m_Layer: 0
@@ -80,7 +79,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 10
   m_Acceleration: 100000
   avoidancePriority: 50
   m_AngularSpeed: 100000
@@ -104,9 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68c45f593bf74d78a64e1283e0145ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerController: {fileID: 0}
   Animator: {fileID: 8220117577757227666}
-  _agent: {fileID: 4633515827912893920}
 --- !u!114 &2292037924764119543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,24 +120,9 @@ MonoBehaviour:
   IsOpponentInFollowDistance: 0
   IsAiEnabled: 1
   IsPlayerInFollowDistance: 0
-  _followEnemyRangeBehaviour: {fileID: 5718531692715910263}
+  _followEnemyRangeBehaviour: {fileID: 0}
   _attackRangeBehaviour: {fileID: 4849911427398086137}
   _followPlayerRangeBehaviour: {fileID: 2316102195402651504}
---- !u!114 &5718531692715910263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5360051581978066540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _name: FollowEnemy
-  _checkDistanceRadius: 8
-  _gizmoColor: {r: 0.14747143, g: 0, b: 1, a: 1}
 --- !u!114 &4849911427398086137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: AttackEnemy
-  _checkDistanceRadius: 3.75
+  _checkDistanceRadius: 8
   _gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2316102195402651504
 MonoBehaviour:
@@ -169,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.RangeBehaviourChecker
   _name: FollowPlayer
-  _checkDistanceRadius: 8
+  _checkDistanceRadius: 12
   _gizmoColor: {r: 0.9507582, g: 1, b: 0, a: 1}
 --- !u!1001 &2556123515810563843
 PrefabInstance:
