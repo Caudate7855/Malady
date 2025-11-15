@@ -1,12 +1,9 @@
-﻿using JetBrains.Annotations;
-
-namespace Project.Scripts
+﻿namespace Project.Scripts
 {
-    [UsedImplicitly]
-    public class BoneSpearBonusDamageStat : StatBase
+    public class BloodSpearBonusDamageStat : StatBase
     {
-        public override string Name { get; set; } = "Bone spear bonus damage";
-        public override StatType Type { get; set; } = StatType.BoneSpearDamageStat;
+        public override string Name { get; set; } = "Blood lance bonus damage";
+        public override StatType Type { get; set; } = StatType.BloodSpearDamageStat;
         public override float Value { get; set; }
         public override float MaxValue { get; set; }
         public override float MinValue { get; set; }

@@ -1,31 +1,27 @@
 ﻿using Cysharp.Threading.Tasks;
-using JetBrains.Annotations;
 using Project.Scripts.Core;
 using UnityEngine;
 
 namespace Project.Scripts
 {
-    [UsedImplicitly]
-    public class TrowBoneSpearSpell : ProjectileSpellBase
+    public class ThrowBloodSpearSpell : ProjectileSpellBase
     {
-        private BoneSpearBonusDamageStat _boneSpearBonusDamageStat;
+        private BloodSpearBonusDamageStat _bloodSpearBonusDamageStat;
         
         public override void Initialize()
         {
             base.Initialize();
             
-            _boneSpearBonusDamageStat = PlayerStats.GetStat<BoneSpearBonusDamageStat>();
-            Type = _boneSpearBonusDamageStat.Type;
+            _bloodSpearBonusDamageStat = PlayerStats.GetStat<BloodSpearBonusDamageStat>();
+            Type = _bloodSpearBonusDamageStat.Type;
             
-            ID = "bones_1_1";
+            ID = "blood_0_1";
             IsInitialized = true;
-
-            PlayerSpellModificatorsSystem.AddModificator(new BoneSpearModificatorArea());
         }
 
         public override async void Cast()
         {
-            if (PlayerSpellModificatorsSystem.GetModificatorByType<BoneSpearModificatorArea>() != null)
+            if (PlayerSpellModificatorsSystem.GetModificatorByType<BloodSpearModificatorSplit>() != null)
             {
                 var projectileCount = 12;
                 var angleStep = 360f / projectileCount;
@@ -39,19 +35,14 @@ namespace Project.Scripts
 
                     var dir = new Vector3(Mathf.Cos(rad), 0, Mathf.Sin(rad)).normalized;
 
-                    await CastProjectile(startPos, startPos + dir, ProjectileType.BoneSpear); 
+                    await CastProjectile(startPos, startPos + dir, ProjectileType.BloodSpear); 
                 }
             }
             else
             {
                 await UniTask.Delay(100);
-                await CastProjectile(PlayerController.Instance.transform.position, MouseController.GetGroundPosition(), ProjectileType.BoneSpear);
+                await CastProjectile(PlayerController.Instance.transform.position, MouseController.GetGroundPosition(), ProjectileType.BloodSpear);
             }
-        }
-
-        public override void Clear()
-        {
-            
         }
     }
 }

@@ -6,6 +6,7 @@ namespace Project.Scripts.Core
 {
     public class ProjectileBase : MonoBehaviour
     {
+        [SerializeField] protected GameObject View;
         public virtual float Speed { get; protected set; } = 10f;
         public virtual float MaxLifeTime { get; protected set; } = 3f;
 

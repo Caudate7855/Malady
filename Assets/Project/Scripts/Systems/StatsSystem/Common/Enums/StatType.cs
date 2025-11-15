@@ -14,6 +14,7 @@ namespace Project.Scripts
         SkeletonWarriorsCountStat = 9,
         SkeletonArchersCountStat = 10,
         SkeletonMagesCountStat = 11,
-        BloodLanceDamageStat = 12
+        BloodSpearDamageStat = 12,
+        BoneSpearDamageStat = 13
     }
 }

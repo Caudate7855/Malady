@@ -1,4 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System;
+using Cysharp.Threading.Tasks;
+using NUnit.Framework.Constraints;
 using Project.Scripts.Core;
 using Project.Scripts.UI.Inventory;
 using UnityEngine;
@@ -9,7 +11,7 @@ namespace Project.Scripts
     public class ProjectileSpellBase : SpellBase
     {
         [Inject] private GlobalFactory _globalFactory;
-
+        
         private const string BloodSpearAddress = "BloodSpear";
         private const string BoneSpearAddress = "BoneSpear";
         
@@ -23,25 +25,41 @@ namespace Project.Scripts
             
         }
 
-        protected virtual async UniTask<ProjectileBase> CastProjectile(Vector3 startPosition, Vector3 targetPosition)
+        protected virtual async UniTask<ProjectileBase> CastProjectile(Vector3 startPosition, Vector3 targetPosition, ProjectileType  projectileType)
         {
             var direction = (targetPosition - startPosition);
             direction.y = 0; 
             direction.Normalize();
 
-            var instance = await _globalFactory.CreateAsync<BoneSpear>(BloodSpearAddress, startPosition);
+            ProjectileBase projectile = null;
+            
+            switch (projectileType)
+            {
+                case  ProjectileType.BloodSpear:
+                    projectile = await _globalFactory.CreateAsync<BloodSpear>(BloodSpearAddress, startPosition);
+                    break;
+                
+                case  ProjectileType.BoneSpear:
+                    projectile = await _globalFactory.CreateAsync<BoneSpear>(BoneSpearAddress, startPosition);
+                    break;
+            }
 
-            var pos = instance.transform.position;
+            if (projectile == null)
+            {
+                throw new Exception("Cannot cast projectile");
+            }
+            
+            var pos = projectile.transform.position;
             pos.y = 1.45f;
-            instance.transform.position = pos;
+            projectile.transform.position = pos;
 
             if (direction != Vector3.zero)
             {
-                instance.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+                projectile.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
             }
 
-            instance.Initialize(direction);
-            return instance;
+            projectile.Initialize(direction);
+            return projectile;
         }
 
         public override void Clear()

@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpellsModificators:
   - ID: 1
-    SpellName: BloodLance
-    SpellModificatorName: BloodLanceArea
-    Description: qweqweqwe
+    SpellName: BoneSpear
+    SpellModificatorName: BoneSpearArea
+    Description: Cast bone spears in area
+  - ID: 2
+    SpellName: BloodSpear
+    SpellModificatorName: BloodSpearSplit
+    Description: On hit enemy blood spear splitting in 3

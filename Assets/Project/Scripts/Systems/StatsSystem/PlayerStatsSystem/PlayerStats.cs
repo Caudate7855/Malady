@@ -25,7 +25,8 @@ namespace Project.Scripts
             {new SkeletonArchersCountStat()},
             {new SkeletonMagesCountStat()},
             
-            {new BoneSpearBonusDamageStat()}
+            {new BoneSpearBonusDamageStat()},
+            {new BloodSpearBonusDamageStat()}
         };
     }
 }

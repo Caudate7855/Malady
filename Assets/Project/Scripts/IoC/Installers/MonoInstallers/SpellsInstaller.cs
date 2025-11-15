@@ -23,8 +23,12 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<SpellBase>()
                 .To<TrowBoneSpearSpell>()
-                .AsSingle();
-
+                .AsTransient();
+            
+            Container
+                .Bind<SpellBase>()
+                .To<ThrowBloodSpearSpell>()
+                .AsTransient();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Project.Scripts
 {
-    public class BloodSpearModificatorArea : SpellModificatorBase
+    public class BoneSpearModificatorArea : SpellModificatorBase
     {
         public override string ID { get; protected set; } = "1";
     }
