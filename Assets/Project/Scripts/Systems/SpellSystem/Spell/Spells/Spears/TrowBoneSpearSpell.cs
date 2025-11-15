@@ -6,18 +6,18 @@ using UnityEngine;
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class TrowBloodSpearSpell : ProjectileSpellBase
+    public class TrowBoneSpearSpell : ProjectileSpellBase
     {
-        private BloodSpearBonusDamageStat _bloodSpearBonusDamageStat;
+        private BoneSpearBonusDamageStat _boneSpearBonusDamageStat;
         
         public override void Initialize()
         {
             base.Initialize();
             
-            _bloodSpearBonusDamageStat = PlayerStats.GetStat<BloodSpearBonusDamageStat>();
-            Type = _bloodSpearBonusDamageStat.Type;
+            _boneSpearBonusDamageStat = PlayerStats.GetStat<BoneSpearBonusDamageStat>();
+            Type = _boneSpearBonusDamageStat.Type;
             
-            ID = "blood_0_1";
+            ID = "bones_1_1";
             IsInitialized = true;
 
             PlayerSpellModificatorsSystem.AddModificator(new BloodSpearModificatorArea());

@@ -3,7 +3,7 @@
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class BloodSpearBonusDamageStat : StatBase
+    public class BoneSpearBonusDamageStat : StatBase
     {
         public override string Name { get; set; } = "Blood lance bonus damage";
         public override StatType Type { get; set; } = StatType.BloodLanceDamageStat;

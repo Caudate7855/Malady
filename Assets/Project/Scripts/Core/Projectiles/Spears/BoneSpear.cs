@@ -2,7 +2,7 @@
 
 namespace Project.Scripts.Core
 {
-    public class BloodSpear : ProjectileBase
+    public class BoneSpear : ProjectileBase
     {
         public override float Speed { get; protected set; } = 20f;
 

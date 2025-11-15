@@ -34,7 +34,6 @@ namespace Project.Scripts.Core
             var newHpValue = currentHp - damageToTake;
             
             StatSystem.UpdateStat<HpStat>(newHpValue);
-            Debug.Log(newHpValue);
         }
     }
 }

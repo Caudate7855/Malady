@@ -29,7 +29,7 @@ namespace Project.Scripts
             direction.y = 0; 
             direction.Normalize();
 
-            var instance = await _globalFactory.CreateAsync<BloodSpear>(BloodSpearAddress, startPosition);
+            var instance = await _globalFactory.CreateAsync<BoneSpear>(BloodSpearAddress, startPosition);
 
             var pos = instance.transform.position;
             pos.y = 1.45f;
