@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835461232513742040}
   - component: {fileID: -5867494439157960167}
+  - component: {fileID: 3213488741879309402}
   m_Layer: 0
   m_Name: BoneSpear
   m_TagString: Untagged
@@ -45,6 +46,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a67950e0c64fdcaa48ccd9f46cf5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitCollider: {fileID: 3213488741879309402}
+--- !u!65 &3213488741879309402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6674415020346383752}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.25, y: 0.25, z: 0.7}
+  m_Center: {x: 0, y: 0, z: -0.09}
 --- !u!1001 &8008276862523942376
 PrefabInstance:
   m_ObjectHideFlags: 0
