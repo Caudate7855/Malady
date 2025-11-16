@@ -7,7 +7,6 @@ namespace Project.Scripts.Core
     public class BloodSpear: ProjectileBase
     {
         public override float Speed { get; protected set; } = 20f;
-        [Inject] private PlayerStats _playerStats; 
 
         public override void Initialize(Vector3 direction, EnemyBase target = default)
         {
@@ -24,7 +23,7 @@ namespace Project.Scripts.Core
 
         protected override float CalculateDamage()
         {
-            var damage = _playerStats.GetStat<BloodSpearBonusDamageStat>().Value;
+            var damage = PlayerStats.GetStat<BloodSpearBonusDamageStat>().Value;
             
             return damage;
         }
