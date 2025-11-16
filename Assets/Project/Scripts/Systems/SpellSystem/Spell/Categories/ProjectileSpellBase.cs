@@ -36,11 +36,11 @@ namespace Project.Scripts
             switch (projectileType)
             {
                 case  ProjectileType.BloodSpear:
-                    projectile = await _globalFactory.CreateAsync<BloodSpear>(BloodSpearAddress, startPosition);
+                    projectile = await _globalFactory.CreateAndInjectAsync<BloodSpear>(BloodSpearAddress, startPosition);
                     break;
                 
                 case  ProjectileType.BoneSpear:
-                    projectile = await _globalFactory.CreateAsync<BoneSpear>(BoneSpearAddress, startPosition);
+                    projectile = await _globalFactory.CreateAndInjectAsync<BoneSpear>(BoneSpearAddress, startPosition);
                     break;
             }
 

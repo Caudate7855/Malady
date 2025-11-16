@@ -10,5 +10,12 @@ namespace Project.Scripts.Core
         {
             base.Initialize(direction, target);
         }
+
+        protected override float CalculateDamage()
+        {
+            var damage = PlayerStats.GetStat<BoneSpearBonusDamageStat>().Value;
+            
+            return damage;
+        }
     }
 }

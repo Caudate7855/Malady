@@ -1,15 +1,18 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts.Core
 {
-    public class ProjectileBase : MonoBehaviour
+    public abstract class ProjectileBase : MonoBehaviour
     {
         [SerializeField] protected GameObject View;
         public virtual float Speed { get; protected set; } = 10f;
         public virtual float MaxLifeTime { get; protected set; } = 3f;
 
+        [Inject] protected PlayerStats PlayerStats;
+        
         private Vector3 _direction;
         private EnemyBase _target;
 
@@ -65,7 +68,10 @@ namespace Project.Scripts.Core
 
         public void DealDamage(EnemyBase enemy)
         {
-            enemy.TakeDamage(10);
+            var damage = CalculateDamage();
+            enemy.TakeDamage(damage);
         }
+
+        protected abstract float CalculateDamage();
     }
 }
