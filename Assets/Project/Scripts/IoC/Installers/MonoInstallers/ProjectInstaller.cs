@@ -15,18 +15,6 @@ namespace Project.Scripts.IoC.Installers
             _main = FindFirstObjectByType<Main>();
 
             Container
-                .Bind<SandBoxBoot>()
-                .AsSingle();
-            
-            Container
-                .Bind<HubBoot>()
-                .AsSingle();
-
-            Container
-                .Bind<ChurchBoot>()
-                .AsSingle();
-
-            Container
                 .Bind<Main>()
                 .FromInstance(_main)
                 .AsSingle();

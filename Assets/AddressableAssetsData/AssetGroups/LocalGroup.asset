@@ -125,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a591c4e7d6d3bc4468f48e0f50296a94
+    m_Address: DungeonGeneration
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf672c55c7abb0e4c8edcb9133a6b60c
     m_Address: EmptySpellIcon
     m_ReadOnly: 0

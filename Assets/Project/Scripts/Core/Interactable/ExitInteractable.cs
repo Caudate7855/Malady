@@ -10,7 +10,7 @@ namespace Project.Scripts.Core
         
         public override void Interact()
         {
-            _main.ChangeState(GameStateType.Church);
+            _main.ChangeState(SceneType.Church);
             CloseButton();
         }
     }

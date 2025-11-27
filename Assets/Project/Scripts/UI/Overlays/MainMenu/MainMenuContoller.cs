@@ -20,7 +20,7 @@ namespace Project.Scripts.UI.MainMenu
         
         private void OnStartGameButtonClicked()
         {
-            _main.ChangeState(GameStateType.Hub);
+            _main.ChangeState(SceneType.Hub);
             Close();
         }
 

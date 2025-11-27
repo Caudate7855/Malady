@@ -5,6 +5,6 @@ namespace Project.Scripts
 {
     public interface ISceneLoader
     {
-        public void LoadScene(GameStateType gameState);
+        public void LoadScene(SceneType scene);
     }
 }

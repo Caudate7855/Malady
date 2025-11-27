@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Project.Scripts.UI;
 using UnityEngine;
@@ -10,27 +8,16 @@ namespace Project.Scripts.App
     public class Main : MonoBehaviour
     {
         [SerializeField] private bool _isSandBox;
+        [SerializeField] private bool _isDungeonGenerationTest;
         
         [Inject] private IPanelManager _panelManager;
         [Inject] private ISceneLoader _sceneLoader;
 
-        private Fsm _gameStateFsm = new();
-
         private LoadingOverlayController _loadingOverlayController;
-
-        private Dictionary<GameStateType, Type> _gameStates = new()
-        {
-            { GameStateType.MainMenu, typeof(MainMenuGameStateBase) },
-            { GameStateType.SandBox, typeof(SandBoxGameState) },
-            { GameStateType.Hub, typeof(HubGameState) },
-            { GameStateType.Church, typeof(ChurchGameState) }
-        };
 
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-
-            InitializeGameFsm();
 
             _loadingOverlayController = _panelManager.LoadPanel<LoadingOverlayController>();
         }
@@ -39,47 +26,30 @@ namespace Project.Scripts.App
         {
             if (_isSandBox)
             {
-                ChangeState(GameStateType.SandBox);
+                ChangeState(SceneType.SandBox);
+                return;
+            }
+            
+            if (_isDungeonGenerationTest)
+            {
+                ChangeState(SceneType.DungeonGeneration);
                 return;
             }
             
             ShowLoadingScreen();
-            ChangeState(GameStateType.MainMenu);
+            ChangeState(SceneType.MainMenu);
         }
 
-        public void ShowLoadingScreen()
+        private void ShowLoadingScreen()
         {
             _loadingOverlayController.Open();
         }
 
-        public void ChangeState(GameStateType gameStateType)
+        public void ChangeState(SceneType sceneType)
         {
             ShowLoadingScreen();
             
-            if (_gameStates.TryGetValue(gameStateType, out var gameState))
-            {
-                var method = _gameStateFsm.GetType().GetMethod("SetState");
-                var genericMethod = method.MakeGenericMethod(gameState);
-                genericMethod.Invoke(_gameStateFsm, null);
-            }
-        }
-
-        private void InitializeGameFsm()
-        {
-            _gameStateFsm.AddState(new SandBoxGameState(_gameStateFsm, _sceneLoader));
-            _gameStateFsm.AddState(new MainMenuGameStateBase(_gameStateFsm, _sceneLoader));
-            _gameStateFsm.AddState(new HubGameState(_gameStateFsm, _sceneLoader));
-            _gameStateFsm.AddState(new ChurchGameState(_gameStateFsm, _sceneLoader));
-
-            
-            if(_isSandBox)
-            {
-                _gameStateFsm.SetState<SandBoxGameState>();
-            }
-            else
-            {
-                _gameStateFsm.SetState<MainMenuGameStateBase>();
-            }
+            _sceneLoader.LoadScene(sceneType);
         }
     }
 }

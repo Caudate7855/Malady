@@ -6,17 +6,18 @@ namespace Project.Scripts
 {
     public class SceneLoader : ISceneLoader
     {
-        private Dictionary<GameStateType, int> _scenes = new()
+        private Dictionary<SceneType, int> _scenes = new()
         {
-            {GameStateType.SandBox, 1},
-            {GameStateType.MainMenu, 2},
-            {GameStateType.Hub, 3},
-            {GameStateType.Church, 4}
+            {SceneType.SandBox, 1},
+            {SceneType.DungeonGeneration, 2},
+            {SceneType.MainMenu, 3},
+            {SceneType.Hub, 4},
+            {SceneType.Church, 5}
         };
         
-        public void LoadScene(GameStateType gameState)
+        public void LoadScene(SceneType scene)
         {
-            if (_scenes.TryGetValue(gameState, out var sceneIndex))
+            if (_scenes.TryGetValue(scene, out var sceneIndex))
             {
                 SceneManager.LoadScene(sceneIndex);
             }
