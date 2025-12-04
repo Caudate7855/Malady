@@ -12,8 +12,8 @@ namespace Project.Scripts.IoC.Installers
         {
             Container
                 .Bind<SkeletonMage>()
-                .FromInstance(_skeletonMagePrefab)
-                .AsSingle();
+                .FromComponentInNewPrefab(_skeletonMagePrefab)
+                .AsTransient();
         }
     }
 }

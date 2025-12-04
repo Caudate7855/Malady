@@ -1,7 +1,6 @@
-﻿using Project.Scripts.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Project.Scripts
+namespace Project.Scripts.Core.Summons
 {
     public class SummonUnitBehaviour : GlobalAiBehaviour
     {

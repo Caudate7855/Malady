@@ -7,10 +7,6 @@ namespace Project.Scripts
 {
     public abstract class SummonUnitBase : AiBehaviourBase
     {
-        [Inject] public PlayerStats PlayerStats;
-        
-        public PlayerController PlayerControllerObject { get; set; }
-        
         [SerializeField] protected Animator Animator;
         
         protected Fsm Fsm = new();

@@ -142,7 +142,7 @@ namespace Project.Scripts
             where T : SummonUnitBase
         {
             var summonUnit = await _assetLoader.LoadGameObjectAsync<Object>(summonUnitAssetAddress);
-            var instance = _diContainer.InstantiatePrefabForComponent<SummonUnitBase>(summonUnit) as T;
+            var instance = _diContainer.InstantiatePrefabForComponent<T>(summonUnit);
 
             if (instance == null)
             {

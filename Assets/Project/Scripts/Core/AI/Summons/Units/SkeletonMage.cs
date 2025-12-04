@@ -1,11 +1,14 @@
 using Project.Scripts.States.SkeletonMageFsmStates;
-using Unity.VisualScripting;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts.Core
 {
     public class SkeletonMage : SummonUnitBase
     {
+        [Inject] public PlayerStats PlayerStats;
+        [Inject] protected PlayerController PlayerController;
+        
         public override void Initialize()
         {
             Fsm.AddState(new SkeletonMageFsmStateIdle(Animator, Fsm));
@@ -30,7 +33,7 @@ namespace Project.Scripts.Core
         public override void MoveToPlayer()
         {
             AiMoveSystem.ContinueMovement();
-            AiMoveSystem.FollowTarget(PlayerControllerObject.transform);
+            AiMoveSystem.FollowTarget(PlayerController.transform);
             Fsm.SetState<SkeletonMageFsmStateRun>();
         }
         

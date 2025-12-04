@@ -4,7 +4,6 @@ using JetBrains.Annotations;
 using Project.Scripts.Core;
 using Project.Scripts.UI;
 using Project.Scripts.UI.Inventory;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
