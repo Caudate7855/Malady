@@ -18,7 +18,6 @@ namespace Project.Scripts.App
         private void Awake()
         {
             DontDestroyOnLoad(gameObject);
-
             _loadingOverlayController = _panelManager.LoadPanel<LoadingOverlayController>();
         }
 
@@ -36,19 +35,13 @@ namespace Project.Scripts.App
                 return;
             }
             
-            ShowLoadingScreen();
-            ChangeState(SceneType.MainMenu);
-        }
-
-        private void ShowLoadingScreen()
-        {
             _loadingOverlayController.Open();
+            ChangeState(SceneType.MainMenu);
         }
 
         public void ChangeState(SceneType sceneType)
         {
-            ShowLoadingScreen();
-            
+            _loadingOverlayController.Open();
             _sceneLoader.LoadScene(sceneType);
         }
     }
