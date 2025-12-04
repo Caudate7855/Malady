@@ -7,7 +7,7 @@ using Zenject;
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class PlayerFsm : ITickable
+    public class PlayerFsm
     {
         public bool IsPossibleToMove = true;
         
@@ -45,16 +45,6 @@ namespace Project.Scripts
         public FsmStateBase GetCurrentState()
         {
             return _fsm.CurrentState;
-        }
-
-        public void Tick()
-        {
-            if (!_isInitialized)
-            {
-                return;
-            }
-            
-            _fsm.Update();
         }
     }
 }

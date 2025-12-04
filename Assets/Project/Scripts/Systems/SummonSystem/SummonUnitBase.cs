@@ -1,12 +1,11 @@
 using Project.Scripts.Core;
-using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class SummonUnitBase : AiBehaviourBase, ICustomInitializable
+    public abstract class SummonUnitBase : AiBehaviourBase
     {
         [Inject] public PlayerStats PlayerStats;
         
@@ -17,11 +16,8 @@ namespace Project.Scripts
         protected Fsm Fsm = new();
         protected AiMoveSystem AiMoveSystem = new();
 
-        private PlayerController _playerController;
-
         private void Start()
         {
-            _playerController = PlayerControllerObject;
             AiMoveSystem.SetNavMeshAgent(GetComponent<NavMeshAgent>());
         }
 

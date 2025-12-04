@@ -1,10 +1,9 @@
-using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Project.Scripts.Core
 {
-    public abstract class EnemyBase : AiBehaviourBase, IEnemy, ICustomInitializable
+    public abstract class EnemyBase : AiBehaviourBase, IEnemy
     {
         public bool CanChangeState = true;
 

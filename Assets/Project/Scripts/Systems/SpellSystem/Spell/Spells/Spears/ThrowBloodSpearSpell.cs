@@ -1,5 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using Project.Scripts.Core;
 using UnityEngine;
 
 namespace Project.Scripts
@@ -26,7 +25,7 @@ namespace Project.Scripts
                 var projectileCount = 12;
                 var angleStep = 360f / projectileCount;
 
-                var startPos = PlayerController.Instance.transform.position;
+                var startPos = PlayerController.transform.position;
 
                 for (int i = 0; i < projectileCount; i++)
                 {
@@ -41,7 +40,7 @@ namespace Project.Scripts
             else
             {
                 await UniTask.Delay(100);
-                await CastProjectile(PlayerController.Instance.transform.position, MouseController.GetGroundPosition(), ProjectileType.BloodSpear);
+                await CastProjectile(PlayerController.transform.position, MouseController.GetGroundPosition(), ProjectileType.BloodSpear);
             }
         }
     }

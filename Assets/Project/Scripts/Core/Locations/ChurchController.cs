@@ -1,11 +1,9 @@
-using System;
-using Project.Scripts.Interfaces;
 using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class ChurchController : MonoBehaviour, ICustomInitializable
+    public class ChurchController : MonoBehaviour
     {
         private NavMeshSurface _navMeshSurface;
         private PlayerController _playerController;
@@ -16,11 +14,6 @@ namespace Project.Scripts.Core
         {
             _navMeshSurface = GetComponent<NavMeshSurface>();
             _navMeshSurface.BuildNavMesh();
-        }
-
-        public void Initialize(PlayerController playerController)
-        {
-            
         }
     }
 }

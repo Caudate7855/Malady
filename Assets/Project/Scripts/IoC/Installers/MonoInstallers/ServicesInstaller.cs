@@ -28,7 +28,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
 
             Container
-                .Bind<MouseFsm>()
+                .BindInterfacesAndSelfTo<MouseFsm>()
                 .AsSingle();
         }
     }

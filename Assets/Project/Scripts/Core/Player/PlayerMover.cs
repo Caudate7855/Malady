@@ -19,6 +19,11 @@ namespace Project.Scripts.Core
 
         public void SetNavMeshAgent(NavMeshAgent navMeshAgent)
         {
+            if (_navMeshAgent != null)
+            {
+                return;
+            }
+            
             _navMeshAgent = navMeshAgent;
             _isSetted = true;
         }
@@ -40,6 +45,7 @@ namespace Project.Scripts.Core
                 return;
 
             NavMeshHit hit;
+            
             if (NavMesh.SamplePosition(location, out hit, MAX_REACH_DISTANCE, NavMesh.AllAreas))
             {
                 _isMoving = true;

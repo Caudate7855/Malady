@@ -11,8 +11,8 @@ namespace Project.Scripts.IoC.Installers
         public override void InstallBindings()
         {
             Container
-                .Bind<PlayerController>()
-                .FromInstance(_playerController)
+                .BindInterfacesAndSelfTo<PlayerController>()
+                .FromComponentInNewPrefab(_playerController)
                 .AsSingle();
             
             Container
@@ -22,17 +22,17 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<PlayerStats>()
                 .AsSingle();
-            
-            Container
-                .BindInterfacesAndSelfTo<PlayerFsm>()
-                .AsSingle();
 
+            Container
+                .Bind<PlayerFsm>()
+                .AsSingle();
+            
             Container
                 .Bind<EnemyStats>()
                 .AsTransient();
             
             Container
-                .Bind<InputController>()
+                .BindInterfacesAndSelfTo<InputController>()
                 .AsSingle();
         }
     }

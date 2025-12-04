@@ -15,25 +15,26 @@ namespace Project.Scripts
         [Inject] protected GlobalFactory GlobalFactory;
         [Inject] protected IPanelManager PanelManager;
         [Inject] private InputController _inputController;
+        [Inject] private PlayerController _playerController;
 
         private readonly Vector3 _playerPosition = new(0, 0, 0);
-        private PlayerController _playerController;
         private CoreUpdater _coreUpdater;
-        
+
+        protected abstract void Initialize();
+
         private async void Start()
         {
             Initialize();
          
-            _playerController = await GlobalFactory.CreatePlayer(_playerPosition);
+            _playerController.gameObject.transform.position = _playerPosition;
 
             _mainCamera.Initialize(_playerController);
-            _inputController.Initialize(_playerController, PanelManager);
             
             await FinishLoading();
 
             PanelManager.LoadPanel<MainUIController>().Open();
         }
-        
+
         private void OnEnable()
         {
             _coreUpdater = FindFirstObjectByType<CoreUpdater>();
@@ -44,9 +45,6 @@ namespace Project.Scripts
         {
             _coreUpdater.OnUpdatePerformed -= _inputController.Update;
         }
-
-        protected abstract void Initialize();
-
 
         private async UniTask FinishLoading()
         {

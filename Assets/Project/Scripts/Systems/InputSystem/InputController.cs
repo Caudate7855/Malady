@@ -4,16 +4,19 @@ using JetBrains.Annotations;
 using Project.Scripts.Core;
 using Project.Scripts.UI;
 using Project.Scripts.UI.Inventory;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class InputController
+    public class InputController : IInitializable
     {
         [Inject] private MouseController _mouseController;
         [Inject] private SpellSystemController _spellSystemController;
+        [Inject] private PlayerController _playerController;
+        [Inject] private IPanelManager _panelManager;
 
         private InventoryController _inventoryController;
         private MainUIController _mainUIController;
@@ -22,19 +25,14 @@ namespace Project.Scripts
 
         private bool _isInventoryOpened;
 
-        private PlayerController _playerController;
-
-        public void Initialize(PlayerController playerController, IPanelManager panelManager)
+        public void Initialize()
         {
-            _mouseController.Initialize();
             _spellSystemController.Initialize();
-            
-            _playerController = playerController;
 
             _playerInputs.Enable();
 
-            _inventoryController = panelManager.LoadPanel<InventoryController>();
-            _mainUIController = panelManager.LoadPanel<MainUIController>();
+            _inventoryController = _panelManager.LoadPanel<InventoryController>();
+            _mainUIController = _panelManager.LoadPanel<MainUIController>();
 
             _playerInputs.Gameplay.Inventory.performed += OnInventoryPerformed;
 
@@ -48,8 +46,7 @@ namespace Project.Scripts
             _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
             _playerInputs.Gameplay.PlayerSpell4.performed += OnPlayerSpellPerformed3;
         }
-
-
+        
         public void Update()
         {
             if (_playerInputs.Gameplay.Movement.inProgress)

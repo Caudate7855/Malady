@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Project.Scripts.Interfaces;
 using UnityEngine;
 
 namespace Project.Scripts.Core

@@ -1,16 +1,12 @@
 using System;
-using Project.Scripts.Interfaces;
 using Unity.AI.Navigation;
 using UnityEngine;
-using Zenject;
 
 namespace Project.Scripts.Core.Hub
 {
-    public class HubController : MonoBehaviour, ICustomInitializable
+    public class HubController : MonoBehaviour
     {
         private NavMeshSurface _navMeshSurface;
-
-        public PlayerController PlayerControllerObject { get; set; }
 
         public void Initialize()
         {

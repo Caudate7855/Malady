@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using Mono.Cecil;
-using NUnit.Framework;
 using Project.Scripts.Core;
-using Project.Scripts.Interfaces;
 using Project.Scripts.Services;
 using Project.Scripts.UI;
 using Unity.VisualScripting;
@@ -96,13 +93,11 @@ namespace Project.Scripts
         }
 
         public async UniTask<T> CreateAndInitializeAsync<T>(string assetAddress, Vector3 position = default)
-            where T : Object, ICustomInitializable
+            where T : Object
         {
             var prefab = await _assetLoader.LoadGameObjectAsync<Object>(assetAddress);
             var gameObject = Object.Instantiate(prefab, position, Quaternion.identity);
             var component = gameObject.GetComponent<T>();
-            component.Initialize();
-            component.InitializePlayerController();
 
             return component;
         }
@@ -133,11 +128,6 @@ namespace Project.Scripts
 
         #region Characters
 
-        public async UniTask<PlayerController> CreatePlayer(Vector3 spawnPosition)
-        {
-            return await CreateForComponentAndInitialize<PlayerController>("Player", spawnPosition);
-        }
-
         public async UniTask<T> CreateNpcAsync<T>(string npcAssetAddress, Vector3 spawnPosition) where T : NpcBase
         {
             return await CreateAndInjectAsync<T>(npcAssetAddress, spawnPosition);
@@ -149,7 +139,7 @@ namespace Project.Scripts
         }
 
         public async UniTask<T> CreateSummonAsync<T>(string summonUnitAssetAddress, Vector3 spawnPosition)
-            where T : SummonUnitBase, ICustomInitializable
+            where T : SummonUnitBase
         {
             var summonUnit = await _assetLoader.LoadGameObjectAsync<Object>(summonUnitAssetAddress);
             var instance = _diContainer.InstantiatePrefabForComponent<SummonUnitBase>(summonUnit) as T;
@@ -160,7 +150,6 @@ namespace Project.Scripts
             }
 
             instance.Initialize();
-            instance.InitializePlayerController();
             instance.transform.position = spawnPosition;
 
             return instance;

@@ -7,7 +7,7 @@ using Zenject;
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class SpellSystemController
+    public class SpellSystemController : IInitializable
     {
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerFsm _playerFsm;

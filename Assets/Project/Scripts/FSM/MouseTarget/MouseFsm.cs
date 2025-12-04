@@ -5,7 +5,7 @@ using Zenject;
 namespace Project.Scripts
 {
     [UsedImplicitly]
-    public class MouseFsm : ITickable
+    public class MouseFsm : IInitializable, ITickable
     {
         private Fsm _fsm;
         private bool _isInitialized;

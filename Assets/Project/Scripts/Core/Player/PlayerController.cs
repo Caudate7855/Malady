@@ -1,33 +1,22 @@
-using System;
 using Itibsoft.PanelManager;
 using Project.Scripts.Core.Abstracts;
-using Project.Scripts.Interfaces;
 using Project.Scripts.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Project.Scripts.Core
 {
-    public class PlayerController : MonoBehaviour, IPlayer, ICustomInitializable
+    public class PlayerController : MonoBehaviour, IPlayer, IInitializable
     {
-        public static PlayerController Instance { get; private set; }
-
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
         [Inject] private PlayerStats _playerStats;
         [Inject] private MouseController _mouseController;
 
-        public PlayerController PlayerControllerObject { get; set; }
         private MainUIController  _mainUIController;
-
-        private void Awake()
-        {
-            Instance = this;
-        }
 
         public void Initialize()
         {
@@ -35,16 +24,17 @@ namespace Project.Scripts.Core
             
             _mainUIController.UpdateBar<HpBar>(_playerStats.GetStat<HpStat>().Value, _playerStats.GetStat<HpStat>().MaxValue);
             _mainUIController.UpdateBar<EssenceBar>(_playerStats.GetStat<EssenceStat>().Value,  _playerStats.GetStat<EssenceStat>().MaxValue);
-            
-            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
+
             _playerMover.OnDestinationReached += Idle;
-            
+
             _playerFsm.Initialize(GetComponent<NavMeshAgent>(), GetComponentInChildren<Animator>());
             _playerStats.Initialize();
         }
 
         public void TryMoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
         {
+            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
+            
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 return;
@@ -71,11 +61,13 @@ namespace Project.Scripts.Core
 
         private void StopMovement()
         {
+            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
             _playerMover.StopMovement();
         }
 
         private void ContinueMovement()
         {
+            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
             _playerMover.ContinueMovement();
         }
 

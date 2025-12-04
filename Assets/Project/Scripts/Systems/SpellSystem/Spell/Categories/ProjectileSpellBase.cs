@@ -10,8 +10,9 @@ namespace Project.Scripts
 {
     public class ProjectileSpellBase : SpellBase
     {
+        [Inject] protected PlayerController  PlayerController;
         [Inject] private GlobalFactory _globalFactory;
-        
+
         private const string BloodSpearAddress = "BloodSpear";
         private const string BoneSpearAddress = "BoneSpear";
         

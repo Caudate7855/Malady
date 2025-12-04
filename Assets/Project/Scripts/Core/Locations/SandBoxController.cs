@@ -1,15 +1,12 @@
 ﻿using System;
-using Project.Scripts.Interfaces;
 using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class SandBoxController : MonoBehaviour, ICustomInitializable
+    public class SandBoxController : MonoBehaviour
     {
         private NavMeshSurface _navMeshSurface;
-
-        public PlayerController PlayerControllerObject { get; set; }
 
         public void Initialize()
         {

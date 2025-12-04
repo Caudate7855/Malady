@@ -1,15 +1,12 @@
-﻿using Project.Scripts.Interfaces;
-using Unity.AI.Navigation;
+﻿using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Project.Scripts.Core
 {
-    public class DungeonGenerationSceneController : MonoBehaviour, ICustomInitializable
+    public class DungeonGenerationSceneController : MonoBehaviour
     {
         private NavMeshSurface _navMeshSurface;
         private PlayerController _playerController;
-
-        public PlayerController PlayerControllerObject { get; set; }
 
         public void Initialize()
         {
