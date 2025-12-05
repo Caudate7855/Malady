@@ -79,7 +79,7 @@ namespace Project.Scripts.Services
 
         public Vector3 GetGroundPosition()
         {
-            var ray = Camera.current.ScreenPointToRay(Input.mousePosition);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out var raycastHit, 100f, Physics.DefaultRaycastLayers,
                     QueryTriggerInteraction.Ignore))

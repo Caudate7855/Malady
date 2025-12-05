@@ -4,8 +4,6 @@ namespace Project.Scripts
 {
     public abstract class AiBehaviourBase : MonoBehaviour
     {
-        public abstract void Initialize();
-        
         public virtual void Idle() { }
         public virtual void MoveTo(Transform targetTransform) { }
         public virtual void MoveToPlayer() {}

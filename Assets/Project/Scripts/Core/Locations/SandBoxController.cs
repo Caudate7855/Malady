@@ -7,11 +7,10 @@ namespace Project.Scripts
 {
     public class SandBoxController : MonoBehaviour
     {
-        private NavMeshSurface _navMeshSurface;
+        [SerializeField] private NavMeshSurface _navMeshSurface;
 
         public void Initialize()
         {
-            _navMeshSurface = GetComponent<NavMeshSurface>();
             _navMeshSurface.BuildNavMesh();
         }
 

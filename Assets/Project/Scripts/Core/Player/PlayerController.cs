@@ -87,12 +87,14 @@ namespace Project.Scripts
         public void PlayCastAnimation(PlayerCastAnimations animationType)
         {
             StopMovement();
-            
-            var direction = (_mouseController.GetGroundPosition());
-            direction.y = 0; 
-            direction.Normalize();
-            
-            transform.rotation = Quaternion.LookRotation(_mouseController.GetGroundPosition());
+
+            var dir = _mouseController.GetGroundPosition() - transform.position;
+            dir.y = 0f;
+
+            if (dir != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(dir).eulerAngles.y ,0f);
+            }
             
             switch (animationType)
             {

@@ -1,83 +1,50 @@
 using Project.Scripts.Services;
+using R3;
 using UnityEngine;
 
 namespace Project.Scripts
 {
     public class EnemyBehaviour : GlobalAiBehaviour
     {
-        [SerializeField] private RangeBehaviourChecker followRunRangeBehaviour;
-        [SerializeField] private RangeBehaviourChecker attackRangeBehaviour;
+        [SerializeField] private RangeBehaviourChecker _followRunRangeBehaviour;
+        [SerializeField] private RangeBehaviourChecker _attackRangeBehaviour;
         
-        private  AiBehaviourBase _aiBehaviour;
+        private AiBehaviourBase _aiBehaviour;
 
-        private void OnEnable()
-        {
-            followRunRangeBehaviour.OnTriggerEnterEvent += OnFollowRangeBehaviourEnter;
-            followRunRangeBehaviour.OnTriggerExitEvent += OnFollowRangeBehaviourExit;
-            
-            attackRangeBehaviour.OnTriggerEnterEvent += OnAttackRangeBehaviourEnter;
-            attackRangeBehaviour.OnTriggerExitEvent += OnAttackRangeBehaviourExit;
-        }
-        
-        private void OnDisable()
-        {
-            followRunRangeBehaviour.OnTriggerEnterEvent -= OnFollowRangeBehaviourEnter;
-            followRunRangeBehaviour.OnTriggerExitEvent -= OnFollowRangeBehaviourExit;
-            
-            attackRangeBehaviour.OnTriggerEnterEvent -= OnAttackRangeBehaviourEnter;
-            attackRangeBehaviour.OnTriggerExitEvent -= OnAttackRangeBehaviourExit;
-        }
-        
         protected override void Initialize()
         {
-            followRunRangeBehaviour.Initialize<PlayerController>();
-            attackRangeBehaviour.Initialize<PlayerController>();
+            _followRunRangeBehaviour.Initialize<PlayerController>();
+            _attackRangeBehaviour.Initialize<PlayerController>();
+            
+            _followRunRangeBehaviour.IsInRange.
+                Subscribe(OnFollowRangeBehaviourChanged).
+                AddTo(CompositeDisposable);
+            
+            _attackRangeBehaviour.IsInRange.
+                Subscribe(OnAttackRangeBehaviourChanged).
+                AddTo(CompositeDisposable);
         }
 
-        private void OnFollowRangeBehaviourEnter(GameObject targetObject)
+        private void OnFollowRangeBehaviourChanged((bool condition, GameObject target) values)
         {
             if (!IsAiEnabled)
             {
                 return;
             }
-            
-            IsOpponentInFollowDistance = true;
-            SetFollowBehaviour();
+
+            IsOpponentInFollowDistance = values.condition;
+            FollowObject = values.target;
         }
-        
-        private void OnFollowRangeBehaviourExit()
+
+        private void OnAttackRangeBehaviourChanged((bool condition, GameObject target) values)
         {
             if (!IsAiEnabled)
             {
                 return;
             }
             
-            IsOpponentInFollowDistance = false;
-            SetIdleBehaviour();
-        }
-        
-        private void OnAttackRangeBehaviourEnter(GameObject targetObject)
-        {
-            if (!IsAiEnabled)
-            {
-                return;
-            }
-            
-            IsOpponentInAttackDistance = true;
-            IsOpponentInFollowDistance = false;
-            SetAttackBehaviour();
-        }
-        
-        private void OnAttackRangeBehaviourExit()
-        {
-            if (!IsAiEnabled)
-            {
-                return;
-            }
-            
-            IsOpponentInAttackDistance = false;
-            IsOpponentInFollowDistance = true;
-            SetFollowBehaviour();
+            IsOpponentInAttackDistance = values.condition;
+            FollowObject = values.target;
         }
     }
 }

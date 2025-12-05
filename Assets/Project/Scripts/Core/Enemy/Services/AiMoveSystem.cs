@@ -16,7 +16,7 @@ namespace Project.Scripts
 
         public void StopMovement()
         {
-            _navMeshAgent.ResetPath();
+            ResetPath();
             
             _navMeshAgent.isStopped = true;
             _navMeshAgent.velocity = Vector3.zero;

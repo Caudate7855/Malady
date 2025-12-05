@@ -1,4 +1,3 @@
-using Itibsoft.PanelManager;
 using Zenject;
 
 namespace Project.Scripts

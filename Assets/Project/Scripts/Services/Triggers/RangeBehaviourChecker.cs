@@ -1,4 +1,5 @@
 ﻿using System;
+using R3;
 using UnityEngine;
 
 namespace Project.Scripts.Services
@@ -6,12 +7,10 @@ namespace Project.Scripts.Services
     public class RangeBehaviourChecker : MonoBehaviour
     {
         public string _name;
+        public ReactiveProperty<(bool, GameObject)> IsInRange { get; } = new();
 
         [SerializeField] private float _checkDistanceRadius = 5f;
         [SerializeField] private Color _gizmoColor = Color.red;
-
-        public event Action<GameObject> OnTriggerEnterEvent;
-        public event Action OnTriggerExitEvent;
 
         private Type _followType;
         private bool _isInitialized;
@@ -38,26 +37,16 @@ namespace Project.Scripts.Services
             {
                 if (hits[i] == null)
                 {
+                    IsInRange.Value = (false, null);
                     continue;
                 }
                 
                 if (hits[i].TryGetComponent(_followType, out _))
                 {
-                    found = true;
                     _targetObject = hits[i].gameObject;
+                    IsInRange.Value = (true, _targetObject);
                     break;
                 }
-            }
-
-            if (found && !_isObjectEntered)
-            {
-                _isObjectEntered = true;
-                OnTriggerEnterEvent?.Invoke(_targetObject);
-            }
-            else if (!found && _isObjectEntered)
-            {
-                _isObjectEntered = false;
-                OnTriggerExitEvent?.Invoke();
             }
         }
 

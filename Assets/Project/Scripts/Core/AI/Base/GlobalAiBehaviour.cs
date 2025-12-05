@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using R3;
 using UnityEngine;
 using Random = System.Random;
 
 namespace Project.Scripts
 {
-    public abstract class GlobalAiBehaviour : MonoBehaviour
+    public abstract class GlobalAiBehaviour : MonoBehaviour, IDisposable
     {
         protected virtual float CycleDelay { get; set; } = 3f;
 
@@ -12,13 +14,13 @@ namespace Project.Scripts
         public bool IsOpponentInFollowDistance;
 
         [SerializeField] protected bool IsAiEnabled = true;
-
-        protected AiBehaviourBase AiBehaviourBase { get; set; }
+        [SerializeField] protected AiBehaviourBase AiBehaviourBase;
         protected GameObject FollowObject { get; set; }
         protected GameObject AttackObject { get; set; }
-        private bool _isAlive = true;
         
+        private bool _isAlive = true;
         private Random _random = new();
+        protected CompositeDisposable CompositeDisposable = new();
         
         private void Awake()
         {
@@ -99,6 +101,11 @@ namespace Project.Scripts
             {
                 AiBehaviourBase.Idle();
             }
+        }
+
+        public virtual void Dispose()
+        {
+            CompositeDisposable.Dispose();
         }
     }
 }

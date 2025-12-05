@@ -1,10 +1,11 @@
 using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
+using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class EnemyBase : AiBehaviourBase, IEnemy
+    public abstract class EnemyBase : AiBehaviourBase, IEnemy, IInitializable
     {
         public bool CanChangeState = true;
 
@@ -13,14 +14,17 @@ namespace Project.Scripts
         protected AiMoveSystem AiMoveSystem = new();
         protected IStatSystem StatSystem = new PlayerStats();
 
-        public PlayerController PlayerControllerObject { get; set; }
-
-        public override void Initialize()
+        public void Start()
         {
-            InitializeFsm();
             AiMoveSystem.SetNavMeshAgent(GetComponent<NavMeshAgent>());
+            InitializeFsm();
         }
-
+        
+        public void Initialize()
+        {
+            
+        }
+        
         protected abstract void InitializeFsm();
         
         private void Update()

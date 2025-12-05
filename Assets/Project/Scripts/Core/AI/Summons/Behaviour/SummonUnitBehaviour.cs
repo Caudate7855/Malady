@@ -1,4 +1,5 @@
 ﻿using Project.Scripts.Services;
+using R3;
 using UnityEngine;
 
 namespace Project.Scripts.Summons
@@ -13,26 +14,38 @@ namespace Project.Scripts.Summons
 
         protected override void Initialize()
         {
-            _attackRangeBehaviour.Initialize<EnemyBase>();
             _followPlayerRangeBehaviour.Initialize<PlayerController>();
-        }
-
-        private void OnEnable()
-        {
-            _attackRangeBehaviour.OnTriggerEnterEvent += OnAttackRangeBehaviourEnter;
-            _attackRangeBehaviour.OnTriggerExitEvent += OnAttackRangeBehaviourExit;
-
-            _followPlayerRangeBehaviour.OnTriggerEnterEvent += OnFollowPlayerRangeBehaviourEnter;
-            _followPlayerRangeBehaviour.OnTriggerExitEvent += OnFollowPlayerRangeBehaviourExit;
-        }
-
-        private void OnDisable()
-        {
-            _attackRangeBehaviour.OnTriggerEnterEvent -= OnAttackRangeBehaviourEnter;
-            _attackRangeBehaviour.OnTriggerExitEvent -= OnAttackRangeBehaviourExit;
+            _attackRangeBehaviour.Initialize<PlayerController>();
             
-            _followPlayerRangeBehaviour.OnTriggerEnterEvent -= OnFollowPlayerRangeBehaviourEnter;
-            _followPlayerRangeBehaviour.OnTriggerExitEvent -= OnFollowPlayerRangeBehaviourExit;
+            _followPlayerRangeBehaviour.IsInRange.
+                Subscribe(OnFollowRangeBehaviourChanged).
+                AddTo(CompositeDisposable);
+            
+            _attackRangeBehaviour.IsInRange.
+                Subscribe(OnAttackRangeBehaviourChanged).
+                AddTo(CompositeDisposable);
+        }
+        
+        private void OnFollowRangeBehaviourChanged((bool condition, GameObject target) values)
+        {
+            if (!IsAiEnabled)
+            {
+                return;
+            }
+
+            IsPlayerInFollowDistance = values.condition;
+            FollowObject = values.target;
+        }
+
+        private void OnAttackRangeBehaviourChanged((bool condition, GameObject target) values)
+        {
+            if (!IsAiEnabled)
+            {
+                return;
+            }
+            
+            IsOpponentInAttackDistance = values.condition;
+            AttackObject = values.target;
         }
 
         private void OnAttackRangeBehaviourEnter(GameObject targetObject)

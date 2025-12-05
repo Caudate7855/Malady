@@ -134,7 +134,7 @@ namespace Project.Scripts
 
         public async UniTask<T> CreateEnemyAsync<T>(string enemyAssetAddress, Vector3 spawnPosition) where T : EnemyBase
         {
-            return await CreateAndInitializeAsync<T>(enemyAssetAddress, spawnPosition);
+            return await CreateAndInjectAsync<T>(enemyAssetAddress, spawnPosition);
         }
 
         public async UniTask<T> CreateSummonAsync<T>(string summonUnitAssetAddress, Vector3 spawnPosition)
@@ -148,7 +148,6 @@ namespace Project.Scripts
                 throw new Exception("Cannot instantiate SkeletonMage");
             }
 
-            instance.Initialize();
             instance.transform.position = spawnPosition;
 
             return instance;
