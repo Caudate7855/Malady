@@ -6,7 +6,6 @@ namespace Project.Scripts.Services
 {
     public class RangeBehaviourChecker : MonoBehaviour
     {
-        public string _name;
         public ReactiveProperty<(bool, GameObject)> IsInRange { get; } = new();
 
         [SerializeField] private float _checkDistanceRadius = 5f;
@@ -14,15 +13,13 @@ namespace Project.Scripts.Services
 
         private Type _followType;
         private bool _isInitialized;
-        private bool _isObjectEntered;
-
         private GameObject _targetObject;
 
         public void Initialize<T>() where T : MonoBehaviour
         {
             _followType = typeof(T);
             _isInitialized = true;
-            InvokeRepeating(nameof(CheckDistance), 1f, 1f);
+            InvokeRepeating(nameof(CheckDistance), 0.1f, 0.1f);
         }
 
         private void CheckDistance()
@@ -31,22 +28,26 @@ namespace Project.Scripts.Services
                 return;
 
             Collider[] hits = Physics.OverlapSphere(transform.position, _checkDistanceRadius);
-            bool found = false;
+            GameObject foundObj = null;
 
             for (int i = 0; i < hits.Length; i++)
             {
-                if (hits[i] == null)
-                {
-                    IsInRange.Value = (false, null);
-                    continue;
-                }
-                
                 if (hits[i].TryGetComponent(_followType, out _))
                 {
-                    _targetObject = hits[i].gameObject;
-                    IsInRange.Value = (true, _targetObject);
+                    foundObj = hits[i].gameObject;
                     break;
                 }
+            }
+
+            if (foundObj != null)
+            {
+                _targetObject = foundObj;
+                IsInRange.Value = (true, _targetObject);
+            }
+            else
+            {
+                _targetObject = null;
+                IsInRange.Value = (false, null);
             }
         }
 

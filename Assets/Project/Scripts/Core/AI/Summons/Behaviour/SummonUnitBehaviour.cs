@@ -15,17 +15,19 @@ namespace Project.Scripts.Summons
         protected override void Initialize()
         {
             _followPlayerRangeBehaviour.Initialize<PlayerController>();
-            _attackRangeBehaviour.Initialize<PlayerController>();
-            
-            _followPlayerRangeBehaviour.IsInRange.
-                Subscribe(OnFollowRangeBehaviourChanged).
-                AddTo(CompositeDisposable);
-            
-            _attackRangeBehaviour.IsInRange.
-                Subscribe(OnAttackRangeBehaviourChanged).
-                AddTo(CompositeDisposable);
+            _attackRangeBehaviour.Initialize<EnemyBase>();
+
+            _followPlayerRangeBehaviour
+                .IsInRange
+                .Subscribe(OnFollowRangeBehaviourChanged)
+                .AddTo(CompositeDisposable);
+
+            _attackRangeBehaviour
+                .IsInRange
+                .Subscribe(OnAttackRangeBehaviourChanged)
+                .AddTo(CompositeDisposable);
         }
-        
+
         private void OnFollowRangeBehaviourChanged((bool condition, GameObject target) values)
         {
             if (!IsAiEnabled)
@@ -43,43 +45,27 @@ namespace Project.Scripts.Summons
             {
                 return;
             }
-            
+
             IsOpponentInAttackDistance = values.condition;
             AttackObject = values.target;
         }
 
-        private void OnAttackRangeBehaviourEnter(GameObject targetObject)
-        {
-            AttackObject = targetObject;
-            IsOpponentInAttackDistance = true;
-        }
-        
-        private void OnAttackRangeBehaviourExit()
-        {
-            IsOpponentInAttackDistance = false;
-        }
-
-        private void OnFollowPlayerRangeBehaviourEnter(GameObject targetObject)
-        {
-            IsPlayerInFollowDistance = true;
-        }
-
-        private void OnFollowPlayerRangeBehaviourExit()
-        {
-            IsPlayerInFollowDistance = false;
-        }
-
         protected override void TryChangeBehaviour()
         {
+            if (!IsAiEnabled)
+            {
+                return;
+            }
+
+            if (IsOpponentInAttackDistance && AttackObject != null)
+            {
+                SetAttackBehaviour();
+                return;
+            }
+
             if (!IsPlayerInFollowDistance)
             {
                 SetFollowPlayerBehaviour();
-                return;
-            }
-            
-            if (IsOpponentInAttackDistance)
-            {
-                SetAttackBehaviour();
                 return;
             }
 
@@ -90,9 +76,15 @@ namespace Project.Scripts.Summons
         {
             AiBehaviourBase.MoveToPlayer();
         }
-        
+
         public override void SetAttackBehaviour()
         {
+            if (AttackObject == null)
+            {
+                SetIdleBehaviour();
+                return;
+            }
+
             AiBehaviourBase.RotateToPoint(AttackObject.transform.position);
             AiBehaviourBase.Attack();
         }

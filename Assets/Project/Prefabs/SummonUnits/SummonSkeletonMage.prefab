@@ -119,8 +119,8 @@ MonoBehaviour:
   IsOpponentInAttackDistance: 0
   IsOpponentInFollowDistance: 0
   IsAiEnabled: 1
+  AiBehaviourBase: {fileID: 0}
   IsPlayerInFollowDistance: 0
-  _followEnemyRangeBehaviour: {fileID: 0}
   _attackRangeBehaviour: {fileID: 4849911427398086137}
   _followPlayerRangeBehaviour: {fileID: 2316102195402651504}
 --- !u!114 &4849911427398086137
@@ -135,7 +135,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: AttackEnemy
   _checkDistanceRadius: 8
   _gizmoColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2316102195402651504
@@ -150,8 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.RangeBehaviourChecker
-  _name: FollowPlayer
-  _checkDistanceRadius: 12
+  _checkDistanceRadius: 10
   _gizmoColor: {r: 0.9507582, g: 1, b: 0, a: 1}
 --- !u!1001 &2556123515810563843
 PrefabInstance:

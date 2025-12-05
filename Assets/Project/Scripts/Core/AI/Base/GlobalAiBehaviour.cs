@@ -15,13 +15,14 @@ namespace Project.Scripts
 
         [SerializeField] protected bool IsAiEnabled = true;
         [SerializeField] protected AiBehaviourBase AiBehaviourBase;
+
         protected GameObject FollowObject { get; set; }
         protected GameObject AttackObject { get; set; }
-        
+
         private bool _isAlive = true;
-        private Random _random = new();
-        protected CompositeDisposable CompositeDisposable = new();
-        
+        private Random _random = new Random();
+        protected CompositeDisposable CompositeDisposable = new CompositeDisposable();
+
         private void Awake()
         {
             AiBehaviourBase = GetComponent<AiBehaviourBase>();
@@ -32,7 +33,7 @@ namespace Project.Scripts
             Initialize();
             StartCoroutine(BehaviourCycle());
         }
-        
+
         protected abstract void Initialize();
 
         private IEnumerator BehaviourCycle()
@@ -77,6 +78,12 @@ namespace Project.Scripts
 
         public virtual void SetFollowBehaviour()
         {
+            if (FollowObject == null)
+            {
+                SetIdleBehaviour();
+                return;
+            }
+
             var randomBehaviourIndex = _random.Next(0, 10 + 1);
 
             if (randomBehaviourIndex <= 1)
