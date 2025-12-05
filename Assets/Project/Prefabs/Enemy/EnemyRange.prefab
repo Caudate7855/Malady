@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanChangeState: 1
   Animator: {fileID: 661539248278480947}
+  Agent: {fileID: 5046129035282302903}
 --- !u!114 &4123631109142195893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsOpponentInAttackDistance: 0
   IsOpponentInFollowDistance: 0
-  IsAiEnabled: 0
+  IsAiEnabled: 1
   AiBehaviourBase: {fileID: 7666413035840635787}
   _followRunRangeBehaviour: {fileID: 821908705352717345}
   _attackRangeBehaviour: {fileID: 2611445124145095062}
@@ -284,7 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Follow
   _checkDistanceRadius: 5
   _gizmoColor: {r: 0, g: 0.30689335, b: 1, a: 1}
 --- !u!114 &2611445124145095062
@@ -299,6 +299,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52c4fe20756434db32b905c80c0f177, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Attack
   _checkDistanceRadius: 1.5
   _gizmoColor: {r: 1, g: 0, b: 0, a: 1}

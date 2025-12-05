@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public class PlayerController : MonoBehaviour, IPlayer, IInitializable
+    public class PlayerController : MonoBehaviour, IInitializable
     {
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;

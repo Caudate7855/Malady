@@ -35,13 +35,5 @@ namespace Project.Scripts.CorpseSystem
             _resourcesObjects[resourceType].HasResource = false;
             _resourcesObjects[resourceType].ResourceObject.SwitchState(false);
         }
-
-        public void RemoveAllResources()
-        {
-            foreach (var corpseResource in _resourcesObjects)
-            {
-                RemoveResource(corpseResource.Key);
-            }
-        }
     }
 }

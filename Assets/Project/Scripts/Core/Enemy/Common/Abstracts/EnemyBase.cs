@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class EnemyBase : AiBehaviourBase, IEnemy, IInitializable
+    public abstract class EnemyBase : AiBehaviourBase, IEnemy
     {
         public bool CanChangeState = true;
 
@@ -18,11 +18,6 @@ namespace Project.Scripts
         {
             AiMoveSystem.SetNavMeshAgent(GetComponent<NavMeshAgent>());
             InitializeFsm();
-        }
-        
-        public void Initialize()
-        {
-            
         }
         
         protected abstract void InitializeFsm();

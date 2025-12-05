@@ -80,7 +80,7 @@ namespace Project.Scripts
 
         public void ResetPath()
         {
-            if (_navMeshAgent.hasPath)
+            if (_navMeshAgent != null && _navMeshAgent.hasPath)
             {
                 _navMeshAgent.ResetPath();
             }

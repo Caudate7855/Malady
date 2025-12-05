@@ -26,8 +26,6 @@ namespace Project.Scripts
          
             _playerController.gameObject.transform.position = _playerPosition;
 
-            _mainCamera.Initialize(_playerController);
-            
             await FinishLoading();
 
             PanelManager.LoadPanel<MainUIController>().Open();
