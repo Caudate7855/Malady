@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using Project.Scripts.App;
-
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     public interface ISceneLoader
     {

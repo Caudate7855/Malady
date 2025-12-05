@@ -1,6 +1,7 @@
+using Project.Scripts.Services;
 using UnityEngine;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class EnemyBehaviour : GlobalAiBehaviour
     {

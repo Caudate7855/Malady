@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts.CorpseSystem.Resource.Abstracts
 {
     public class CorpseResourceObjectBase : MonoBehaviour
     {

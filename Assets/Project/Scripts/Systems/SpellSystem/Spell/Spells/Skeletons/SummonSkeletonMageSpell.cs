@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using Project.Scripts.Core;
-using Project.Scripts.UI.Inventory;
+using Project.Scripts.Summons;
 using UnityEngine;
 
-namespace Project.Scripts
+namespace Project.Scripts.Skeletons
 {
     [UsedImplicitly]
     public class SummonSkeletonMageSpell : SpellBase

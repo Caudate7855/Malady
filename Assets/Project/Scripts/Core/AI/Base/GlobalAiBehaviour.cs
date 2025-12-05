@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = System.Random;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public abstract class GlobalAiBehaviour : MonoBehaviour
     {

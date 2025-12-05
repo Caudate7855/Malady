@@ -1,4 +1,4 @@
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class Undertaker : NpcBase
     {

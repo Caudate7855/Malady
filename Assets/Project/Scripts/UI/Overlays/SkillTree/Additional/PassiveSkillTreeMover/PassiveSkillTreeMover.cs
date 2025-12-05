@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     public class PassiveSkillTreeMover : MonoBehaviour, IBeginDragHandler, IDragHandler
     {

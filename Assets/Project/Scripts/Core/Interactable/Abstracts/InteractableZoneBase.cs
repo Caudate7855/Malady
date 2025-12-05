@@ -1,9 +1,9 @@
 using DG.Tweening;
-using Project.Scripts.Core.Interfaces;
+using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.Core.Abstracts
+namespace Project.Scripts.Abstracts
 {
     public abstract class InteractableZoneBase : MonoBehaviour, IInteractableZone, IInteractable
     {

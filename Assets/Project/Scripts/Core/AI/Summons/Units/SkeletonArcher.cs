@@ -1,7 +1,6 @@
-using Project.Scripts.States;
 using UnityEngine;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts.Summons
 {
     public class SkeletonArcher : SummonUnitBase
     {

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     public class ExitPositionMarker : PositionMarker
     {

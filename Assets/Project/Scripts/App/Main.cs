@@ -1,9 +1,9 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.UI;
+using Project.Scripts.Services;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.App
+namespace Project.Scripts
 {
     public class Main : MonoBehaviour
     {

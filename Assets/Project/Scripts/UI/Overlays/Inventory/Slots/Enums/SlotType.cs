@@ -1,4 +1,4 @@
-namespace Project.Scripts.UI.Inventory
+namespace Project.Scripts
 {
     public enum SlotType
     {

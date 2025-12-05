@@ -1,8 +1,7 @@
-using Project.Scripts.Core;
-using Project.Scripts.Core.Abstracts;
+using Project.Scripts.Abstracts;
 using UnityEngine;
 
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     public class MouseTarget
     {

@@ -1,9 +1,8 @@
-using System;
 using Cysharp.Threading.Tasks;
-using Project.Scripts.Core.Interfaces;
+using Project.Scripts.Interfaces;
 using UnityEngine;
 
-namespace Project.Scripts.Core.Abstracts
+namespace Project.Scripts.Abstracts
 {
     public abstract class InteractableBase : MonoBehaviour, IInteractable
     {

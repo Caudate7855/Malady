@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "PassiveSkillTreeOverlay")]
     public class SkillTreeOverlayController : PanelControllerBase<PassiveSkillTreeView>

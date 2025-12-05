@@ -1,9 +1,7 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
-using Project.Scripts.Core;
-using Project.Scripts.UI;
-using Project.Scripts.UI.Inventory;
+using Project.Scripts.Services;
 using UnityEngine.InputSystem;
 using Zenject;
 

@@ -1,5 +1,4 @@
 using Itibsoft.PanelManager.External;
-using Project.Scripts.App;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.States.SkeletonMageFsmStates
+namespace Project.Scripts
 {
     public class SkeletonMageFsmStateRun : SummonUnitFsmStateBase
     {

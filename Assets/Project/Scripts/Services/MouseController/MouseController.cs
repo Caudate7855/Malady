@@ -1,11 +1,10 @@
 using JetBrains.Annotations;
-using Project.Scripts.Core;
-using Project.Scripts.Core.Abstracts;
+using Project.Scripts.Abstracts;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     [UsedImplicitly]
     public class MouseController : IInitializable, ITickable

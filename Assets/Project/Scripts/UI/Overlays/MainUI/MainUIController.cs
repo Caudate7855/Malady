@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Zenject;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "MainUIView")]
     public class MainUIController : PanelControllerBase<MainUIView>

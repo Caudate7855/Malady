@@ -1,8 +1,9 @@
 using System;
+using Project.Scripts.Services;
 using Unity.AI.Navigation;
 using UnityEngine;
 
-namespace Project.Scripts.Core.Hub
+namespace Project.Scripts
 {
     public class HubController : MonoBehaviour
     {

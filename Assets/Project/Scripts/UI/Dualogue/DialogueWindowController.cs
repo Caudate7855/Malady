@@ -1,12 +1,11 @@
 using DG.Tweening;
 using Itibsoft.PanelManager;
-using Project.Scripts.Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "DialogueWindow")]
     public class DialogueWindowController : PanelControllerBase<DialogueWindow>

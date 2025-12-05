@@ -3,7 +3,7 @@ using Itibsoft.PanelManager;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Project.Scripts.UI.Inventory
+namespace Project.Scripts
 {
     public class InventoryView : PanelBase
     {

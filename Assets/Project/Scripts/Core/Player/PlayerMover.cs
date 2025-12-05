@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     [UsedImplicitly]
     public class PlayerMover : ITickable

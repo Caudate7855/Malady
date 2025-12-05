@@ -1,6 +1,6 @@
-using UnityEngine;
+using Project.Scripts.CorpseSystem.Resource.Abstracts;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts.CorpseSystem.Resource.CorpseObjects
 {
     public class CorpseSoul : CorpseResourceObjectBase
     {

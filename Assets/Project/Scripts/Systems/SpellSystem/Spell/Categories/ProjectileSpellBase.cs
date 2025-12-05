@@ -1,8 +1,6 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
 using NUnit.Framework.Constraints;
-using Project.Scripts.Core;
-using Project.Scripts.UI.Inventory;
 using UnityEngine;
 using Zenject;
 

@@ -1,6 +1,4 @@
-using UnityEngine;
-
-namespace Project.Scripts.Core
+namespace Project.Scripts.Summons
 {
     public class SkeletonWarrior : SummonUnitBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Project.Scripts
+namespace Project.Scripts.Services
 {
     public class RangeBehaviourChecker : MonoBehaviour
     {

@@ -1,5 +1,4 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.Core;
 using Zenject;
 
 namespace Project.Scripts

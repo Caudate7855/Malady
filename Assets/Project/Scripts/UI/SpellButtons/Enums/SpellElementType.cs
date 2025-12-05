@@ -1,4 +1,4 @@
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     public enum SpellElementType : byte
     {

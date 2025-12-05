@@ -3,7 +3,7 @@ using Itibsoft.PanelManager;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "SpellListOverlay")]
     public class SpellListOverlayController : PanelControllerBase<SpellListOverlay>

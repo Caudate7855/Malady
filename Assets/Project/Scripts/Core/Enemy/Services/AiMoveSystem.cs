@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class AiMoveSystem
     {

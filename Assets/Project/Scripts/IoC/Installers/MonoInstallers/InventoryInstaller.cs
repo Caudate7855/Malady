@@ -1,4 +1,3 @@
-using Project.Scripts.UI.Inventory;
 using UnityEngine;
 using Zenject;
 

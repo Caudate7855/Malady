@@ -1,8 +1,7 @@
-using Project.Scripts.States.SkeletonMageFsmStates;
 using UnityEngine;
 using Zenject;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts.Summons
 {
     public class SkeletonMage : SummonUnitBase
     {

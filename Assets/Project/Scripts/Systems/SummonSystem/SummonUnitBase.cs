@@ -1,4 +1,3 @@
-using Project.Scripts.Core;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;

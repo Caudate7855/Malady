@@ -1,8 +1,7 @@
-using Project.Scripts.App;
-using Project.Scripts.Core.Abstracts;
+using Project.Scripts.Abstracts;
 using Zenject;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class ExitInteractable : InteractableZoneBase
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.States
+namespace Project.Scripts
 {
     public abstract class SummonUnitFsmStateBase : FsmStateBase
     {

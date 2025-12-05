@@ -1,7 +1,8 @@
+using Project.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public abstract class EnemyBase : AiBehaviourBase, IEnemy
     {

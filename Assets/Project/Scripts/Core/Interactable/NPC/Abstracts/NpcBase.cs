@@ -1,6 +1,4 @@
-using Itibsoft.PanelManager;
-
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class NpcBase : DialogableBase
     {

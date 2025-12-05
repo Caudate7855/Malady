@@ -1,6 +1,4 @@
-﻿using Project.Scripts.Core;
-
-namespace Project.Scripts
+﻿namespace Project.Scripts
 {
     public class DungeonGenerationBoot : LevelBootBase
     {

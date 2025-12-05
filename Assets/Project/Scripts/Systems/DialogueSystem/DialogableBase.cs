@@ -1,8 +1,6 @@
 using System;
 using Itibsoft.PanelManager;
-using Project.Scripts.Core;
-using Project.Scripts.Core.Abstracts;
-using Project.Scripts.UI;
+using Project.Scripts.Abstracts;
 using UnityEngine;
 using Zenject;
 

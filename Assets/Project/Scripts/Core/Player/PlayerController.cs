@@ -1,12 +1,12 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.Core.Abstracts;
-using Project.Scripts.UI;
+using Project.Scripts.Abstracts;
+using Project.Scripts.Services;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class PlayerController : MonoBehaviour, IPlayer, IInitializable
     {

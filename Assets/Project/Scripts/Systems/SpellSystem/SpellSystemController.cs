@@ -1,6 +1,5 @@
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
-using Project.Scripts.UI;
 using UnityEngine;
 using Zenject;
 

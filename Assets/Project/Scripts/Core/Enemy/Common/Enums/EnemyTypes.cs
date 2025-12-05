@@ -1,4 +1,4 @@
-namespace Project.Scripts.Core.Enums
+namespace Project.Scripts.Enums
 {
     public enum EnemyTypes : byte
     {

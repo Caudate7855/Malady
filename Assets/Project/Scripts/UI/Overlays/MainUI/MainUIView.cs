@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using UnityEngine;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     public class MainUIView : PanelBase
     {

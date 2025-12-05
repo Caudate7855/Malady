@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public abstract class AiBehaviourBase : MonoBehaviour
     {

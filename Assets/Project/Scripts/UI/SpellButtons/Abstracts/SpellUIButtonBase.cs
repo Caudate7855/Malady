@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Project.Scripts.UI
+namespace Project.Scripts
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
-using Project.Scripts.Core;
-using Project.Scripts.UI.Inventory;
+using Project.Scripts.Services;
 using Zenject;
 
 namespace Project.Scripts

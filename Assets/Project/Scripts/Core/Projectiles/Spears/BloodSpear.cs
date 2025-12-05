@@ -1,8 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
-using Zenject;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class BloodSpear: ProjectileBase
     {

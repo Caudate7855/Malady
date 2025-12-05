@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Project.Scripts.Core
+namespace Project.Scripts
 {
     public class EnemyRangeMoveState : EnemyFsmStateBase
     {

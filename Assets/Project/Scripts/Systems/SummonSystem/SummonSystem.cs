@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using Project.Scripts.Core;
+using Project.Scripts.Summons;
 using UnityEngine;
 using Zenject;
 

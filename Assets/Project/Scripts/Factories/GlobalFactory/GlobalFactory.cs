@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using Project.Scripts.Core;
+using Project.Scripts.CorpseSystem;
 using Project.Scripts.Services;
-using Project.Scripts.UI;
 using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
-using Edge = Project.Scripts.UI.Edge;
+using Edge = Project.Scripts.Edge;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts

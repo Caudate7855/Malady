@@ -1,3 +1,4 @@
+using Project.Scripts.Skeletons;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers
