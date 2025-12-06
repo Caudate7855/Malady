@@ -8,7 +8,7 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class LevelBootBase : MonoBehaviour, IDisposable
+    public abstract class LevelBootBase : MonoBehaviour, IDisposable, IInitializable
     {
         [SerializeField] private CameraFollower _mainCamera;
 
@@ -21,7 +21,7 @@ namespace Project.Scripts
         private CoreUpdater _coreUpdater;
         private CompositeDisposable _compositeDisposable = new();
 
-        protected abstract void Initialize();
+        public abstract void Initialize();
 
         private async void Start()
         {

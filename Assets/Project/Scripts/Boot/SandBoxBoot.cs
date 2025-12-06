@@ -6,7 +6,7 @@ namespace Project.Scripts
     {
         [SerializeField] private SandBoxController _sandBoxController;
 
-        protected override async void Initialize()
+        public override async void Initialize()
         {
             _sandBoxController.Initialize();
             

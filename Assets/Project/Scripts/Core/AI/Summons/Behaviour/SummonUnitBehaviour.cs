@@ -57,15 +57,15 @@ namespace Project.Scripts.Summons
                 return;
             }
 
-            if (IsOpponentInAttackDistance && AttackObject != null)
-            {
-                SetAttackBehaviour();
-                return;
-            }
-
             if (!IsPlayerInFollowDistance)
             {
                 SetFollowPlayerBehaviour();
+                return;
+            }
+            
+            if (IsOpponentInAttackDistance && AttackObject != null)
+            {
+                SetAttackBehaviour();
                 return;
             }
 

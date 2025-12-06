@@ -9,7 +9,7 @@ namespace Project.Scripts
 
         private HubController _hubController;
         
-        protected override async void Initialize()
+        public override async void Initialize()
         {
             _dialogueSystemManager.Initialize();
             

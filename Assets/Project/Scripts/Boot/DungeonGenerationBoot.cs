@@ -4,7 +4,7 @@
     {
         private DungeonGenerationSceneController _dungeonGenerationSceneController;
         
-        protected override async void Initialize()
+        public override async void Initialize()
         {
             _dungeonGenerationSceneController =  await GlobalFactory.CreateAndInitializeAsync<DungeonGenerationSceneController>("DungeonGeneration");
         }

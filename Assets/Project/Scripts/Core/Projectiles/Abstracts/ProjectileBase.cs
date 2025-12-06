@@ -7,12 +7,18 @@ namespace Project.Scripts
 {
     public abstract class ProjectileBase : MonoBehaviour
     {
-        [SerializeField] protected GameObject View;
-        public virtual float Speed { get; protected set; } = 10f;
-        public virtual float MaxLifeTime { get; protected set; } = 3f;
+        public float Speed => _speed;
+        public float MaxLifeTime => _maxLifeTime;
 
-        [Inject] protected PlayerStats PlayerStats;
+        [Header("Settings")]
+        [SerializeField] protected float _speed = 10f;
+        [SerializeField] protected float _maxLifeTime = 3f;
         
+        [Space, Header("View Prefab")]
+        [SerializeField] protected GameObject View;
+        [Inject] protected PlayerStats PlayerStats;
+
+
         private Vector3 _direction;
         private EnemyBase _target;
 
@@ -28,13 +34,13 @@ namespace Project.Scripts
         {
             other.TryGetComponent<EnemyBase>(out var result);
 
-            if(result != null)
+            if (result != null)
             {
                 DealDamage(result);
                 Destroy(gameObject);
             }
-            
-            if( _target != null )
+
+            if (_target != null)
             {
                 DealDamage(result);
                 Destroy(gameObject);
@@ -57,7 +63,6 @@ namespace Project.Scripts
             }
             catch (OperationCanceledException)
             {
-                
             }
 
             if (this != null)

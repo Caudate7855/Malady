@@ -50,14 +50,14 @@ namespace Project.Scripts
         
         public async void FollowTarget(Transform target)
         {
-            if (_navMeshAgent == null || target == null)
+            if (_navMeshAgent == null || target == null || !_navMeshAgent.isOnNavMesh)
             {
                 return;
             }
 
             ContinueMovement();
 
-            while (target != null)
+            while (target != null && _navMeshAgent != null && _navMeshAgent.isOnNavMesh)
             {
                 float distance = Vector3.Distance(_navMeshAgent.transform.position, target.position);
 
