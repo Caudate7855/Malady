@@ -1,12 +1,10 @@
-using System;
 using Itibsoft.PanelManager;
 using Project.Scripts.Abstracts;
-using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class DialogableBase : InteractableZoneBase , IDialogable
+    public abstract class DialogableBase : InteractableZoneBase
     {
         public NpcTypes NpcType;
         

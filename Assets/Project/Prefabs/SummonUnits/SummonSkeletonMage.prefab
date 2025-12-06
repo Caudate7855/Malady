@@ -119,8 +119,9 @@ MonoBehaviour:
   IsOpponentInAttackDistance: 0
   IsOpponentInFollowDistance: 0
   IsAiEnabled: 1
-  AiBehaviourBase: {fileID: 0}
+  AiBehaviourBase: {fileID: 7405005380051324519}
   IsPlayerInFollowDistance: 0
+  _cycleDelayInSeconds: 0.1
   _attackRangeBehaviour: {fileID: 4849911427398086137}
   _followPlayerRangeBehaviour: {fileID: 2316102195402651504}
 --- !u!114 &4849911427398086137

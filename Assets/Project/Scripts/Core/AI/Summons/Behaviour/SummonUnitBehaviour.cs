@@ -7,7 +7,8 @@ namespace Project.Scripts.Summons
     public class SummonUnitBehaviour : GlobalAiBehaviour
     {
         public bool IsPlayerInFollowDistance;
-        protected override float CycleDelay { get; set; } = 0.1f;
+        protected override float CycleDelay => _cycleDelayInSeconds;
+        [SerializeField] protected float _cycleDelayInSeconds = 0.5f;
 
         [SerializeField] private RangeBehaviourChecker _attackRangeBehaviour;
         [SerializeField] private RangeBehaviourChecker _followPlayerRangeBehaviour;
