@@ -1,4 +1,4 @@
-using System;
+using R3;
 using UnityEngine;
 
 namespace Project.Scripts.Services
@@ -9,22 +9,20 @@ namespace Project.Scripts.Services
         private const int FIVE_SECONDS_DELAY = 5;
         private const int TEN_SECONDS_DELAY = 10;
 
-        public event Action OnUpdatePerformed;
-        public event Action OnUpdateOnSecondPerformed;
-        public event Action OnUpdateOnFiveSecondsPerformed;
-        public event Action OnUpdateOnTenSecondsPerformed;
+        public ReactiveCommand OnUpdatePerformed = new();
+        public ReactiveCommand OnUpdateOnSecondPerformed = new();
+        public ReactiveCommand OnUpdateOnFiveSecondsPerformed = new();
+        public ReactiveCommand OnUpdateOnTenSecondsPerformed = new();
 
         private float _timeSinceLastSecondUpdate;
         private float _timeSinceLastFiveSecondUpdate;
 
         private void Update()
         {
-            OnUpdatePerformed?.Invoke();
+            OnUpdatePerformed.Execute(default);
 
-            var deltaTime = Time.deltaTime;
-            
-            _timeSinceLastSecondUpdate += deltaTime;
-            _timeSinceLastFiveSecondUpdate += deltaTime;
+            _timeSinceLastSecondUpdate += Time.deltaTime;
+            _timeSinceLastFiveSecondUpdate += Time.deltaTime;
 
             if (_timeSinceLastSecondUpdate >= ONE_SECOND_DELAY)
             {
@@ -47,17 +45,17 @@ namespace Project.Scripts.Services
 
         private void UpdateOnSecond()
         {
-            OnUpdateOnSecondPerformed?.Invoke();
+            OnUpdateOnSecondPerformed.Execute(default);
         }
 
         private void UpdateOnFiveSeconds()
         {
-            OnUpdateOnFiveSecondsPerformed?.Invoke();
+            OnUpdateOnFiveSecondsPerformed.Execute(default);
         }
         
         private void UpdateOnTenSeconds()
         {
-            OnUpdateOnTenSecondsPerformed?.Invoke();
+            OnUpdateOnTenSecondsPerformed.Execute(default);
         }
     }
 }

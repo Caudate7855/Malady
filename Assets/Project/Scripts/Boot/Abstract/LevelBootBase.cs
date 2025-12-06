@@ -1,12 +1,14 @@
+using System;
 using Cysharp.Threading.Tasks;
 using Itibsoft.PanelManager;
 using Project.Scripts.Services;
+using R3;
 using UnityEngine;
 using Zenject;
 
 namespace Project.Scripts
 {
-    public abstract class LevelBootBase : MonoBehaviour
+    public abstract class LevelBootBase : MonoBehaviour, IDisposable
     {
         [SerializeField] private CameraFollower _mainCamera;
 
@@ -17,6 +19,7 @@ namespace Project.Scripts
 
         private readonly Vector3 _playerPosition = new(0, 0, 0);
         private CoreUpdater _coreUpdater;
+        private CompositeDisposable _compositeDisposable = new();
 
         protected abstract void Initialize();
 
@@ -34,12 +37,10 @@ namespace Project.Scripts
         private void OnEnable()
         {
             _coreUpdater = FindFirstObjectByType<CoreUpdater>();
-            _coreUpdater.OnUpdatePerformed += _inputController.Update;
-        }
-
-        private void OnDisable()
-        {
-            _coreUpdater.OnUpdatePerformed -= _inputController.Update;
+            
+            _coreUpdater.OnUpdatePerformed
+                .Subscribe(_ =>_inputController.Update())
+                .AddTo(_compositeDisposable);
         }
 
         private async UniTask FinishLoading()
@@ -53,6 +54,11 @@ namespace Project.Scripts
             await UniTask.Delay((int)FaderController.FadeDuration * 1000);
 
             controller.Close();
+        }
+
+        public virtual void Dispose()
+        {
+            _compositeDisposable.Dispose();   
         }
     }
 }
