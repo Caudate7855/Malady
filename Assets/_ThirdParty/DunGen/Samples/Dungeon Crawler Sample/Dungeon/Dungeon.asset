@@ -15,8 +15,8 @@ MonoBehaviour:
   globalPropGroupID_obsolete: 
   globalPropRanges_obsolete: []
   Length:
-    Min: 10
-    Max: 15
+    Min: 5
+    Max: 10
   BranchMode: 0
   BranchCount:
     Min: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
     TileSets:
     - {fileID: 11400000, guid: b79666a7892d3964cb66c428ba89cf46, type: 2}
     NodeType: 0
-    Position: 0.16410257
+    Position: 0.4846154
     Label: Transition
     Keys: []
     Locks:

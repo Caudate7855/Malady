@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 namespace DunGen.DungeonCrawler
 {
@@ -22,7 +23,7 @@ namespace DunGen.DungeonCrawler
         private Material createDistanceFieldMaterialInstance;
 
         private readonly UnityEngine.Experimental.Rendering.GraphicsFormat DepthFormat =
-            UnityEngine.Experimental.Rendering.GraphicsFormat.D24_UNorm_S8_UInt;
+            UnityEngine.Experimental.Rendering.GraphicsFormat.B10G11R11_UFloatPack32;
 
         private void OnEnable()
         {
@@ -31,11 +32,9 @@ namespace DunGen.DungeonCrawler
             const int inputRes = 512;
             const int outputRes = 512;
 
-            // Depth required for cameras
             cameraBuffer = CreateCameraRT(inputRes, inputRes);
             iconsBuffer = CreateCameraRT(outputRes, outputRes);
 
-            // No depth needed for Blit-only textures
             distanceFieldBuffer = new RenderTexture(inputRes, inputRes, 0);
             outputBuffer = new RenderTexture(outputRes, outputRes, 0);
 
@@ -45,14 +44,27 @@ namespace DunGen.DungeonCrawler
             minimapCamera.targetTexture = cameraBuffer;
             minimapIconsCamera.targetTexture = iconsBuffer;
 
-            var minimapObject = GameObject.Find("Minimap");
-            minimapImage = minimapObject.GetComponent<RawImage>();
-
-            var minimapIconsObject = GameObject.Find("Minimap Icons");
-            minimapIconsImage = minimapIconsObject.GetComponent<RawImage>();
+            minimapImage = GameObject.Find("Minimap").GetComponent<RawImage>();
+            minimapIconsImage = GameObject.Find("Minimap Icons").GetComponent<RawImage>();
 
             minimapImage.texture = outputBuffer;
             minimapIconsImage.texture = iconsBuffer;
+
+            RenderPipelineManager.endCameraRendering += OnEndCameraRendering;
+        }
+
+        private void OnDisable()
+        {
+            RenderPipelineManager.endCameraRendering -= OnEndCameraRendering;
+
+            minimapCamera.targetTexture = null;
+            minimapIconsCamera.targetTexture = null;
+
+            Destroy(cameraBuffer);
+            Destroy(distanceFieldBuffer);
+            Destroy(outputBuffer);
+            Destroy(iconsBuffer);
+            Destroy(createDistanceFieldMaterialInstance);
         }
 
         private RenderTexture CreateCameraRT(int width, int height)
@@ -61,32 +73,20 @@ namespace DunGen.DungeonCrawler
             {
                 depthStencilFormat = DepthFormat
             };
+
             rt.Create();
             return rt;
         }
 
-        private void OnDisable()
+        private void OnEndCameraRendering(ScriptableRenderContext context, Camera cam)
         {
-            minimapCamera.targetTexture = null;
-            minimapIconsCamera.targetTexture = null;
+            if (cam != minimapCamera)
+                return;
 
-            DestroySafe(cameraBuffer);
-            DestroySafe(distanceFieldBuffer);
-            DestroySafe(outputBuffer);
-            DestroySafe(iconsBuffer);
-            DestroySafe(createDistanceFieldMaterialInstance);
-        }
-
-        private void DestroySafe(Object obj)
-        {
-            if (obj != null)
-                Destroy(obj);
-        }
-
-        private void OnPostRender()
-        {
             Graphics.Blit(cameraBuffer, distanceFieldBuffer, createDistanceFieldMaterialInstance);
             Graphics.Blit(distanceFieldBuffer, outputBuffer, drawMinimapMaterial);
+
+            Debug.Log("Minimap updated");
         }
     }
 }
