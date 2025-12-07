@@ -50,11 +50,5 @@ namespace DunGen.DungeonCrawler
 			renderableNavMesh.RecalculateNormals();
 			renderableNavMesh.RecalculateTangents();
 		}
-
-		private void Update()
-		{
-			if(renderableNavMesh != null)
-				Graphics.DrawMesh(renderableNavMesh, Matrix4x4.identity, null, renderLayer);
-		}
 	}
 }

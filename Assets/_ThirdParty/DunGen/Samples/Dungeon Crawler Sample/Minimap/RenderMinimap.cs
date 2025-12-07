@@ -3,90 +3,90 @@ using UnityEngine.UI;
 
 namespace DunGen.DungeonCrawler
 {
-	/// <summary>
-	/// Renders the minimap to a RawImage on a GameObject named "Minimap"
-	/// and the icons to a RawImage on a GameObject named "Minimap Icons"
-	/// </summary>
-	[RequireComponent(typeof(Camera))]
-	sealed class RenderMinimap : MonoBehaviour
-	{
-		[SerializeField]
-		private Material drawMinimapMaterial = null;
-		[SerializeField]
-		private Camera minimapIconsCamera = null;
-		[SerializeField]
-		private Material createDistanceFieldMaterial = null;
+    [RequireComponent(typeof(Camera))]
+    sealed class RenderMinimap : MonoBehaviour
+    {
+        [SerializeField] private Material drawMinimapMaterial = null;
+        [SerializeField] private Camera minimapIconsCamera = null;
+        [SerializeField] private Material createDistanceFieldMaterial = null;
 
-		private RawImage minimapImage = null;
-		private RawImage minimapIconsImage = null;
-		private Camera minimapCamera;
-		private RenderTexture cameraBuffer;
-		private RenderTexture distanceFieldBuffer;
-		private RenderTexture outputBuffer;
-		private RenderTexture iconsBuffer;
-		private Material createDistanceFieldMaterialInstance;
+        private RawImage minimapImage = null;
+        private RawImage minimapIconsImage = null;
+        private Camera minimapCamera;
 
+        private RenderTexture cameraBuffer;
+        private RenderTexture distanceFieldBuffer;
+        private RenderTexture outputBuffer;
+        private RenderTexture iconsBuffer;
 
-		private void OnEnable()
-		{
-			minimapCamera = GetComponent<Camera>();
+        private Material createDistanceFieldMaterialInstance;
 
-			// Create necessary buffers
-			const int inputRes = 512;
-			const int outputRes = 512;
-			cameraBuffer = new RenderTexture(inputRes, inputRes, 0);
-			distanceFieldBuffer = new RenderTexture(inputRes, inputRes, 0);
-			outputBuffer = new RenderTexture(outputRes, outputRes, 0);
-			iconsBuffer = new RenderTexture(outputRes, outputRes, 0);
+        private readonly UnityEngine.Experimental.Rendering.GraphicsFormat DepthFormat =
+            UnityEngine.Experimental.Rendering.GraphicsFormat.D24_UNorm_S8_UInt;
 
-			// Setup material
-			createDistanceFieldMaterialInstance = new Material(createDistanceFieldMaterial);
-			createDistanceFieldMaterialInstance.SetFloat("_TextureSize", inputRes);
+        private void OnEnable()
+        {
+            minimapCamera = GetComponent<Camera>();
 
-			// Tell the minimap camera to render into an off-screen buffer
-			minimapCamera.targetTexture = cameraBuffer;
+            const int inputRes = 512;
+            const int outputRes = 512;
 
-			// Hook the output buffer up to the RawImage component in the UI
-			if (minimapImage == null)
-			{
-				var minimapObject = GameObject.Find("Minimap");
-				minimapImage = minimapObject.GetComponent<RawImage>();
-			}
+            // Depth required for cameras
+            cameraBuffer = CreateCameraRT(inputRes, inputRes);
+            iconsBuffer = CreateCameraRT(outputRes, outputRes);
 
-			if (minimapIconsImage == null)
-			{
-				var minimapIconsObject = GameObject.Find("Minimap Icons");
-				minimapIconsImage = minimapIconsObject.GetComponent<RawImage>();
-			}
+            // No depth needed for Blit-only textures
+            distanceFieldBuffer = new RenderTexture(inputRes, inputRes, 0);
+            outputBuffer = new RenderTexture(outputRes, outputRes, 0);
 
-			minimapImage.texture = outputBuffer;
-			minimapIconsImage.texture = iconsBuffer;
+            createDistanceFieldMaterialInstance = new Material(createDistanceFieldMaterial);
+            createDistanceFieldMaterialInstance.SetFloat("_TextureSize", inputRes);
 
-			minimapIconsCamera.targetTexture = iconsBuffer;
-		}
+            minimapCamera.targetTexture = cameraBuffer;
+            minimapIconsCamera.targetTexture = iconsBuffer;
 
-		private void OnDisable()
-		{
-			minimapCamera.targetTexture = null;
+            var minimapObject = GameObject.Find("Minimap");
+            minimapImage = minimapObject.GetComponent<RawImage>();
 
-			Destroy(cameraBuffer);
-			Destroy(distanceFieldBuffer);
-			Destroy(outputBuffer);
-			Destroy(createDistanceFieldMaterialInstance);
+            var minimapIconsObject = GameObject.Find("Minimap Icons");
+            minimapIconsImage = minimapIconsObject.GetComponent<RawImage>();
 
-			cameraBuffer = null;
-			distanceFieldBuffer = null;
-			outputBuffer = null;
-			createDistanceFieldMaterialInstance = null;
-		}
+            minimapImage.texture = outputBuffer;
+            minimapIconsImage.texture = iconsBuffer;
+        }
 
-		private void OnPostRender()
-		{
-			// After the minimap camera is done rendering, convert the contents to a distance field
-			Graphics.Blit(cameraBuffer, distanceFieldBuffer, createDistanceFieldMaterialInstance);
+        private RenderTexture CreateCameraRT(int width, int height)
+        {
+            var rt = new RenderTexture(width, height, 0)
+            {
+                depthStencilFormat = DepthFormat
+            };
+            rt.Create();
+            return rt;
+        }
 
-			// Render the distance field as the final minimap
-			Graphics.Blit(distanceFieldBuffer, outputBuffer, drawMinimapMaterial);
-		}
-	}
+        private void OnDisable()
+        {
+            minimapCamera.targetTexture = null;
+            minimapIconsCamera.targetTexture = null;
+
+            DestroySafe(cameraBuffer);
+            DestroySafe(distanceFieldBuffer);
+            DestroySafe(outputBuffer);
+            DestroySafe(iconsBuffer);
+            DestroySafe(createDistanceFieldMaterialInstance);
+        }
+
+        private void DestroySafe(Object obj)
+        {
+            if (obj != null)
+                Destroy(obj);
+        }
+
+        private void OnPostRender()
+        {
+            Graphics.Blit(cameraBuffer, distanceFieldBuffer, createDistanceFieldMaterialInstance);
+            Graphics.Blit(distanceFieldBuffer, outputBuffer, drawMinimapMaterial);
+        }
+    }
 }
