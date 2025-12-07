@@ -23,7 +23,7 @@ namespace DunGen.DungeonCrawler
         private Material createDistanceFieldMaterialInstance;
 
         private readonly UnityEngine.Experimental.Rendering.GraphicsFormat DepthFormat =
-            UnityEngine.Experimental.Rendering.GraphicsFormat.B10G11R11_UFloatPack32;
+            UnityEngine.Experimental.Rendering.GraphicsFormat.D16_UNorm;
 
         private void OnEnable()
         {
@@ -71,7 +71,8 @@ namespace DunGen.DungeonCrawler
         {
             var rt = new RenderTexture(width, height, 0)
             {
-                depthStencilFormat = DepthFormat
+                graphicsFormat = UnityEngine.Experimental.Rendering.GraphicsFormat.R8G8B8A8_UNorm,
+                depthStencilFormat = UnityEngine.Experimental.Rendering.GraphicsFormat.D16_UNorm
             };
 
             rt.Create();
@@ -85,8 +86,6 @@ namespace DunGen.DungeonCrawler
 
             Graphics.Blit(cameraBuffer, distanceFieldBuffer, createDistanceFieldMaterialInstance);
             Graphics.Blit(distanceFieldBuffer, outputBuffer, drawMinimapMaterial);
-
-            Debug.Log("Minimap updated");
         }
     }
 }
