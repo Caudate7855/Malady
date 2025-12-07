@@ -5,10 +5,8 @@ using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
 using Project.Scripts.CorpseSystem;
 using Project.Scripts.Services;
-using Unity.VisualScripting;
 using UnityEngine;
 using Zenject;
-using Edge = Project.Scripts.Edge;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts
@@ -82,9 +80,9 @@ namespace Project.Scripts
 
 
         public async UniTask<T> CreateAsync<T>(string assetAddress, Vector3 position = default)
-            where T : Object
+            where T : Component
         {
-            var prefab = await _assetLoader.LoadGameObjectAsync<Object>(assetAddress);
+            var prefab = await _assetLoader.LoadGameObjectAsync<T>(assetAddress);
             var gameObject = Object.Instantiate(prefab, position, Quaternion.identity);
             var component = gameObject.GetComponent<T>();
 
@@ -92,9 +90,9 @@ namespace Project.Scripts
         }
 
         public async UniTask<T> CreateAndInitializeAsync<T>(string assetAddress, Vector3 position = default)
-            where T : Object
+            where T : Component
         {
-            var prefab = await _assetLoader.LoadGameObjectAsync<Object>(assetAddress);
+            var prefab = await _assetLoader.LoadGameObjectAsync<T>(assetAddress);
             var gameObject = Object.Instantiate(prefab, position, Quaternion.identity);
             var component = gameObject.GetComponent<T>();
 
@@ -102,7 +100,7 @@ namespace Project.Scripts
         }
 
         public async UniTask<T> CreateAndInjectAsync<T>(string assetAddress, Vector3 spawnPosition = default)
-            where T : Object
+            where T : Component
         {
             var prefab = await _assetLoader.LoadGameObjectAsync<T>(assetAddress);
             var gameObject = Object.Instantiate(prefab, spawnPosition, Quaternion.identity);
