@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e652222aface4acc9cd23dfdcb850ee8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isSandBox: 1
-  _isDungeonGenerationTest: 0
+  _isSandBox: 0
+  _isDungeonGenerationTest: 1
 --- !u!4 &277898283
 Transform:
   m_ObjectHideFlags: 0
