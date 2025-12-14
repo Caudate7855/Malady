@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4db6514a2e4e194bbd1c6bdae54f388, type: 3}
-  m_Name: Angle
+  m_Name: Box 2
   m_EditorClassIdentifier: DunGen::DunGen.TileSet
   TileWeights:
     Weights:
-    - Value: {fileID: 6900494727497765672, guid: 187c504dbe463bb4993a9c2c62582fc4, type: 3}
+    - Value: {fileID: 6900494727497765672, guid: a82b82db8e8abd14898b06030a3228f1, type: 3}
       MainPathWeight: 1
       BranchPathWeight: 1
       DepthWeightScale:
@@ -41,5 +41,5 @@ MonoBehaviour:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
-      TileSet: {fileID: 0}
+      TileSet: {fileID: 11400000}
   LockPrefabs: []
