@@ -2,7 +2,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
 
-namespace Editor.AutoBootLoader
+namespace Editor
 {
     [InitializeOnLoad]
     public static class AutoBootLoader
