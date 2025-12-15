@@ -40,7 +40,7 @@ MonoBehaviour:
   Nodes:
   - Graph: {fileID: 11400000}
     TileSets:
-    - {fileID: 11400000, guid: 7ec4ba7d2da35ff41bfd0298716f42dc, type: 2}
+    - {fileID: 11400000, guid: e9a6bcfb21f51d0418861f612468dfae, type: 2}
     NodeType: 1
     Position: 0
     Label: Start
@@ -56,7 +56,7 @@ MonoBehaviour:
       CanStraightenBranchPaths: 0
   - Graph: {fileID: 11400000}
     TileSets:
-    - {fileID: 11400000, guid: 7ec4ba7d2da35ff41bfd0298716f42dc, type: 2}
+    - {fileID: 11400000, guid: 693d559157e1cea438c61a9e272d9f66, type: 2}
     NodeType: 2
     Position: 1
     Label: Goal

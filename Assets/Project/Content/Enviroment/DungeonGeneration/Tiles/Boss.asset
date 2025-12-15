@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4db6514a2e4e194bbd1c6bdae54f388, type: 3}
-  m_Name: Box 2
+  m_Name: Boss
   m_EditorClassIdentifier: DunGen::DunGen.TileSet
   TileWeights:
     Weights:
-    - Value: {fileID: 6900494727497765672, guid: a82b82db8e8abd14898b06030a3228f1, type: 3}
+    - Value: {fileID: 6900494727497765672, guid: 3f2c5188b5dfa714da3cf2dcd4c75def, type: 3}
       MainPathWeight: 1
       BranchPathWeight: 1
       DepthWeightScale:
