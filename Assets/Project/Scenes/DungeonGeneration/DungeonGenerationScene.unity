@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &395787590
 Transform:
   m_ObjectHideFlags: 0
@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.DungeonGenerationBoot
   _mainCamera: {fileID: 740088696}
+  _runtimeDungeon: {fileID: 0}
 --- !u!1 &533409737
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &533409738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +278,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &740088693
 AudioListener:
   m_ObjectHideFlags: 0
@@ -737,7 +738,7 @@ MonoBehaviour:
     Root: {fileID: 0}
     DungeonFlow: {fileID: 11400000, guid: 15c14e12dcb41ec49adcf52727487972, type: 2}
     fileVersion: 3
-  GenerateOnStart: 1
+  GenerateOnStart: 0
   Root: {fileID: 732159323}
 --- !u!4 &1730734203
 Transform:
@@ -770,7 +771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2009411071
 MonoBehaviour:
   m_ObjectHideFlags: 0
