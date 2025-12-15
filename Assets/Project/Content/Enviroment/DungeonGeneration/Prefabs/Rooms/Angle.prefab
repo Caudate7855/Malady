@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468614811218745748}
   - component: {fileID: 8350758557868294480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Angle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,11 +75,11 @@ MonoBehaviour:
     branchId: -1
     isOnMainPath: 0
     localBounds:
-      m_Center: {x: 10, y: 3.175, z: -9.999998}
-      m_Extent: {x: 20, y: 3.175, z: 19.999998}
+      m_Center: {x: 10, y: 2, z: -9.999998}
+      m_Extent: {x: 20, y: 2, z: 19.999998}
     worldBounds:
-      m_Center: {x: 10, y: 3.175, z: -9.999998}
-      m_Extent: {x: 20, y: 3.175, z: 19.999998}
+      m_Center: {x: 10, y: 2, z: -9.999998}
+      m_Extent: {x: 20, y: 2, z: 19.999998}
     placementParameters:
       archetype: {fileID: 0}
       node:
@@ -118,7 +118,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4814697114130567923}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,9 +189,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423366100881332765, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884060152731838474, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554031037361980404, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
       propertyPath: m_Name
       value: DoorWay (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844712331496579296, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -251,9 +271,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423366100881332765, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884060152731838474, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554031037361980404, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
       propertyPath: m_Name
       value: DoorWay (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844712331496579296, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -313,9 +353,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423366100881332765, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884060152731838474, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554031037361980404, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
       propertyPath: m_Name
       value: DoorWay (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844712331496579296, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -375,9 +435,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423366100881332765, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884060152731838474, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554031037361980404, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
       propertyPath: m_Name
       value: DoorWay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844712331496579296, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -441,13 +521,47 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_Angle
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 35be90f7ffc5c224181c328962e0c35d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 35be90f7ffc5c224181c328962e0c35d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2309112813900226702}
   m_SourcePrefab: {fileID: 100100000, guid: 35be90f7ffc5c224181c328962e0c35d, type: 3}
 --- !u!4 &6291726710644019946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35be90f7ffc5c224181c328962e0c35d, type: 3}
   m_PrefabInstance: {fileID: 5825983803008185601}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6637009213563750480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 35be90f7ffc5c224181c328962e0c35d, type: 3}
+  m_PrefabInstance: {fileID: 5825983803008185601}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2309112813900226702
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6637009213563750480}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8891326127953529618, guid: 35be90f7ffc5c224181c328962e0c35d, type: 3}

@@ -1,34 +1,59 @@
-﻿using DunGen;
+﻿using Cysharp.Threading.Tasks;
+using DunGen;
+using DunGen.DungeonCrawler;
 using Unity.AI.Navigation;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Project.Scripts
 {
     public sealed class DungeonGenerationBoot : LevelBootBase
     {
         [SerializeField] private RuntimeDungeon _runtimeDungeon;
+        [SerializeField] private NavMeshSurface _navMeshSurface;
 
-        private NavMeshSurface _navMeshSurface;
+        private NavMeshAgent _agent;
 
-        public override async void Initialize()
+        public override void Initialize()
         {
-            _navMeshSurface = _runtimeDungeon.GetComponent<NavMeshSurface>();
+            _agent = PlayerController.GetComponent<NavMeshAgent>();
+            _agent.enabled = false;
 
-            if (_navMeshSurface == null)
-            {
-                _navMeshSurface = _runtimeDungeon.gameObject.AddComponent<NavMeshSurface>();
-                _navMeshSurface.collectObjects = CollectObjects.All;
-            }
-
-            _runtimeDungeon.Generator.OnGenerationComplete += OnDungeonGenerated;
+            _runtimeDungeon.Generator.OnGenerationStatusChanged += OnDungeonGenerationStatusChanged;
             _runtimeDungeon.Generate();
         }
 
-        private void OnDungeonGenerated(DungeonGenerator generator)
+        private void OnDungeonGenerationStatusChanged(
+            DungeonGenerator generator,
+            GenerationStatus status)
         {
-            _runtimeDungeon.Generator.OnGenerationComplete -= OnDungeonGenerated;
+            if (status != GenerationStatus.Complete)
+            {
+                return;
+            }
+
+            _runtimeDungeon.Generator.OnGenerationStatusChanged -= OnDungeonGenerationStatusChanged;
+            BuildNavMeshAndSpawnAsync().Forget(Debug.LogException);
+        }
+
+        private async UniTask BuildNavMeshAndSpawnAsync()
+        {
+            await UniTask.Yield();
 
             _navMeshSurface.BuildNavMesh();
+
+            await UniTask.Yield();
+
+            var spawn = FindFirstObjectByType<PlayerSpawn>();
+            
+            if (spawn == null)
+            {
+                Debug.LogError("PlayerSpawn not found in scene");
+                return;
+            }
+
+            _agent.Warp(spawn.transform.position);
+            _agent.enabled = true;
         }
     }
 }

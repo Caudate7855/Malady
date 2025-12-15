@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1707114465023399392}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BossRoom
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8221378483600723211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9031516111104751836}
   - component: {fileID: 8826753464710249183}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,11 +136,11 @@ MonoBehaviour:
     branchId: -1
     isOnMainPath: 0
     localBounds:
-      m_Center: {x: 0, y: 1.9999999, z: 0}
-      m_Extent: {x: 20.000004, y: 1.9999999, z: 20}
+      m_Center: {x: 0, y: 2, z: 0}
+      m_Extent: {x: 20.000004, y: 2, z: 20}
     worldBounds:
-      m_Center: {x: 0, y: 1.9999999, z: 0}
-      m_Extent: {x: 20.000004, y: 1.9999999, z: 20}
+      m_Center: {x: 0, y: 2, z: 0}
+      m_Extent: {x: 20.000004, y: 2, z: 20}
     placementParameters:
       archetype: {fileID: 0}
       node:
@@ -218,9 +218,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5423366100881332765, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884060152731838474, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8554031037361980404, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
       propertyPath: m_Name
       value: DoorWay
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625484468051832481, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844712331496579296, guid: fd111509c94111e43a2492bc187937fc, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -284,11 +304,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room_Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a0bd2dd39cd7ab648a487fd72e3accfa, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a0bd2dd39cd7ab648a487fd72e3accfa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4907214113338484582}
   m_SourcePrefab: {fileID: 100100000, guid: a0bd2dd39cd7ab648a487fd72e3accfa, type: 3}
+--- !u!1 &3885945426328871606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a0bd2dd39cd7ab648a487fd72e3accfa, type: 3}
+  m_PrefabInstance: {fileID: 4119895457716494311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4907214113338484582
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3885945426328871606}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7300611551650915877, guid: a0bd2dd39cd7ab648a487fd72e3accfa, type: 3}
 --- !u!4 &4514425875371046924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a0bd2dd39cd7ab648a487fd72e3accfa, type: 3}

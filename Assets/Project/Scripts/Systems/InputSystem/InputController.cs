@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
 using Project.Scripts.Services;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -46,6 +47,11 @@ namespace Project.Scripts
         
         public void Update()
         {
+            if (!_playerController.IsNavMeshAgentReady())
+            {
+                return;
+            }
+            
             if (_playerInputs.Gameplay.Movement.inProgress)
             { 
                 _playerController.TryMoveToPoint(_mouseController.MouseTarget.TargetPosition, _mouseController.MouseTarget.Interactable);

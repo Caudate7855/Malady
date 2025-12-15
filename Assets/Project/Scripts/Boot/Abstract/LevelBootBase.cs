@@ -15,7 +15,7 @@ namespace Project.Scripts
         [Inject] protected GlobalFactory GlobalFactory;
         [Inject] protected IPanelManager PanelManager;
         [Inject] private InputController _inputController;
-        [Inject] private PlayerController _playerController;
+        [Inject] protected PlayerController PlayerController;
 
         private readonly Vector3 _playerPosition = new(0, 0, 0);
         private CoreUpdater _coreUpdater;
@@ -25,9 +25,8 @@ namespace Project.Scripts
 
         private async void Start()
         {
+            PlayerController.gameObject.transform.position = _playerPosition;
             Initialize();
-         
-            _playerController.gameObject.transform.position = _playerPosition;
 
             await FinishLoading();
 

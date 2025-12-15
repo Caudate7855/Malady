@@ -17,9 +17,12 @@ namespace Project.Scripts
         [Inject] private MouseController _mouseController;
 
         private MainUIController  _mainUIController;
+        private NavMeshAgent _navMeshAgent;
 
         public void Initialize()
         {
+            _navMeshAgent =  GetComponent<NavMeshAgent>();
+            
             _mainUIController = _panelManager.LoadPanel<MainUIController>();
             
             _mainUIController.UpdateBar<HpBar>(_playerStats.GetStat<HpStat>().Value, _playerStats.GetStat<HpStat>().MaxValue);
@@ -27,8 +30,13 @@ namespace Project.Scripts
 
             _playerMover.OnDestinationReached += Idle;
 
-            _playerFsm.Initialize(GetComponent<NavMeshAgent>(), GetComponentInChildren<Animator>());
+            _playerFsm.Initialize(_navMeshAgent, GetComponentInChildren<Animator>());
             _playerStats.Initialize();
+        }
+
+        public bool IsNavMeshAgentReady()
+        {
+            return _navMeshAgent.enabled;
         }
 
         public void TryMoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
