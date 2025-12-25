@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Project.Scripts
 {
     public class SandBoxBoot : LevelBootBase
     {
         [SerializeField] private SandBoxController _sandBoxController;
-
+        
         public override async void Initialize()
         {
+            base.Initialize();
+            
             _sandBoxController.Initialize();
             
             GlobalFactory.CreateBook(_sandBoxController.GetBookPosition().transform.position);
@@ -16,6 +19,7 @@ namespace Project.Scripts
             await GlobalFactory.CreateDefaultCorpseAsync(new Vector3(3,0,0));
 
             CreateTestEnemies();
+            BuildNavMeshAndSpawnAsync().Forget(Debug.LogException);
         }
 
         private async void CreateTestEnemies()

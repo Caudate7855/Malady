@@ -180,6 +180,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dbfeee9d09f96e44b178e7ac1eaa5f2, type: 3}
+--- !u!1 &827303588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 827303590}
+  - component: {fileID: 827303589}
+  m_Layer: 0
+  m_Name: PlayerSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &827303589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827303588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226a5fe187cadeb47b2f65202b91b875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DunGen.DungeonCrawler.PlayerSpawn
+--- !u!4 &827303590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827303588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1209095344
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93345f5fb9414a9c945a779dad290ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInitialized: 0
 --- !u!114 &1283043155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 1283043154}
+  _navMeshSurface: {fileID: 1858849556}
   _sandBoxController: {fileID: 2002944663}
 --- !u!4 &1830735371
 Transform:
@@ -752,7 +796,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.033333335
+  m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 0c859826dea0bc5438bb8a153b156d10, type: 2}
   m_BuildHeightMesh: 0
@@ -907,3 +951,4 @@ SceneRoots:
   - {fileID: 1640728753}
   - {fileID: 27450565}
   - {fileID: 1293212651}
+  - {fileID: 827303590}
