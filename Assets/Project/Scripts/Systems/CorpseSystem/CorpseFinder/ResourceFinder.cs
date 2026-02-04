@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using JetBrains.Annotations;
-using Project.Scripts.CorpseSystem.Resource.Abstracts;
 using UnityEngine;
 
-namespace Project.Scripts.CorpseSystem
+namespace Project.Scripts
 {
     [UsedImplicitly]
     public class ResourceFinder

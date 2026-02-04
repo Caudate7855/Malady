@@ -11,7 +11,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
                         
             Container
-                .BindInterfacesAndSelfTo<SpellSystemController>()
+                .BindInterfacesAndSelfTo<SpellSystem>()
                 .AsSingle();
 
             Container

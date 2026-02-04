@@ -25,9 +25,6 @@ namespace Project.Scripts
             
             _mainUIController = _panelManager.LoadPanel<MainUIController>();
             
-            _mainUIController.UpdateBar<HpBar>(_playerStats.GetStat<HpStat>().Value, _playerStats.GetStat<HpStat>().MaxValue);
-            _mainUIController.UpdateBar<EssenceBar>(_playerStats.GetStat<EssenceStat>().Value,  _playerStats.GetStat<EssenceStat>().MaxValue);
-
             _playerMover.OnDestinationReached += Idle;
 
             _playerFsm.Initialize(_navMeshAgent, GetComponentInChildren<Animator>());

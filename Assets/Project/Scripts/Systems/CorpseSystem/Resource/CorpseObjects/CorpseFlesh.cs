@@ -1,6 +1,4 @@
-using Project.Scripts.CorpseSystem.Resource.Abstracts;
-
-namespace Project.Scripts.CorpseSystem.Resource.CorpseObjects
+namespace Project.Scripts
 {
     public class CorpseFlesh : CorpseResourceObjectBase
     {

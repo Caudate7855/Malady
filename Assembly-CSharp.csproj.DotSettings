@@ -10,6 +10,7 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Cconfigs_005Cspellmodificators/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Cconfigs_005Cspells/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Cconfigs/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Cconfigs_005Cspellsystem/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Ccore/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Ccore_005Cai/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Ccore_005Cai_005Cbase/@EntryIndexedValue">True</s:Boolean>
@@ -116,8 +117,12 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Cstatssystem_005Cstats/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Cstatssystem_005Cstats_005Cinterfaces/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Ccorpsesystem/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Ccorpsesystem_005Ccorpse/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Ccorpsesystem_005Ccorpsefinder/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Ccorpsesystem_005Cresource/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Ccorpsesystem_005Cresource_005Cabstracts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Ccorpsesystem_005Cresource_005Ccorpseobjects/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cdialoguesystem/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cdungeongenerationsystem/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cdungeonsystem/@EntryIndexedValue">True</s:Boolean>
@@ -166,6 +171,11 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005Cspell_005Cspells_005Clances/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005Cspell_005Cspells_005Cspears/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005Cspell_005Cspells_005Cspears_005Cenums/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005C_005Fsystem/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005C_005Fsystem_005Cbase/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005C_005Fsystem_005Cbase_005Cabstracts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005C_005Fsystem_005Cbase_005Cinterfaces/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cspellsystem_005C_005Fsystem_005Cenums/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cstatssystem_005Cabstracts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cstatssystem_005Ccommon/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cproject_005Cscripts_005Csystems_005Cstatssystem_005Ccommon_005Cabstracts/@EntryIndexedValue">True</s:Boolean>

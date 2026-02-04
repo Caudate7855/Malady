@@ -6,7 +6,6 @@ namespace Project.Scripts.IoC.Installers
     [CreateAssetMenu(fileName = "SOContainersInstaller", menuName = "Installers/SOContainersInstaller")]
     public class SOContainersInstaller : ScriptableObjectInstaller<SOContainersInstaller>
     {
-        [SerializeField] private SpellsContainerSo _spellsContainerSo;
         [SerializeField] private ItemsContainerSo _itemsContainerSo;
         [SerializeField] private SpellModificatorsConfigsContainer _spellModificatorsConfigsContainer;
         
@@ -15,11 +14,6 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<ItemsContainerSo>()
                 .FromInstance(_itemsContainerSo)
-                .AsSingle();
-            
-            Container
-                .Bind<SpellsContainerSo>()
-                .FromInstance(_spellsContainerSo)
                 .AsSingle();
 
             Container

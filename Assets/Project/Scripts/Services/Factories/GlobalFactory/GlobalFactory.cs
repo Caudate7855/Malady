@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
-using Project.Scripts.CorpseSystem;
 using Project.Scripts.Services;
 using UnityEngine;
 using Zenject;

@@ -12,7 +12,7 @@ namespace Project.Scripts
     public class InputController : IInitializable
     {
         [Inject] private MouseController _mouseController;
-        [Inject] private SpellSystemController _spellSystemController;
+        [Inject] private SpellSystem _spellSystem;
         [Inject] private PlayerController _playerController;
         [Inject] private IPanelManager _panelManager;
 
@@ -25,8 +25,6 @@ namespace Project.Scripts
 
         public void Initialize()
         {
-            _spellSystemController.Initialize();
-
             _playerInputs.Enable();
 
             _inventoryController = _panelManager.LoadPanel<InventoryController>();
@@ -74,50 +72,50 @@ namespace Project.Scripts
 
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
-            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 0) == false)
+            if (CheckSpell(_spellSystem.ChosenSpells, 0) == false)
             {
                 return;
             }
             
             _mainUIController.OnPlayerSpellButtonClicked(0);
-            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[0].AnimationType);
-            _spellSystemController.CastPlayerSpellByIndex(0);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[0].AnimationType);
+            _spellSystem.CastPlayerSpellByIndex(0);
         }
 
         private void OnPlayerSpellPerformed1(InputAction.CallbackContext obj)
         {
-            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 1) == false)
+            if (CheckSpell(_spellSystem.ChosenSpells, 1) == false)
             {
                 return;
             }
             
             _mainUIController.OnPlayerSpellButtonClicked(1);
-            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[1].AnimationType);
-            _spellSystemController.CastPlayerSpellByIndex(1);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[1].AnimationType);
+            _spellSystem.CastPlayerSpellByIndex(1);
         }
 
         private void OnPlayerSpellPerformed2(InputAction.CallbackContext obj)
         {
-            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 2) == false)
+            if (CheckSpell(_spellSystem.ChosenSpells, 2) == false)
             {
                 return;
             }
             
             _mainUIController.OnPlayerSpellButtonClicked(2);
-            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[2].AnimationType);
-            _spellSystemController.CastPlayerSpellByIndex(2);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[2].AnimationType);
+            _spellSystem.CastPlayerSpellByIndex(2);
         }
 
         private void OnPlayerSpellPerformed3(InputAction.CallbackContext obj)
         {
-            if (CheckSpell(_spellSystemController.PlayerSpellList.ChosenSpells, 3) == false)
+            if (CheckSpell(_spellSystem.ChosenSpells, 3) == false)
             {
                 return;
             }
             
             _mainUIController.OnPlayerSpellButtonClicked(3);
-            _playerController.PlayCastAnimation(_spellSystemController.PlayerSpellList.ChosenSpells[3].AnimationType);
-            _spellSystemController.CastPlayerSpellByIndex(3);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[3].AnimationType);
+            _spellSystem.CastPlayerSpellByIndex(3);
         }
 
         private void OnSummonSpellPerformed0(InputAction.CallbackContext obj)
@@ -140,7 +138,7 @@ namespace Project.Scripts
             _mainUIController.OnSummonSpellButtonClicked(3);
         }
 
-        private bool CheckSpell(List<SpellSo> list, int index)
+        private bool CheckSpell(List<ISpell> list, int index)
         {
             if (list.Count == 0)
             {

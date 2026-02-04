@@ -25,14 +25,6 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<StatView>()
                 .FromInstance(_statViewPrefab)
                 .AsSingle();
-
-            Container
-                .Bind<SpellTipHandler>()
-                .AsSingle();
-
-            Container
-                .Bind<SpellDragImageHandler>()
-                .AsSingle();
         }
     }
 }

@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using Project.Scripts.CorpseSystem.Resource;
-using Project.Scripts.CorpseSystem.Resource.CorpseObjects;
 using UnityEngine;
 
-namespace Project.Scripts.CorpseSystem
+namespace Project.Scripts
 {
     public class Corpse : MonoBehaviour
     {
