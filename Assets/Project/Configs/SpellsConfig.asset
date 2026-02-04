@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cb81a8555445a191dd0115beeede9e, type: 3}
+  m_Name: SpellsConfig
+  m_EditorClassIdentifier: Assembly-CSharp::SpellsConfig
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 8079394222610691352, guid: d8beaf33923ed50448946fa6cff8a07d, type: 3}
+    - {fileID: -5736582455184226221, guid: fa7497fd320160f4e877bab4cf67a422, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: SpellConfigs
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SpellsSystem.SpellConfig, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: SpellsSystem.SpellConfig, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Blood lance
+    - Name: Description
+      Entry: 1
+      Data: Blood lance desc
+    - Name: Type
+      Entry: 7
+      Data: 1|SpellsSystem.BloodLance, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: SpellView
+      Entry: 10
+      Data: 0
+    - Name: HasLifeTime
+      Entry: 5
+      Data: true
+    - Name: LifeTime
+      Entry: 4
+      Data: 0.5
+    - Name: HasSpeed
+      Entry: 5
+      Data: true
+    - Name: Speed
+      Entry: 4
+      Data: 100
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: SpellsSystem.SpellConfig, Assembly-CSharp
+    - Name: Name
+      Entry: 1
+      Data: Bone spear
+    - Name: Description
+      Entry: 1
+      Data: Bone spear desc
+    - Name: Type
+      Entry: 7
+      Data: 2|SpellsSystem.BoneSpear, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: SpellView
+      Entry: 10
+      Data: 1
+    - Name: HasLifeTime
+      Entry: 5
+      Data: true
+    - Name: LifeTime
+      Entry: 4
+      Data: 2
+    - Name: HasSpeed
+      Entry: 5
+      Data: true
+    - Name: Speed
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

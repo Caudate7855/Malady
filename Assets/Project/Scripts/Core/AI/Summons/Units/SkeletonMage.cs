@@ -5,7 +5,6 @@ namespace Project.Scripts.Summons
 {
     public class SkeletonMage : SummonUnitBase
     {
-        [Inject] public PlayerStats PlayerStats;
         [Inject] protected PlayerController PlayerController;
         
         public override void Initialize()

@@ -17,9 +17,9 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<SummonSystem>()
                 .AsSingle();
-
+            
             Container
-                .Bind<PlayerSpellModificatorsSystem>()
+                .Bind<StatSystem>()
                 .AsSingle();
         }
     }

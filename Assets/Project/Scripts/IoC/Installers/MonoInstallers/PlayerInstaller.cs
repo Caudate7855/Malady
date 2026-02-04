@@ -19,16 +19,8 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
 
             Container
-                .Bind<PlayerStats>()
-                .AsSingle();
-
-            Container
                 .Bind<PlayerFsm>()
                 .AsSingle();
-            
-            Container
-                .Bind<EnemyStats>()
-                .AsTransient();
             
             Container
                 .BindInterfacesAndSelfTo<InputController>()

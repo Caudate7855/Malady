@@ -13,7 +13,7 @@ namespace Project.Scripts
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
-        [Inject] private PlayerStats _playerStats;
+        [Inject] private StatSystem _statSystem;
         [Inject] private MouseController _mouseController;
 
         private MainUIController  _mainUIController;
@@ -28,7 +28,7 @@ namespace Project.Scripts
             _playerMover.OnDestinationReached += Idle;
 
             _playerFsm.Initialize(_navMeshAgent, GetComponentInChildren<Animator>());
-            _playerStats.Initialize();
+            _statSystem.Initialize();
         }
 
         public bool IsNavMeshAgentReady()

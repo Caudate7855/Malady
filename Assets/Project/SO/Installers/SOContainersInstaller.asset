@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680c49923884981b29a8b9b7ee8cc61, type: 3}
   m_Name: SOContainersInstaller
   m_EditorClassIdentifier: 
-  _spellsContainerSo: {fileID: 11400000, guid: e23f9c790218c5f49b2bcd47b9c127d9, type: 2}
-  _spellModificatorsConfigsContainer: {fileID: 11400000, guid: 93da8f50e3cb90943b3dfc3e2c45098b, type: 2}
+  _spellsConfig: {fileID: 11400000, guid: ad6f35a51257f0243a1ce5866a399769, type: 2}
+  _itemsConfig: {fileID: 11400000, guid: 1a946d5514a7df248bc64a9ba29dca0c, type: 2}
+  _statsConfig: {fileID: 11400000, guid: 43ec00f7e990dfd4c8b057e7c2977e08, type: 2}
