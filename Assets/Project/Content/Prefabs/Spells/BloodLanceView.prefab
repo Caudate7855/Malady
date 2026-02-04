@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4835461232513742040}
   - component: {fileID: 3213488741879309402}
-  - component: {fileID: 1121828469830350556}
+  - component: {fileID: 1866538791710385192}
   m_Layer: 0
-  m_Name: BloodSpear
+  m_Name: BloodLanceView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.25, y: 0.25, z: 0.7}
   m_Center: {x: 0, y: 0, z: -0.09}
---- !u!114 &1121828469830350556
+--- !u!114 &1866538791710385192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,10 +64,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6674415020346383752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0669e0ca60d9452b855e657cc3f4f753, type: 3}
+  m_Script: {fileID: 11500000, guid: 2bf6962868663df41bf55dadcfa2fecc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.Core.BloodSpear
-  View: {fileID: 8469917030936612202}
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.Spells.BloodLanceView
 --- !u!1001 &8739896415541473339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141,11 +140,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64f5c7393ee758e42843b9e00c74702c, type: 3}
---- !u!1 &8469917030936612202 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 64f5c7393ee758e42843b9e00c74702c, type: 3}
-  m_PrefabInstance: {fileID: 8739896415541473339}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9133546363243616208 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 64f5c7393ee758e42843b9e00c74702c, type: 3}

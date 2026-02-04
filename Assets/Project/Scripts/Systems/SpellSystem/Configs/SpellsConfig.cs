@@ -30,10 +30,23 @@ namespace Project.Scripts.Configs
     public struct SpellConfig
     {
         [FoldoutGroup("@Name")]
+        [HorizontalGroup("@Name/Horizontal", 100)]
+        [PreviewField(100, ObjectFieldAlignment.Left)]
+        [Title("Icon", horizontalLine: false)]
+        [HideLabel]
+        public Sprite Icon;
+        
+        [FoldoutGroup("@Name")]
+        [VerticalGroup("@Name/Horizontal/Vertical")]
+        [Title("Name", horizontalLine: false)]
+        [HideLabel]
         public string Name;
 
         [FoldoutGroup("@Name")]
-        [TextArea(2, 20)]
+        [VerticalGroup("@Name/Horizontal/Vertical")]
+        [Title("Description", horizontalLine: false)]
+        [TextArea(3, 20)]
+        [HideLabel] 
         public string Description;
 
         [FoldoutGroup("@Name")]
