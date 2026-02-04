@@ -8,16 +8,14 @@ namespace Project.Scripts
     {
         [Inject] private IPanelManager _panelManager;
 
-        private SpellListOverlayController _spellListOverlayController;
-
         private void Start()
         {
-            _spellListOverlayController = _panelManager.LoadPanel<SpellListOverlayController>();
+            
         }
 
         public override void Interact()
         {
-            _spellListOverlayController.Open();
+            
         }
     }
 }

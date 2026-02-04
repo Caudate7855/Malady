@@ -6,7 +6,7 @@ namespace Project.Scripts
 {
     [RequireComponent(typeof(Image))]
     [RequireComponent(typeof(Button))]
-    public class SpellUIButtonBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler,
+    public class SpellUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler,
         IEndDragHandler, IDragHandler
     {
         public void OnPointerEnter(PointerEventData eventData)

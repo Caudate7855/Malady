@@ -15,8 +15,6 @@ namespace Project.Scripts
             Panel.ExitButton.onClick.AddListener(OnExitButtonClicked);
         }
 
-        #region ButtonsMethods
-        
         private void OnStartGameButtonClicked()
         {
             _main.ChangeState(SceneType.Hub);
@@ -30,9 +28,7 @@ namespace Project.Scripts
 
         private void OnExitButtonClicked()
         {
-            
+        
         }
-
-        #endregion
     }
 }

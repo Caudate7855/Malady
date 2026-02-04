@@ -18,8 +18,6 @@ namespace Project.Scripts
         private Button _skillListButton;
         private Button _closeButton;
         
-        private SpellListOverlayController _spellListOverlayController;
-        
         protected async override void Initialize()
         {
             _skillsList = Panel.GetSkillsList();
@@ -35,8 +33,6 @@ namespace Project.Scripts
 
         private void OnSkillListButtonClick()
         {
-            _spellListOverlayController = _panelManager.LoadPanel<SpellListOverlayController>();
-            _spellListOverlayController.Open();
             Close();
         }
 
