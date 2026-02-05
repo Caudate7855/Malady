@@ -40,11 +40,12 @@ namespace Project.Scripts
         public void OnPointerEnter(PointerEventData eventData)
         {
             _spellTip.SetInfo(_spellConfig, _resourceConfig);
+            _spellTip.Open();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            
+            _spellTip.Close();
         }
 
         public void OnBeginDrag(PointerEventData eventData)

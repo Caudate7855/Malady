@@ -12,12 +12,14 @@ namespace Project.Scripts
         private SpellTip _spellTip;
         private readonly SpellsConfig _spellConfig;
         private readonly ResourcesConfig _resourcesConfig;
+        private readonly IPanelManager _panelManager;
         
-        public BookSpellListController(SpellTip spellTip, SpellsConfig spellConfig, ResourcesConfig resourcesConfig)
+        public BookSpellListController(SpellTip spellTip, SpellsConfig spellConfig, ResourcesConfig resourcesConfig, IPanelManager panelManager)
         {
             _spellTip = spellTip;
             _spellConfig = spellConfig;
             _resourcesConfig = resourcesConfig;
+            _panelManager = panelManager;
         }
         
         protected override void Initialize()
@@ -25,8 +27,8 @@ namespace Project.Scripts
             Panel.CloseButton.onClick.AddListener(Close);
             
             
-            var canvas = Object.FindFirstObjectByType<Canvas>();
-            _spellTip = Object.Instantiate(_spellTip, canvas.transform);
+            _spellTip = Object.Instantiate(_spellTip, _panelManager.PanelDispatcher.Canvas.transform);
+            _spellTip.Init(_panelManager.PanelDispatcher.Canvas);
             
             InitSpellsList();
         }
