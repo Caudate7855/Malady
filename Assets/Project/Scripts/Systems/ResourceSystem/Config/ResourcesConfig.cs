@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using Project.Scripts.Configs;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 
 namespace Project.Scripts
 {
-    [CreateAssetMenu(fileName = nameof(ResourceConfig), menuName = "Configs/" + nameof(ResourceConfig))]
-    public class ResourceConfig : SerializedScriptableObject
+    [CreateAssetMenu(fileName = nameof(Scripts.ResourcesConfig), menuName = "Configs/" + nameof(Scripts.ResourcesConfig))]
+    public class ResourcesConfig : SerializedScriptableObject
     {
-        [OdinSerialize] public List<Resource> ResourceConfigs { get; private set; } = new();
+        [OdinSerialize] public List<ResourceConfig> ResourceConfigs { get; private set; } = new();
 
-        public Resource GetResourceConfig(ResourceType resourceType)
+        public ResourceConfig GetResourceConfig(ResourceType resourceType)
         {
             for (var i = 0; i < ResourceConfigs.Count; i++)
             {
@@ -26,7 +25,7 @@ namespace Project.Scripts
         }
     }
 
-    public struct Resource
+    public struct ResourceConfig
     {
         [FoldoutGroup("@Name")]
         [HorizontalGroup("@Name/Horizontal", 60)]

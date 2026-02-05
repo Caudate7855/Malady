@@ -86,7 +86,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4e78ae29d8b0b7947abd93b72ab899be
-    m_Address: SpellListOverlay
+    m_Address: BookSpellListView
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

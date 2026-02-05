@@ -1,6 +1,6 @@
 ﻿namespace Project.Scripts
 {
-    public enum ResourceType
+    public enum ResourceType : byte
     {
         Health,
         Essence,

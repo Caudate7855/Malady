@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 4389079331389434916}
   - component: {fileID: 9183836926412961288}
   - component: {fileID: 2342319652694560116}
+  - component: {fileID: 927082527031410373}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -64,6 +65,7 @@ MonoBehaviour:
   - {fileID: 7967045121945942719}
   - {fileID: 4389079331389434916}
   - {fileID: 2342319652694560116}
+  - {fileID: 927082527031410373}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -192,3 +194,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.IoC.Installers.EnemiesInstaller
   _enemyRange: {fileID: 7666413035840635787, guid: 2a4715c843da6fe41bfc5c091c210d2a, type: 3}
+--- !u!114 &927082527031410373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132461961285685871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7664bdd842424e06b98e6f52d192bbbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.IoC.Installers.UIInstaller
+  _spellTip: {fileID: -4724774933748430465, guid: 50bf70b3ba1155e4883eae2b48b8d8ab, type: 3}

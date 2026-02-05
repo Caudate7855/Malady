@@ -29,20 +29,20 @@ MonoBehaviour:
     SerializationNodes:
     - Name: ResourceConfigs
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Project.Scripts.Resource, Assembly-CSharp]],
-        mscorlib
+      Data: 0|System.Collections.Generic.List`1[[Project.Scripts.ResourceConfig,
+        Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 6
     - Name: 
       Entry: 7
-      Data: Project.Scripts.Resource, Assembly-CSharp
+      Data: Project.Scripts.ResourceConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
       Data: 0
     - Name: Name
       Entry: 1
-      Data: Health
+      Data: health
     - Name: ResourceType
       Entry: 3
       Data: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: Project.Scripts.Resource, Assembly-CSharp
+      Data: Project.Scripts.ResourceConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
       Data: 1
@@ -66,7 +66,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: Project.Scripts.Resource, Assembly-CSharp
+      Data: Project.Scripts.ResourceConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
       Data: 2
@@ -81,7 +81,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: Project.Scripts.Resource, Assembly-CSharp
+      Data: Project.Scripts.ResourceConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
       Data: 3
@@ -96,7 +96,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: Project.Scripts.Resource, Assembly-CSharp
+      Data: Project.Scripts.ResourceConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
       Data: 4
@@ -111,7 +111,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: Project.Scripts.Resource, Assembly-CSharp
+      Data: Project.Scripts.ResourceConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
       Data: 5

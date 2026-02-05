@@ -9,7 +9,7 @@ namespace Project.Scripts
     {
         public Transform Origin { get; set; }
         public PlayerCastAnimations AnimationType { get; set; }
-
+        public SpellElementType SpellElementType { get; set; }
         public float Time => _time;
         public int ActiveCount => _instances.Count;
 
@@ -36,6 +36,7 @@ namespace Project.Scripts
         {
             ViewPrefab = viewPrefab;
             SpellConfig = config;
+            SpellElementType = config.ElementType;
 
             Speed = config.Speed;
             LifeTime = config.LifeTime;

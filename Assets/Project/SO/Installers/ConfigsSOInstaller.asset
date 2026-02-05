@@ -15,4 +15,4 @@ MonoBehaviour:
   _spellsConfig: {fileID: 11400000, guid: ad6f35a51257f0243a1ce5866a399769, type: 2}
   _itemsConfig: {fileID: 11400000, guid: 1a946d5514a7df248bc64a9ba29dca0c, type: 2}
   _statsConfig: {fileID: 11400000, guid: 43ec00f7e990dfd4c8b057e7c2977e08, type: 2}
-  _resourceConfig: {fileID: 11400000, guid: da964728119902c468885be564dd7d0f, type: 2}
+  _resourcesConfig: {fileID: 11400000, guid: da964728119902c468885be564dd7d0f, type: 2}

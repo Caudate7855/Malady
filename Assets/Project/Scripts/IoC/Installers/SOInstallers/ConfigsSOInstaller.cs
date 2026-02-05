@@ -10,7 +10,7 @@ namespace Project.Scripts.IoC.Installers
         [SerializeField] private SpellsConfig _spellsConfig;
         [SerializeField] private ItemsConfig _itemsConfig;
         [SerializeField] private StatsConfig _statsConfig;
-        [SerializeField] private ResourceConfig _resourceConfig;
+        [SerializeField] private ResourcesConfig _resourcesConfig;
         
         public override void InstallBindings()
         {
@@ -25,8 +25,8 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
             
             Container
-                .Bind<ResourceConfig>()
-                .FromInstance(_resourceConfig)
+                .Bind<ResourcesConfig>()
+                .FromInstance(_resourcesConfig)
                 .AsSingle();
             
             Container

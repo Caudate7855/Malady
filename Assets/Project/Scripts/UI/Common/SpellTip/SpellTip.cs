@@ -1,5 +1,5 @@
-﻿using Project.Scripts.Configs;
-using Sirenix.OdinInspector;
+﻿using System.Collections.Generic;
+using Project.Scripts.Configs;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,32 +9,50 @@ namespace Project.Scripts
     public class SpellTip : MonoBehaviour
     {
         [SerializeField] private Image _image;
-        
         [SerializeField] private TMP_Text _name;
         [SerializeField] private TMP_Text _description;
-
-        [SerializeField] private Image _resource1Image;
-        [SerializeField] private Image _resource2Image;
         
-        [SerializeField] private TMP_Text _resource1;
-        [SerializeField] private TMP_Text _resource2;
+        [SerializeField] private RectTransform _resourceObjectContainer;
+        [SerializeField] private SpellTipResource _spellTipResourcePrefab;
 
-        [Title("Images", bold: true)]
-        [SerializeField] private Sprite _essenceResourceImage;
+        private readonly List<SpellTipResource> _spellTipResources = new();
 
-        [SerializeField] private Sprite _bonesResourceImage;
-        [SerializeField] private Sprite _bloodResourceImage;
-        [SerializeField] private Sprite _fleshResourceImage;
-        [SerializeField] private Sprite _soulResourceImage;
-
-        public void SetInfo(SpellConfig spellConfig)
+        public void SetInfo(SpellConfig spellConfig, ResourceConfig resourceConfig)
         {
             _image.sprite = spellConfig.Icon;
             _name.text = spellConfig.Name;
             _description.text = spellConfig.Description;
 
-            _resource1.text = spellConfig.Cost[ResourceType.Essence].ToString();
-            _resource2.text = spellConfig.Cost[ResourceType.Blood].ToString();
+            FillResourceObjects(spellConfig.Cost, resourceConfig);
+        }
+
+        private void FillResourceObjects(Dictionary<ResourceType, float> cost, ResourceConfig resourceConfig)
+        {
+            var used = 0;
+
+            foreach (var kv in cost)
+            {
+                SpellTipResource view;
+
+                if (used < _spellTipResources.Count)
+                {
+                    view = _spellTipResources[used];
+                    view.gameObject.SetActive(true);
+                }
+                else
+                {
+                    view = Instantiate(_spellTipResourcePrefab, _resourceObjectContainer);
+                    _spellTipResources.Add(view);
+                }
+
+                view.SetInfo(resourceConfig.Icon, kv.Value);
+                used++;
+            }
+
+            for (var i = used; i < _spellTipResources.Count; i++)
+            {
+                _spellTipResources[i].gameObject.SetActive(false);
+            }
         }
     }
 }

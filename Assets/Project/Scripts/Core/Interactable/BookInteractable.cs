@@ -8,14 +8,16 @@ namespace Project.Scripts
     {
         [Inject] private IPanelManager _panelManager;
 
+        private BookSpellListController _bookSpellListController;
+
         private void Start()
         {
-            
+            _bookSpellListController = _panelManager.LoadPanel<BookSpellListController>();
         }
 
         public override void Interact()
         {
-            
+            _bookSpellListController.Open();
         }
     }
 }

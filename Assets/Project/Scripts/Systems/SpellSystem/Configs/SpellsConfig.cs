@@ -53,6 +53,9 @@ namespace Project.Scripts.Configs
         [ShowInInspector]
         [TypeFilter(nameof(GetFilteredTypeList))]
         public SpellBase Type;
+        
+        [FoldoutGroup("@Name")]
+        public SpellElementType ElementType;
 
         [FoldoutGroup("@Name")]
         public SpellViewBase SpellView;
