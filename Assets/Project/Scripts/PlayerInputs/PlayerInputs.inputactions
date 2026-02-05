@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "PlayerInputs",
     "maps": [
         {
@@ -9,7 +10,7 @@
                     "name": "Movement",
                     "type": "Button",
                     "id": "820afd6b-5191-415f-ab1a-030e82210eb4",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -24,46 +25,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SummonSpell 1",
-                    "type": "Button",
-                    "id": "aea0fac7-9a14-440c-8467-70f6605b4654",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SummonSpell 2",
-                    "type": "Button",
-                    "id": "0a0de187-03a8-4f1c-8b4a-f2788180a5ae",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SummonSpell 3",
-                    "type": "Button",
-                    "id": "55389bea-5c77-4560-a2a7-b3bf27b92851",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "SummonSpell 4",
-                    "type": "Button",
-                    "id": "2bcb511c-6704-4ed1-ab71-fc08be9c6248",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "PlayerSpell 1",
                     "type": "Button",
                     "id": "09fd2924-2fd0-4ff0-a6d4-061f2de00235",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -72,7 +37,7 @@
                     "name": "PlayerSpell 2",
                     "type": "Button",
                     "id": "11295637-9495-48f4-83d5-0e5d23547839",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -81,7 +46,7 @@
                     "name": "PlayerSpell 3",
                     "type": "Button",
                     "id": "3702b3c6-c72d-4a4a-89e2-e28ad6eb2974",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -90,7 +55,43 @@
                     "name": "PlayerSpell 4",
                     "type": "Button",
                     "id": "2fd539de-eb19-431e-ac96-a31550e33d64",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerSpell 5",
+                    "type": "Button",
+                    "id": "aea0fac7-9a14-440c-8467-70f6605b4654",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerSpell 6",
+                    "type": "Button",
+                    "id": "0a0de187-03a8-4f1c-8b4a-f2788180a5ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerSpell 7",
+                    "type": "Button",
+                    "id": "55389bea-5c77-4560-a2a7-b3bf27b92851",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PlayerSpell 8",
+                    "type": "Button",
+                    "id": "2bcb511c-6704-4ed1-ab71-fc08be9c6248",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -137,7 +138,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SummonSpell 1",
+                    "action": "PlayerSpell 5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -148,7 +149,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SummonSpell 2",
+                    "action": "PlayerSpell 6",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -159,7 +160,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SummonSpell 3",
+                    "action": "PlayerSpell 7",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -170,7 +171,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SummonSpell 4",
+                    "action": "PlayerSpell 8",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

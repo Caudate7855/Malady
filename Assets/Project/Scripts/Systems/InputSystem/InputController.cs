@@ -31,16 +31,15 @@ namespace Project.Scripts
             _mainUIController = _panelManager.LoadPanel<MainUIController>();
 
             _playerInputs.Gameplay.Inventory.performed += OnInventoryPerformed;
-
-            _playerInputs.Gameplay.SummonSpell1.performed += OnSummonSpellPerformed0;
-            _playerInputs.Gameplay.SummonSpell2.performed += OnSummonSpellPerformed1;
-            _playerInputs.Gameplay.SummonSpell3.performed += OnSummonSpellPerformed2;
-            _playerInputs.Gameplay.SummonSpell4.performed += OnSummonSpellPerformed3;
             
             _playerInputs.Gameplay.PlayerSpell1.performed += OnPlayerSpellPerformed0;
             _playerInputs.Gameplay.PlayerSpell2.performed += OnPlayerSpellPerformed1;
             _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
             _playerInputs.Gameplay.PlayerSpell4.performed += OnPlayerSpellPerformed3;
+            _playerInputs.Gameplay.PlayerSpell5.performed += OnPlayerSpellPerformed4;
+            _playerInputs.Gameplay.PlayerSpell6.performed += OnPlayerSpellPerformed5;
+            _playerInputs.Gameplay.PlayerSpell7.performed += OnPlayerSpellPerformed6;
+            _playerInputs.Gameplay.PlayerSpell8.performed += OnPlayerSpellPerformed7;
         }
         
         public void Update()
@@ -69,7 +68,7 @@ namespace Project.Scripts
                 _isInventoryOpened = true;
             }
         }
-
+        
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
             if (CheckSpell(_spellSystem.ChosenSpells, 0) == false)
@@ -118,24 +117,28 @@ namespace Project.Scripts
             _spellSystem.CastPlayerSpellByIndex(3);
         }
 
-        private void OnSummonSpellPerformed0(InputAction.CallbackContext obj)
+        private void OnPlayerSpellPerformed4(InputAction.CallbackContext obj)
         {
-            _mainUIController.OnSummonSpellButtonClicked(0);
+            _mainUIController.OnPlayerSpellButtonClicked(4);
+            _spellSystem.CastPlayerSpellByIndex(4);
         }
 
-        private void OnSummonSpellPerformed1(InputAction.CallbackContext obj)
+        private void OnPlayerSpellPerformed5(InputAction.CallbackContext obj)
         {
-            _mainUIController.OnSummonSpellButtonClicked(1);
+            _mainUIController.OnPlayerSpellButtonClicked(5);
+            _spellSystem.CastPlayerSpellByIndex(5);
         }
 
-        private void OnSummonSpellPerformed2(InputAction.CallbackContext obj)
+        private void OnPlayerSpellPerformed6(InputAction.CallbackContext obj)
         {
-            _mainUIController.OnSummonSpellButtonClicked(2);
+            _mainUIController.OnPlayerSpellButtonClicked(6);
+            _spellSystem.CastPlayerSpellByIndex(6);
         }
 
-        private void OnSummonSpellPerformed3(InputAction.CallbackContext obj)
+        private void OnPlayerSpellPerformed7(InputAction.CallbackContext obj)
         {
-            _mainUIController.OnSummonSpellButtonClicked(3);
+            _mainUIController.OnPlayerSpellButtonClicked(7);
+            _spellSystem.CastPlayerSpellByIndex(7);
         }
 
         private bool CheckSpell(List<ISpell> list, int index)

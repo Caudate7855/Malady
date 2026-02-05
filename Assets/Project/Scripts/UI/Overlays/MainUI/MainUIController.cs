@@ -9,10 +9,5 @@ namespace Project.Scripts
         {
             
         }
-
-        public void OnSummonSpellButtonClicked(int index)
-        {
-            
-        }
     }
 }
