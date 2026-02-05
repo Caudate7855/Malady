@@ -10,20 +10,34 @@ namespace Project.Scripts.Configs
     [CreateAssetMenu(fileName = nameof(SpellsConfig), menuName = "Configs/" + nameof(SpellsConfig))]
     public sealed class SpellsConfig : SerializedScriptableObject
     {
-        [OdinSerialize] public List<SpellConfig> SpellConfigs { get; private set; } = new();
+        [OdinSerialize] public List<SpellConfigWrapper> SpellConfigsWrappers { get; private set; } = new();
 
         public SpellConfig GetSpellConfig(Type spellType)
         {
-            for (var i = 0; i < SpellConfigs.Count; i++)
+            for (var i = 0; i < SpellConfigsWrappers.Count; i++)
             {
-                if (SpellConfigs[i].Type.GetType() == spellType)
+                for (int j = 0; j < SpellConfigsWrappers[i].SpellConfigs.Count; j++)
                 {
-                    return SpellConfigs[i];
+                    if (SpellConfigsWrappers[i].SpellConfigs[j].Type.GetType() == spellType)
+                    {
+                        return SpellConfigsWrappers[i].SpellConfigs[j];
+                    }
                 }
             }
 
             throw new Exception($"Spell {spellType.Name} not found");
         }
+    }
+
+    [Serializable]
+    public struct SpellConfigWrapper
+    {
+        [FoldoutGroup("@ElementType")]
+        public SpellElementType ElementType;
+        
+        [OdinSerialize]
+        [FoldoutGroup("@ElementType")]
+        public List<SpellConfig> SpellConfigs { get; private set; }
     }
 
     [Serializable]

@@ -1,7 +1,6 @@
 ﻿using System;
 using Itibsoft.PanelManager;
 using Project.Scripts.Configs;
-using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts
