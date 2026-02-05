@@ -17,7 +17,7 @@ namespace Project.Scripts
 
         private readonly List<SpellTipResource> _spellTipResources = new();
 
-        public void SetInfo(SpellConfig spellConfig, ResourceConfig resourceConfig)
+        public void SetInfo(SpellConfig spellConfig, ResourcesConfig resourceConfig)
         {
             _image.sprite = spellConfig.Icon;
             _name.text = spellConfig.Name;
@@ -26,7 +26,7 @@ namespace Project.Scripts
             FillResourceObjects(spellConfig.Cost, resourceConfig);
         }
 
-        private void FillResourceObjects(Dictionary<ResourceType, float> cost, ResourceConfig resourceConfig)
+        private void FillResourceObjects(Dictionary<ResourceType, float> cost, ResourcesConfig resourceConfig)
         {
             var used = 0;
 
@@ -45,7 +45,9 @@ namespace Project.Scripts
                     _spellTipResources.Add(view);
                 }
 
-                view.SetInfo(resourceConfig.Icon, kv.Value);
+                var sprite = resourceConfig.GetResourceConfig(kv.Key).Icon; 
+                
+                view.SetInfo(sprite, kv.Value);
                 used++;
             }
 

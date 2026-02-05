@@ -1,12 +1,15 @@
-﻿using Itibsoft.PanelManager;
+﻿using System;
+using Itibsoft.PanelManager;
 using Project.Scripts.Configs;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "BookSpellListView")]
-    public class BookSpellListController : PanelControllerBase<BookSpellListView>
+    public class BookSpellListController : PanelControllerBase<BookSpellListView>, IDisposable
     {
-        private readonly SpellTip _spellTip;
+        private SpellTip _spellTip;
         private readonly SpellsConfig _spellConfig;
         private readonly ResourcesConfig _resourcesConfig;
         
@@ -19,18 +22,50 @@ namespace Project.Scripts
         
         protected override void Initialize()
         {
+            Panel.CloseButton.onClick.AddListener(Close);
+            
+            
+            var canvas = Object.FindFirstObjectByType<Canvas>();
+            _spellTip = Object.Instantiate(_spellTip, canvas.transform);
+            
             InitSpellsList();
         }
 
         private void InitSpellsList()
         {
-            foreach (var spellConfig in _spellConfig.SpellConfigs)
+            foreach (var uiButton in Panel.BloodUIButtons)
             {
-                if (spellConfig.ElementType == SpellElementType.Blood)
-                {
-                    
-                }
+                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+
+                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
             }
+            
+            foreach (var uiButton in Panel.BonesUIButtons)
+            {
+                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+
+                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+            }
+            
+            foreach (var uiButton in Panel.SoulUIButtons)
+            {
+                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+
+                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+            }
+            
+            foreach (var uiButton in Panel.FleshUIButtons)
+            {
+                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+
+                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+            }
+        }
+
+
+        public void Dispose()
+        {
+            Panel.CloseButton.onClick.RemoveListener(Close);
         }
     }
 }

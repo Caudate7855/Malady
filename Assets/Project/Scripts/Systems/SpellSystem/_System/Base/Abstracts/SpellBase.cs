@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Project.Scripts
 {
+    [Serializable]
     public abstract class SpellBase : ISpell
     {
         public Transform Origin { get; set; }

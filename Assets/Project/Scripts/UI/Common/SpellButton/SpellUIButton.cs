@@ -14,30 +14,27 @@ namespace Project.Scripts
     public class SpellUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler,
         IEndDragHandler, IDragHandler
     {
+        [SerializeField] private Image _image;
+        
         public SpellParentType SpellParentType;
         
         [ShowIf("SpellParentType", SpellParentType.Book)]
         [ShowInInspector]
+        [SerializeReference]
         [TypeFilter(nameof(GetFilteredTypeList))]
         public SpellBase Spell;
         
         private SpellTip _spellTip;
         private SpellConfig _spellConfig;
-        private ResourceConfig _resourceConfig;
-        
-        private void Awake()
-        {
-            if (SpellParentType == SpellParentType.Book)
-            {
-                
-            }
-        }
+        private ResourcesConfig _resourceConfig;
 
-        public void Init(SpellTip spellTip, SpellConfig spellConfig, ResourceConfig resourceConfig)
+        public void Init(SpellTip spellTip, SpellConfig spellConfig, ResourcesConfig resourceConfig)
         {
             _spellTip = spellTip;
             _spellConfig = spellConfig;
             _resourceConfig = resourceConfig;
+
+            _image.sprite = spellConfig.Icon;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
