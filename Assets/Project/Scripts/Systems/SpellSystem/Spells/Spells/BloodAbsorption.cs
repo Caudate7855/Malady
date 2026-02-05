@@ -2,7 +2,7 @@
 using Project.Scripts.Configs;
 using UnityEngine;
 
-namespace Project.Scripts.Spells
+namespace Project.Scripts
 {
     [Serializable]
     public sealed class BloodAbsorption : SpellBase

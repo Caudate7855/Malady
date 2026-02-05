@@ -1,6 +1,6 @@
 ﻿namespace Project.Scripts.Spells
 {
-    public class BloodAbsorptionView : SpellViewBase
+    public class BoneArmorView : SpellViewBase
     {
         
     }

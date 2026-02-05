@@ -30,18 +30,18 @@ namespace Project.Scripts.Configs
     }
 
     [Serializable]
-    public struct SpellConfigWrapper
+    public class SpellConfigWrapper
     {
         [FoldoutGroup("@ElementType")]
         public SpellElementType ElementType;
-        
+
         [OdinSerialize]
         [FoldoutGroup("@ElementType")]
-        public List<SpellConfig> SpellConfigs { get; private set; }
+        public List<SpellConfig> SpellConfigs { get; private set; } = new();
     }
 
     [Serializable]
-    public struct SpellConfig
+    public sealed class SpellConfig
     {
         [FoldoutGroup("@Name")]
         [HorizontalGroup("@Name/Horizontal", 100)]
@@ -65,6 +65,7 @@ namespace Project.Scripts.Configs
 
         [FoldoutGroup("@Name")]
         [ShowInInspector]
+        [SerializeReference]
         [TypeFilter(nameof(GetFilteredTypeList))]
         public SpellBase Type;
         

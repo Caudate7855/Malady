@@ -1,6 +1,7 @@
 ﻿using System;
 using Itibsoft.PanelManager;
 using Project.Scripts.Configs;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts
@@ -12,23 +13,24 @@ namespace Project.Scripts
         private readonly SpellsConfig _spellConfig;
         private readonly ResourcesConfig _resourcesConfig;
         private readonly IPanelManager _panelManager;
-        
-        public BookSpellListController(SpellTip spellTip, SpellsConfig spellConfig, ResourcesConfig resourcesConfig, IPanelManager panelManager)
+
+        public BookSpellListController(SpellTip spellTip, SpellsConfig spellConfig, ResourcesConfig resourcesConfig,
+            IPanelManager panelManager)
         {
             _spellTip = spellTip;
             _spellConfig = spellConfig;
             _resourcesConfig = resourcesConfig;
             _panelManager = panelManager;
         }
-        
+
         protected override void Initialize()
         {
             Panel.CloseButton.onClick.AddListener(Close);
-            
-            
+
+
             _spellTip = Object.Instantiate(_spellTip, _panelManager.PanelDispatcher.Canvas.transform);
             _spellTip.Init(_panelManager.PanelDispatcher.Canvas);
-            
+
             InitSpellsList();
         }
 
@@ -36,30 +38,41 @@ namespace Project.Scripts
         {
             foreach (var uiButton in Panel.BloodUIButtons)
             {
-                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
-
-                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                if (uiButton.Spell != null)
+                {
+                    var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+                    uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                }
             }
-            
+
             foreach (var uiButton in Panel.BonesUIButtons)
             {
-                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+                if (uiButton.Spell != null)
+                {
+                    var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
 
-                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                    uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                }
             }
-            
+
             foreach (var uiButton in Panel.SoulUIButtons)
             {
-                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+                if (uiButton.Spell != null)
+                {
+                    var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
 
-                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                    uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                }
             }
-            
+
             foreach (var uiButton in Panel.FleshUIButtons)
             {
-                var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
+                if (uiButton.Spell != null)
+                {
+                    var spellConfig = _spellConfig.GetSpellConfig(uiButton.Spell.GetType());
 
-                uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                    uiButton.Init(_spellTip, spellConfig, _resourcesConfig);
+                }
             }
         }
 

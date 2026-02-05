@@ -1,4 +1,4 @@
-﻿namespace Project.Scripts.Spells
+﻿namespace Project.Scripts
 {
     public class BloodLanceView : SpellViewBase
     {

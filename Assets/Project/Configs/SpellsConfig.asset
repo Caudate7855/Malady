@@ -17,15 +17,33 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: d633e54cd0af8264f8bac0a8b7927e46, type: 3}
+    - {fileID: 21300000, guid: d240d3b98457caa419079968205d3103, type: 3}
     - {fileID: 21300000, guid: 2ac3d27e00685634899f2e63dfb41a2f, type: 3}
+    - {fileID: 21300000, guid: 110a49c07cc841442a0ccebf54aeb534, type: 3}
+    - {fileID: 21300000, guid: e67550cac7995014ca2095aac57a01a1, type: 3}
+    - {fileID: 21300000, guid: 5d2fb82fb818fdc4ca6addee8cc6bfcf, type: 3}
+    - {fileID: 21300000, guid: 9dc3de20ebe6f08418e271b6faeebaef, type: 3}
+    - {fileID: 21300000, guid: 10d541343ba98f6438a4e3fae5b16921, type: 3}
+    - {fileID: 21300000, guid: 3f0eae8be53a2224388d64ac73739ea3, type: 3}
+    - {fileID: 21300000, guid: 8dee1d7aa0c1bf549af0993f8c7d51a8, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: SpellConfigsWrappers
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Project.Scripts.Configs.SpellConfigWrapper,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfigWrapper, Assembly-CSharp
     - Name: SpellConfigs
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Project.Scripts.Configs.SpellConfig,
+      Data: 1|System.Collections.Generic.List`1[[Project.Scripts.Configs.SpellConfig,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -41,12 +59,9 @@ MonoBehaviour:
       Data: Blood lance
     - Name: Description
       Entry: 1
-      Data: Blood lance desc
+      Data: ddd
     - Name: Type
-      Entry: 7
-      Data: 1|Project.Scripts.Spells.BloodLance, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: ElementType
       Entry: 3
@@ -79,10 +94,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: $v
       Entry: 4
-      Data: 5
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -115,15 +130,108 @@ MonoBehaviour:
       Data: 1
     - Name: Name
       Entry: 1
+      Data: Blood absorption
+    - Name: Description
+      Entry: 1
+      Data: ddd
+    - Name: Type
+      Entry: 6
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 4|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 5|System.Collections.Generic.EnumEqualityComparer`1[[Project.Scripts.ResourceType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfigWrapper, Assembly-CSharp
+    - Name: SpellConfigs
+      Entry: 7
+      Data: 6|System.Collections.Generic.List`1[[Project.Scripts.Configs.SpellConfig,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 2
+    - Name: Name
+      Entry: 1
       Data: Bone spear
     - Name: Description
       Entry: 1
-      Data: Bone spear desc
+      Data: Bone spear
     - Name: Type
-      Entry: 7
-      Data: 4|Project.Scripts.Spells.BoneSpear, Assembly-CSharp
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
     - Name: ElementType
       Entry: 3
@@ -133,7 +241,7 @@ MonoBehaviour:
       Data: 
     - Name: Cost
       Entry: 7
-      Data: 5|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+      Data: 7|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
         Assembly-CSharp],[System.Single, mscorlib]], mscorlib
     - Name: comparer
       Entry: 9
@@ -146,10 +254,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: $v
       Entry: 4
-      Data: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -171,6 +279,629 @@ MonoBehaviour:
     - Name: Speed
       Entry: 4
       Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 3
+    - Name: Name
+      Entry: 1
+      Data: Bone armor
+    - Name: Description
+      Entry: 1
+      Data: Bone armor
+    - Name: Type
+      Entry: 7
+      Data: 8|Project.Scripts.BoneArmor, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 9|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 10|System.Collections.Generic.EnumEqualityComparer`1[[Project.Scripts.ResourceType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 4
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 4
+    - Name: Name
+      Entry: 1
+      Data: Summon skeleton archer
+    - Name: Description
+      Entry: 1
+      Data: Summon skeleton archer
+    - Name: Type
+      Entry: 7
+      Data: 11|Project.Scripts.SummonSkeletonArcher, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 12|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 10
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 5
+    - Name: Name
+      Entry: 1
+      Data: Summon skeleton mage
+    - Name: Description
+      Entry: 1
+      Data: Summon skeleton mage
+    - Name: Type
+      Entry: 7
+      Data: 13|Project.Scripts.SummonSkeletonMage, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 14|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 15|System.Collections.Generic.EnumEqualityComparer`1[[Project.Scripts.ResourceType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfigWrapper, Assembly-CSharp
+    - Name: SpellConfigs
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[Project.Scripts.Configs.SpellConfig,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 6
+    - Name: Name
+      Entry: 1
+      Data: Soul corruption
+    - Name: Description
+      Entry: 1
+      Data: Soul corruption
+    - Name: Type
+      Entry: 7
+      Data: 17|Project.Scripts.SoulCorruption, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 18|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 19|System.Collections.Generic.EnumEqualityComparer`1[[Project.Scripts.ResourceType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 4
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 7
+    - Name: Name
+      Entry: 1
+      Data: Soul mage
+    - Name: Description
+      Entry: 1
+      Data: Soul mage
+    - Name: Type
+      Entry: 7
+      Data: 20|Project.Scripts.SoulMage, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 21|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 19
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 4
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfigWrapper, Assembly-CSharp
+    - Name: SpellConfigs
+      Entry: 7
+      Data: 22|System.Collections.Generic.List`1[[Project.Scripts.Configs.SpellConfig,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 8
+    - Name: Name
+      Entry: 1
+      Data: Corpse explosion
+    - Name: Description
+      Entry: 1
+      Data: Corpse explosion
+    - Name: Type
+      Entry: 7
+      Data: 23|Project.Scripts.CorpseExplosion, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 3
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 24|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 25|System.Collections.Generic.EnumEqualityComparer`1[[Project.Scripts.ResourceType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.Configs.SpellConfig, Assembly-CSharp
+    - Name: Icon
+      Entry: 10
+      Data: 9
+    - Name: Name
+      Entry: 1
+      Data: Flesh golem
+    - Name: Description
+      Entry: 1
+      Data: Flesh golem
+    - Name: Type
+      Entry: 7
+      Data: 26|Project.Scripts.FleshGolem, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 3
+    - Name: SpellView
+      Entry: 6
+      Data: 
+    - Name: Cost
+      Entry: 7
+      Data: 27|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
+        Assembly-CSharp],[System.Single, mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 28|System.Collections.Generic.EnumEqualityComparer`1[[Project.Scripts.ResourceType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 4
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 4
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 4
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HasLifeTime
+      Entry: 5
+      Data: false
+    - Name: LifeTime
+      Entry: 4
+      Data: 0
+    - Name: HasSpeed
+      Entry: 5
+      Data: false
+    - Name: Speed
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ElementType
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 

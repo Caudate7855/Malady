@@ -15,15 +15,15 @@ namespace Project.Scripts
         IEndDragHandler, IDragHandler
     {
         [SerializeField] private Image _image;
-        
+
         public SpellParentType SpellParentType;
-        
+
         [ShowIf("SpellParentType", SpellParentType.Book)]
         [ShowInInspector]
         [SerializeReference]
         [TypeFilter(nameof(GetFilteredTypeList))]
         public SpellBase Spell;
-        
+
         private SpellTip _spellTip;
         private SpellConfig _spellConfig;
         private ResourcesConfig _resourceConfig;
@@ -39,30 +39,33 @@ namespace Project.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _spellTip.SetInfo(_spellConfig, _resourceConfig);
-            _spellTip.Open();
+            if (Spell != null)
+            {
+                _spellTip.SetInfo(_spellConfig, _resourceConfig);
+                _spellTip.Open();
+            }
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _spellTip.Close();
+            if (Spell != null)
+            {
+                _spellTip.Close();
+            }
         }
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            
         }
-        
+
         private IEnumerable<Type> GetFilteredTypeList()
         {
             var type = typeof(SpellBase).Assembly.GetTypes()
