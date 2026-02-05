@@ -4,12 +4,13 @@ using Zenject;
 
 namespace Project.Scripts.IoC.Installers
 {
-    [CreateAssetMenu(fileName = "SOContainersInstaller", menuName = "Installers/SOContainersInstaller")]
-    public class SOContainersInstaller : ScriptableObjectInstaller<SOContainersInstaller>
+    [CreateAssetMenu(fileName = nameof(ConfigsSOInstaller), menuName = "Installers/" + nameof(ConfigsSOInstaller))]
+    public class ConfigsSOInstaller : ScriptableObjectInstaller<ConfigsSOInstaller>
     {
         [SerializeField] private SpellsConfig _spellsConfig;
         [SerializeField] private ItemsConfig _itemsConfig;
         [SerializeField] private StatsConfig _statsConfig;
+        [SerializeField] private ResourceConfig _resourceConfig;
         
         public override void InstallBindings()
         {
@@ -21,6 +22,11 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<SpellsConfig>()
                 .FromInstance(_spellsConfig)
+                .AsSingle();
+            
+            Container
+                .Bind<ResourceConfig>()
+                .FromInstance(_resourceConfig)
                 .AsSingle();
             
             Container

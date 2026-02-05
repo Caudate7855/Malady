@@ -9,6 +9,8 @@ namespace Project.Scripts
     public class SpellUIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IBeginDragHandler,
         IEndDragHandler, IDragHandler
     {
+        public SpellParentType SpellParentType; 
+        
         public void OnPointerEnter(PointerEventData eventData)
         {
             

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
 using Project.Scripts.Services;
-using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -119,24 +118,44 @@ namespace Project.Scripts
 
         private void OnPlayerSpellPerformed4(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystem.ChosenSpells, 4) == false)
+            {
+                return;
+            }
+            
             _mainUIController.OnPlayerSpellButtonClicked(4);
             _spellSystem.CastPlayerSpellByIndex(4);
         }
 
         private void OnPlayerSpellPerformed5(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystem.ChosenSpells, 5) == false)
+            {
+                return;
+            }
+            
             _mainUIController.OnPlayerSpellButtonClicked(5);
             _spellSystem.CastPlayerSpellByIndex(5);
         }
 
         private void OnPlayerSpellPerformed6(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystem.ChosenSpells, 6) == false)
+            {
+                return;
+            }
+            
             _mainUIController.OnPlayerSpellButtonClicked(6);
             _spellSystem.CastPlayerSpellByIndex(6);
         }
 
         private void OnPlayerSpellPerformed7(InputAction.CallbackContext obj)
         {
+            if (CheckSpell(_spellSystem.ChosenSpells, 7) == false)
+            {
+                return;
+            }
+            
             _mainUIController.OnPlayerSpellButtonClicked(7);
             _spellSystem.CastPlayerSpellByIndex(7);
         }

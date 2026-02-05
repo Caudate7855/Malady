@@ -56,6 +56,10 @@ namespace Project.Scripts.Configs
 
         [FoldoutGroup("@Name")]
         public SpellViewBase SpellView;
+        
+        [FoldoutGroup("@Name")]
+        [DictionaryDrawerSettings(KeyLabel = "Resource type", ValueLabel = "Count")]
+        public Dictionary<ResourceType, float> Cost;
 
         [VerticalGroup("@Name/Vertical")]
         [HorizontalGroup("@Name/Vertical/HorizontalGroup_1", width: 120)]

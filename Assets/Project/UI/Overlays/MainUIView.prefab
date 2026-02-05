@@ -2929,6 +2929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!224 &5336970332675829709 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
@@ -3056,6 +3057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!224 &4830876848597812843 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
@@ -3192,6 +3194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!1001 &6179163400991426996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3319,6 +3322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!1001 &6715494357828486921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3450,6 +3454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!1001 &7520370058151131918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3581,6 +3586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!1001 &7763760486193053942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3712,6 +3718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
 --- !u!1001 &8073046435570412023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3843,3 +3850,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
+  SpellParentType: 1
