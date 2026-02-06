@@ -64,8 +64,7 @@ namespace Project.Scripts.Configs
         public string Description;
 
         [FoldoutGroup("@Name")]
-        [ShowInInspector]
-        [SerializeReference]
+        [OdinSerialize]
         [TypeFilter(nameof(GetFilteredTypeList))]
         public SpellBase Type;
         
