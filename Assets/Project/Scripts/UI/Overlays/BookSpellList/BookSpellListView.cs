@@ -12,10 +12,10 @@ namespace Project.Scripts
         public Button PassivePerksButton => _passivePerksButton;
         public Button MemoriesButton => _memoriesButton;
 
-        public List<SpellUIButton> BloodUIButtons => _bloodUIButtons;
-        public List<SpellUIButton> SoulUIButtons => _soulsUIButtons;
-        public List<SpellUIButton> BonesUIButtons => _bonesUIButtons;
-        public List<SpellUIButton> FleshUIButtons => _fleshUIButtons;
+        public List<SpellSlot> BloodSpellSlots => _bloodSpellSlots;
+        public List<SpellSlot> SoulSpellSlots => _soulsSpellSlots;
+        public List<SpellSlot> BonesSpellSlots => _bonesSpellSlots;
+        public List<SpellSlot> FleshSpellSlots => _fleshSpellSlots;
         
         [Title("Buttons", bold: true)]
         [SerializeField] private Button _closeButton;
@@ -23,9 +23,9 @@ namespace Project.Scripts
         [SerializeField] private Button _memoriesButton;
         
         [Title("Lists", bold: true)]
-        [SerializeField] private List<SpellUIButton> _bloodUIButtons;
-        [SerializeField] private List<SpellUIButton> _soulsUIButtons;
-        [SerializeField] private List<SpellUIButton> _bonesUIButtons;
-        [SerializeField] private List<SpellUIButton> _fleshUIButtons;
+        [SerializeField] private List<SpellSlot> _bloodSpellSlots;
+        [SerializeField] private List<SpellSlot> _soulsSpellSlots;
+        [SerializeField] private List<SpellSlot> _bonesSpellSlots;
+        [SerializeField] private List<SpellSlot> _fleshSpellSlots;
     }
 }

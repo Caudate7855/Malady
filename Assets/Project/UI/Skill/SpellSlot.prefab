@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5260542861767541073}
   - component: {fileID: 4797419918173139092}
   - component: {fileID: 4053217260756130009}
-  - component: {fileID: 2417780861914554117}
+  - component: {fileID: 4307253115055523266}
   m_Layer: 0
-  m_Name: SpellUIButton
+  m_Name: SpellSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2417780861914554117
+--- !u!114 &4307253115055523266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,13 +205,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579356579465426612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
+  m_Script: {fileID: 11500000, guid: c9f788886ef44d9cb4fb585af5d882b4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  _image: {fileID: 4487852905734235298}
-  SpellParentType: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellSlot
+  _kind: 0
+  _content: {fileID: 7812473757394644511}
+  _spellParentType: 0
   Spell:
     rid: -2
+  ItemsContainer: {fileID: 7812473757394644511}
+  _image: {fileID: 4487852905734235298}
+  _bookItemPrefab: {fileID: 4149895543395391122, guid: 24cd75c8993fbb54e82193c0a62d7265, type: 3}
   references:
     version: 2
     RefIds:

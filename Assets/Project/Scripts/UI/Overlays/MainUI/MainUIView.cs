@@ -21,6 +21,6 @@ namespace Project.Scripts
         
         [Space]
         [Title("Spell buttons", horizontalLine: false, bold: true)]
-        [field: SerializeField] public List<SpellUIButton> SpellUIButtons;
+        [field: SerializeField] public List<DragAndDropSlot> SpellUISlots;
     }
 }

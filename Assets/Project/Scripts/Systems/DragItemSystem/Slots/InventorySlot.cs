@@ -6,7 +6,7 @@ namespace Project.Scripts
     {
         public RectTransform ItemsContainer;
 
-        public SlotType SlotType;
+        public InventorySlotType _inventorySlotType;
 
         public new InventoryItem Item => (InventoryItem)base.Item;
         public bool IsContainItem => base.HasItem;

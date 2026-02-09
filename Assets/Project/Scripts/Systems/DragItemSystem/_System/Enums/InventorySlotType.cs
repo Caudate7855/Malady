@@ -1,6 +1,6 @@
 namespace Project.Scripts
 {
-    public enum SlotType
+    public enum InventorySlotType
     {
         Inventory = 0,
         Weapon = 1,

@@ -69,15 +69,7 @@ MonoBehaviour:
   BloodBar: {fileID: 7529597732207161190}
   FleshBar: {fileID: 8627607126921216215}
   SoulBar: {fileID: 5549616102509597048}
-  SpellUIButtons:
-  - {fileID: 8810052132682125751}
-  - {fileID: 4613445482223252589}
-  - {fileID: 8112319350297490875}
-  - {fileID: 2988104726894053237}
-  - {fileID: 798813615530633140}
-  - {fileID: 6131688284510622712}
-  - {fileID: 5996905987622197421}
-  - {fileID: 1386680365666044478}
+  SpellUISlots: []
 --- !u!1 &624939912415060523
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +378,7 @@ GameObject:
   - component: {fileID: 225370609132542071}
   - component: {fileID: 8997944925642456084}
   m_Layer: 0
-  m_Name: Down
+  m_Name: ActionBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2811,17 +2803,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _index
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -2903,33 +2891,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5996905987622197421}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
---- !u!1 &3715682105386547046 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 2773022479443116498}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5996905987622197421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3715682105386547046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!224 &5336970332675829709 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
@@ -2943,13 +2909,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3031,33 +2997,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8810052132682125751}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
---- !u!1 &4218399417494085312 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 3414225064701552756}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8810052132682125751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4218399417494085312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!224 &4830876848597812843 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
@@ -3071,17 +3015,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _index
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3163,38 +3103,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6131688284510622712}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
 --- !u!224 &4375066505534760837 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
   m_PrefabInstance: {fileID: 5826567975201294746}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4987491134247550766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 5826567975201294746}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6131688284510622712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4987491134247550766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!1001 &6179163400991426996
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3203,13 +3121,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3291,38 +3209,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 798813615530633140}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
 --- !u!224 &4155616440313046955 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
   m_PrefabInstance: {fileID: 6179163400991426996}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4624013944955485952 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 6179163400991426996}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &798813615530633140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4624013944955485952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!1001 &6715494357828486921
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3331,17 +3227,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _index
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3423,38 +3315,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4613445482223252589}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
 --- !u!224 &3555945900219066646 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
   m_PrefabInstance: {fileID: 6715494357828486921}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5249291682825351613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 6715494357828486921}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4613445482223252589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5249291682825351613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!1001 &7520370058151131918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3463,17 +3333,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _index
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3555,38 +3421,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2988104726894053237}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
 --- !u!224 &303645272834397457 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
   m_PrefabInstance: {fileID: 7520370058151131918}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9058630877472525754 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 7520370058151131918}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2988104726894053237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9058630877472525754}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!1001 &7763760486193053942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3595,17 +3439,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3770312511426757388}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _index
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3687,38 +3527,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8112319350297490875}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
 --- !u!224 &564375445992238825 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
   m_PrefabInstance: {fileID: 7763760486193053942}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9103300384276231746 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 7763760486193053942}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8112319350297490875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9103300384276231746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1
 --- !u!1001 &8073046435570412023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3727,17 +3545,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4164612109000517890}
     m_Modifications:
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _index
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      propertyPath: _spellParentType
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellUIButton (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _spellParentType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Pivot.x
@@ -3819,35 +3633,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 547956484023551137, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1386680365666044478}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
 --- !u!224 &2045271434891741160 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7812473757394644511, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
   m_PrefabInstance: {fileID: 8073046435570412023}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7341492487050895171 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
-  m_PrefabInstance: {fileID: 8073046435570412023}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1386680365666044478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341492487050895171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f00ea4e7e462deb4cacda9b9483430e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellUIButton
-  SpellParentType: 1

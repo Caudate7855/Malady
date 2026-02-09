@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
@@ -24,7 +25,9 @@ namespace Project.Scripts
 
         private DragAndDropItemBase _dragItem;
         private DragAndDropSlot _fromSlot;
-
+        private bool _isSpellBookDuplicate;
+        private SpellSlot _spellBookSourceSlot;
+        
         private Vector2 _lastScreenPos;
 
         public DragAndDropSystem(IPanelManager panelManager)
@@ -108,15 +111,37 @@ namespace Project.Scripts
                 return;
             }
 
-            _dragItem = item;
+            _isSpellBookDuplicate = false;
+            _spellBookSourceSlot = null;
+
             _fromSlot = item.Slot;
 
+            if (_fromSlot is SpellSlot spellSlot && spellSlot.SpellParentType == SpellParentType.Book)
+            {
+                var cloneGo = Object.Instantiate(item.gameObject, _dragRoot, false);
+                var clone = cloneGo.GetComponent<DragAndDropItemBase>();
+
+                _dragItem = clone;
+                _isSpellBookDuplicate = true;
+                _spellBookSourceSlot = spellSlot;
+
+                if (_dragItem is SpellItem si)
+                {
+                    si.CurrentSpellSlot = null;
+                }
+
+                _dragItem.SetSlot(null);
+            }
+            else
+            {
+                _dragItem = item;
+                _dragItem.transform.SetParent(_dragRoot, false);
+            }
+
             _lastScreenPos = Input.mousePosition;
-
-            _dragItem.transform.SetParent(_dragRoot, false);
-
             Drag(_lastScreenPos);
         }
+
 
         private void Drag(Vector2 screenPos)
         {
@@ -174,6 +199,13 @@ namespace Project.Scripts
                 EndDragInventory(fromInv, toInv);
                 return;
             }
+            
+            if (_fromSlot is SpellSlot fromSpell && targetSlot is SpellSlot toSpell)
+            {
+                EndDragSpell(fromSpell, toSpell);
+                return;
+            }
+
 
             EndDragSwap(targetSlot);
         }
@@ -222,7 +254,7 @@ namespace Project.Scripts
                 return;
             }
 
-            var targetOk = toSlot.SlotType == SlotType.Inventory || toSlot.SlotType == invItem.SlotType;
+            var targetOk = toSlot._inventorySlotType == InventorySlotType.Inventory || toSlot._inventorySlotType == invItem._inventorySlotType;
             if (!targetOk)
             {
                 ReturnToFromSlot();
@@ -244,6 +276,64 @@ namespace Project.Scripts
             rt.anchoredPosition = Vector2.zero;
 
             invItem.CurrentInventorySlot = toSlot;
+
+            ClearDrag();
+        }
+        
+        private void EndDragSpell(SpellSlot fromSlot, SpellSlot toSlot)
+        {
+            if (toSlot.SpellParentType == SpellParentType.Book)
+            {
+                ReturnSpellDuplicateOrBack();
+                ClearDrag();
+                return;
+            }
+
+            var spellItem = _dragItem as SpellItem;
+            if (spellItem == null)
+            {
+                ReturnSpellDuplicateOrBack();
+                ClearDrag();
+                return;
+            }
+
+            if (_isSpellBookDuplicate)
+            {
+                if (toSlot.IsContainItem)
+                {
+                    ReturnSpellDuplicateOrBack();
+                    ClearDrag();
+                    return;
+                }
+
+                toSlot.SetItem(spellItem);
+                var rt = (RectTransform)spellItem.transform;
+                rt.anchoredPosition = Vector2.zero;
+
+                spellItem.CurrentSpellSlot = toSlot;
+
+                ClearDrag();
+                return;
+            }
+
+            var targetItem = (SpellItem)toSlot.ClearItem();
+            var fromItem = (SpellItem)fromSlot.ClearItem();
+
+            toSlot.SetItem(fromItem);
+            if (fromItem != null)
+            {
+                var rtA = (RectTransform)fromItem.transform;
+                rtA.anchoredPosition = Vector2.zero;
+                fromItem.CurrentSpellSlot = toSlot;
+            }
+
+            fromSlot.SetItem(targetItem);
+            if (targetItem != null)
+            {
+                var rtB = (RectTransform)targetItem.transform;
+                rtB.anchoredPosition = Vector2.zero;
+                targetItem.CurrentSpellSlot = fromSlot;
+            }
 
             ClearDrag();
         }
@@ -280,11 +370,29 @@ namespace Project.Scripts
                 rt.anchoredPosition = Vector2.zero;
             }
         }
+        
+        private void ReturnSpellDuplicateOrBack()
+        {
+            if (_isSpellBookDuplicate)
+            {
+                if (_dragItem != null)
+                {
+                    Object.Destroy(_dragItem.gameObject);
+                }
+
+                return;
+            }
+
+            ReturnToFromSlot();
+        }
 
         private void ClearDrag()
         {
             _dragItem = null;
             _fromSlot = null;
+
+            _isSpellBookDuplicate = false;
+            _spellBookSourceSlot = null;
         }
     }
 }
