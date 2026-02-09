@@ -1,4 +1,3 @@
-using Project.Scripts.Services;
 using Zenject;
 
 namespace Project.Scripts.IoC.Installers
@@ -28,6 +27,10 @@ namespace Project.Scripts.IoC.Installers
 
             Container
                 .BindInterfacesAndSelfTo<MouseFsm>()
+                .AsSingle();
+            
+            Container
+                .BindInterfacesAndSelfTo<SpellTipService>()
                 .AsSingle();
         }
     }

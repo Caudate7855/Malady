@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     public class SceneLoader : ISceneLoader
     {

@@ -2,7 +2,7 @@
 using R3;
 using UnityEngine;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     public class RangeBehaviourChecker : MonoBehaviour
     {

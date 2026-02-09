@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
-using Project.Scripts.Services;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -30,7 +29,7 @@ namespace Project.Scripts
             _mainUIController = _panelManager.LoadPanel<MainUIController>();
 
             _playerInputs.Gameplay.Inventory.performed += OnInventoryPerformed;
-            
+
             _playerInputs.Gameplay.PlayerSpell1.performed += OnPlayerSpellPerformed0;
             _playerInputs.Gameplay.PlayerSpell2.performed += OnPlayerSpellPerformed1;
             _playerInputs.Gameplay.PlayerSpell3.performed += OnPlayerSpellPerformed2;
@@ -40,16 +39,16 @@ namespace Project.Scripts
             _playerInputs.Gameplay.PlayerSpell7.performed += OnPlayerSpellPerformed6;
             _playerInputs.Gameplay.PlayerSpell8.performed += OnPlayerSpellPerformed7;
         }
-        
+
         public void Update()
         {
             if (!_playerController.IsNavMeshAgentReady())
             {
                 return;
             }
-            
+
             if (_playerInputs.Gameplay.Movement.inProgress)
-            { 
+            {
                 _playerController.TryMoveToPoint(_mouseController.MouseTarget.TargetPosition, _mouseController.MouseTarget.Interactable);
             }
         }
@@ -67,14 +66,14 @@ namespace Project.Scripts
                 _isInventoryOpened = true;
             }
         }
-        
+
         private void OnPlayerSpellPerformed0(InputAction.CallbackContext obj)
         {
             if (CheckSpell(_spellSystem.ChosenSpells, 0) == false)
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(0);
             _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[0].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(0);
@@ -86,7 +85,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(1);
             _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[1].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(1);
@@ -98,7 +97,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(2);
             _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[2].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(2);
@@ -110,7 +109,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(3);
             _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[3].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(3);
@@ -122,7 +121,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(4);
             _spellSystem.CastPlayerSpellByIndex(4);
         }
@@ -133,7 +132,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(5);
             _spellSystem.CastPlayerSpellByIndex(5);
         }
@@ -144,7 +143,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(6);
             _spellSystem.CastPlayerSpellByIndex(6);
         }
@@ -155,7 +154,7 @@ namespace Project.Scripts
             {
                 return;
             }
-            
+
             _mainUIController.OnPlayerSpellButtonClicked(7);
             _spellSystem.CastPlayerSpellByIndex(7);
         }
@@ -166,7 +165,7 @@ namespace Project.Scripts
             {
                 return false;
             }
-            
+
             if (list[index] == default)
             {
                 return false;

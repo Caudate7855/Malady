@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     [UsedImplicitly]
     public class AssetLoader : IAssetLoader

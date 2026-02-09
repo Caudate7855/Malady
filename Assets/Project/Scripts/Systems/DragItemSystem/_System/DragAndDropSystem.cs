@@ -13,6 +13,7 @@ namespace Project.Scripts
     public sealed class DragAndDropSystem : IInitializable, IDisposable
     {
         private readonly IPanelManager _panelManager;
+        private readonly SpellSystem _spellSystem;
 
         private readonly Dictionary<IDragAndDropInput, CompositeDisposable> _subscriptions = new();
         private readonly List<RaycastResult> _raycastResults = new(32);
@@ -25,14 +26,18 @@ namespace Project.Scripts
 
         private DragAndDropItemBase _dragItem;
         private DragAndDropSlot _fromSlot;
+
         private bool _isSpellBookDuplicate;
         private SpellSlot _spellBookSourceSlot;
-        
+
         private Vector2 _lastScreenPos;
 
-        public DragAndDropSystem(IPanelManager panelManager)
+        private MainUIController _mainUI;
+
+        public DragAndDropSystem(IPanelManager panelManager, SpellSystem spellSystem)
         {
             _panelManager = panelManager;
+            _spellSystem = spellSystem;
         }
 
         public void Initialize()
@@ -58,6 +63,8 @@ namespace Project.Scripts
             }
 
             _uiCamera = _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
+
+            _mainUI = _panelManager.LoadPanel<MainUIController>();
         }
 
         public void Dispose()
@@ -125,9 +132,18 @@ namespace Project.Scripts
                 _isSpellBookDuplicate = true;
                 _spellBookSourceSlot = spellSlot;
 
-                if (_dragItem is SpellItem si)
+                if (_dragItem is SpellItem cloneSpell && item is SpellItem srcSpell)
                 {
-                    si.CurrentSpellSlot = null;
+                    cloneSpell.Spell = srcSpell.Spell;
+                    cloneSpell.SpellConfig = srcSpell.SpellConfig;
+
+                    var srcImg = srcSpell.GetComponentInChildren<Image>(true);
+                    if (srcImg != null)
+                    {
+                        cloneSpell.SetIcon(srcImg.sprite);
+                    }
+
+                    cloneSpell.CurrentSpellSlot = null;
                 }
 
                 _dragItem.SetSlot(null);
@@ -175,7 +191,7 @@ namespace Project.Scripts
 
             if (targetSlot == null)
             {
-                ReturnToFromSlot();
+                DropToNowhere();
                 ClearDrag();
                 return;
             }
@@ -199,13 +215,12 @@ namespace Project.Scripts
                 EndDragInventory(fromInv, toInv);
                 return;
             }
-            
+
             if (_fromSlot is SpellSlot fromSpell && targetSlot is SpellSlot toSpell)
             {
                 EndDragSpell(fromSpell, toSpell);
                 return;
             }
-
 
             EndDragSwap(targetSlot);
         }
@@ -244,6 +259,36 @@ namespace Project.Scripts
             return null;
         }
 
+        private void DropToNowhere()
+        {
+            if (_dragItem == null || _fromSlot == null)
+            {
+                return;
+            }
+
+            if (_fromSlot is SpellSlot fromSpell)
+            {
+                if (_isSpellBookDuplicate)
+                {
+                    Object.Destroy(_dragItem.gameObject);
+                    return;
+                }
+
+                if (fromSpell.SpellParentType == SpellParentType.Book)
+                {
+                    ReturnToFromSlot();
+                    return;
+                }
+
+                fromSpell.ClearItem();
+                UpdateChosenFromSlot(fromSpell);
+                Object.Destroy(_dragItem.gameObject);
+                return;
+            }
+
+            ReturnToFromSlot();
+        }
+
         private void EndDragInventory(InventorySlot fromSlot, InventorySlot toSlot)
         {
             var invItem = _dragItem as InventoryItem;
@@ -279,7 +324,7 @@ namespace Project.Scripts
 
             ClearDrag();
         }
-        
+
         private void EndDragSpell(SpellSlot fromSlot, SpellSlot toSlot)
         {
             if (toSlot.SpellParentType == SpellParentType.Book)
@@ -307,10 +352,29 @@ namespace Project.Scripts
                 }
 
                 toSlot.SetItem(spellItem);
+
+                if (spellItem.SpellConfig == null && _spellBookSourceSlot != null)
+                {
+                    var srcItem = _spellBookSourceSlot.Item;
+                    if (srcItem != null)
+                    {
+                        spellItem.SpellConfig = srcItem.SpellConfig;
+                    }
+                }
+
+                if (spellItem.Spell == null && spellItem.SpellConfig != null)
+                {
+                    spellItem.Spell = spellItem.SpellConfig.Type;
+                }
+
                 var rt = (RectTransform)spellItem.transform;
                 rt.anchoredPosition = Vector2.zero;
 
                 spellItem.CurrentSpellSlot = toSlot;
+
+                _mainUI?.WireSpellItem(spellItem);
+
+                UpdateChosenFromSlot(toSlot);
 
                 ClearDrag();
                 return;
@@ -325,6 +389,7 @@ namespace Project.Scripts
                 var rtA = (RectTransform)fromItem.transform;
                 rtA.anchoredPosition = Vector2.zero;
                 fromItem.CurrentSpellSlot = toSlot;
+                _mainUI?.WireSpellItem(fromItem);
             }
 
             fromSlot.SetItem(targetItem);
@@ -333,9 +398,35 @@ namespace Project.Scripts
                 var rtB = (RectTransform)targetItem.transform;
                 rtB.anchoredPosition = Vector2.zero;
                 targetItem.CurrentSpellSlot = fromSlot;
+                _mainUI?.WireSpellItem(targetItem);
             }
 
+            UpdateChosenFromSlot(fromSlot);
+            UpdateChosenFromSlot(toSlot);
+
             ClearDrag();
+        }
+
+        private void UpdateChosenFromSlot(SpellSlot slot)
+        {
+            if (slot == null)
+            {
+                return;
+            }
+
+            if (slot.SpellParentType == SpellParentType.Book)
+            {
+                return;
+            }
+
+            var index = slot.HotbarIndex;
+            if (index < 0)
+            {
+                return;
+            }
+
+            var spellBase = slot.Item != null ? slot.Item.Spell : null;
+            _spellSystem.SetChosenSpellByIndex(index, spellBase as SpellBase);
         }
 
         private void EndDragSwap(DragAndDropSlot targetSlot)
@@ -348,6 +439,11 @@ namespace Project.Scripts
             {
                 var rtA = (RectTransform)fromItem.transform;
                 rtA.anchoredPosition = Vector2.zero;
+
+                if (fromItem is SpellItem s0)
+                {
+                    _mainUI?.WireSpellItem(s0);
+                }
             }
 
             _fromSlot.SetItem(targetItem);
@@ -355,6 +451,11 @@ namespace Project.Scripts
             {
                 var rtB = (RectTransform)targetItem.transform;
                 rtB.anchoredPosition = Vector2.zero;
+
+                if (targetItem is SpellItem s1)
+                {
+                    _mainUI?.WireSpellItem(s1);
+                }
             }
 
             ClearDrag();
@@ -370,7 +471,7 @@ namespace Project.Scripts
                 rt.anchoredPosition = Vector2.zero;
             }
         }
-        
+
         private void ReturnSpellDuplicateOrBack()
         {
             if (_isSpellBookDuplicate)

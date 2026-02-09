@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     public class DontDestroyMarker : MonoBehaviour
     {

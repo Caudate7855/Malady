@@ -2,152 +2,183 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Project.Scripts.Configs;
+using R3;
 using UnityEngine;
+using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "BookSpellListView")]
-    public class BookSpellListController : PanelControllerBase<BookSpellListView>, IDisposable
+    public sealed class BookSpellListController : PanelControllerBase<BookSpellListView>, IDisposable, IDragAndDropInput
     {
-        [SerializeField] private bool _debug = true;
-
-        private SpellTip _spellTip;
-
         private readonly SpellsConfig _spellConfig;
         private readonly ResourcesConfig _resourcesConfig;
         private readonly IPanelManager _panelManager;
         private readonly SpellItem _spellItemPrefab;
+        private readonly DragAndDropSystem _dragAndDropSystem;
+        private readonly ISpellTipService _spellTipService;
+
+        private readonly List<SpellItem> _wiredItems = new(256);
+
+        public ReactiveCommand<DragAndDropItemBase> OnBeginDrag { get; } = new();
+        public ReactiveCommand<Vector2> OnDrag { get; } = new();
+        public ReactiveCommand<DragAndDropSlot> OnDrop { get; } = new();
+        public ReactiveCommand<Unit> OnEndDrag { get; } = new();
 
         public BookSpellListController(
-            SpellTip spellTip,
             SpellsConfig spellConfig,
             ResourcesConfig resourcesConfig,
             IPanelManager panelManager,
-            SpellItem spellItemPrefab)
+            SpellItem spellItemPrefab,
+            DragAndDropSystem dragAndDropSystem,
+            ISpellTipService spellTipService)
         {
-            _spellTip = spellTip;
             _spellConfig = spellConfig;
             _resourcesConfig = resourcesConfig;
             _panelManager = panelManager;
             _spellItemPrefab = spellItemPrefab;
+            _dragAndDropSystem = dragAndDropSystem;
+            _spellTipService = spellTipService;
         }
 
         protected override void Initialize()
         {
             Panel.CloseButton.onClick.AddListener(Close);
 
-            _spellTip = Object.Instantiate(_spellTip, _panelManager.PanelDispatcher.Canvas.transform);
-            _spellTip.Init(_panelManager.PanelDispatcher.Canvas);
+            _dragAndDropSystem.Register(this);
 
-            if (_debug)
-            {
-                Debug.Log("[BookSpellList] Initialize");
-                Debug.Log($"[BookSpellList] Prefab={( _spellItemPrefab != null ? _spellItemPrefab.name : "NULL")}");
-            }
+            _spellTipService.BindCanvas();
 
             InitSpellsList();
         }
 
         private void InitSpellsList()
         {
-            var all = new List<SpellSlot>();
-            Panel.GetComponentsInChildren(true, all);
-
-            if (_debug)
-            {
-                Debug.Log($"[BookSpellList] AutoScan SpellSlots count={all.Count}");
-            }
-
-            for (var i = 0; i < all.Count; i++)
-            {
-                InitSlot("Auto", i, all[i]);
-            }
-        }
-
-        private void InitGroup(string name, List<SpellSlot> slots)
-        {
-            if (slots == null)
-            {
-                if (_debug) Debug.Log($"[BookSpellList] Group {name} slots=NULL");
-                return;
-            }
-
-            if (_debug) Debug.Log($"[BookSpellList] Group {name} count={slots.Count}");
+            var slots = new List<SpellSlot>();
+            Panel.GetComponentsInChildren(true, slots);
 
             for (var i = 0; i < slots.Count; i++)
             {
-                InitSlot(name, i, slots[i]);
+                InitSlot(slots[i]);
             }
         }
 
-        private void InitSlot(string group, int index, SpellSlot slot)
+        private void InitSlot(SpellSlot slot)
         {
             if (slot == null)
             {
-                if (_debug) Debug.Log($"[BookSpellList] {group}[{index}] slot=NULL");
                 return;
-            }
-
-            if (_debug)
-            {
-                Debug.Log($"[BookSpellList] {group}[{index}] slot={slot.name} parentType={slot.SpellParentType} hasItem={slot.IsContainItem}");
             }
 
             if (slot.Spell == null)
             {
-                if (_debug) Debug.Log($"[BookSpellList] {group}[{index}] slot={slot.name} Spell=NULL");
                 return;
             }
 
-            SpellConfig spellConfig;
-            try
+            var spellConfig = _spellConfig.GetSpellConfig(slot.Spell.GetType());
+            slot.Init(_spellTipService, _spellConfig, _resourcesConfig, spellConfig);
+
+            if (!slot.IsContainItem)
             {
-                spellConfig = _spellConfig.GetSpellConfig(slot.Spell.GetType());
+                if (_spellItemPrefab == null)
+                {
+                    throw new Exception("BookSpellListController: SpellItem prefab is null");
+                }
+
+                var parent = slot.ItemsContainer != null ? slot.ItemsContainer : (RectTransform)slot.transform;
+
+                var item = Object.Instantiate(_spellItemPrefab, parent);
+                item.gameObject.SetActive(true);
+
+                item.Spell = spellConfig.Type;
+                item.SpellConfig = spellConfig;
+                item.SetIcon(spellConfig.Icon);
+
+                slot.AddItem(item);
+
+                WireItem(item);
             }
-            catch (Exception e)
+            else
             {
-                Debug.LogError($"[BookSpellList] {group}[{index}] slot={slot.name} GetSpellConfig failed: {e.Message}");
+                var item = slot.Item;
+                if (item != null)
+                {
+                    WireItem(item);
+                }
+            }
+        }
+
+        private void WireItem(SpellItem item)
+        {
+            if (item == null)
+            {
                 return;
             }
 
-            slot.Init(_spellTip, spellConfig, _resourcesConfig);
-
-            if (slot.IsContainItem)
+            for (var i = 0; i < _wiredItems.Count; i++)
             {
-                if (_debug) Debug.Log($"[BookSpellList] {group}[{index}] slot={slot.name} already has item after Init()");
-                return;
+                if (_wiredItems[i] == item)
+                {
+                    return;
+                }
             }
 
-            if (_spellItemPrefab == null)
+            _wiredItems.Add(item);
+
+            item.BeginDrag += OnItemBeginDrag;
+            item.Drag += OnItemDrag;
+            item.EndDrag += OnItemEndDrag;
+        }
+
+        private void UnwireAllItems()
+        {
+            for (var i = 0; i < _wiredItems.Count; i++)
             {
-                Debug.LogError("[BookSpellList] SpellItem prefab is NULL");
-                return;
+                var item = _wiredItems[i];
+                if (item == null)
+                {
+                    continue;
+                }
+
+                item.BeginDrag -= OnItemBeginDrag;
+                item.Drag -= OnItemDrag;
+                item.EndDrag -= OnItemEndDrag;
             }
 
-            var parent = slot.ItemsContainer != null ? slot.ItemsContainer : (RectTransform)slot.transform;
+            _wiredItems.Clear();
+        }
 
-            var item = Object.Instantiate(_spellItemPrefab, parent);
-            item.gameObject.SetActive(true);
+        private void OnItemBeginDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
+        {
+            OnBeginDrag.Execute(item);
+        }
 
-            item.Spell = spellConfig.Type;
-            item.SetIcon(spellConfig.Icon);
+        private void OnItemDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
+        {
+            OnDrag.Execute(e.position);
+        }
 
-            slot.AddItem(item);
-
-            var rt = (RectTransform)item.transform;
-            rt.anchoredPosition = Vector2.zero;
-
-            if (_debug)
-            {
-                var p = item.transform.parent != null ? item.transform.parent.name : "NULL";
-                Debug.Log($"[BookSpellList] {group}[{index}] CREATED item={item.name} parent={p} slotNowHasItem={slot.IsContainItem}");
-            }
+        private void OnItemEndDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
+        {
+            OnEndDrag.Execute(Unit.Default);
         }
 
         public void Dispose()
         {
             Panel.CloseButton.onClick.RemoveListener(Close);
+
+            if (_dragAndDropSystem != null)
+            {
+                _dragAndDropSystem.Unregister(this);
+            }
+
+            UnwireAllItems();
+
+            OnBeginDrag.Dispose();
+            OnDrag.Dispose();
+            OnDrop.Dispose();
+            OnEndDrag.Dispose();
         }
     }
 }

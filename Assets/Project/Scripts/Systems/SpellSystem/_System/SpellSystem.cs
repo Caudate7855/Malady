@@ -9,25 +9,145 @@ namespace Project.Scripts
     public sealed class SpellSystem : ITickable
     {
         public List<ISpell> ChosenSpells = new();
-        
+
         private readonly DiContainer _container;
         private readonly SpellsConfig _spellsConfig;
-
         private readonly List<Type> _global = new();
         private readonly Dictionary<Type, List<Type>> _perSpell = new();
-
         private readonly List<ISpell> _activeSpells = new();
         private readonly Dictionary<ISpell, List<ISpellModifier>> _runtimeModifs = new();
+        private readonly Transform _playerOrigin;
 
-        public SpellSystem(DiContainer container, SpellsConfig spellsConfig)
+        public SpellSystem(DiContainer container, SpellsConfig spellsConfig, PlayerController playerController)
         {
             _container = container;
             _spellsConfig = spellsConfig;
+            _playerOrigin = playerController.transform;
+        }
+
+        public void SetChosenSpellByIndex(int index, SpellBase spellBase)
+        {
+            if (index < 0)
+            {
+                throw new Exception("index < 0");
+            }
+
+            EnsureChosenSize(index + 1);
+
+            if (spellBase == null)
+            {
+                ChosenSpells[index] = default;
+                return;
+            }
+
+            var spellType = spellBase.GetType();
+
+            if (typeof(ISpell).IsAssignableFrom(spellType) == false)
+            {
+                throw new Exception($"SpellBase type {spellType.Name} does not implement ISpell");
+            }
+
+            var spell = CreateSpellInstance(spellType);
+
+            ChosenSpells[index] = spell;
         }
 
         public void CastPlayerSpellByIndex(int index)
         {
-            
+            if (index < 0)
+            {
+                throw new Exception("index < 0");
+            }
+
+            if (ChosenSpells == null || ChosenSpells.Count == 0)
+            {
+                return;
+            }
+
+            if (index >= ChosenSpells.Count)
+            {
+                return;
+            }
+
+            var chosen = ChosenSpells[index];
+            if (chosen == null)
+            {
+                return;
+            }
+
+            if (_playerOrigin == null)
+            {
+                throw new Exception("SpellSystem: player origin is null");
+            }
+
+            CastSpellByType(chosen.GetType(), _playerOrigin);
+        }
+
+        public ISpell CastSpellByType(Type spellType, Transform origin)
+        {
+            if (spellType == null)
+            {
+                throw new Exception("spellType is null");
+            }
+
+            if (origin == null)
+            {
+                throw new Exception("origin is null");
+            }
+
+            if (typeof(SpellBase).IsAssignableFrom(spellType) == false)
+            {
+                throw new Exception($"Type {spellType.Name} is not SpellBase");
+            }
+
+            var config = _spellsConfig.GetSpellConfig(spellType);
+            var view = config.SpellView;
+            if (view == null)
+            {
+                throw new Exception($"SpellView is null for {spellType.Name}");
+            }
+
+            var prefab = view.gameObject;
+
+            var spellObj = _container.Instantiate(spellType, new object[] { prefab, config });
+
+            if (spellObj is ISpell spell)
+            {
+                CastSpellInternal(spell, origin);
+                return spell;
+            }
+
+            throw new Exception($"Instantiated spell {spellType.Name} is not ISpell");
+        }
+
+        private void EnsureChosenSize(int size)
+        {
+            while (ChosenSpells.Count < size)
+            {
+                ChosenSpells.Add(default);
+            }
+        }
+
+        private ISpell CreateSpellInstance(Type spellType)
+        {
+            var config = _spellsConfig.GetSpellConfig(spellType);
+
+            var view = config.SpellView;
+            if (view == null)
+            {
+                throw new Exception($"SpellView is null for {spellType.Name}");
+            }
+
+            var prefab = view.gameObject;
+
+            var spellObj = _container.Instantiate(spellType, new object[] { prefab, config });
+
+            if (spellObj is ISpell spell)
+            {
+                return spell;
+            }
+
+            throw new Exception($"Instantiated spell {spellType.Name} is not ISpell");
         }
 
         public void AddFor<TSpell, TModif>() where TSpell : ISpell where TModif : ISpellModifier
@@ -122,8 +242,8 @@ namespace Project.Scripts
             var view = config.SpellView;
             var prefab = view.gameObject;
 
-            var spell = _container.Instantiate<TSpell>(new object[] { prefab , config});
-        
+            var spell = _container.Instantiate<TSpell>(new object[] { prefab, config });
+
             CastSpellInternal(spell, origin);
 
             return spell;
@@ -133,7 +253,7 @@ namespace Project.Scripts
         {
             spell.Origin = origin;
             var mods = CreateModifsFor(spell);
-        
+
             ApplyAll(spell, mods);
 
             _runtimeModifs[spell] = mods;

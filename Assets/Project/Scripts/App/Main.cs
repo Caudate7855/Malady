@@ -1,5 +1,4 @@
 using Itibsoft.PanelManager;
-using Project.Scripts.Services;
 using UnityEngine;
 using Zenject;
 

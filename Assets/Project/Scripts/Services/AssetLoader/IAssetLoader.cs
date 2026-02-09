@@ -1,7 +1,6 @@
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     public interface IAssetLoader
     {

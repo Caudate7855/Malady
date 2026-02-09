@@ -2,7 +2,6 @@ using System;
 using Cysharp.Threading.Tasks;
 using DunGen.DungeonCrawler;
 using Itibsoft.PanelManager;
-using Project.Scripts.Services;
 using R3;
 using Unity.AI.Navigation;
 using UnityEngine;

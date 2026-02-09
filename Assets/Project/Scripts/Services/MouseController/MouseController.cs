@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     [UsedImplicitly]
     public class MouseController : IInitializable, ITickable

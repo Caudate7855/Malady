@@ -1,4 +1,4 @@
-namespace Project.Scripts.Services
+namespace Project.Scripts
 {
     public class BookPositionMarker : PositionMarker
     {

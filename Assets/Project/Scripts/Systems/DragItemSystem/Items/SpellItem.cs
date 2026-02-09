@@ -1,11 +1,14 @@
-﻿using UnityEngine;
+﻿using Project.Scripts.Configs;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Project.Scripts
 {
-    public class SpellItem : DragAndDropItemBase
+    public sealed class SpellItem : DragAndDropItemBase, IPointerEnterHandler, IPointerExitHandler
     {
         public SpellBase Spell;
+        public SpellConfig SpellConfig;
 
         [SerializeField] private Image _spellImage;
 
@@ -17,6 +20,16 @@ namespace Project.Scripts
             {
                 _spellImage.sprite = sprite;
             }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            CurrentSpellSlot?.OnItemPointerEnter();
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            CurrentSpellSlot?.OnItemPointerExit();
         }
     }
 }

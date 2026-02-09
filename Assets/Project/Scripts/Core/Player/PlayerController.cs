@@ -1,6 +1,5 @@
 using Itibsoft.PanelManager;
 using Project.Scripts.Abstracts;
-using Project.Scripts.Services;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.EventSystems;

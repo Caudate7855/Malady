@@ -4,12 +4,12 @@ using System.Linq;
 using Project.Scripts.Configs;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
-    public sealed class SpellSlot : DragAndDropSlot
+    public sealed class SpellSlot : DragAndDropSlot, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private SpellParentType _spellParentType;
 
@@ -19,37 +19,54 @@ namespace Project.Scripts
         [TypeFilter(nameof(GetFilteredTypeList))]
         public SpellBase Spell;
 
+        [ShowIf("@_spellParentType != SpellParentType.Book")]
+        [SerializeField] private int _hotbarIndex = -1;
+
         [Space]
         public RectTransform ItemsContainer;
 
         [SerializeField] private Image _image;
-        [SerializeField] private SpellItem _bookItemPrefab;
 
-        private SpellTip _spellTip;
-        private SpellConfig _spellConfig;
-        private ResourcesConfig _resourceConfig;
+        private ISpellTipService _tipService;
+        private SpellsConfig _spellsConfig;
+        private ResourcesConfig _resourcesConfig;
+        private SpellConfig _bookSpellConfig;
 
         public SpellParentType SpellParentType => _spellParentType;
+        public int HotbarIndex => _hotbarIndex;
 
         public new SpellItem Item => (SpellItem)base.Item;
         public bool IsContainItem => base.HasItem;
 
-        public void Init(SpellTip spellTip, SpellConfig spellConfig, ResourcesConfig resourceConfig)
+        public void Init(ISpellTipService tipService, SpellsConfig spellsConfig, ResourcesConfig resourcesConfig, SpellConfig bookSpellConfig = null)
         {
-            _spellTip = spellTip;
-            _spellConfig = spellConfig;
-            _resourceConfig = resourceConfig;
+            _tipService = tipService;
+            _spellsConfig = spellsConfig;
+            _resourcesConfig = resourcesConfig;
+            _bookSpellConfig = bookSpellConfig;
 
-            if (_image != null)
+            if (_spellParentType == SpellParentType.Book && bookSpellConfig != null)
             {
-                _image.sprite = spellConfig.Icon;
-            }
+                Spell = bookSpellConfig.Type;
 
-            if (_spellParentType == SpellParentType.Book)
-            {
-                Spell = spellConfig.Type;
-                EnsureBookItemRuntime();
+                if (_image != null)
+                {
+                    _image.sprite = bookSpellConfig.Icon;
+                }
             }
+        }
+
+        public SpellItem CreateNewItem(SpellItem itemPrefab, GameObject parentObject)
+        {
+            var parent = ItemsContainer != null ? ItemsContainer : parentObject.GetComponent<RectTransform>();
+            var item = Instantiate(itemPrefab, parent);
+
+            var rt = (RectTransform)item.transform;
+            rt.anchoredPosition = Vector2.zero;
+
+            AddItem(item);
+
+            return item;
         }
 
         public void AddItem(SpellItem item)
@@ -66,62 +83,66 @@ namespace Project.Scripts
             rt.anchoredPosition = Vector2.zero;
         }
 
-        public void RemoveItemToContainer()
+        public void OnPointerEnter(PointerEventData eventData)
         {
-            if (!HasItem)
-            {
-                return;
-            }
-
-            var item = (SpellItem)ClearItem();
-
-            if (ItemsContainer != null)
-            {
-                var rt = (RectTransform)item.transform;
-                rt.SetParent(ItemsContainer, false);
-                rt.anchoredPosition = Vector2.zero;
-            }
-
-            item.CurrentSpellSlot = null;
+            OnItemPointerEnter();
         }
 
-        private void EnsureBookItemRuntime()
+        public void OnPointerExit(PointerEventData eventData)
         {
-            if (_spellParentType != SpellParentType.Book)
+            OnItemPointerExit();
+        }
+
+        public void OnItemPointerEnter()
+        {
+            if (_tipService == null || _spellsConfig == null || _resourcesConfig == null)
             {
                 return;
             }
 
-            if (Spell == null)
+            var cfg = ResolveSpellConfig();
+            if (cfg == null)
             {
                 return;
             }
 
-            if (_bookItemPrefab == null)
+            _tipService.Show(cfg, _resourcesConfig);
+        }
+
+        public void OnItemPointerExit()
+        {
+            if (_tipService == null)
             {
-                throw new Exception("SpellSlot(Book): _bookItemPrefab is null");
+                return;
+            }
+
+            _tipService.Hide();
+        }
+
+        private SpellConfig ResolveSpellConfig()
+        {
+            if (_spellParentType == SpellParentType.Book)
+            {
+                return _bookSpellConfig;
             }
 
             var item = Item;
             if (item == null)
             {
-                var parent = ItemsContainer != null ? ItemsContainer : (RectTransform)transform;
-                item = Object.Instantiate(_bookItemPrefab, parent);
+                return null;
             }
 
-            item.Spell = Spell;
-
-            if (_spellConfig != null)
+            if (item.SpellConfig != null)
             {
-                item.SetIcon(_spellConfig.Icon);
-
-                if (_image != null)
-                {
-                    _image.sprite = _spellConfig.Icon;
-                }
+                return item.SpellConfig;
             }
 
-            AddItem(item);
+            if (item.Spell == null)
+            {
+                return null;
+            }
+
+            return _spellsConfig.GetSpellConfig(item.Spell.GetType());
         }
 
         private IEnumerable<Type> GetFilteredTypeList()
