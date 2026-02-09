@@ -21,6 +21,11 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<StatSystem>()
                 .AsSingle();
+
+            Container
+                .BindInterfacesAndSelfTo<DragAndDropSystem>()
+                .AsSingle()
+                .NonLazy();
         }
     }
 }
