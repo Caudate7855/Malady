@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
@@ -71,6 +72,7 @@ namespace Project.Scripts
         {
             if (CheckSpell(_spellSystem.ChosenSpells, 0) == false)
             {
+                Debug.Log("ffff");
                 return;
             }
 

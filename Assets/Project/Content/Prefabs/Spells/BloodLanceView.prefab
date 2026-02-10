@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4835461232513742040}
   - component: {fileID: 3213488741879309402}
-  - component: {fileID: 1866538791710385192}
+  - component: {fileID: 2343336827744484438}
   m_Layer: 0
   m_Name: BloodLanceView
   m_TagString: Untagged
@@ -55,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.25, y: 0.25, z: 0.7}
   m_Center: {x: 0, y: 0, z: -0.09}
---- !u!114 &1866538791710385192
+--- !u!114 &2343336827744484438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,9 +64,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6674415020346383752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bf6962868663df41bf55dadcfa2fecc, type: 3}
+  m_Script: {fileID: 11500000, guid: eea266619898d5e498d4691364238781, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.Spells.BloodLanceView
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.BloodLanceView
 --- !u!1001 &8739896415541473339
 PrefabInstance:
   m_ObjectHideFlags: 0

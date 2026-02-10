@@ -31,7 +31,7 @@ namespace Project.Scripts
             {
                 throw new Exception("index < 0");
             }
-
+            
             EnsureChosenSize(index + 1);
 
             if (spellBase == null)

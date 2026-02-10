@@ -372,16 +372,16 @@ namespace Project.Scripts
         {
             if (slot == null)
                 return;
-
+            
             if (slot.SpellParentType == SpellParentType.Book)
                 return;
-
+            
             var index = slot.HotbarIndex;
             if (index < 0)
                 return;
 
             var spellBase = slot.Item != null ? slot.Item.Spell : null;
-            _spellSystem.SetChosenSpellByIndex(index, spellBase as SpellBase);
+            _spellSystem.SetChosenSpellByIndex(index, spellBase);
         }
 
         private void EndDragSwap(DragAndDropSlot targetSlot)

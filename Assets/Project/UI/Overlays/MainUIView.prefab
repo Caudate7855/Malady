@@ -2816,6 +2816,10 @@ PrefabInstance:
       value: SpellSlot (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
       value: 1
       objectReference: {fileID: 0}
@@ -2931,6 +2935,10 @@ PrefabInstance:
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellSlot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
@@ -3050,6 +3058,10 @@ PrefabInstance:
       value: SpellSlot (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
       value: 1
       objectReference: {fileID: 0}
@@ -3165,6 +3177,10 @@ PrefabInstance:
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellSlot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
@@ -3284,6 +3300,10 @@ PrefabInstance:
       value: SpellSlot
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
       value: 1
       objectReference: {fileID: 0}
@@ -3399,6 +3419,10 @@ PrefabInstance:
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellSlot (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
@@ -3518,6 +3542,10 @@ PrefabInstance:
       value: SpellSlot (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
       value: 1
       objectReference: {fileID: 0}
@@ -3633,6 +3661,10 @@ PrefabInstance:
     - target: {fileID: 1579356579465426612, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: m_Name
       value: SpellSlot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
+      propertyPath: _hotbarIndex
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4307253115055523266, guid: 996d84004f252014fb7b3d901b4886a4, type: 3}
       propertyPath: _spellParentType
