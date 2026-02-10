@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3680c49923884981b29a8b9b7ee8cc61, type: 3}
   m_Name: ConfigsSOInstaller
   m_EditorClassIdentifier: 
+  _playerConfig: {fileID: 11400000, guid: 32289ec7f54edb84caa2aeb8cdf2c8de, type: 2}
   _spellsConfig: {fileID: 11400000, guid: ad6f35a51257f0243a1ce5866a399769, type: 2}
   _itemsConfig: {fileID: 11400000, guid: 1a946d5514a7df248bc64a9ba29dca0c, type: 2}
   _statsConfig: {fileID: 11400000, guid: 43ec00f7e990dfd4c8b057e7c2977e08, type: 2}

@@ -1,4 +1,5 @@
 ﻿using System;
+using Project.Scripts.Player;
 using UnityEngine;
 
 namespace Project.Scripts

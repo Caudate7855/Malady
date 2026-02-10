@@ -1,3 +1,4 @@
+using Project.Scripts.Player;
 using Project.Scripts.Walls;
 using UnityEngine;
 using Zenject;

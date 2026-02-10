@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Project.Scripts
 {
-    public class PlayerFsmStateIdle : FsmStateBase
+    public class PlayerFsmStateIdle : PlayerFSMStateBase
     {
         private const string AnimationName = "Idle";
         

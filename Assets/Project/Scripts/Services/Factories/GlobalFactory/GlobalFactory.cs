@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
 using JetBrains.Annotations;
+using Project.Scripts.Player;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;

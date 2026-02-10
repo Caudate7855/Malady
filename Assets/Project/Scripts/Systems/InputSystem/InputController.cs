@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using JetBrains.Annotations;
+using Project.Scripts.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;

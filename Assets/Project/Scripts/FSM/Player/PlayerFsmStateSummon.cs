@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class PlayerFsmStateSummon : FsmStateBase
+    public class PlayerFsmStateSummon : PlayerFSMStateBase
     {
         private const string ANIMATION_NAME = "Summon";
 

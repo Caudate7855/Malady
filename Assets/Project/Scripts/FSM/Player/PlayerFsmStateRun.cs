@@ -3,7 +3,7 @@ using UnityEngine.AI;
 
 namespace Project.Scripts
 {
-    public class PlayerFsmStateRun : FsmStateBase
+    public class PlayerFsmStateRun : PlayerFSMStateBase
     {
         private const string AnimationName = "Run";
         

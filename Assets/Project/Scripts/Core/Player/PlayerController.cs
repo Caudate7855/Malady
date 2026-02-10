@@ -5,7 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace Project.Scripts
+namespace Project.Scripts.Player
 {
     public class PlayerController : MonoBehaviour, IInitializable
     {

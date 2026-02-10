@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Project.Scripts.Interfaces;
+using Project.Scripts.Player;
 using UnityEngine;
 using UnityEngine.UI;
 

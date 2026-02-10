@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
 
-namespace Project.Scripts
+namespace Project.Scripts.Player
 {
     public sealed class PlayerMover : ITickable
     {

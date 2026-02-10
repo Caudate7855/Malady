@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class PlayerFsmStateCast : FsmStateBase
+    public class PlayerFsmStateCast : PlayerFSMStateBase
     {
         private const string AnimationName = "Cast";
         

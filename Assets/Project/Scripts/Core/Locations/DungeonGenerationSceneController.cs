@@ -1,4 +1,5 @@
-﻿using Unity.AI.Navigation;
+﻿using Project.Scripts.Player;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 namespace Project.Scripts
