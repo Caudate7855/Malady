@@ -17,8 +17,10 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 21300000, guid: d633e54cd0af8264f8bac0a8b7927e46, type: 3}
+    - {fileID: 2343336827744484438, guid: 402d7e1a5efebd94881eac957c783cfe, type: 3}
     - {fileID: 21300000, guid: d240d3b98457caa419079968205d3103, type: 3}
     - {fileID: 21300000, guid: 2ac3d27e00685634899f2e63dfb41a2f, type: 3}
+    - {fileID: 2484290342548879823, guid: 0f4966c7432bdab4194499c7f8aa660d, type: 3}
     - {fileID: 21300000, guid: 110a49c07cc841442a0ccebf54aeb534, type: 3}
     - {fileID: 21300000, guid: e67550cac7995014ca2095aac57a01a1, type: 3}
     - {fileID: 21300000, guid: 5d2fb82fb818fdc4ca6addee8cc6bfcf, type: 3}
@@ -70,8 +72,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: SpellView
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 1
     - Name: Cost
       Entry: 7
       Data: 5|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -121,7 +123,7 @@ MonoBehaviour:
       Data: true
     - Name: Speed
       Entry: 4
-      Data: 5
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -130,7 +132,7 @@ MonoBehaviour:
       Data: 7|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 1
+      Data: 2
     - Name: Name
       Entry: 1
       Data: Blood absorption
@@ -229,7 +231,7 @@ MonoBehaviour:
       Data: 13|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: Name
       Entry: 1
       Data: Bone spear
@@ -246,8 +248,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: SpellView
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 4
     - Name: Cost
       Entry: 7
       Data: 15|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -296,7 +298,7 @@ MonoBehaviour:
       Data: 16|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 3
+      Data: 5
     - Name: Name
       Entry: 1
       Data: Bone armor
@@ -373,7 +375,7 @@ MonoBehaviour:
       Data: 20|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 4
+      Data: 6
     - Name: Name
       Entry: 1
       Data: Summon skeleton archer
@@ -440,7 +442,7 @@ MonoBehaviour:
       Data: 23|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 5
+      Data: 7
     - Name: Name
       Entry: 1
       Data: Summon skeleton mage
@@ -539,7 +541,7 @@ MonoBehaviour:
       Data: 29|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 6
+      Data: 8
     - Name: Name
       Entry: 1
       Data: Soul corruption
@@ -616,7 +618,7 @@ MonoBehaviour:
       Data: 33|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 7
+      Data: 9
     - Name: Name
       Entry: 1
       Data: Soul mage
@@ -717,7 +719,7 @@ MonoBehaviour:
       Data: 38|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 8
+      Data: 10
     - Name: Name
       Entry: 1
       Data: Corpse explosion
@@ -806,7 +808,7 @@ MonoBehaviour:
       Data: 42|Project.Scripts.Configs.SpellConfig, Assembly-CSharp
     - Name: Icon
       Entry: 10
-      Data: 9
+      Data: 11
     - Name: Name
       Entry: 1
       Data: Flesh golem
