@@ -4,6 +4,7 @@ using Itibsoft.PanelManager;
 using Project.Scripts.Configs;
 using R3;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -67,14 +68,10 @@ namespace Project.Scripts
         private void InitSlot(SpellSlot slot)
         {
             if (slot == null)
-            {
                 return;
-            }
 
             if (slot.Spell == null)
-            {
                 return;
-            }
 
             var spellConfig = _spellConfig.GetSpellConfig(slot.Spell.GetType());
             slot.Init(_spellTipService, _spellConfig, _resourcesConfig, spellConfig);
@@ -82,14 +79,14 @@ namespace Project.Scripts
             if (!slot.IsContainItem)
             {
                 if (_spellItemPrefab == null)
-                {
                     throw new Exception("BookSpellListController: SpellItem prefab is null");
-                }
 
                 var parent = slot.ItemsContainer != null ? slot.ItemsContainer : (RectTransform)slot.transform;
 
                 var item = Object.Instantiate(_spellItemPrefab, parent);
                 item.gameObject.SetActive(true);
+
+                FitToParent((RectTransform)item.transform, parent);
 
                 item.Spell = spellConfig.Type;
                 item.SpellConfig = spellConfig;
@@ -103,25 +100,41 @@ namespace Project.Scripts
             {
                 var item = slot.Item;
                 if (item != null)
-                {
                     WireItem(item);
-                }
             }
+        }
+
+        private void FitToParent(RectTransform rt, RectTransform parentRt)
+        {
+            if (rt == null)
+                return;
+
+            if (parentRt == null)
+                return;
+
+            var le = rt.GetComponent<LayoutElement>();
+            if (le != null)
+                le.ignoreLayout = true;
+
+            Canvas.ForceUpdateCanvases();
+            LayoutRebuilder.ForceRebuildLayoutImmediate(parentRt);
+
+            rt.anchorMin = new Vector2(0.5f, 0.5f);
+            rt.anchorMax = new Vector2(0.5f, 0.5f);
+            rt.anchoredPosition = Vector2.zero;
+
+            rt.sizeDelta = parentRt.rect.size;
         }
 
         private void WireItem(SpellItem item)
         {
             if (item == null)
-            {
                 return;
-            }
 
             for (var i = 0; i < _wiredItems.Count; i++)
             {
                 if (_wiredItems[i] == item)
-                {
                     return;
-                }
             }
 
             _wiredItems.Add(item);
@@ -137,9 +150,7 @@ namespace Project.Scripts
             {
                 var item = _wiredItems[i];
                 if (item == null)
-                {
                     continue;
-                }
 
                 item.BeginDrag -= OnItemBeginDrag;
                 item.Drag -= OnItemDrag;
@@ -162,6 +173,17 @@ namespace Project.Scripts
         private void OnItemEndDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
         {
             OnEndDrag.Execute(Unit.Default);
+
+            var spellItem = item as SpellItem;
+            if (spellItem == null)
+                return;
+
+            var rt = (RectTransform)spellItem.transform;
+            var parentRt = rt.parent as RectTransform;
+            if (parentRt == null)
+                return;
+
+            FitToParent(rt, parentRt);
         }
 
         public void Dispose()
