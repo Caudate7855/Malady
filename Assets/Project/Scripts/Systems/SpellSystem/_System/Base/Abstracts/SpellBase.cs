@@ -9,7 +9,7 @@ namespace Project.Scripts
     public abstract class SpellBase : ISpell
     {
         public Transform Origin { get; set; }
-        public PlayerCastAnimations AnimationType { get; set; }
+        public PlayerCastAnimationType AnimationTypeType { get; set; }
         public SpellElementType SpellElementType { get; set; }
         public float Time => _time;
         public int ActiveCount => _instances.Count;
@@ -44,6 +44,7 @@ namespace Project.Scripts
         
             CastAction = DefaultCast;
             TickAction = DefaultTick;
+            AnimationTypeType = config.AnimationType;
         }
 
         public void Cast()

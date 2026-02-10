@@ -73,6 +73,9 @@ namespace Project.Scripts.Configs
 
         [FoldoutGroup("@Name")]
         public SpellViewBase SpellView;
+
+        [FoldoutGroup("@Name")] 
+        public PlayerCastAnimationType AnimationType;
         
         [FoldoutGroup("@Name")]
         [DictionaryDrawerSettings(KeyLabel = "Resource type", ValueLabel = "Count")]

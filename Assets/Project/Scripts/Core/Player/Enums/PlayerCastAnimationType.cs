@@ -1,6 +1,6 @@
 namespace Project.Scripts
 {
-    public enum PlayerCastAnimations
+    public enum PlayerCastAnimationType
     {
         Cast,
         Summon

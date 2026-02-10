@@ -74,6 +74,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 10
       Data: 1
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 5|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -151,6 +154,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 9|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -250,6 +256,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 10
       Data: 4
+    - Name: AnimationType
+      Entry: 3
+      Data: 1
     - Name: Cost
       Entry: 7
       Data: 15|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -317,6 +326,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 18|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -394,6 +406,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 22|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -461,6 +476,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 25|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -560,6 +578,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 31|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -637,6 +658,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 35|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -738,6 +762,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 40|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,
@@ -827,6 +854,9 @@ MonoBehaviour:
     - Name: SpellView
       Entry: 6
       Data: 
+    - Name: AnimationType
+      Entry: 3
+      Data: 0
     - Name: Cost
       Entry: 7
       Data: 44|System.Collections.Generic.Dictionary`2[[Project.Scripts.ResourceType,

@@ -88,7 +88,7 @@ namespace Project.Scripts
             _playerFsm.SetState<PlayerFsmStateIdle>();
         }
 
-        public void PlayCastAnimation(PlayerCastAnimations animationType)
+        public void PlayCastAnimation(PlayerCastAnimationType animationTypeType)
         {
             StopMovement();
 
@@ -100,13 +100,13 @@ namespace Project.Scripts
                 transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(dir).eulerAngles.y ,0f);
             }
             
-            switch (animationType)
+            switch (animationTypeType)
             {
-                case PlayerCastAnimations.Cast:
+                case PlayerCastAnimationType.Cast:
                     _playerFsm.SetState<PlayerFsmStateCast>();
                     break;
                 
-                case PlayerCastAnimations.Summon:
+                case PlayerCastAnimationType.Summon:
                     _playerFsm.SetState<PlayerFsmStateSummon>();
                     break;
             }

@@ -9,7 +9,7 @@ namespace Project.Scripts
     {
         public BloodLance(GameObject viewPrefab, SpellConfig config) : base(viewPrefab, config)
         {
-        
+            
         }
     }
 }

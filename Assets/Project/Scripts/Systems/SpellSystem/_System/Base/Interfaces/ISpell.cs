@@ -6,7 +6,7 @@ namespace Project.Scripts
     public interface ISpell
     {
         Transform Origin { get; set; }
-        PlayerCastAnimations AnimationType { get; set; }
+        PlayerCastAnimationType AnimationTypeType { get; set; }
 
         float Time { get; }
         int ActiveCount { get; }
