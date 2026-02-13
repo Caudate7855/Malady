@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public sealed class SpellSystem : ITickable
+    public sealed class SpellSystem : IInitializable, ITickable
     {
         public List<ISpell> ChosenSpells = new();
 
@@ -16,7 +16,9 @@ namespace Project.Scripts
         private readonly List<Type> _global = new();
         private readonly Dictionary<Type, List<Type>> _perSpell = new();
         private readonly List<ISpell> _activeSpells = new();
+
         private readonly Dictionary<ISpell, List<ISpellModifier>> _runtimeModifs = new();
+
         private readonly Transform _playerOrigin;
 
         public SpellSystem(DiContainer container, SpellsConfig spellsConfig, PlayerController playerController)
@@ -24,6 +26,46 @@ namespace Project.Scripts
             _container = container;
             _spellsConfig = spellsConfig;
             _playerOrigin = playerController.transform;
+        }
+
+        public void Initialize()
+        {
+            foreach (var spellWrapper in _spellsConfig.SpellConfigsWrappers)
+            {
+                foreach (var spellConfig in spellWrapper.SpellConfigs)
+                {
+                    var spellType = spellConfig.Type;
+                    var spellModifs = spellConfig.InitialModifs;
+
+                    if (spellType == null)
+                    {
+                        throw new Exception("spellConfig.Type is null");
+                    }
+
+                    if (spellModifs == null || spellModifs.Count == 0)
+                    {
+                        continue;
+                    }
+
+                    for (var i = 0; i < spellModifs.Count; i++)
+                    {
+                        var modif = spellModifs[i];
+                        
+                        if (modif.Modifier == null)
+                        {
+                            continue;
+                        }
+                        
+                        if (modif.Modifier == null)
+                        {
+                            throw new Exception($"InitialModifs contains null Modifier for {spellType.GetType().Name}");
+                        }
+
+                        var modifType = modif.Modifier.GetType();
+                        AddFor(spellType.GetType(), modifType);
+                    }
+                }
+            }
         }
 
         public void SetChosenSpellByIndex(int index, SpellBase spellBase)
@@ -163,6 +205,26 @@ namespace Project.Scripts
 
             list.Add(typeof(TModif));
         }
+        
+        public void AddFor(Type spellType, Type modifType)
+        {
+            if (spellType == null) throw new Exception("spellType is null");
+            if (modifType == null) throw new Exception("modifType is null");
+
+            if (typeof(ISpell).IsAssignableFrom(spellType) == false)
+                throw new Exception($"spellType {spellType.Name} does not implement ISpell");
+
+            if (typeof(ISpellModifier).IsAssignableFrom(modifType) == false)
+                throw new Exception($"modifType {modifType.Name} does not implement ISpellModifier");
+
+            if (_perSpell.TryGetValue(spellType, out var list) == false)
+            {
+                list = new List<Type>();
+                _perSpell.Add(spellType, list);
+            }
+
+            list.Add(modifType);
+        }
 
         public int RemoveFor<TSpell, TModif>()
             where TSpell : ISpell
@@ -192,6 +254,16 @@ namespace Project.Scripts
         public void AddGlobal<TModif>() where TModif : ISpellModifier
         {
             _global.Add(typeof(TModif));
+        }
+        
+        public void AddGlobal(Type modifType)
+        {
+            if (modifType == null) throw new Exception("modifType is null");
+
+            if (typeof(ISpellModifier).IsAssignableFrom(modifType) == false)
+                throw new Exception($"modifType {modifType.Name} does not implement ISpellModifier");
+
+            _global.Add(modifType);
         }
 
         public int RemoveGlobal<TModif>() where TModif : ISpellModifier

@@ -79,6 +79,10 @@ namespace Project.Scripts.Configs
         public PlayerCastAnimationType AnimationType;
         
         [FoldoutGroup("@Name")]
+        [LabelText("Intial modifs")]
+        public List<InitialModif> InitialModifs;
+        
+        [FoldoutGroup("@Name")]
         [DictionaryDrawerSettings(KeyLabel = "Resource type", ValueLabel = "Count")]
         public Dictionary<ResourceType, float> Cost;
 
@@ -108,6 +112,24 @@ namespace Project.Scripts.Configs
             var type = typeof(SpellBase).Assembly.GetTypes()
                 .Where(x => !x.IsAbstract)
                 .Where(x => typeof(SpellBase).IsAssignableFrom(x));
+
+            return type;
+        }
+    }
+    
+    [Serializable]
+    public struct InitialModif
+    {
+        [ShowInInspector]
+        [TypeFilter(nameof(GetFilteredTypeList))]
+        [HideLabel]
+        public ISpellModifier Modifier;
+        
+        private IEnumerable<Type> GetFilteredTypeList()
+        {
+            var type = typeof(ISpellModifier).Assembly.GetTypes()
+                .Where(x => !x.IsAbstract)
+                .Where(x => typeof(ISpellModifier).IsAssignableFrom(x));
 
             return type;
         }
