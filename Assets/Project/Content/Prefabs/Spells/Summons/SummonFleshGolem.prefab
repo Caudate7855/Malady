@@ -46,8 +46,9 @@ GameObject:
   - component: {fileID: 2292037924764119543}
   - component: {fileID: 4849911427398086137}
   - component: {fileID: 2316102195402651504}
+  - component: {fileID: 1499243186183995889}
   m_Layer: 0
-  m_Name: SummonSkeletonMage
+  m_Name: SummonFleshGolem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +122,7 @@ MonoBehaviour:
   IsAiEnabled: 1
   AiBehaviourBase: {fileID: 7405005380051324519}
   IsPlayerInFollowDistance: 0
-  _cycleDelayInSeconds: 0.1
+  _cycleDelayInSeconds: 0.5
   _attackRangeBehaviour: {fileID: 4849911427398086137}
   _followPlayerRangeBehaviour: {fileID: 2316102195402651504}
 --- !u!114 &4849911427398086137
@@ -152,6 +153,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.RangeBehaviourChecker
   _checkDistanceRadius: 10
   _gizmoColor: {r: 0.9507582, g: 1, b: 0, a: 1}
+--- !u!114 &1499243186183995889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5360051581978066540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b4126f882fa4f20bd8cef695bdcee14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.FleshGolemView
 --- !u!1001 &2556123515810563843
 PrefabInstance:
   m_ObjectHideFlags: 0
