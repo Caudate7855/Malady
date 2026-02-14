@@ -6,12 +6,14 @@ namespace Project.Scripts
     public sealed class InventoryItem : DragAndDropItemBase
     {
         public InventorySlotType _inventorySlotType;
+        public ItemData ItemData;
 
         [SerializeField] private Image _background;
         [SerializeField] private Image _itemImage;
 
         public InventorySlot CurrentInventorySlot { get; set; }
-
+        
+        
         public void SetBackground(Sprite sprite)
         {
             if (_background != null)

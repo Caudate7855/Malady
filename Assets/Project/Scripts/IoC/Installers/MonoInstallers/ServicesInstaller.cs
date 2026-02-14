@@ -30,7 +30,7 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
             
             Container
-                .BindInterfacesAndSelfTo<SpellTipService>()
+                .BindInterfacesAndSelfTo<TipService>()
                 .AsSingle();
         }
     }

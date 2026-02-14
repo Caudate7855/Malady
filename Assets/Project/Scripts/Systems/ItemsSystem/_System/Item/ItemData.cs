@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class Item
+    public class ItemData
     {
         public ItemType ItemType { get; }
         public Sprite Sprite { get; }
         public List<StatBase> Stats { get; }
         public ISpellModifier Modifier { get; }
 
-        public Item(ItemType itemType, Sprite sprite, List<StatBase> stats, ISpellModifier modifier)
+        public ItemData(ItemType itemType, Sprite sprite, List<StatBase> stats, ISpellModifier modifier)
         {
             ItemType = itemType;
             Sprite = sprite;

@@ -7,6 +7,7 @@ namespace Project.Scripts.IoC.Installers
     {
         [SerializeField] private InventoryItem _inventoryItem;
         [SerializeField] private SpellItem _spellItem;
+        [SerializeField] private DropItemUIView _dropItemUIView;
         
         public override void InstallBindings()
         {
@@ -22,7 +23,28 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<StatSystem>()
                 .AsSingle();
 
+            BindItemSystem();
             BindDragAndDropSystem();
+        }
+
+        private void BindItemSystem()
+        {
+            Container
+                .BindInterfacesAndSelfTo<ItemSystem>()
+                .AsSingle();
+            
+            Container
+                .BindInterfacesAndSelfTo<DropSystem>()
+                .AsSingle();
+            
+            Container
+                .Bind<DropItemUIView>()
+                .FromInstance(_dropItemUIView)
+                .AsSingle();
+            
+            Container
+                .Bind<ItemsFactory>()
+                .AsSingle();
         }
 
         private void BindDragAndDropSystem()

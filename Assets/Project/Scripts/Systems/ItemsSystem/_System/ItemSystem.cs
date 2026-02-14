@@ -18,31 +18,31 @@ namespace Project.Scripts
             _dropSystem = dropSystem;
         }
 
-        public Item CreateRandomItem()
+        public ItemData CreateRandomItem()
         {
             return _itemsFactory.CreateRandomItem();
         }
         
-        public Item CreateItemByType(ItemType itemType)
+        public ItemData CreateItemByType(ItemType itemType)
         {
             return _itemsFactory.CreateItemByType(itemType);
         }
 
-        public void GetItem(Item item)
+        public void GetItem(ItemData itemData)
         {
-            Debug.Log($"Item collected:{item.ItemType}");
+            Debug.Log($"Item collected:{itemData.ItemType}");
         }
 
-        public void DropItem(Item item, Vector3 position)
+        public void DropItem(ItemData itemData, Vector3 position)
         {
-            var config = _itemsConfig.GetItemConfigByType(item.ItemType);
+            var config = _itemsConfig.GetItemConfigByType(itemData.ItemType);
 
-            var worldItem = new GameObject($"Drop: {item.ItemType}");
+            var worldItem = new GameObject($"Drop: {itemData.ItemType}");
             worldItem.transform.position = position;
 
             _dropSystem.SpawnFollow(config.DropSprite, worldItem.transform, () =>
             {
-                GetItem(item);
+                GetItem(itemData);
                 UnityEngine.Object.Destroy(worldItem);
             });
         }

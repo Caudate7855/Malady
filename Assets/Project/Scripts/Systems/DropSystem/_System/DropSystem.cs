@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Itibsoft.PanelManager;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -28,9 +29,9 @@ namespace Project.Scripts
         private float _spacingK = 0.28f;
         private float _collisionK = 0.78f;
 
-        public DropSystem(Canvas canvas, DropItemUIView dropItemUIViewPrefab)
+        public DropSystem(IPanelManager panelManager, DropItemUIView dropItemUIViewPrefab)
         {
-            _canvas = canvas;
+            _canvas = panelManager.PanelDispatcher.Canvas;
             _dropItemUIViewPrefab = dropItemUIViewPrefab;
         }
 

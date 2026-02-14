@@ -27,7 +27,7 @@ namespace Project.Scripts
     }
 
     [Serializable]
-    public struct ItemConfig
+    public class ItemConfig
     {
         [FoldoutGroup("@Type")]
         [HorizontalGroup("@Type/Horizontal", 100)]

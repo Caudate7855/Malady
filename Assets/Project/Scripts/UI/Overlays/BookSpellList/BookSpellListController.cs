@@ -18,7 +18,7 @@ namespace Project.Scripts
         private readonly IPanelManager _panelManager;
         private readonly SpellItem _spellItemPrefab;
         private readonly DragAndDropSystem _dragAndDropSystem;
-        private readonly ISpellTipService _spellTipService;
+        private readonly ITipService _tipService;
 
         private readonly List<SpellItem> _wiredItems = new(256);
 
@@ -33,14 +33,14 @@ namespace Project.Scripts
             IPanelManager panelManager,
             SpellItem spellItemPrefab,
             DragAndDropSystem dragAndDropSystem,
-            ISpellTipService spellTipService)
+            ITipService tipService)
         {
             _spellConfig = spellConfig;
             _resourcesConfig = resourcesConfig;
             _panelManager = panelManager;
             _spellItemPrefab = spellItemPrefab;
             _dragAndDropSystem = dragAndDropSystem;
-            _spellTipService = spellTipService;
+            _tipService = tipService;
         }
 
         protected override void Initialize()
@@ -49,7 +49,7 @@ namespace Project.Scripts
 
             _dragAndDropSystem.Register(this);
 
-            _spellTipService.BindCanvas();
+            _tipService.BindCanvas();
 
             InitSpellsList();
         }
@@ -74,7 +74,7 @@ namespace Project.Scripts
                 return;
 
             var spellConfig = _spellConfig.GetSpellConfig(slot.Spell.GetType());
-            slot.Init(_spellTipService, _spellConfig, _resourcesConfig, spellConfig);
+            slot.Init(_tipService, _spellConfig, _resourcesConfig, spellConfig);
 
             if (!slot.IsContainItem)
             {

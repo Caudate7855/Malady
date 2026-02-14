@@ -1,20 +1,28 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Project.Scripts
 {
-    public sealed class InventorySlot : DragAndDropSlot
+    public sealed class InventorySlot : DragAndDropSlot, IPointerEnterHandler, IPointerExitHandler
     {
         public RectTransform ItemsContainer;
 
         public InventorySlotType _inventorySlotType;
 
-        public new InventoryItem Item => (InventoryItem)base.Item;
+        private ITipService _tipService;
+
+        public new InventoryItem InventoryItem => (InventoryItem)Item;
         public bool IsContainItem => base.HasItem;
+
+        public void Init(ITipService tipService)
+        {
+            _tipService = tipService;
+        }
 
         public InventoryItem CreateNewItem(InventoryItem itemPrefab, GameObject parentObject)
         {
             var parent = ItemsContainer != null ? ItemsContainer : parentObject.GetComponent<RectTransform>();
-            var item = Object.Instantiate(itemPrefab, parent);
+            var item = Instantiate(itemPrefab, parent);
 
             var rt = item.GetComponent<RectTransform>();
             rt.anchoredPosition = Vector2.zero;
@@ -32,7 +40,7 @@ namespace Project.Scripts
             }
 
             item.CurrentInventorySlot = this;
-            base.SetItem(item);
+            SetItem(item);
 
             var rt = item.GetComponent<RectTransform>();
             rt.anchoredPosition = Vector2.zero;
@@ -55,6 +63,32 @@ namespace Project.Scripts
             }
 
             item.CurrentInventorySlot = null;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (_tipService == null)
+            {
+                return;
+            }
+
+            var item = InventoryItem;
+            if (item == null)
+            {
+                return;
+            }
+
+            _tipService.ShowItemTip(item.ItemData);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (_tipService == null)
+            {
+                return;
+            }
+
+            _tipService.Hide();
         }
     }
 }

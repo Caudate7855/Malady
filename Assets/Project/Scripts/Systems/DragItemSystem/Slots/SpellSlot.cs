@@ -27,7 +27,7 @@ namespace Project.Scripts
 
         [SerializeField] private Image _image;
 
-        private ISpellTipService _tipService;
+        private ITipService _tipService;
         private SpellsConfig _spellsConfig;
         private ResourcesConfig _resourcesConfig;
         private SpellConfig _bookSpellConfig;
@@ -38,7 +38,7 @@ namespace Project.Scripts
         public new SpellItem Item => (SpellItem)base.Item;
         public bool IsContainItem => base.HasItem;
 
-        public void Init(ISpellTipService tipService, SpellsConfig spellsConfig, ResourcesConfig resourcesConfig, SpellConfig bookSpellConfig = null)
+        public void Init(ITipService tipService, SpellsConfig spellsConfig, ResourcesConfig resourcesConfig, SpellConfig bookSpellConfig = null)
         {
             _tipService = tipService;
             _spellsConfig = spellsConfig;
@@ -85,15 +85,15 @@ namespace Project.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            OnItemPointerEnter();
+            OnSpellItemPointerEnter();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            OnItemPointerExit();
+            OnSpellItemPointerExit();
         }
 
-        public void OnItemPointerEnter()
+        public void OnSpellItemPointerEnter()
         {
             if (_tipService == null || _spellsConfig == null || _resourcesConfig == null)
             {
@@ -106,10 +106,10 @@ namespace Project.Scripts
                 return;
             }
 
-            _tipService.Show(cfg, _resourcesConfig);
+            _tipService.ShowSpellTip(cfg, _resourcesConfig);
         }
 
-        public void OnItemPointerExit()
+        public void OnSpellItemPointerExit()
         {
             if (_tipService == null)
             {

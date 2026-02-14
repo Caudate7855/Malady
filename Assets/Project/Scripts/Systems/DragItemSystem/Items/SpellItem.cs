@@ -24,12 +24,12 @@ namespace Project.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            CurrentSpellSlot?.OnItemPointerEnter();
+            CurrentSpellSlot?.OnSpellItemPointerEnter();
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            CurrentSpellSlot?.OnItemPointerExit();
+            CurrentSpellSlot?.OnSpellItemPointerExit();
         }
     }
 }

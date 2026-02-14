@@ -10,23 +10,21 @@ namespace Project.Scripts
     {
         private readonly Random _random = new();
 
-        private readonly ItemView _itemViewPrefabPrefab;
         private readonly ItemsConfig _itemsConfig;
 
-        public ItemsFactory(ItemsConfig itemsConfig, ItemView itemViewPrefab)
+        public ItemsFactory(ItemsConfig itemsConfig)
         {
             _itemsConfig = itemsConfig;
-            _itemViewPrefabPrefab = itemViewPrefab;
         }
 
-        public Item CreateRandomItem()
+        public ItemData CreateRandomItem()
         {
             var values = Enum.GetValues(typeof(ItemType));
             var randomItemType = (ItemType)values.GetValue(_random.Next(values.Length));
             return CreateItemByType(randomItemType);
         }
 
-        public Item CreateItemByType(ItemType itemType)
+        public ItemData CreateItemByType(ItemType itemType)
         {
             var config = _itemsConfig.GetItemConfigByType(itemType);
             var type = config.Type;
@@ -34,7 +32,7 @@ namespace Project.Scripts
             var stats = GenerateRandomStats(config);
             var modifier = GenerateRandomModifier(config);
             
-            return new Item(type, sprite, stats, modifier);
+            return new ItemData(type, sprite, stats, modifier);
         }
 
         private List<StatBase> GenerateRandomStats(ItemConfig config)

@@ -13,7 +13,7 @@ namespace Project.Scripts
     {
         [Inject] private DragAndDropSystem _dragAndDropSystem;
         [Inject] private IPanelManager _panelManager;
-        [Inject] private ISpellTipService _spellTipService;
+        [Inject] private ITipService _tipService;
         [Inject] private SpellsConfig _spellsConfig;
         [Inject] private ResourcesConfig _resourcesConfig;
 
@@ -28,7 +28,7 @@ namespace Project.Scripts
         {
             _dragAndDropSystem.Register(this);
 
-            _spellTipService.BindCanvas();
+            _tipService.BindCanvas();
 
             InitSpellSlots();
             WireSpellItems();
@@ -47,7 +47,7 @@ namespace Project.Scripts
                     continue;
                 }
 
-                slot.Init(_spellTipService, _spellsConfig, _resourcesConfig);
+                slot.Init(_tipService, _spellsConfig, _resourcesConfig);
             }
         }
 
@@ -135,7 +135,7 @@ namespace Project.Scripts
 
             UnwireAll();
 
-            _spellTipService?.Hide();
+            _tipService?.Hide();
 
             OnBeginDrag.Dispose();
             OnDrag.Dispose();

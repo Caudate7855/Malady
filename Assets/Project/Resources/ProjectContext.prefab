@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inventoryItem: {fileID: 2851648903340078951, guid: 211c21e940ab49347b8f1f624bd5a1ed, type: 3}
   _spellItem: {fileID: 4149895543395391122, guid: 24cd75c8993fbb54e82193c0a62d7265, type: 3}
+  _dropItemUIView: {fileID: 2408753709143423288, guid: e0f141915826c4149af70cdc0fc44bbb, type: 3}
 --- !u!114 &9183836926412961288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +196,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.IoC.Installers.UIInstaller
   _spellTip: {fileID: -4724774933748430465, guid: 50bf70b3ba1155e4883eae2b48b8d8ab, type: 3}
+  _itemTip: {fileID: -6576227238549959017, guid: d20dcab52fc8a194d9000dfcc1a34a9c, type: 3}

@@ -4,6 +4,6 @@ namespace Project.Scripts
 {
     public class ItemView : MonoBehaviour
     {
-        [field: SerializeField] public Item Item { get; set; }
+        [field: SerializeField] public ItemData ItemData { get; set; }
     }
 }

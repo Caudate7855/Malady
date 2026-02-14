@@ -12,6 +12,7 @@ namespace Project.Scripts
     [Panel(PanelType = PanelType.Overlay, Order = 0, AssetId = "InventoryView")]
     public class InventoryController : PanelControllerBase<InventoryView>, IDragAndDropInput, IDisposable
     {
+        [Inject] private ItemsConfig _itemsConfig;
         [Inject] private StatSystem _statSystem;
         [Inject] private InventoryItem _baseItem;
         [Inject] private IPanelManager _panelManager;
