@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Project.Scripts
 {
     [Serializable]
-    public class BloodAbsorption : SpellBase
+    public class BloodAbsorption : SelfSpellBase
     {
         public BloodAbsorption(GameObject viewPrefab, SpellConfig config) : base(viewPrefab, config)
         {

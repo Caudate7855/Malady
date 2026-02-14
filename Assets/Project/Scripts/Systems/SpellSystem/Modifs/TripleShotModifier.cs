@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Modifs
 {
-    public sealed class TripleShotModifier : ISpellModifier, IPriority
+    public class TripleShotModifier : ISpellModifier, IPriority
     {
         public int Priority => -100;
 
@@ -11,22 +11,33 @@ namespace Project.Scripts.Modifs
 
         public void Apply(ISpell spell)
         {
+            if (spell == null) throw new Exception("spell is null");
+
             var inner = spell.CastAction;
 
             spell.CastAction = () =>
             {
-                inner?.Invoke();
-
                 var origin = spell.Origin ?? throw new Exception("Origin is null");
 
-                var forward = origin.forward;
-                var up = origin.up;
+                var baseRot = origin.rotation;
 
-                var left = Quaternion.AngleAxis(-SpreadAngleDeg, up) * forward;
-                var right = Quaternion.AngleAxis(SpreadAngleDeg, up) * forward;
+                try
+                {
+                    origin.rotation = baseRot;
+                    inner?.Invoke();
 
-                spell.SpawnProjectile(left);
-                spell.SpawnProjectile(right);
+                    var up = origin.up;
+
+                    origin.rotation = Quaternion.AngleAxis(-SpreadAngleDeg, up) * baseRot;
+                    inner?.Invoke();
+
+                    origin.rotation = Quaternion.AngleAxis(SpreadAngleDeg, up) * baseRot;
+                    inner?.Invoke();
+                }
+                finally
+                {
+                    origin.rotation = baseRot;
+                }
             };
         }
 

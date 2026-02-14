@@ -77,7 +77,7 @@ namespace Project.Scripts
             }
 
             _mainUIController.OnPlayerSpellButtonClicked(0);
-            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[0].AnimationTypeType);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[0].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(0);
         }
 
@@ -89,7 +89,7 @@ namespace Project.Scripts
             }
 
             _mainUIController.OnPlayerSpellButtonClicked(1);
-            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[1].AnimationTypeType);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[1].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(1);
         }
 
@@ -101,7 +101,7 @@ namespace Project.Scripts
             }
 
             _mainUIController.OnPlayerSpellButtonClicked(2);
-            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[2].AnimationTypeType);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[2].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(2);
         }
 
@@ -113,7 +113,7 @@ namespace Project.Scripts
             }
 
             _mainUIController.OnPlayerSpellButtonClicked(3);
-            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[3].AnimationTypeType);
+            _playerController.PlayCastAnimation(_spellSystem.ChosenSpells[3].AnimationType);
             _spellSystem.CastPlayerSpellByIndex(3);
         }
 

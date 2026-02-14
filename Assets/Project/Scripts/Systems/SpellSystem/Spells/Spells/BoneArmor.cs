@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Project.Scripts
 {
     [Serializable]
-    public class BoneArmor : SpellBase
+    public class BoneArmor : SelfSpellBase
     {
         public BoneArmor(GameObject viewPrefab, SpellConfig config) : base(viewPrefab, config)
         {

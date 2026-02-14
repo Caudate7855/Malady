@@ -7,7 +7,7 @@ namespace Project.Scripts
     public interface ISpell
     {
         Transform Origin { get; set; }
-        PlayerCastAnimationType AnimationTypeType { get; set; }
+        PlayerCastAnimationType AnimationType { get; set; }
 
         float Time { get; }
         int ActiveCount { get; }
@@ -20,9 +20,6 @@ namespace Project.Scripts
 
         void Cast();
         void Tick(float dt);
-
-        int SpawnProjectile(Vector3 direction, bool canTriggerExpire = true);
-        int SpawnProjectileAt(Vector3 position, Vector3 direction, bool canTriggerExpire = true);
 
         GameObject GetInstance(int index);
         void AddWorldOffset(int index, Vector3 offset);

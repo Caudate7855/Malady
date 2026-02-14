@@ -79,6 +79,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: SpellType
+      Entry: 3
+      Data: 0
     - Name: SpellView
       Entry: 10
       Data: 1
@@ -184,6 +187,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 0
+    - Name: SpellType
+      Entry: 3
+      Data: 4
     - Name: SpellView
       Entry: 10
       Data: 3
@@ -299,6 +305,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 1
+    - Name: SpellType
+      Entry: 3
+      Data: 0
     - Name: SpellView
       Entry: 10
       Data: 5
@@ -382,6 +391,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 1
+    - Name: SpellType
+      Entry: 3
+      Data: 4
     - Name: SpellView
       Entry: 10
       Data: 7
@@ -475,12 +487,15 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 1
+    - Name: SpellType
+      Entry: 3
+      Data: 0
     - Name: SpellView
       Entry: 10
       Data: 9
     - Name: AnimationType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: InitialModifs
       Entry: 7
       Data: 27|System.Collections.Generic.List`1[[Project.Scripts.Configs.InitialModif,
@@ -558,12 +573,15 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 1
+    - Name: SpellType
+      Entry: 3
+      Data: 0
     - Name: SpellView
       Entry: 10
       Data: 11
     - Name: AnimationType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: InitialModifs
       Entry: 7
       Data: 31|System.Collections.Generic.List`1[[Project.Scripts.Configs.InitialModif,
@@ -673,6 +691,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 2
+    - Name: SpellType
+      Entry: 3
+      Data: 1
     - Name: SpellView
       Entry: 10
       Data: 13
@@ -764,6 +785,9 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: ElementType
+      Entry: 3
+      Data: 2
+    - Name: SpellType
       Entry: 3
       Data: 2
     - Name: SpellView
@@ -883,6 +907,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 3
+    - Name: SpellType
+      Entry: 3
+      Data: 0
     - Name: SpellView
       Entry: 10
       Data: 17
@@ -988,6 +1015,9 @@ MonoBehaviour:
     - Name: ElementType
       Entry: 3
       Data: 3
+    - Name: SpellType
+      Entry: 3
+      Data: 0
     - Name: SpellView
       Entry: 10
       Data: 19

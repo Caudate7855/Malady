@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts.Modifs
 {
-    public sealed class DoubleBackShotOnExpireModifier : ISpellModifier
+    public class DoubleBackShotOnExpireModifier : ISpellModifier
     {
         public int Priority => 0;
 
@@ -32,12 +32,17 @@ namespace Project.Scripts.Modifs
 
         private void OnExpired(Vector3 position, Vector3 dir, int index)
         {
+            if (_spell == null) return;
+
+            if (_spell is ProjectileSpellBase projectileSpell == false)
+                return;
+
             var back = -dir;
             var left = Quaternion.AngleAxis(-SpreadAngleDeg, Vector3.up) * back;
             var right = Quaternion.AngleAxis(SpreadAngleDeg, Vector3.up) * back;
 
-            _spell.SpawnProjectileAt(position, left, false);
-            _spell.SpawnProjectileAt(position, right, false);
+            projectileSpell.CastFrom(position, left, true);
+            projectileSpell.CastFrom(position, right, true);
         }
     }
 }

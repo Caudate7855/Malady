@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Project.Scripts
 {
     [Serializable]
-    public class SoulMage : SpellBase
+    public class SoulMage : SummonSpellBase
     {
         public SoulMage(GameObject viewPrefab, SpellConfig config) : base(viewPrefab, config)
         {

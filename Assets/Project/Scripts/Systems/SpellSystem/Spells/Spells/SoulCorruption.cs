@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Scripts
 {
-    public class SoulCorruption : SpellBase
+    public class SoulCorruption : AreaSpellBase
     {
         public SoulCorruption(GameObject viewPrefab, SpellConfig config) : base(viewPrefab, config)
         {

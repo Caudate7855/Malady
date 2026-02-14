@@ -71,6 +71,9 @@ namespace Project.Scripts.Configs
         
         [FoldoutGroup("@Name")]
         public SpellElementType ElementType;
+        
+        [FoldoutGroup("@Name")]
+        public SpellType SpellType;
 
         [FoldoutGroup("@Name")]
         public SpellViewBase SpellView;
