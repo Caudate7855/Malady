@@ -2,6 +2,7 @@
 using Project.Scripts.Configs;
 using Project.Scripts.Player;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Scripts
 {
@@ -28,6 +29,9 @@ namespace Project.Scripts
 
         protected float Speed { get; set; }
         protected float LifeTime { get; set; }
+
+        [Inject] protected DiContainer DiСontainer;
+        [Inject] protected MouseController MouseController;
 
         private float _time;
 

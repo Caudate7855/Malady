@@ -19,10 +19,6 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
 
             Container
-                .Bind<SummonSystem>()
-                .AsSingle();
-            
-            Container
                 .Bind<StatSystem>()
                 .AsSingle();
 

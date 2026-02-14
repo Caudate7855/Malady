@@ -1,3 +1,4 @@
+﻿using Project.Scripts.Player;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -6,6 +7,7 @@ namespace Project.Scripts
 {
     public abstract class SummonUnitBase : AiBehaviourBase, IInitializable
     {
+        [Inject] protected PlayerController PlayerController;
         [SerializeField] protected Animator Animator;
         
         protected Fsm Fsm = new();

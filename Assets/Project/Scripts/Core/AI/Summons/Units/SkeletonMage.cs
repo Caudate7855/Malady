@@ -1,13 +1,9 @@
-using Project.Scripts.Player;
 using UnityEngine;
-using Zenject;
 
 namespace Project.Scripts.Summons
 {
     public class SkeletonMage : SummonUnitBase
     {
-        [Inject] protected PlayerController PlayerController;
-        
         public override void Initialize()
         {
             Fsm.AddState(new SkeletonMageFsmStateIdle(Animator, Fsm));
