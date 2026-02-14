@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Project.Scripts
 {
-    public sealed class DropSystem : IInitializable, ITickable, IDisposable
+    public class DropSystem : IInitializable, ITickable, IDisposable
     {
         private const string ContainerName = "DropsContainer";
         private const float EpsilonSqr = 0.0001f;
@@ -64,6 +64,34 @@ namespace Project.Scripts
             });
 
             return view;
+        }
+
+        public bool Despawn(Transform worldTarget)
+        {
+            if (worldTarget == null)
+            {
+                return false;
+            }
+
+            for (var i = _entries.Count - 1; i >= 0; i--)
+            {
+                var e = _entries[i];
+                if (e.World != worldTarget)
+                {
+                    continue;
+                }
+
+                if (e.View != null)
+                {
+                    e.View.ClearOnClick();
+                    UnityEngine.Object.Destroy(e.View.gameObject);
+                }
+
+                _entries.RemoveAt(i);
+                return true;
+            }
+
+            return false;
         }
 
         public void Tick()
@@ -157,7 +185,6 @@ namespace Project.Scripts
         private int CompareByScreenPosition(Entry a, Entry b)
         {
             var byY = b.Projected.y.CompareTo(a.Projected.y);
-
             if (byY != 0)
             {
                 return byY;
@@ -169,7 +196,6 @@ namespace Project.Scripts
         private Vector2 FindFreeSpot(Entry e, Vector2 canvasHalf)
         {
             var basePos = ClampToCanvas(e.Projected, e.Size, canvasHalf);
-
             var spacing = Mathf.Max(e.Size.x, e.Size.y) * _spacingK;
 
             var bestPos = basePos;
@@ -334,6 +360,17 @@ namespace Project.Scripts
             {
                 view.gameObject.SetActive(true);
             }
+        }
+
+        private class Entry
+        {
+            public Transform World;
+            public DropItemUIView View;
+            public Action OnClick;
+
+            public Vector2 Projected;
+            public Vector2 Desired;
+            public Vector2 Size;
         }
     }
 }

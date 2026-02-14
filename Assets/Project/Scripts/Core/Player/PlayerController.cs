@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Itibsoft.PanelManager;
 using Project.Scripts.Abstracts;
 using UnityEngine;
@@ -15,63 +16,110 @@ namespace Project.Scripts.Player
         [Inject] private StatSystem _statSystem;
         [Inject] private MouseController _mouseController;
 
-        private MainUIController  _mainUIController;
+        private MainUIController _mainUIController;
         private NavMeshAgent _navMeshAgent;
+
+        private static readonly List<RaycastResult> _uiHits = new(32);
+        private static PointerEventData _pointerEventData;
 
         public void Initialize()
         {
-            _navMeshAgent =  GetComponent<NavMeshAgent>();
-            
+            _navMeshAgent = GetComponent<NavMeshAgent>();
             _mainUIController = _panelManager.LoadPanel<MainUIController>();
-            
-            _playerMover.OnDestinationReached += Idle;
 
             _playerFsm.Initialize(_navMeshAgent, GetComponentInChildren<Animator>());
             _statSystem.Initialize();
+
+            _playerMover.SetNavMeshAgent(_navMeshAgent);
+            _playerMover.ClearOnDestinationReached();
+            _playerMover.OnDestinationReached += Idle;
         }
 
         public bool IsNavMeshAgentReady()
         {
-            return _navMeshAgent.enabled;
+            return _navMeshAgent != null && _navMeshAgent.enabled;
         }
 
-        public void TryMoveToPoint(Vector3 targetLocation, InteractableBase interactable = default)
+        public void TryMoveToPoint(Vector3 targetLocation, InteractableBase interactable = default, bool ignoreUi = false)
         {
-            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
-            
-            if (EventSystem.current.IsPointerOverGameObject())
+            if (_navMeshAgent == null)
+            {
+                _navMeshAgent = GetComponent<NavMeshAgent>();
+            }
+
+            if (_navMeshAgent == null || !_navMeshAgent.enabled)
+            {
+                Debug.Log("TryMoveToPoint: navmesh agent not ready");
+                return;
+            }
+
+            _playerMover.SetNavMeshAgent(_navMeshAgent);
+
+            if (!ignoreUi && IsPointerOverUi())
             {
                 return;
             }
 
+            if (!_playerFsm.IsPossibleToMove)
+            {
+                Debug.Log("TryMoveToPoint: IsPossibleToMove == false");
+                return;
+            }
+
+            _playerMover.ClearOnDestinationReached();
+
             if (interactable != null)
             {
-                _playerMover.OnDestinationReached += () => Interact(interactable);
+                var local = interactable;
+                _playerMover.OnDestinationReached += () => Interact(local);
+                _playerMover.OnDestinationReached += Idle;
             }
             else
             {
-                _playerMover.ClearOnDestinationReached();
                 _playerMover.OnDestinationReached += Idle;
             }
-            
-            if (_playerFsm.IsPossibleToMove)
+
+            ContinueMovement();
+            _playerMover.MoveToPoint(targetLocation);
+            _playerFsm.SetState<PlayerFsmStateRun>();
+            _playerFsm.GetCurrentState().Update();
+        }
+
+        private bool IsPointerOverUi()
+        {
+            var es = EventSystem.current;
+            if (es == null)
             {
-                ContinueMovement();
-                _playerMover.MoveToPoint(targetLocation);
-                _playerFsm.SetState<PlayerFsmStateRun>();
-                _playerFsm.GetCurrentState().Update();
+                return false;
             }
+
+            if (es.IsPointerOverGameObject())
+            {
+                return true;
+            }
+
+            if (_pointerEventData == null)
+            {
+                _pointerEventData = new PointerEventData(es);
+            }
+
+            _pointerEventData.position = Input.mousePosition;
+
+            _uiHits.Clear();
+            es.RaycastAll(_pointerEventData, _uiHits);
+
+            return _uiHits.Count > 0;
         }
 
         private void StopMovement()
         {
-            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
+            _playerMover.SetNavMeshAgent(_navMeshAgent);
             _playerMover.StopMovement();
         }
 
         private void ContinueMovement()
         {
-            _playerMover.SetNavMeshAgent(GetComponent<NavMeshAgent>());
+            _playerMover.SetNavMeshAgent(_navMeshAgent);
             _playerMover.ContinueMovement();
         }
 
@@ -82,7 +130,7 @@ namespace Project.Scripts.Player
                 interactable.InteractWithCooldown();
             }
         }
-        
+
         private void Idle()
         {
             _playerFsm.SetState<PlayerFsmStateIdle>();
@@ -97,15 +145,15 @@ namespace Project.Scripts.Player
 
             if (dir != Vector3.zero)
             {
-                transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(dir).eulerAngles.y ,0f);
+                transform.rotation = Quaternion.Euler(0f, Quaternion.LookRotation(dir).eulerAngles.y, 0f);
             }
-            
+
             switch (animationTypeType)
             {
                 case PlayerCastAnimationType.Cast:
                     _playerFsm.SetState<PlayerFsmStateCast>();
                     break;
-                
+
                 case PlayerCastAnimationType.Summon:
                     _playerFsm.SetState<PlayerFsmStateSummon>();
                     break;

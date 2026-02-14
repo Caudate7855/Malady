@@ -8,7 +8,7 @@ namespace Project.Scripts
     {
         [field: SerializeField] public Image Image;
         [field: SerializeField] private Button Button;
-    
+
         public void SetOnClick(Action onClick)
         {
             Button.onClick.RemoveAllListeners();
@@ -21,6 +21,11 @@ namespace Project.Scripts
         public void ClearOnClick()
         {
             Button.onClick.RemoveAllListeners();
+        }
+
+        public void SetInteractable(bool state)
+        {
+            Button.interactable = state;
         }
     }
 }

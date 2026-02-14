@@ -41,7 +41,12 @@ namespace Project.Scripts.Abstracts
 
         void ChangeOutline(bool condition)
         {
-            gameObject.GetComponent<Outline>().enabled = condition;
+            var outline = gameObject.GetComponent<Outline>();
+            
+            if (outline != null)
+            {
+                outline.enabled = condition;
+            }
         }
     }
 }

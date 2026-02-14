@@ -9,47 +9,46 @@ namespace Project.Scripts
     {
         private readonly ItemsConfig _itemsConfig;
         private readonly ItemsFactory _itemsFactory;
-        private readonly DropSystem _dropSystem;
+        private readonly WorldDropsController _worldDropsController;
 
-        public ItemSystem(ItemsConfig itemsConfig, ItemsFactory itemsFactory, DropSystem dropSystem)
+        public ItemSystem(ItemsConfig itemsConfig, ItemsFactory itemsFactory, WorldDropsController worldDropsController)
         {
             _itemsConfig = itemsConfig;
             _itemsFactory = itemsFactory;
-            _dropSystem = dropSystem;
+            _worldDropsController = worldDropsController;
         }
 
         public ItemData CreateRandomItem()
         {
             return _itemsFactory.CreateRandomItem();
         }
-        
+
         public ItemData CreateItemByType(ItemType itemType)
         {
             return _itemsFactory.CreateItemByType(itemType);
-        }
-
-        public void GetItem(ItemData itemData)
-        {
-            Debug.Log($"Item collected:{itemData.ItemType}");
         }
 
         public void DropItem(ItemData itemData, Vector3 position)
         {
             var config = _itemsConfig.GetItemConfigByType(itemData.ItemType);
 
-            var worldItem = new GameObject($"Drop: {itemData.ItemType}");
-            worldItem.transform.position = position;
+            var worldGo = new GameObject($"Drop: {itemData.ItemType}");
+            worldGo.transform.position = position;
 
-            _dropSystem.SpawnFollow(config.DropSprite, worldItem.transform, () =>
-            {
-                GetItem(itemData);
-                UnityEngine.Object.Destroy(worldItem);
-            });
+            var col = worldGo.AddComponent<SphereCollider>();
+            col.isTrigger = true;
+            col.radius = 0.35f;
+
+            worldGo.AddComponent<Outline>();
+
+            var worldDrop = worldGo.AddComponent<WorldDropItem>();
+            worldDrop.Setup(itemData, config.DropSprite);
+
+            _worldDropsController.Register(worldDrop);
         }
 
         public void Initialize()
         {
-            
         }
 
         public void Dispose()

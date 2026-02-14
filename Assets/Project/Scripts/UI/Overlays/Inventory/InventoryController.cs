@@ -145,6 +145,53 @@ namespace Project.Scripts
 
             _wiredItems.Clear();
         }
+        
+        public bool TryAddItem(ItemData itemData)
+        {
+            if (itemData == null)
+            {
+                return false;
+            }
+
+            if (_inventorySlots == null || _inventorySlots.Count == 0)
+            {
+                return false;
+            }
+
+            for (var i = 0; i < _inventorySlots.Count; i++)
+            {
+                var slot = _inventorySlots[i];
+                if (slot == null)
+                {
+                    continue;
+                }
+
+                if (slot.IsContainItem)
+                {
+                    continue;
+                }
+
+                var item = slot.CreateNewItem(_baseItem, _itemsContainer.gameObject);
+                if (item == null)
+                {
+                    return false;
+                }
+
+                item.ItemData = itemData;
+
+                var cfg = _itemsConfig.GetItemConfigByType(itemData.ItemType);
+                if (cfg != null)
+                {
+                    item.SetIcon(cfg.DropSprite);
+                }
+
+                WireItem(item);
+                return true;
+            }
+
+            return false;
+        }
+
 
         private void OnItemBeginDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
         {
