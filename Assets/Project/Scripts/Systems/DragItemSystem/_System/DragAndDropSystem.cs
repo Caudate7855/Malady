@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
+using Project.Scripts.Player;
 using R3;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,8 +13,10 @@ namespace Project.Scripts
 {
     public sealed class DragAndDropSystem : IInitializable, IDisposable
     {
-        private readonly IPanelManager _panelManager;
         private readonly SpellSystem _spellSystem;
+        private readonly ItemSystem _itemSystem;
+        private readonly IPanelManager _panelManager;
+        private readonly PlayerController _playerController;
 
         private readonly Dictionary<IDragAndDropInput, CompositeDisposable> _subscriptions = new();
         private readonly List<RaycastResult> _raycastResults = new(32);
@@ -33,28 +36,30 @@ namespace Project.Scripts
         private Vector2 _lastScreenPos;
 
         private MainUIController _mainUI;
+        private InventoryController _inventoryController;
 
-        public DragAndDropSystem(IPanelManager panelManager, SpellSystem spellSystem)
+        public DragAndDropSystem(
+            SpellSystem spellSystem, 
+            ItemSystem itemSystem, 
+            IPanelManager panelManager,
+            PlayerController playerController)
         {
-            _panelManager = panelManager;
             _spellSystem = spellSystem;
+            _itemSystem = itemSystem;
+            _panelManager = panelManager;
+            _playerController = playerController;
         }
 
         public void Initialize()
         {
+            _inventoryController = _panelManager.LoadPanel<InventoryController>();
+            
             _canvas = _panelManager.PanelDispatcher.Canvas;
+            
             _dragRoot = _canvas.GetComponent<RectTransform>();
-
-            if (_dragRoot == null)
-                throw new Exception("DragAndDropSystem: drag root is null");
-
             _raycaster = _canvas.GetComponent<GraphicRaycaster>();
-            if (_raycaster == null)
-                throw new Exception("DragAndDropSystem: GraphicRaycaster not found on Canvas");
 
             _eventSystem = EventSystem.current;
-            if (_eventSystem == null)
-                throw new Exception("DragAndDropSystem: EventSystem.current is null");
 
             _uiCamera = _canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : _canvas.worldCamera;
 
@@ -64,16 +69,15 @@ namespace Project.Scripts
         public void Dispose()
         {
             foreach (var kv in _subscriptions)
+            {
                 kv.Value.Dispose();
+            }
 
             _subscriptions.Clear();
         }
 
         public void Register(IDragAndDropInput input)
         {
-            if (input == null)
-                throw new Exception("DragAndDropSystem: input is null");
-
             if (_subscriptions.ContainsKey(input))
                 return;
 
@@ -235,6 +239,24 @@ namespace Project.Scripts
             if (_dragItem == null || _fromSlot == null)
                 return;
 
+            if (_fromSlot is InventorySlot fromInv)
+            {
+                var invItem = _dragItem as InventoryItem;
+                if (invItem != null)
+                {
+                    fromInv.ClearItem();
+                    invItem.CurrentInventorySlot = null;
+
+                    DropInventoryItemToWorld(invItem);
+
+                    Object.Destroy(_dragItem.gameObject);
+                    return;
+                }
+
+                ReturnToFromSlot();
+                return;
+            }
+
             if (_fromSlot is SpellSlot fromSpell)
             {
                 if (_isSpellBookDuplicate)
@@ -256,6 +278,11 @@ namespace Project.Scripts
             }
 
             ReturnToFromSlot();
+        }
+        
+        private void DropInventoryItemToWorld(InventoryItem invItem)
+        {
+            _itemSystem.DropItem(invItem.ItemData, _playerController.transform.position);
         }
 
         private void EndDragInventory(InventorySlot fromSlot, InventorySlot toSlot)

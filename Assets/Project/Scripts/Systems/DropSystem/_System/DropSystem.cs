@@ -306,6 +306,7 @@ namespace Project.Scripts
 
             var go = new GameObject(ContainerName, typeof(RectTransform));
             go.transform.SetParent(root, false);
+            go.transform.SetAsFirstSibling();
 
             var rtNew = (RectTransform)go.transform;
             rtNew.anchorMin = Vector2.zero;

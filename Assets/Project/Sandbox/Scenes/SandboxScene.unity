@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 1830735373}
   - component: {fileID: 1830735372}
   m_Layer: 0
-  m_Name: Boot
+  m_Name: BOOT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9c378e179d3174f800b4d7358b4caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSystemTest
-  _itemType: 0
+  _itemType: 3
 --- !u!1001 &1856740829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1428,11 +1428,11 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1830735371}
   - {fileID: 1283043153}
   - {fileID: 1209095346}
   - {fileID: 1270566751}
   - {fileID: 1858849560}
-  - {fileID: 1830735371}
   - {fileID: 2002944664}
   - {fileID: 1640728753}
   - {fileID: 27450565}
