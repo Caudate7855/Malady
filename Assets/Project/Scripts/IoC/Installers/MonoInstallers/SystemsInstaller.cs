@@ -38,10 +38,6 @@ namespace Project.Scripts.IoC.Installers
                 .AsSingle();
             
             Container
-                .BindInterfacesAndSelfTo<WorldDropsController>()
-                .AsSingle();
-            
-            Container
                 .Bind<DropItemUIView>()
                 .FromInstance(_dropItemUIView)
                 .AsSingle();

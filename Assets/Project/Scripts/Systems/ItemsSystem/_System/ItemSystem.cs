@@ -9,13 +9,13 @@ namespace Project.Scripts
     {
         private readonly ItemsConfig _itemsConfig;
         private readonly ItemsFactory _itemsFactory;
-        private readonly WorldDropsController _worldDropsController;
+        private readonly DropSystem _dropSystem;
 
-        public ItemSystem(ItemsConfig itemsConfig, ItemsFactory itemsFactory, WorldDropsController worldDropsController)
+        public ItemSystem(ItemsConfig itemsConfig, ItemsFactory itemsFactory, DropSystem dropSystem)
         {
             _itemsConfig = itemsConfig;
             _itemsFactory = itemsFactory;
-            _worldDropsController = worldDropsController;
+            _dropSystem = dropSystem;
         }
 
         public ItemData CreateRandomItem()
@@ -44,7 +44,7 @@ namespace Project.Scripts
             var worldDrop = worldGo.AddComponent<WorldDropItem>();
             worldDrop.Setup(itemData, config.DropSprite);
 
-            _worldDropsController.Register(worldDrop);
+            _dropSystem.Register(worldDrop);
         }
 
         public void Initialize()

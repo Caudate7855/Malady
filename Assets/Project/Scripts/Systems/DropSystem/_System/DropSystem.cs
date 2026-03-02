@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Itibsoft.PanelManager;
+using Project.Scripts.Player;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -15,6 +16,9 @@ namespace Project.Scripts
         private const int MaxTries = 260;
         private const float OverlapWeight = 100000f;
 
+        private readonly IPanelManager _panelManager;
+        private readonly PlayerController _playerController;
+
         private readonly Canvas _canvas;
         private readonly DropItemUIView _dropItemUIViewPrefab;
 
@@ -26,11 +30,16 @@ namespace Project.Scripts
         private Camera _worldCamera;
         private Camera _eventCamera;
 
+        private InventoryController _inventoryController;
+
         private float _spacingK = 0.28f;
         private float _collisionK = 0.78f;
 
-        public DropSystem(IPanelManager panelManager, DropItemUIView dropItemUIViewPrefab)
+        public DropSystem(IPanelManager panelManager, PlayerController playerController, DropItemUIView dropItemUIViewPrefab)
         {
+            _panelManager = panelManager;
+            _playerController = playerController;
+
             _canvas = panelManager.PanelDispatcher.Canvas;
             _dropItemUIViewPrefab = dropItemUIViewPrefab;
         }
@@ -39,31 +48,56 @@ namespace Project.Scripts
         {
             EnsureContainer();
             _worldCamera = ResolveWorldCamera();
+            _inventoryController = _panelManager.LoadPanel<InventoryController>();
         }
 
-        public DropItemUIView SpawnFollow(Sprite sprite, Transform worldTarget, Action onClick)
+        public void Register(WorldDropItem drop)
         {
+            if (drop == null)
+            {
+                return;
+            }
+
             EnsureContainer();
 
             var view = UnityEngine.Object.Instantiate(_dropItemUIViewPrefab, _containerRect);
-            view.Image.sprite = sprite;
-            view.SetOnClick(onClick);
+            view.Image.sprite = drop.Sprite;
 
             var rt = (RectTransform)view.transform;
-
             if (rt.rect.size.sqrMagnitude <= EpsilonSqr)
             {
                 LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
             }
 
-            _entries.Add(new Entry
+            var entry = new Entry
             {
-                World = worldTarget,
-                View = view,
-                OnClick = onClick
+                Drop = drop,
+                World = drop.transform,
+                View = view
+            };
+
+            view.SetOnClick(() =>
+            {
+                if (entry.Drop == null)
+                {
+                    return;
+                }
+
+                _playerController.TryMoveToPoint(entry.Drop.transform.position, entry.Drop, true);
             });
 
-            return view;
+            _entries.Add(entry);
+            drop.PickedUp += OnPickedUp;
+        }
+
+        public bool Despawn(WorldDropItem drop)
+        {
+            if (drop == null)
+            {
+                return false;
+            }
+
+            return Despawn(drop.transform);
         }
 
         public bool Despawn(Transform worldTarget)
@@ -81,11 +115,7 @@ namespace Project.Scripts
                     continue;
                 }
 
-                if (e.View != null)
-                {
-                    e.View.ClearOnClick();
-                    UnityEngine.Object.Destroy(e.View.gameObject);
-                }
+                Unwire(e);
 
                 _entries.RemoveAt(i);
                 return true;
@@ -109,14 +139,9 @@ namespace Project.Scripts
             {
                 var e = _entries[i];
 
-                if (e.World == null || e.View == null)
+                if (e.World == null || e.View == null || e.Drop == null)
                 {
-                    if (e.View != null)
-                    {
-                        e.View.ClearOnClick();
-                        UnityEngine.Object.Destroy(e.View.gameObject);
-                    }
-
+                    Unwire(e);
                     _entries.RemoveAt(i);
                     continue;
                 }
@@ -152,18 +177,51 @@ namespace Project.Scripts
 
         public void Dispose()
         {
-            for (var i = 0; i < _entries.Count; i++)
+            for (var i = _entries.Count - 1; i >= 0; i--)
             {
-                if (_entries[i].View != null)
-                {
-                    _entries[i].View.ClearOnClick();
-                    UnityEngine.Object.Destroy(_entries[i].View.gameObject);
-                }
+                Unwire(_entries[i]);
             }
 
             _entries.Clear();
             _visibleEntries.Clear();
             _occupied.Clear();
+        }
+
+        private void OnPickedUp(WorldDropItem drop)
+        {
+            if (drop == null)
+            {
+                return;
+            }
+
+            var added = _inventoryController != null && _inventoryController.TryAddItem(drop.ItemData);
+            if (!added)
+            {
+                return;
+            }
+
+            drop.PickedUp -= OnPickedUp;
+
+            Despawn(drop.transform);
+            UnityEngine.Object.Destroy(drop.gameObject);
+        }
+
+        private void Unwire(Entry e)
+        {
+            if (e.Drop != null)
+            {
+                e.Drop.PickedUp -= OnPickedUp;
+            }
+
+            if (e.View != null)
+            {
+                e.View.ClearOnClick();
+                UnityEngine.Object.Destroy(e.View.gameObject);
+            }
+
+            e.Drop = null;
+            e.World = null;
+            e.View = null;
         }
 
         private void PlaceNonOverlapping()
@@ -365,9 +423,10 @@ namespace Project.Scripts
 
         private class Entry
         {
+            public WorldDropItem Drop;
+
             public Transform World;
             public DropItemUIView View;
-            public Action OnClick;
 
             public Vector2 Projected;
             public Vector2 Desired;
