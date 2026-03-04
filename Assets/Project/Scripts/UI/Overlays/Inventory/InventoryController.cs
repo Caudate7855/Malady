@@ -182,7 +182,7 @@ namespace Project.Scripts
                 var cfg = _itemsConfig.GetItemConfigByType(itemData.ItemType);
                 if (cfg != null)
                 {
-                    item.SetIcon(cfg.DropSprite);
+                    item.SetIcon(item.ItemData.Sprite);
                 }
 
                 WireItem(item);
