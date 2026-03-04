@@ -66,6 +66,20 @@ namespace Project.Scripts
 
             var rt = item.GetComponent<RectTransform>();
             rt.anchoredPosition = Vector2.zero;
+
+            if (IsPointerOverSlot())
+            {
+                ChangeBorderVisibility(true);
+
+                if (_tipService != null)
+                {
+                    _tipService.ShowItemTip(item.ItemData);
+                }
+            }
+            else
+            {
+                ChangeBorderVisibility(false);
+            }
         }
 
         public void RemoveItemToContainer()
@@ -89,33 +103,41 @@ namespace Project.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            ChangeBorderVisibility(true);
+            
             if (_tipService == null)
             {
                 return;
             }
 
             var item = InventoryItem;
-            
+
             if (item == null)
             {
                 return;
             }
 
             _tipService.ShowItemTip(item.ItemData);
-
-            ChangeBorderVisibility(true);
         }
         
         public void OnPointerExit(PointerEventData eventData)
         {
+            ChangeBorderVisibility(false);
+            
             if (_tipService == null)
             {
                 return;
             }
 
             _tipService.Hide();
-            
-            ChangeBorderVisibility(false);
+        }
+        
+        private bool IsPointerOverSlot()
+        {
+            return RectTransformUtility.RectangleContainsScreenPoint(
+                (RectTransform)transform,
+                Input.mousePosition,
+                Camera.main);
         }
     }
 }

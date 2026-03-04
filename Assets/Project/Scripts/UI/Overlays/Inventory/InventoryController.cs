@@ -189,6 +189,7 @@ namespace Project.Scripts
         private void OnItemBeginDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
         {
             OnBeginDrag.Execute(item);
+            _tipService.Hide();
         }
 
         private void OnItemDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)

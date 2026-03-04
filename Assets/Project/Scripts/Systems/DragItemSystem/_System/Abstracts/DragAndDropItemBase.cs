@@ -57,7 +57,7 @@ namespace Project.Scripts
         public void OnEndDrag(PointerEventData eventData)
         {
             EndDrag?.Invoke(this, eventData);
-            Slot.ChangeBorderVisibility(false);
+            Slot.ChangeBorderVisibility(true);
             ChangeBorderVisibility(false);
         }
         
