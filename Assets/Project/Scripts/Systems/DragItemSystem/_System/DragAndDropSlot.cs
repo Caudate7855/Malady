@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Project.Scripts
 {
@@ -8,7 +9,8 @@ namespace Project.Scripts
     {
         [SerializeField] private DragAndDropSlotKind _kind;
         [SerializeField] private RectTransform _content;
-
+        [SerializeField] private Image SelectionBorder;
+        
         private DragAndDropItemBase _item;
 
         public DragAndDropSlotKind Kind => _kind;
@@ -38,6 +40,22 @@ namespace Project.Scripts
         public void OnDrop(PointerEventData eventData)
         {
             Dropped?.Invoke(this, eventData);
+        }
+        
+        public void ChangeBorderVisibility(bool condition)
+        {
+            if (SelectionBorder != null)
+            {
+                if (condition)
+                {
+                    SelectionBorder.transform.SetAsLastSibling();
+                    SelectionBorder.gameObject.SetActive(true);
+                }
+                else
+                {
+                    SelectionBorder.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Project.Scripts
         [Inject] private InventoryItem _baseItem;
         [Inject] private IPanelManager _panelManager;
         [Inject] private DragAndDropSystem _dragAndDropSystem;
+        [Inject] private ITipService _tipService;
 
         private Button _statsWindowButton;
         private bool _isStatsWindowOpened;
@@ -48,6 +49,11 @@ namespace Project.Scripts
             _itemsContainer = Panel.ItemsContainer;
             _statsContainer = Panel.StatsContainer;
 
+            foreach (var inventorySlot in _inventorySlots)
+            {
+                inventorySlot.Init(_tipService);
+            }
+            
             WireSlots();
 
             _statsWindowButton.onClick.AddListener(OnStatsButtonClicked);

@@ -1,11 +1,14 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Project.Scripts
 {
     public abstract class DragAndDropItemBase : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        [SerializeField] private Image SelectionBorder;
+        
         public DragAndDropSlot Slot { get; private set; }
 
         public event Action<DragAndDropItemBase, PointerEventData> BeginDrag;
@@ -13,6 +16,11 @@ namespace Project.Scripts
         public event Action<DragAndDropItemBase, PointerEventData> EndDrag;
 
         private CanvasGroup _canvasGroup;
+
+        private void Awake()
+        {
+            ChangeBorderVisibility(false);
+        }
 
         public void SetSlot(DragAndDropSlot slot)
         {
@@ -36,16 +44,37 @@ namespace Project.Scripts
         public void OnBeginDrag(PointerEventData eventData)
         {
             BeginDrag?.Invoke(this, eventData);
+            Slot.ChangeBorderVisibility(false);
+            ChangeBorderVisibility(true);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             Drag?.Invoke(this, eventData);
+            Slot.ChangeBorderVisibility(false);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             EndDrag?.Invoke(this, eventData);
+            Slot.ChangeBorderVisibility(false);
+            ChangeBorderVisibility(false);
+        }
+        
+        public void ChangeBorderVisibility(bool condition)
+        {
+            if (SelectionBorder != null)
+            {
+                if (condition)
+                {
+                    SelectionBorder.transform.SetAsLastSibling();
+                    SelectionBorder.gameObject.SetActive(true);
+                }
+                else
+                {
+                    SelectionBorder.gameObject.SetActive(false);
+                }
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace Project.Scripts
 {
@@ -13,6 +15,11 @@ namespace Project.Scripts
 
         public new InventoryItem InventoryItem => (InventoryItem)Item;
         public bool IsContainItem => base.HasItem;
+
+        private void Start()
+        {
+            ChangeBorderVisibility(false);
+        }
 
         public void Init(ITipService tipService)
         {
@@ -88,14 +95,17 @@ namespace Project.Scripts
             }
 
             var item = InventoryItem;
+            
             if (item == null)
             {
                 return;
             }
 
             _tipService.ShowItemTip(item.ItemData);
-        }
 
+            ChangeBorderVisibility(true);
+        }
+        
         public void OnPointerExit(PointerEventData eventData)
         {
             if (_tipService == null)
@@ -104,6 +114,8 @@ namespace Project.Scripts
             }
 
             _tipService.Hide();
+            
+            ChangeBorderVisibility(false);
         }
     }
 }
