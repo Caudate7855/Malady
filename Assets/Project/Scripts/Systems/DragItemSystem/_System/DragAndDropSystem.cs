@@ -295,8 +295,7 @@ namespace Project.Scripts
                 return;
             }
 
-            var targetOk = toSlot._inventorySlotType == InventorySlotType.Inventory || toSlot._inventorySlotType == invItem._inventorySlotType;
-            if (!targetOk)
+            if (!toSlot.CanAccept(invItem.ItemData))
             {
                 ReturnToFromSlot();
                 ClearDrag();

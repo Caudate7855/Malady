@@ -5,10 +5,10 @@ namespace Project.Scripts
 {
     public sealed class InventorySlot : DragAndDropSlot, IPointerEnterHandler, IPointerExitHandler
     {
+        [field: SerializeField] public bool IsCommonInventorySlot { get; private set; }
+        [field: SerializeField] public ItemType AllowedItemType { get; private set; }
+        
         public RectTransform ItemsContainer;
-
-        public InventorySlotType _inventorySlotType;
-
         private ITipService _tipService;
 
         public new InventoryItem InventoryItem => (InventoryItem)Item;
@@ -30,6 +30,21 @@ namespace Project.Scripts
             AddItem(item);
 
             return item;
+        }
+        
+        public bool CanAccept(ItemData itemData)
+        {
+            if (itemData == null)
+            {
+                return false;
+            }
+
+            if (IsCommonInventorySlot)
+            {
+                return true;
+            }
+
+            return itemData.ItemType == AllowedItemType;
         }
 
         public void AddItem(InventoryItem item)

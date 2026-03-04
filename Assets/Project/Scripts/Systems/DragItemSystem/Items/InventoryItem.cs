@@ -5,7 +5,7 @@ namespace Project.Scripts
 {
     public sealed class InventoryItem : DragAndDropItemBase
     {
-        public InventorySlotType _inventorySlotType;
+        public InventorySlotType InventorySlotType;
         public ItemData ItemData;
 
         [SerializeField] private Image _background;

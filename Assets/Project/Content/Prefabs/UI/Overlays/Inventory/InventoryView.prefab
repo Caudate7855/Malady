@@ -2064,6 +2064,14 @@ PrefabInstance:
       propertyPath: SlotType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 4
@@ -2187,6 +2195,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -2314,6 +2326,14 @@ PrefabInstance:
       propertyPath: SlotType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 3
@@ -2426,6 +2446,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -2552,6 +2576,14 @@ PrefabInstance:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
@@ -2682,6 +2714,14 @@ PrefabInstance:
       propertyPath: SlotType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 3
@@ -2798,6 +2838,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -2925,6 +2969,10 @@ PrefabInstance:
       propertyPath: _kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: ItemsContainer
       value: 
@@ -3049,6 +3097,14 @@ PrefabInstance:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
@@ -3175,6 +3231,10 @@ PrefabInstance:
       propertyPath: _kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: ItemsContainer
       value: 
@@ -3294,6 +3354,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -3421,6 +3485,14 @@ PrefabInstance:
       propertyPath: SlotType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 3
@@ -3533,6 +3605,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -3656,6 +3732,10 @@ PrefabInstance:
       propertyPath: _kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: ItemsContainer
       value: 
@@ -3775,6 +3855,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -3902,6 +3986,14 @@ PrefabInstance:
       propertyPath: SlotType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: _inventorySlotType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
       value: 3
@@ -4014,6 +4106,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -4137,6 +4233,10 @@ PrefabInstance:
       propertyPath: _kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: ItemsContainer
       value: 
@@ -4256,6 +4356,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
@@ -4379,6 +4483,10 @@ PrefabInstance:
       propertyPath: _kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: ItemsContainer
       value: 
@@ -4500,6 +4608,10 @@ PrefabInstance:
       propertyPath: _kind
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: ItemsContainer
       value: 
@@ -4619,6 +4731,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _kind
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}

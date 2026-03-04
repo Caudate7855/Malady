@@ -50,8 +50,6 @@ namespace Project.Scripts
 
             WireSlots();
 
-            InitializeTestItems();
-
             _statsWindowButton.onClick.AddListener(OnStatsButtonClicked);
             _statsWindowRectTransform = Panel.StatsWindowRectTransform;
             _defaultStatsWindowRectTransform = _statsWindowRectTransform;
@@ -101,17 +99,6 @@ namespace Project.Scripts
         private void OnSlotDropped(DragAndDropSlot slot, UnityEngine.EventSystems.PointerEventData e)
         {
             OnDrop.Execute(slot);
-        }
-
-        private void InitializeTestItems()
-        {
-            var item0 = _inventorySlots[0].CreateNewItem(_baseItem, _itemsContainer.gameObject);
-            var item1 = _inventorySlots[1].CreateNewItem(_baseItem, _itemsContainer.gameObject);
-            var item2 = _inventorySlots[2].CreateNewItem(_baseItem, _itemsContainer.gameObject);
-
-            WireItem(item0);
-            WireItem(item1);
-            WireItem(item2);
         }
 
         private void WireItem(DragAndDropItemBase item)
