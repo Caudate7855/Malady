@@ -16,8 +16,14 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 21300000, guid: a52295741a5357945951dee171384fef, type: 3}
+    - {fileID: 21300000, guid: 083825f047ba24b4b804d65bd6d963eb, type: 3}
     - {fileID: 21300000, guid: 76a419489d6768443b54c9b57b3a9c4a, type: 3}
+    - {fileID: 21300000, guid: e7257adddb011d541b91d6e4a0a151e9, type: 3}
+    - {fileID: 21300000, guid: 867dbe9cc7d5fe84d95b8e981f38f469, type: 3}
+    - {fileID: 21300000, guid: d53078e59ffc8c6438b57e3792dac89f, type: 3}
+    - {fileID: 21300000, guid: 752eda845e8843147876d0fd57602a64, type: 3}
+    - {fileID: 21300000, guid: 458f441cf998a8d4a8ff799ede07a1ed, type: 3}
+    - {fileID: 21300000, guid: 80aa63f812edb6c4896075889fe3a818, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,7 +35,7 @@ MonoBehaviour:
         mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 7
     - Name: 
       Entry: 7
       Data: 1|Project.Scripts.ItemConfig, Assembly-CSharp
@@ -38,7 +44,7 @@ MonoBehaviour:
       Data: 0
     - Name: Type
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: MinStatsCount
       Entry: 3
       Data: 0
@@ -142,8 +148,8 @@ MonoBehaviour:
       Entry: 7
       Data: 9|Project.Scripts.ItemConfig, Assembly-CSharp
     - Name: DropSprite
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: Type
       Entry: 3
       Data: 0
@@ -154,13 +160,634 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: PossibleStat
-      Entry: 6
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 11|Project.Scripts.DamageStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 12|Project.Scripts.HpStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 13|Project.Scripts.EssenceStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: PossibleModifs
-      Entry: 6
+      Entry: 7
+      Data: 14|System.Collections.Generic.List`1[[Project.Scripts.PossibleModif,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleModif, Assembly-CSharp
+    - Name: Modifier
+      Entry: 7
+      Data: 15|Project.Scripts.Modifs.DoubleBackShotOnExpireModifier, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: Sprites
-      Entry: 6
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 17|Project.Scripts.ItemConfig, Assembly-CSharp
+    - Name: DropSprite
+      Entry: 10
+      Data: 3
+    - Name: Type
+      Entry: 3
+      Data: 1
+    - Name: MinStatsCount
+      Entry: 3
+      Data: 0
+    - Name: MaxStatsCount
+      Entry: 3
+      Data: 0
+    - Name: PossibleStat
+      Entry: 7
+      Data: 18|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 19|Project.Scripts.DamageStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 20|Project.Scripts.HpStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 21|Project.Scripts.EssenceStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PossibleModifs
+      Entry: 7
+      Data: 22|System.Collections.Generic.List`1[[Project.Scripts.PossibleModif,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleModif, Assembly-CSharp
+    - Name: Modifier
+      Entry: 7
+      Data: 23|Project.Scripts.Modifs.DoubleBackShotOnExpireModifier, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Sprites
+      Entry: 7
+      Data: 24|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 25|Project.Scripts.ItemConfig, Assembly-CSharp
+    - Name: DropSprite
+      Entry: 10
+      Data: 4
+    - Name: Type
+      Entry: 3
+      Data: 3
+    - Name: MinStatsCount
+      Entry: 3
+      Data: 0
+    - Name: MaxStatsCount
+      Entry: 3
+      Data: 0
+    - Name: PossibleStat
+      Entry: 7
+      Data: 26|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 27|Project.Scripts.DamageStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 28|Project.Scripts.HpStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 29|Project.Scripts.EssenceStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PossibleModifs
+      Entry: 7
+      Data: 30|System.Collections.Generic.List`1[[Project.Scripts.PossibleModif,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleModif, Assembly-CSharp
+    - Name: Modifier
+      Entry: 7
+      Data: 31|Project.Scripts.Modifs.DoubleBackShotOnExpireModifier, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Sprites
+      Entry: 7
+      Data: 32|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 33|Project.Scripts.ItemConfig, Assembly-CSharp
+    - Name: DropSprite
+      Entry: 10
+      Data: 5
+    - Name: Type
+      Entry: 3
+      Data: 4
+    - Name: MinStatsCount
+      Entry: 3
+      Data: 0
+    - Name: MaxStatsCount
+      Entry: 3
+      Data: 0
+    - Name: PossibleStat
+      Entry: 7
+      Data: 34|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 35|Project.Scripts.DamageStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 36|Project.Scripts.HpStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 37|Project.Scripts.EssenceStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PossibleModifs
+      Entry: 7
+      Data: 38|System.Collections.Generic.List`1[[Project.Scripts.PossibleModif,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleModif, Assembly-CSharp
+    - Name: Modifier
+      Entry: 7
+      Data: 39|Project.Scripts.Modifs.DoubleBackShotOnExpireModifier, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Sprites
+      Entry: 7
+      Data: 40|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 41|Project.Scripts.ItemConfig, Assembly-CSharp
+    - Name: DropSprite
+      Entry: 10
+      Data: 6
+    - Name: Type
+      Entry: 3
+      Data: 5
+    - Name: MinStatsCount
+      Entry: 3
+      Data: 0
+    - Name: MaxStatsCount
+      Entry: 3
+      Data: 0
+    - Name: PossibleStat
+      Entry: 7
+      Data: 42|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 43|Project.Scripts.DamageStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 44|Project.Scripts.HpStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 45|Project.Scripts.EssenceStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PossibleModifs
+      Entry: 7
+      Data: 46|System.Collections.Generic.List`1[[Project.Scripts.PossibleModif,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleModif, Assembly-CSharp
+    - Name: Modifier
+      Entry: 7
+      Data: 47|Project.Scripts.Modifs.DoubleBackShotOnExpireModifier, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Sprites
+      Entry: 7
+      Data: 48|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 49|Project.Scripts.ItemConfig, Assembly-CSharp
+    - Name: DropSprite
+      Entry: 10
+      Data: 7
+    - Name: Type
+      Entry: 3
+      Data: 6
+    - Name: MinStatsCount
+      Entry: 3
+      Data: 0
+    - Name: MaxStatsCount
+      Entry: 3
+      Data: 0
+    - Name: PossibleStat
+      Entry: 7
+      Data: 50|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 3
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 51|Project.Scripts.DamageStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 52|Project.Scripts.HpStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleStat, Assembly-CSharp
+    - Name: Stat
+      Entry: 7
+      Data: 53|Project.Scripts.EssenceStat, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PossibleModifs
+      Entry: 7
+      Data: 54|System.Collections.Generic.List`1[[Project.Scripts.PossibleModif,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: Project.Scripts.PossibleModif, Assembly-CSharp
+    - Name: Modifier
+      Entry: 7
+      Data: 55|Project.Scripts.Modifs.DoubleBackShotOnExpireModifier, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Sprites
+      Entry: 7
+      Data: 56|System.Collections.Generic.List`1[[UnityEngine.Sprite, UnityEngine.CoreModule]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

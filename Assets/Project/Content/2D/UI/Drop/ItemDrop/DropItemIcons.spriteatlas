@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DropItemIcons
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: d53078e59ffc8c6438b57e3792dac89f, type: 3}
+    - {fileID: 2800000, guid: 80aa63f812edb6c4896075889fe3a818, type: 3}
+    - {fileID: 2800000, guid: 458f441cf998a8d4a8ff799ede07a1ed, type: 3}
+    - {fileID: 2800000, guid: 867dbe9cc7d5fe84d95b8e981f38f469, type: 3}
+    - {fileID: 2800000, guid: 752eda845e8843147876d0fd57602a64, type: 3}
+    - {fileID: 2800000, guid: 083825f047ba24b4b804d65bd6d963eb, type: 3}
+    - {fileID: 2800000, guid: e7257adddb011d541b91d6e4a0a151e9, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+    packedSpriteRenderDataKeys:
+    - 083825f047ba24b4b804d65bd6d963eb: 21300000
+    - 752eda845e8843147876d0fd57602a64: 21300000
+    - d53078e59ffc8c6438b57e3792dac89f: 21300000
+    - 80aa63f812edb6c4896075889fe3a818: 21300000
+    - 458f441cf998a8d4a8ff799ede07a1ed: 21300000
+    - 867dbe9cc7d5fe84d95b8e981f38f469: 21300000
+    - e7257adddb011d541b91d6e4a0a151e9: 21300000
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 083825f047ba24b4b804d65bd6d963eb, type: 3}
+  - {fileID: 21300000, guid: 752eda845e8843147876d0fd57602a64, type: 3}
+  - {fileID: 21300000, guid: d53078e59ffc8c6438b57e3792dac89f, type: 3}
+  - {fileID: 21300000, guid: 80aa63f812edb6c4896075889fe3a818, type: 3}
+  - {fileID: 21300000, guid: 458f441cf998a8d4a8ff799ede07a1ed, type: 3}
+  - {fileID: 21300000, guid: 867dbe9cc7d5fe84d95b8e981f38f469, type: 3}
+  - {fileID: 21300000, guid: e7257adddb011d541b91d6e4a0a151e9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - DropItem_Ring
+  - DropItem_Pants
+  - DropItem_Armor
+  - DropItem_Boots
+  - DropItem_Gloves
+  - DropItem_Offhand
+  - DropItem_Weapon
+  m_RenderDataMap: {}
+  m_Tag: DropItemIcons
+  m_IsVariant: 0

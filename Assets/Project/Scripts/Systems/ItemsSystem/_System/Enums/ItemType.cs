@@ -5,7 +5,6 @@
         Weapon,
         Offhand,
 
-        Amulet,
         Ring,
 
         Armor,

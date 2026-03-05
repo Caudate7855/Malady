@@ -24,6 +24,16 @@ public class ItemSystemTest : MonoBehaviour
 
         LogItem(item);
     }
+    
+    [Button]
+    public void DropRandomItem()
+    {
+        var item = _itemSystem.CreateRandomItem();
+    
+        _itemSystem.DropItem(item, Vector3.zero);
+    
+        LogItem(item);
+    }
 
     [Button]
     public void DropItemByType()
