@@ -11,7 +11,8 @@ namespace Project.Scripts
             MinValue,
             MaxValue
         }
-        
+
+        public abstract string Name { get; }
         public abstract StatType StatType { get; protected set; }
         
         public abstract bool HasMinValue { get; protected set; }

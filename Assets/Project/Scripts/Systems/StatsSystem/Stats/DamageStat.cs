@@ -2,6 +2,7 @@
 {
     public class DamageStat : StatBase
     {
+        public override string Name => "Damage";
         public override StatType StatType { get; protected set; }
         public override bool HasMinValue { get; protected set; }
         public override bool HasMaxValue { get; protected set; }

@@ -7,6 +7,7 @@ namespace Project.Scripts.IoC.Installers
     {
         [SerializeField] private SpellTip _spellTip;
         [SerializeField] private ItemTip _itemTip;
+        [SerializeField] private StatView _statView;
         
         public override void InstallBindings()
         {
@@ -18,6 +19,11 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<ItemTip>()
                 .FromInstance(_itemTip)
+                .AsSingle();
+            
+            Container
+                .Bind<StatView>()
+                .FromInstance(_statView)
                 .AsSingle();
         }
     }

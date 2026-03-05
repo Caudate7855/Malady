@@ -197,3 +197,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.IoC.Installers.UIInstaller
   _spellTip: {fileID: -4724774933748430465, guid: 50bf70b3ba1155e4883eae2b48b8d8ab, type: 3}
   _itemTip: {fileID: -6576227238549959017, guid: d20dcab52fc8a194d9000dfcc1a34a9c, type: 3}
+  _statView: {fileID: 135098370284817614, guid: c51e8dd5aace42243b5432790f1194fd, type: 3}

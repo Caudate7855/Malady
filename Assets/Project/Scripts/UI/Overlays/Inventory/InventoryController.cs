@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using DG.Tweening;
 using Itibsoft.PanelManager;
 using R3;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Project.Scripts
 {
@@ -18,6 +20,7 @@ namespace Project.Scripts
         [Inject] private IPanelManager _panelManager;
         [Inject] private DragAndDropSystem _dragAndDropSystem;
         [Inject] private ITipService _tipService;
+        [Inject] private StatView _statViewPrefab;
 
         private Button _statsWindowButton;
         private bool _isStatsWindowOpened;
@@ -204,6 +207,11 @@ namespace Project.Scripts
 
         private void InitializeStatsView()
         {
+            foreach (var stat in _statSystem.PlayerStats)
+            {
+                var statViewInstance = Object.Instantiate(_statViewPrefab, _statsContainer);
+                statViewInstance.SetData(stat.Name, stat.Value.ToString(CultureInfo.InvariantCulture));
+            }
         }
 
         public void UpdateStatView(StatType type, float newValue)

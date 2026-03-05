@@ -5,6 +5,7 @@ namespace Project.Scripts
 {
     public interface IStat : IDisposable
     {
+        public string Name { get; }
         public StatType StatType { get; }
 
         public bool HasMinValue { get;}
