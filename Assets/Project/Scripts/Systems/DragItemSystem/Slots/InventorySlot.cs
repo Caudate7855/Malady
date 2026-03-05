@@ -9,6 +9,7 @@ namespace Project.Scripts
     {
         [field: SerializeField] public bool IsCommonInventorySlot { get; private set; }
         [field: SerializeField] public ItemType AllowedItemType { get; private set; }
+        [field: SerializeField] public Image EmptySlotBackgroundImage { get; private set; }
         
         public RectTransform ItemsContainer;
         private ITipService _tipService;
@@ -80,25 +81,6 @@ namespace Project.Scripts
             {
                 ChangeBorderVisibility(false);
             }
-        }
-
-        public void RemoveItemToContainer()
-        {
-            if (!HasItem)
-            {
-                return;
-            }
-
-            var item = (InventoryItem)ClearItem();
-
-            if (ItemsContainer != null)
-            {
-                var rt = item.GetComponent<RectTransform>();
-                rt.SetParent(ItemsContainer, false);
-                rt.anchoredPosition = Vector2.zero;
-            }
-
-            item.CurrentInventorySlot = null;
         }
 
         public void OnPointerEnter(PointerEventData eventData)

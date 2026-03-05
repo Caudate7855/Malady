@@ -7,7 +7,7 @@ namespace Project.Scripts
     [Serializable]
     public abstract class TargetSpellBase : ProjectileSpellBase
     {
-        public override SpellType SpellType { get; set; } = SpellType.Target;
+        public override SpellType SpellType => SpellType.Target;
         
         public Transform Target { get; private set; }
 

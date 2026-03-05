@@ -8,7 +8,7 @@ namespace Project.Scripts
     [Serializable]
     public abstract class SummonSpellBase : SpellBase
     {
-        public override SpellType SpellType { get; set; } = SpellType.Summon;
+        public override SpellType SpellType => SpellType.Summon;
         
         private readonly List<GameObject> _instances = new();
         private readonly List<float> _lifetimes = new();

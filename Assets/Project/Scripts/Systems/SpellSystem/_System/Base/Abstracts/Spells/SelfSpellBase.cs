@@ -7,7 +7,7 @@ namespace Project.Scripts
     [Serializable]
     public abstract class SelfSpellBase : ProjectileSpellBase
     {
-        public override SpellType SpellType { get; set; } = SpellType.Self;
+        public override SpellType SpellType => SpellType.Self;
         
         protected SelfSpellBase(GameObject viewPrefab, SpellConfig config) : base(viewPrefab, config)
         {

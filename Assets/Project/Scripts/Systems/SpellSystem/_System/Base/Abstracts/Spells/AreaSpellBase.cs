@@ -7,7 +7,7 @@ namespace Project.Scripts
     [Serializable]
     public abstract class AreaSpellBase : ProjectileSpellBase
     {
-        public override SpellType SpellType { get; set; } = SpellType.Area;
+        public override SpellType SpellType => SpellType.Area;
 
         public float Radius { get; private set; } = 1f;
 

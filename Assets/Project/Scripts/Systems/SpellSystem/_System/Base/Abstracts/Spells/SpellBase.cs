@@ -9,7 +9,7 @@ namespace Project.Scripts
     [Serializable]
     public abstract class SpellBase : ISpell
     {
-        public abstract SpellType SpellType { get; set; }
+        public abstract SpellType SpellType { get; }
         public Transform Origin { get; set; }
         public PlayerCastAnimationType AnimationType { get; set; }
         public SpellElementType SpellElementType { get; set; }

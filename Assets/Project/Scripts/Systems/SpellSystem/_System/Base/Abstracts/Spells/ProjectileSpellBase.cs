@@ -8,7 +8,7 @@ namespace Project.Scripts
     [Serializable]
     public abstract class ProjectileSpellBase : SpellBase
     {
-        public override SpellType SpellType { get; set; } = SpellType.Projectile;
+        public override SpellType SpellType => SpellType.Projectile;
         
         private readonly List<GameObject> _instances = new();
         private readonly List<Vector3> _velocities = new();
