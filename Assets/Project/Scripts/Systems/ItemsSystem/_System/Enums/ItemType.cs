@@ -5,11 +5,13 @@
         Weapon,
         Offhand,
 
+        Amulet,
         Ring,
 
         Armor,
-        Pants,
         Gloves,
+        Belt,
+        Pants,
         Boots
     }
 }

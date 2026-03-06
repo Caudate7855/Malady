@@ -33,7 +33,7 @@ MonoBehaviour:
       Data: Project.Scripts.StatConfig, Assembly-CSharp
     - Name: Name
       Entry: 1
-      Data: Hp
+      Data: Health
     - Name: Type
       Entry: 7
       Data: 1|Project.Scripts.HpStat, Assembly-CSharp

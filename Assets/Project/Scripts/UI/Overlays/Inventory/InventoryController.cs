@@ -234,12 +234,12 @@ namespace Project.Scripts
 
         private void OpenStatsWindow()
         {
-            _statsWindowRectTransform.DOAnchorPosX(0f, 0.5f);
+            _statsWindowRectTransform.DOAnchorPosX(-300f, 0.5f);
         }
 
         private void CloseStatsWindow()
         {
-            _statsWindowRectTransform.DOAnchorPosX(300f, 0.5f);
+            _statsWindowRectTransform.DOAnchorPosX(0f, 0.5f);
         }
     }
 }
