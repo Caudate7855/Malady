@@ -230,12 +230,10 @@ namespace Project.Scripts
 
             _occupied.Clear();
 
-            var canvasHalf = _containerRect.rect.size * 0.5f;
-
             for (var i = 0; i < _visibleEntries.Count; i++)
             {
                 var e = _visibleEntries[i];
-                e.Desired = FindFreeSpot(e, canvasHalf);
+                e.Desired = FindFreeSpot(e);
                 _occupied.Add(MakeRect(e.Desired, e.Size));
             }
         }
@@ -251,9 +249,9 @@ namespace Project.Scripts
             return a.Projected.x.CompareTo(b.Projected.x);
         }
 
-        private Vector2 FindFreeSpot(Entry e, Vector2 canvasHalf)
+        private Vector2 FindFreeSpot(Entry e)
         {
-            var basePos = ClampToCanvas(e.Projected, e.Size, canvasHalf);
+            var basePos = e.Projected;
             var spacing = Mathf.Max(e.Size.x, e.Size.y) * _spacingK;
 
             var bestPos = basePos;
@@ -262,7 +260,6 @@ namespace Project.Scripts
             for (var k = 0; k < MaxTries; k++)
             {
                 var candidate = basePos + SpiralOffset(k, spacing);
-                candidate = ClampToCanvas(candidate, e.Size, canvasHalf);
 
                 var rect = MakeRect(candidate, e.Size);
                 var overlaps = CountIntersections(rect);
@@ -317,21 +314,6 @@ namespace Project.Scripts
         {
             var half = size * 0.5f * _collisionK;
             return new Rect(center - half, half * 2f);
-        }
-
-        private Vector2 ClampToCanvas(Vector2 pos, Vector2 size, Vector2 canvasHalf)
-        {
-            var half = size * 0.5f;
-
-            var minX = -canvasHalf.x + half.x;
-            var maxX = canvasHalf.x - half.x;
-            var minY = -canvasHalf.y + half.y;
-            var maxY = canvasHalf.y - half.y;
-
-            pos.x = Mathf.Clamp(pos.x, minX, maxX);
-            pos.y = Mathf.Clamp(pos.y, minY, maxY);
-
-            return pos;
         }
 
         private Vector2 GetSize(RectTransform rt)
@@ -389,12 +371,24 @@ namespace Project.Scripts
         {
             anchoredPosition = default;
 
-            var sp = _worldCamera.WorldToScreenPoint(worldPosition);
-
-            if (sp.z <= 0f)
+            if (_worldCamera == null)
             {
                 return false;
             }
+
+            var vp = _worldCamera.WorldToViewportPoint(worldPosition);
+
+            if (vp.z <= 0f)
+            {
+                return false;
+            }
+
+            if (vp.x < 0f || vp.x > 1f || vp.y < 0f || vp.y > 1f)
+            {
+                return false;
+            }
+
+            var sp = _worldCamera.WorldToScreenPoint(worldPosition);
 
             if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(_containerRect, sp, _eventCamera, out var lp))
             {
