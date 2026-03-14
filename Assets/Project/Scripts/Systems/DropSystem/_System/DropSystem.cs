@@ -16,10 +16,9 @@ namespace Project.Scripts
         private const int MaxTries = 260;
         private const float OverlapWeight = 100000f;
 
+        private readonly Canvas _canvas;
         private readonly IPanelManager _panelManager;
         private readonly PlayerController _playerController;
-
-        private readonly Canvas _canvas;
         private readonly DropItemUIView _dropItemUIViewPrefab;
 
         private readonly List<Entry> _entries = new();
@@ -39,9 +38,9 @@ namespace Project.Scripts
         {
             _panelManager = panelManager;
             _playerController = playerController;
+            _dropItemUIViewPrefab = dropItemUIViewPrefab;
 
             _canvas = panelManager.PanelDispatcher.Canvas;
-            _dropItemUIViewPrefab = dropItemUIViewPrefab;
         }
 
         public void Initialize()

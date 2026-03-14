@@ -13,6 +13,7 @@ namespace Project.Scripts.IoC.Installers
         [SerializeField] private ItemsConfig _itemsConfig;
         [SerializeField] private StatsConfig _statsConfig;
         [SerializeField] private ResourcesConfig _resourcesConfig;
+        [SerializeField] private DropIconsConfig _dropIconConfig;
         
         public override void InstallBindings()
         {
@@ -39,6 +40,11 @@ namespace Project.Scripts.IoC.Installers
             Container
                 .Bind<StatsConfig>()
                 .FromInstance(_statsConfig)
+                .AsSingle();
+            
+            Container
+                .Bind<DropIconsConfig>()
+                .FromInstance(_dropIconConfig)
                 .AsSingle();
         }
     }

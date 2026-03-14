@@ -30,11 +30,7 @@ namespace Project.Scripts
     public class ItemConfig
     {
         [FoldoutGroup("@Type")]
-        [HorizontalGroup("@Type/Horizontal", 100)]
-        [HideLabel]
-        [PreviewField(100, ObjectFieldAlignment.Left)]
-        [Title("Drop sprite", horizontalLine: false)]
-        public Sprite DropSprite;
+        [HorizontalGroup("@Type/Horizontal")]
         
         [FoldoutGroup("@Type")]
         [VerticalGroup("@Type/Horizontal/Right")]

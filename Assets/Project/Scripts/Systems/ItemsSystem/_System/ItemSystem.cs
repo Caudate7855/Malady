@@ -8,12 +8,14 @@ namespace Project.Scripts
     public class ItemSystem : IInitializable, IDisposable
     {
         private readonly ItemsConfig _itemsConfig;
+        private readonly DropIconsConfig _dropIconsConfig;
         private readonly ItemsFactory _itemsFactory;
         private readonly DropSystem _dropSystem;
 
-        public ItemSystem(ItemsConfig itemsConfig, ItemsFactory itemsFactory, DropSystem dropSystem)
+        public ItemSystem(ItemsConfig itemsConfig, DropIconsConfig dropIconsConfig, ItemsFactory itemsFactory, DropSystem dropSystem)
         {
             _itemsConfig = itemsConfig;
+            _dropIconsConfig = dropIconsConfig;
             _itemsFactory = itemsFactory;
             _dropSystem = dropSystem;
         }
@@ -41,8 +43,10 @@ namespace Project.Scripts
 
             worldGo.AddComponent<Outline>();
 
+            var sprite = _dropIconsConfig.GetItemDropIcon(itemData.Type);
+            
             var worldDrop = worldGo.AddComponent<WorldDropItem>();
-            worldDrop.Setup(itemData, config.DropSprite);
+            worldDrop.Setup(itemData, sprite);
 
             _dropSystem.Register(worldDrop);
         }
