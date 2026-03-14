@@ -30,7 +30,7 @@ namespace Project.Scripts
     public class ItemConfig
     {
         [FoldoutGroup("@Type")]
-        [HorizontalGroup("@Type/Horizontal", 100)]
+        [HorizontalGroup("@Type/Horizontal", 105)]
         [HideLabel]
         [PreviewField(100, ObjectFieldAlignment.Left)]
         [Title("Drop sprite", horizontalLine: false)]
@@ -43,22 +43,32 @@ namespace Project.Scripts
         public ItemType Type;
         
         [FoldoutGroup("@Type")]
-        [HorizontalGroup("@Type/Horizontal/Right/Left", MarginLeft = 4)]
+        [VerticalGroup("@Type/Horizontal/Right")]
         [HideLabel]
         [Title("MinStatsCount", bold: true, horizontalLine: false)]
         public int MinStatsCount;
         
         [FoldoutGroup("@Type")]
-        [HorizontalGroup("@Type/Horizontal/Right/Left", MarginLeft = 4)]
+        [VerticalGroup("@Type/Horizontal/Right")]
         [HideLabel]
         [Title("MaxStatsCount", bold: true, horizontalLine: false)]
         public int MaxStatsCount;
+
+        [FoldoutGroup("@Type")]
+        [HorizontalGroup("@Type/Horizontal2", width: 105)]
+        [PreviewField(100, ObjectFieldAlignment.Left)]
+        [HideLabel]
+        [Title("Prefab", horizontalLine: false)]
+        public GameObject Prefab;
         
         [FoldoutGroup("@Type")]
+        [VerticalGroup("@Type/Horizontal2/Right")]
+        [Title("Possible variants", horizontalLine: false)]
         [LabelText("Stats variants")]
         public List<PossibleStat> PossibleStat;
         
         [FoldoutGroup("@Type")]
+        [VerticalGroup("@Type/Horizontal2/Right")]
         [LabelText("Modifs variants")]
         public List<PossibleModif> PossibleModifs;
         
