@@ -30,7 +30,7 @@ namespace Project.Scripts
     public class ItemConfig
     {
         [FoldoutGroup("@Type")]
-        [HorizontalGroup("@Type/Horizontal", 105)]
+        [HorizontalGroup("@Type/Horizontal", 100)]
         [HideLabel]
         [PreviewField(100, ObjectFieldAlignment.Left)]
         [Title("Drop sprite", horizontalLine: false)]
@@ -55,10 +55,11 @@ namespace Project.Scripts
         public int MaxStatsCount;
 
         [FoldoutGroup("@Type")]
-        [HorizontalGroup("@Type/Horizontal2", width: 105)]
+        [HorizontalGroup("@Type/Horizontal2", width: 100)]
         [PreviewField(100, ObjectFieldAlignment.Left)]
         [HideLabel]
         [Title("Prefab", horizontalLine: false)]
+        [HideIf("@Type == ItemType.Amulet || Type == ItemType.Ring || Type == ItemType.Belt")]
         public GameObject Prefab;
         
         [FoldoutGroup("@Type")]

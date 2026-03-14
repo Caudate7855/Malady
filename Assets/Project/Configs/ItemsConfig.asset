@@ -22,10 +22,15 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 9f1b993fc34be6140ad9469b26bd449e, type: 3}
     - {fileID: 21300000, guid: 083825f047ba24b4b804d65bd6d963eb, type: 3}
     - {fileID: 21300000, guid: d53078e59ffc8c6438b57e3792dac89f, type: 3}
+    - {fileID: -962060833332669909, guid: 42bb6d6c4ff88d842a2a8df75320c67f, type: 3}
     - {fileID: 21300000, guid: 458f441cf998a8d4a8ff799ede07a1ed, type: 3}
+    - {fileID: 5588161943318502569, guid: 42bb6d6c4ff88d842a2a8df75320c67f, type: 3}
     - {fileID: 21300000, guid: bfc2347592dd1954abbd2052c9aa7aac, type: 3}
     - {fileID: 21300000, guid: 752eda845e8843147876d0fd57602a64, type: 3}
+    - {fileID: 4453750263865391554, guid: 42bb6d6c4ff88d842a2a8df75320c67f, type: 3}
+    - {fileID: 21300000, guid: 04a7ae3d9cbd5f7499c327e21954cf90, type: 3}
     - {fileID: 21300000, guid: 80aa63f812edb6c4896075889fe3a818, type: 3}
+    - {fileID: 7057688169053464581, guid: 42bb6d6c4ff88d842a2a8df75320c67f, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -53,6 +58,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 6
+      Data: 
     - Name: PossibleStat
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -161,6 +169,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 6
+      Data: 
     - Name: PossibleStat
       Entry: 7
       Data: 10|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -269,6 +280,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 6
+      Data: 
     - Name: PossibleStat
       Entry: 7
       Data: 18|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -377,6 +391,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 6
+      Data: 
     - Name: PossibleStat
       Entry: 7
       Data: 26|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -485,6 +502,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 10
+      Data: 6
     - Name: PossibleStat
       Entry: 7
       Data: 34|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -583,7 +603,7 @@ MonoBehaviour:
       Data: 41|Project.Scripts.ItemConfig, Assembly-CSharp
     - Name: DropSprite
       Entry: 10
-      Data: 6
+      Data: 7
     - Name: Type
       Entry: 3
       Data: 5
@@ -593,6 +613,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 10
+      Data: 8
     - Name: PossibleStat
       Entry: 7
       Data: 42|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -691,7 +714,7 @@ MonoBehaviour:
       Data: 49|Project.Scripts.ItemConfig, Assembly-CSharp
     - Name: DropSprite
       Entry: 10
-      Data: 7
+      Data: 9
     - Name: Type
       Entry: 3
       Data: 6
@@ -701,6 +724,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 6
+      Data: 
     - Name: PossibleStat
       Entry: 7
       Data: 50|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -799,7 +825,7 @@ MonoBehaviour:
       Data: 57|Project.Scripts.ItemConfig, Assembly-CSharp
     - Name: DropSprite
       Entry: 10
-      Data: 8
+      Data: 10
     - Name: Type
       Entry: 3
       Data: 7
@@ -809,6 +835,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 10
+      Data: 11
     - Name: PossibleStat
       Entry: 7
       Data: 58|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],
@@ -892,7 +921,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 1
+      Data: 12
     - Name: 
       Entry: 13
       Data: 
@@ -907,7 +936,7 @@ MonoBehaviour:
       Data: 65|Project.Scripts.ItemConfig, Assembly-CSharp
     - Name: DropSprite
       Entry: 10
-      Data: 9
+      Data: 13
     - Name: Type
       Entry: 3
       Data: 8
@@ -917,6 +946,9 @@ MonoBehaviour:
     - Name: MaxStatsCount
       Entry: 3
       Data: 0
+    - Name: Prefab
+      Entry: 10
+      Data: 14
     - Name: PossibleStat
       Entry: 7
       Data: 66|System.Collections.Generic.List`1[[Project.Scripts.PossibleStat, Assembly-CSharp]],

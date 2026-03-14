@@ -3078,7 +3078,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5, y: 0.0007324219}
+  m_AnchoredPosition: {x: -2.5, y: 0.00012207031}
   m_SizeDelta: {x: -4.999995, y: 40}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &5565950809281782006
@@ -3689,7 +3689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: <AllowedItemType>k__BackingField
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
@@ -4231,6 +4231,10 @@ PrefabInstance:
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: _inventorySlotType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <AllowedItemType>k__BackingField
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
@@ -5021,7 +5025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: <AllowedItemType>k__BackingField
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
@@ -5536,7 +5540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: <AllowedItemType>k__BackingField
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
@@ -6441,7 +6445,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: <AllowedItemType>k__BackingField
-      value: 1
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1874777199148032910, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
+      propertyPath: <IsCommonInventorySlot>k__BackingField
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4182831035411145835, guid: c26f654b82e0a1a448cbdb3a499651f8, type: 3}
       propertyPath: SlotType
