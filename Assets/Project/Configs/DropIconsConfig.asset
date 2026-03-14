@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84147dcf7614f7c97215354f9c839da, type: 3}
   m_Name: DropIconsConfig
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.DropIconsConfig
-  DropItemConfigs: []
+  DropItemConfigs:
+  - Sprite: {fileID: 21300000, guid: e7257adddb011d541b91d6e4a0a151e9, type: 3}
+    Type: 0
+  - Sprite: {fileID: 21300000, guid: 867dbe9cc7d5fe84d95b8e981f38f469, type: 3}
+    Type: 1
+  - Sprite: {fileID: 21300000, guid: 9f1b993fc34be6140ad9469b26bd449e, type: 3}
+    Type: 2
+  - Sprite: {fileID: 21300000, guid: 083825f047ba24b4b804d65bd6d963eb, type: 3}
+    Type: 3
+  - Sprite: {fileID: 21300000, guid: d53078e59ffc8c6438b57e3792dac89f, type: 3}
+    Type: 4
+  - Sprite: {fileID: 21300000, guid: 458f441cf998a8d4a8ff799ede07a1ed, type: 3}
+    Type: 5
+  - Sprite: {fileID: 21300000, guid: bfc2347592dd1954abbd2052c9aa7aac, type: 3}
+    Type: 6
+  - Sprite: {fileID: 21300000, guid: 752eda845e8843147876d0fd57602a64, type: 3}
+    Type: 7
+  - Sprite: {fileID: 21300000, guid: 80aa63f812edb6c4896075889fe3a818, type: 3}
+    Type: 8
