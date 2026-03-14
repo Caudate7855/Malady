@@ -23,6 +23,10 @@ namespace Project.Scripts.IoC.Installers
                 .Bind<StatSystem>()
                 .AsSingle();
 
+            Container
+                .BindInterfacesAndSelfTo<EquipmentSystem>()
+                .AsSingle();
+
             BindItemSystem();
             BindDragAndDropSystem();
         }

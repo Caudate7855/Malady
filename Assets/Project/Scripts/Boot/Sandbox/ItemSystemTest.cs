@@ -1,59 +1,72 @@
-﻿using Project.Scripts;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 using Zenject;
 
-public class ItemSystemTest : MonoBehaviour
+namespace Project.Scripts
 {
-    [SerializeField] private ItemType _itemType;
-
-    [Inject] private ItemSystem _itemSystem;
-
-    [Button]
-    public void CreateRandomItem()
+    public class ItemSystemTest : MonoBehaviour
     {
-        var item = _itemSystem.CreateRandomItem();
-        
-        LogItem(item);
-    }
+        [SerializeField] private bool _isItemLogging;
+        [SerializeField] private ItemType _itemType;
 
-    [Button]
-    public void CreateItemByType()
-    {
-        var item = _itemSystem.CreateItemByType(_itemType);
+        [Inject] private ItemSystem _itemSystem;
 
-        LogItem(item);
-    }
-    
-    [Button]
-    public void DropRandomItem()
-    {
-        var item = _itemSystem.CreateRandomItem();
-    
-        _itemSystem.DropItem(item, Vector3.zero);
-    
-        LogItem(item);
-    }
-
-    [Button]
-    public void DropItemByType()
-    {
-        var item = _itemSystem.CreateItemByType(_itemType);
-        _itemSystem.DropItem(item, Vector3.zero);
-    }
-
-    private void LogItem(ItemData item)
-    {
-        Debug.Log($"Item: {item}");
-        Debug.Log($"Modifier: {item.Modifier.GetType().Name}");
-        Debug.Log($"Sprite: {item.Sprite.name}"); 
-        Debug.Log("----------Stats----------");
-        
-        foreach (var itemStat in item.Stats)
+        [Button]
+        public void CreateRandomItem()
         {
-            Debug.Log(itemStat.GetType().Name);
+            var item = _itemSystem.CreateRandomItem();
+
+            if (_isItemLogging)
+            {
+                LogItem(item);
+            }
         }
+
+        [Button]
+        public void CreateItemByType()
+        {
+            var item = _itemSystem.CreateItemByType(_itemType);
+
+            if (_isItemLogging)
+            {
+                LogItem(item);
+            }
+        }
+    
+        [Button]
+        public void DropRandomItem()
+        {
+            var item = _itemSystem.CreateRandomItem();
+    
+            _itemSystem.DropItem(item, Vector3.zero);
+
+            if (_isItemLogging)
+            {
+                LogItem(item);
+            }
+        }
+
+        [Button]
+        public void DropItemByType()
+        {
+            var item = _itemSystem.CreateItemByType(_itemType);
+            _itemSystem.DropItem(item, Vector3.zero);
+        }
+
+        private void LogItem(ItemData item)
+        {
+            Debug.Log($"Item: {item}");
+            Debug.Log($"Modifier: {item.Modifier.GetType().Name}");
+            Debug.Log($"Sprite: {item.Sprite.name}"); 
+            
+            Debug.Log("----------Stats----------");
         
-        Debug.Log("-------------------------------------------------------------");
+            foreach (var itemStat in item.Stats)
+            {
+                Debug.Log(itemStat.GetType().Name);
+            }
+        
+            Debug.Log("------------------------------");
+        }
     }
 }

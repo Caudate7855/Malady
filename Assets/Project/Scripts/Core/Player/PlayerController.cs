@@ -10,6 +10,11 @@ namespace Project.Scripts.Player
 {
     public class PlayerController : MonoBehaviour, IInitializable
     {
+        [field: SerializeField] public Transform ArmorContainer { get; private set; }
+        [field: SerializeField] public Transform GlovesContainer { get; private set; }
+        [field: SerializeField] public Transform PantsContainer { get; private set; }
+        [field: SerializeField] public Transform BootsContainer { get; private set; }
+        
         [Inject] private IPanelManager _panelManager;
         [Inject] private PlayerMover _playerMover;
         [Inject] private PlayerFsm _playerFsm;
