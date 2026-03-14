@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace Project.Scripts
         
         private ITipService _tipService;
         private EquipmentSystem _equipmentSystem;
+        private int _hoverRefreshVersion;
 
         public new InventoryItem InventoryItem => (InventoryItem)Item;
         public bool IsContainItem => base.HasItem;
@@ -71,21 +73,10 @@ namespace Project.Scripts
             var rt = item.GetComponent<RectTransform>();
             rt.anchoredPosition = Vector2.zero;
 
-            if (IsPointerOverSlot())
-            {
-                ChangeBorderVisibility(true);
-
-                if (_tipService != null)
-                {
-                    _tipService.ShowItemTip(item.ItemData);
-                }
-            }
-            else
-            {
-                ChangeBorderVisibility(false);
-            }
-
             OnItemPlaced(item);
+
+            RefreshHoverState();
+            RefreshHoverStateNextFrame().Forget();
         }
 
         public override DragAndDropItemBase ClearItem()
@@ -111,15 +102,41 @@ namespace Project.Scripts
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            ChangeBorderVisibility(true);
+            RefreshHoverState();
+        }
+        
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            ChangeBorderVisibility(false);
             
+            if (_tipService != null)
+            {
+                _tipService.Hide();
+            }
+        }
+
+        private void RefreshHoverState()
+        {
+            if (!IsPointerOverSlot())
+            {
+                ChangeBorderVisibility(false);
+
+                if (_tipService != null)
+                {
+                    _tipService.Hide();
+                }
+
+                return;
+            }
+
+            ChangeBorderVisibility(true);
+
             if (_tipService == null)
             {
                 return;
             }
 
             var item = InventoryItem;
-
             if (item == null)
             {
                 return;
@@ -127,25 +144,37 @@ namespace Project.Scripts
 
             _tipService.ShowItemTip(item.ItemData);
         }
-        
-        public void OnPointerExit(PointerEventData eventData)
+
+        private async UniTaskVoid RefreshHoverStateNextFrame()
         {
-            ChangeBorderVisibility(false);
-            
-            if (_tipService == null)
+            var version = ++_hoverRefreshVersion;
+
+            await UniTask.NextFrame();
+
+            if (this == null)
             {
                 return;
             }
 
-            _tipService.Hide();
+            if (version != _hoverRefreshVersion)
+            {
+                return;
+            }
+
+            RefreshHoverState();
         }
         
         private bool IsPointerOverSlot()
         {
+            var canvas = GetComponentInParent<Canvas>();
+            var camera = canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay
+                ? canvas.worldCamera
+                : null;
+
             return RectTransformUtility.RectangleContainsScreenPoint(
                 (RectTransform)transform,
                 Input.mousePosition,
-                Camera.main);
+                camera);
         }
     }
 }

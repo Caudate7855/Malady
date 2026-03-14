@@ -43,35 +43,22 @@ namespace Project.Scripts
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            var previousSlot = Slot;
+            previousSlot?.ChangeBorderVisibility(false);
+
             BeginDrag?.Invoke(this, eventData);
-    
-            if (Slot != null)
-            {
-                Slot.ChangeBorderVisibility(false);
-            }
-    
+
             ChangeBorderVisibility(true);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             Drag?.Invoke(this, eventData);
-    
-            if (Slot != null)
-            {
-                Slot.ChangeBorderVisibility(false);
-            }
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             EndDrag?.Invoke(this, eventData);
-    
-            if (Slot != null)
-            {
-                Slot.ChangeBorderVisibility(true);
-            }
-    
             ChangeBorderVisibility(false);
         }
         
