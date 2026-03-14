@@ -30,9 +30,9 @@ namespace Project.Scripts
 
         public void DropItem(ItemData itemData, Vector3 position)
         {
-            var config = _itemsConfig.GetItemConfigByType(itemData.ItemType);
+            var config = _itemsConfig.GetItemConfigByType(itemData.Type);
 
-            var worldGo = new GameObject($"Drop: {itemData.ItemType}");
+            var worldGo = new GameObject($"Drop: {itemData.Type}");
             worldGo.transform.position = position;
 
             var col = worldGo.AddComponent<SphereCollider>();

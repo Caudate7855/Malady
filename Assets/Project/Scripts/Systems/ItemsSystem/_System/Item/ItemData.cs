@@ -5,17 +5,19 @@ namespace Project.Scripts
 {
     public class ItemData
     {
-        public ItemType ItemType { get; }
+        public ItemType Type { get; }
         public Sprite Sprite { get; }
         public List<StatBase> Stats { get; }
         public ISpellModifier Modifier { get; }
+        public GameObject Prefab { get; }
 
-        public ItemData(ItemType itemType, Sprite sprite, List<StatBase> stats, ISpellModifier modifier)
+        public ItemData(ItemType type, Sprite sprite, List<StatBase> stats, ISpellModifier modifier, GameObject prefab)
         {
-            ItemType = itemType;
+            Type = type;
             Sprite = sprite;
             Stats = stats;
             Modifier = modifier;
+            Prefab = prefab;
         }
     }
 }

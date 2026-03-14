@@ -175,7 +175,7 @@ namespace Project.Scripts
 
                 item.ItemData = itemData;
 
-                var cfg = _itemsConfig.GetItemConfigByType(itemData.ItemType);
+                var cfg = _itemsConfig.GetItemConfigByType(itemData.Type);
                 if (cfg != null)
                 {
                     item.SetIcon(item.ItemData.Sprite);

@@ -52,7 +52,7 @@ namespace Project.Scripts
                 return true;
             }
 
-            return itemData.ItemType == AllowedItemType;
+            return itemData.Type == AllowedItemType;
         }
 
         public void AddItem(InventoryItem item)

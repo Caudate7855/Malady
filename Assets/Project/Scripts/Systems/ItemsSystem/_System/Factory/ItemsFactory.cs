@@ -31,8 +31,9 @@ namespace Project.Scripts
             var sprite = config.Sprites[_random.Next(config.Sprites.Count)];
             var stats = GenerateRandomStats(config);
             var modifier = GenerateRandomModifier(config);
+            var prefab = config.Prefab;
             
-            return new ItemData(type, sprite, stats, modifier);
+            return new ItemData(type, sprite, stats, modifier, prefab);
         }
 
         private List<StatBase> GenerateRandomStats(ItemConfig config)
