@@ -209,7 +209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Project.Scripts.SpellSlot
   _kind: 0
-  _content: {fileID: 7812473757394644511}
+  Content: {fileID: 7812473757394644511}
+  SelectionBorder: {fileID: 0}
   _spellParentType: 0
   Spell:
     rid: -2

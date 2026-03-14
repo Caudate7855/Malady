@@ -21,6 +21,7 @@ namespace Project.Scripts
         [Inject] private DragAndDropSystem _dragAndDropSystem;
         [Inject] private ITipService _tipService;
         [Inject] private StatView _statViewPrefab;
+        [Inject] private EquipmentSystem _equipmentSystem;
 
         private Button _statsWindowButton;
         private bool _isStatsWindowOpened;
@@ -54,7 +55,7 @@ namespace Project.Scripts
 
             foreach (var inventorySlot in _inventorySlots)
             {
-                inventorySlot.Init(_tipService);
+                inventorySlot.Init(_tipService, _equipmentSystem);
             }
             
             WireSlots();
@@ -162,18 +163,26 @@ namespace Project.Scripts
                     continue;
                 }
 
+                if (slot is EquipmentSlot)
+                {
+                    continue;
+                }
+
+                if (slot.IsEquipmentSlot)
+                {
+                    continue;
+                }
+
                 if (slot.IsContainItem)
                 {
                     continue;
                 }
 
-                var item = slot.CreateNewItem(_baseItem, _itemsContainer.gameObject);
+                var item = slot.CreateNewItem(_baseItem, _itemsContainer.gameObject, itemData);
                 if (item == null)
                 {
                     return false;
                 }
-
-                item.ItemData = itemData;
 
                 var cfg = _itemsConfig.GetItemConfigByType(itemData.Type);
                 if (cfg != null)
@@ -187,7 +196,6 @@ namespace Project.Scripts
 
             return false;
         }
-
 
         private void OnItemBeginDrag(DragAndDropItemBase item, UnityEngine.EventSystems.PointerEventData e)
         {

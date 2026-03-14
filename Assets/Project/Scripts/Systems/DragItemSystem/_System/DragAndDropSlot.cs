@@ -8,7 +8,7 @@ namespace Project.Scripts
     public class DragAndDropSlot : MonoBehaviour, IDropHandler
     {
         [SerializeField] private DragAndDropSlotKind _kind;
-        [SerializeField] private RectTransform _content;
+        [SerializeField] public RectTransform Content;
         [SerializeField] private Image SelectionBorder;
         
         private DragAndDropItemBase _item;
@@ -19,6 +19,14 @@ namespace Project.Scripts
 
         public event Action<DragAndDropSlot, PointerEventData> Dropped;
 
+        private void Awake()
+        {
+            if (Content == null)
+            {
+                Content = GetComponent<RectTransform>();
+            }
+        }
+
         public void SetItem(DragAndDropItemBase item)
         {
             _item = item;
@@ -26,11 +34,11 @@ namespace Project.Scripts
             if (_item != null)
             {
                 _item.SetSlot(this);
-                _item.transform.SetParent(_content != null ? _content : transform, false);
+                _item.transform.SetParent(Content != null ? Content : transform, false);
             }
         }
 
-        public DragAndDropItemBase ClearItem()
+        public virtual DragAndDropItemBase ClearItem()
         {
             var item = _item;
             _item = null;

@@ -137,6 +137,13 @@ namespace Project.Scripts
             else
             {
                 _dragItem = item;
+
+                if (_fromSlot is InventorySlot fromInventorySlot)
+                {
+                    fromInventorySlot.ClearItem();
+                    _dragItem.SetSlot(null);
+                }
+
                 _dragItem.transform.SetParent(_dragRoot, false);
             }
 
@@ -309,12 +316,8 @@ namespace Project.Scripts
                 return;
             }
 
-            fromSlot.ClearItem();
-            toSlot.SetItem(invItem);
-
+            toSlot.AddItem(invItem);
             SnapToSlot(invItem, toSlot);
-
-            invItem.CurrentInventorySlot = toSlot;
 
             ClearDrag();
         }
@@ -441,8 +444,14 @@ namespace Project.Scripts
             if (_fromSlot == null || _dragItem == null)
                 return;
 
-            _fromSlot.SetItem(_dragItem);
+            if (_fromSlot is InventorySlot inventorySlot && _dragItem is InventoryItem inventoryItem)
+            {
+                inventorySlot.AddItem(inventoryItem);
+                SnapToSlot(_dragItem, _fromSlot);
+                return;
+            }
 
+            _fromSlot.SetItem(_dragItem);
             SnapToSlot(_dragItem, _fromSlot);
         }
 
@@ -500,11 +509,20 @@ namespace Project.Scripts
         {
             if (slot is SpellSlot spellSlot)
             {
-                var c = spellSlot.ItemsContainer;
+                var c = spellSlot.Content;
                 if (c != null)
                     return c;
 
                 return (RectTransform)spellSlot.transform;
+            }
+
+            if (slot is InventorySlot inventorySlot)
+            {
+                var c = inventorySlot.Content;
+                if (c != null)
+                    return c;
+
+                return (RectTransform)inventorySlot.transform;
             }
 
             return (RectTransform)slot.transform;

@@ -1,36 +1,39 @@
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Project.Scripts
 {
-    public sealed class InventorySlot : DragAndDropSlot, IPointerEnterHandler, IPointerExitHandler
+    public class InventorySlot : DragAndDropSlot, IPointerEnterHandler, IPointerExitHandler
     {
-        [field: SerializeField] public bool IsCommonInventorySlot { get; private set; }
+        [field: SerializeField] public bool IsEquipmentSlot { get; private set; }
         [field: SerializeField] public ItemType AllowedItemType { get; private set; }
         [field: SerializeField] public Image EmptySlotBackgroundImage { get; private set; }
         
-        public RectTransform ItemsContainer;
         private ITipService _tipService;
+        private EquipmentSystem _equipmentSystem;
 
         public new InventoryItem InventoryItem => (InventoryItem)Item;
         public bool IsContainItem => base.HasItem;
+        protected EquipmentSystem EquipmentSystem => _equipmentSystem;
 
         private void Start()
         {
             ChangeBorderVisibility(false);
         }
 
-        public void Init(ITipService tipService)
+        public void Init(ITipService tipService, EquipmentSystem equipmentSystem)
         {
             _tipService = tipService;
+            _equipmentSystem = equipmentSystem;
         }
 
-        public InventoryItem CreateNewItem(InventoryItem itemPrefab, GameObject parentObject)
+        public InventoryItem CreateNewItem(InventoryItem itemPrefab, GameObject parentObject, ItemData itemData)
         {
-            var parent = ItemsContainer != null ? ItemsContainer : parentObject.GetComponent<RectTransform>();
+            var parent = Content != null ? Content : parentObject.GetComponent<RectTransform>();
             var item = Instantiate(itemPrefab, parent);
+
+            item.ItemData = itemData;
 
             var rt = item.GetComponent<RectTransform>();
             rt.anchoredPosition = Vector2.zero;
@@ -40,14 +43,14 @@ namespace Project.Scripts
             return item;
         }
         
-        public bool CanAccept(ItemData itemData)
+        public virtual bool CanAccept(ItemData itemData)
         {
             if (itemData == null)
             {
                 return false;
             }
 
-            if (IsCommonInventorySlot)
+            if (!IsEquipmentSlot)
             {
                 return true;
             }
@@ -55,7 +58,7 @@ namespace Project.Scripts
             return itemData.Type == AllowedItemType;
         }
 
-        public void AddItem(InventoryItem item)
+        public virtual void AddItem(InventoryItem item)
         {
             if (item == null)
             {
@@ -81,6 +84,29 @@ namespace Project.Scripts
             {
                 ChangeBorderVisibility(false);
             }
+
+            OnItemPlaced(item);
+        }
+
+        public override DragAndDropItemBase ClearItem()
+        {
+            var item = base.ClearItem() as InventoryItem;
+
+            if (item != null)
+            {
+                item.CurrentInventorySlot = null;
+                OnItemRemoved(item);
+            }
+
+            return item;
+        }
+
+        protected virtual void OnItemPlaced(InventoryItem item)
+        {
+        }
+
+        protected virtual void OnItemRemoved(InventoryItem item)
+        {
         }
 
         public void OnPointerEnter(PointerEventData eventData)

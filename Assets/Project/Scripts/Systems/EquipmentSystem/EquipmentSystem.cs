@@ -29,6 +29,11 @@ namespace Project.Scripts
 
         public void EquipItem(ItemData itemData)
         {
+            if (itemData == null)
+            {
+                return;
+            }
+            
             RemoveItem(itemData.Type);
 
             var instance = Object.Instantiate(itemData.Prefab);
